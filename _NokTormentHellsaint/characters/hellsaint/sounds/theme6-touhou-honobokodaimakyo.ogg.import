@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme6-touhou-honobokodaimakyo.ogg-a07f4fec4d9f40255a980a1361a87a8d.oggstr"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/theme6-touhou-honobokodaimakyo.ogg"
+dest_files=[ "res://.import/theme6-touhou-honobokodaimakyo.ogg-a07f4fec4d9f40255a980a1361a87a8d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

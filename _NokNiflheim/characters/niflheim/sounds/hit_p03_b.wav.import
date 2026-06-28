@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit_p03_b.wav-72f74261fd188bddc7424b6453136b39.sample"
+
+[deps]
+
+source_file="res://_NokNiflheim/characters/niflheim/sounds/hit_p03_b.wav"
+dest_files=[ "res://.import/hit_p03_b.wav-72f74261fd188bddc7424b6453136b39.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

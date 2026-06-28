@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/goukisan-betrayal-of-fate.ogg-b729313cdda1b24956f1a42a5732bd22.oggstr"
+
+[deps]
+
+source_file="res://_NokBetrayer/characters/betrayer/sounds/music/goukisan-betrayal-of-fate.ogg"
+dest_files=[ "res://.import/goukisan-betrayal-of-fate.ogg-b729313cdda1b24956f1a42a5732bd22.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

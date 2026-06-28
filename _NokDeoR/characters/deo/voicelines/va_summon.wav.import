@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/va_summon.wav-498b3b6821ecbfa73449245956280d33.sample"
+
+[deps]
+
+source_file="res://_NokDeoR/characters/deo/voicelines/va_summon.wav"
+dest_files=[ "res://.import/va_summon.wav-498b3b6821ecbfa73449245956280d33.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/yomifx_gradient-horiz-fade.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0.00784314, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="gradient" type="CPUParticles2D" parent="." index="1"]
+modulate = Color( 0, 0.415686, 1, 1 )
+material = SubResource( 10 )
+position = Vector2( 0, -64 )
+scale = Vector2( 1000, 1 )
+amount = 1
+lifetime = 0.5
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.5
+color_ramp = SubResource( 11 )
+anim_offset = 0.2
+__meta__ = {
+"_editor_description_": "C1"
+}
+
+[node name="gradient2" type="CPUParticles2D" parent="." index="2"]
+modulate = Color( 0, 0.415686, 1, 1 )
+material = SubResource( 10 )
+position = Vector2( 0, -32 )
+scale = Vector2( 1000, 1 )
+amount = 1
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.25
+color_ramp = SubResource( 11 )
+anim_offset = 0.2
+__meta__ = {
+"_editor_description_": "C1"
+}

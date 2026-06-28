@@ -1,0 +1,13 @@
+ {
+  "name": "Silo",
+  "friendly_name": "Silo",
+  "description": "neither an undertale nor an omori reference",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "85617235360213",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": false,
+  "priority": 0
+}

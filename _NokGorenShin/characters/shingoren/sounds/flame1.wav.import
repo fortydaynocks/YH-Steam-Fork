@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/flame1.wav-6fc9d0a8997cadf4010b2e65d0a1f6fb.sample"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/sounds/flame1.wav"
+dest_files=[ "res://.import/flame1.wav-6fc9d0a8997cadf4010b2e65d0a1f6fb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

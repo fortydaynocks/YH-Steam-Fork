@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/projectiles/Icicle.gd" type="Script" id=2]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/resources/SnowdancerSF.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/sprites/sdvfx.png" type="Texture" id=4]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/projectiles/IcicleDefault.gd" type="Script" id=5]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=6]
+[ext_resource path="res://sound/common/hit5.wav" type="AudioStream" id=7]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/sounds/hit_ice.wav" type="AudioStream" id=8]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=9]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/effects/SD_Hit1.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -0.527273, 0, 1, Vector2( 1, 0.472727 ), -0.527273, 0.0, 1, 0 ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+max_fall_speed = "15"
+has_projectile_parry_window = false
+deletes_other_projectiles = false
+_c_snowdancer = 0
+identity = "Icicle"
+resist_blocks = 1
+resist_parries = 1
+resist_clashes = 1
+ignore_cold_vortex = false
+cold_vortex_push_force = 0.8
+glac_block = 30
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 3 )
+animation = "proj-icicle"
+
+[node name="particles" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+material = SubResource( 1 )
+amount = 10
+lifetime = 0.4
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, 0 )
+damping = 50.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 0.796078, 0.858824, 0.988235, 1 )
+anim_speed = 0.2
+anim_offset = 0.7
+
+[node name="Shatter" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+volume_db = -9.0
+script = ExtResource( 9 )
+pitch_variation = 0.05
+
+[node name="CollisionBox" parent="." index="2"]
+width = 5
+height = 5
+
+[node name="Hurtbox" parent="." index="3"]
+width = 14
+height = 14
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+sprite_animation = "proj-icicle"
+anim_length = 16
+ticks_per_frame = 2
+loop_animation = true
+move_x = 0
+lifetime = 45
+fizzle_on_hit_opponent = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 6 )
+width = 10
+height = 10
+damage = 55
+hitstun_ticks = 16
+victim_hitlag = 6
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = null
+hit_bass_sound = ExtResource( 7 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+knockdown_extends_hitstun = false
+start_tick = 1
+active_ticks = 1
+always_on = true

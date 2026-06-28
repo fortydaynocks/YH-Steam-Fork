@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/akuma-sf6-threat11.wav-e3f12ef25521ddb7c5c181e9648a99d6.sample"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/akuma/voicelines/sf6/akuma-sf6-threat11.wav"
+dest_files=[ "res://.import/akuma-sf6-threat11.wav-e3f12ef25521ddb7c5c181e9648a99d6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

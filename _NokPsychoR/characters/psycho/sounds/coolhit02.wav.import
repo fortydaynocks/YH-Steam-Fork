@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/coolhit02.wav-01dc8c9bb5642d926a1bbb15e8e6808e.sample"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/sounds/coolhit02.wav"
+dest_files=[ "res://.import/coolhit02.wav-01dc8c9bb5642d926a1bbb15e8e6808e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

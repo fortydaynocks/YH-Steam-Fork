@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSnowdancer/characters/snowdancer/auid/AUID_FastPrayer.gd" type="Script" id=2]
+
+[node name="ActionUIData" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CheckButton" type="CheckButton" parent="." index="0"]
+unique_name_in_owner = true
+modulate = Color( 0.831373, 0.25098, 0.713726, 1 )
+margin_right = 81.0
+margin_bottom = 12.0
+hint_tooltip = "Spend a bar to become IASA opponent turn (on frames 6+) and IASA 12.
+
+Fast Prayer in neutral grants no meter."
+text = "Fast Prayer"
+
+[connection signal="pressed" from="CheckButton" to="." method="_on_CheckButton_pressed"]

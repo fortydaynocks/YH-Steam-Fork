@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fx/big_filled_circle.png" type="Texture" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/petal off centre.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=25]
+_data = [ Vector2( 0.00495049, 1 ), 0.0, -0.945187, 0, 0, Vector2( 1, 0 ), -0.998522, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=26]
+_data = [ Vector2( 0, 1 ), 0.0, -1.04214, 0, 0, Vector2( 1, 0 ), -1.07935, 0.0, 0, 0 ]
+
+[node name="ParticleEffect" instance=ExtResource( 3 )]
+material = SubResource( 1 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="1"]
+amount = 10
+lifetime = 2.0
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 5 )
+direction = Vector2( 1, 1 )
+spread = 180.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = -100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.03
+scale_amount_random = 0.01
+scale_amount_curve = SubResource( 25 )
+color = Color( 1, 0, 0, 1 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="2"]
+amount = 10
+lifetime = 2.0
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 5 )
+direction = Vector2( 1, 1 )
+spread = 180.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = -100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.03
+scale_amount_random = 0.01
+scale_amount_curve = SubResource( 25 )
+color = Color( 0.145098, 0.14902, 0.231373, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+amount = 50
+lifetime = 0.25
+local_coords = false
+texture = ExtResource( 1 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+scale_amount_curve = SubResource( 26 )
+color = Color( 1, 0, 0, 1 )

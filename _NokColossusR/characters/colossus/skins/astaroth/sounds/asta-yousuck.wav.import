@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/asta-yousuck.wav-8754ba50f98f2c7c65955f3a59df4cf7.sample"
+
+[deps]
+
+source_file="res://_NokColossusR/characters/colossus/skins/astaroth/sounds/asta-yousuck.wav"
+dest_files=[ "res://.import/asta-yousuck.wav-8754ba50f98f2c7c65955f3a59df4cf7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

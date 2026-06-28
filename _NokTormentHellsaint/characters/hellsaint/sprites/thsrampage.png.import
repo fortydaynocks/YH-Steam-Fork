@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/thsrampage.png-2c6dcfd2b59b797cc31d209f9f8a7bbf.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sprites/thsrampage.png"
+dest_files=[ "res://.import/thsrampage.png-2c6dcfd2b59b797cc31d209f9f8a7bbf.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

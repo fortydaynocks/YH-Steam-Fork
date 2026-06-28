@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ac_roundstart3.wav-dfdbb5a58b20621bc892e56a75053663.sample"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_roundstart3.wav"
+dest_files=[ "res://.import/ac_roundstart3.wav-dfdbb5a58b20621bc892e56a75053663.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

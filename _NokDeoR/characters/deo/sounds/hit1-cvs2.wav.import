@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit1-cvs2.wav-2257eca731331c13fd31780bf62a9e27.sample"
+
+[deps]
+
+source_file="res://_NokDeoR/characters/deo/sounds/hit1-cvs2.wav"
+dest_files=[ "res://.import/hit1-cvs2.wav-2257eca731331c13fd31780bf62a9e27.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

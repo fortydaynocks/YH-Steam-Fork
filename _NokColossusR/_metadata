@@ -1,0 +1,13 @@
+ {
+  "name": "Colossus",
+  "friendly_name": "Colossus",
+  "description": "Avalon, the One, the Uncontested, the Unbroken - the Flamestained Swordlord.",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": true,
+  "priority": 0
+}

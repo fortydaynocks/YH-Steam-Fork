@@ -1,0 +1,223 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://projectile/DirProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokColossusR/characters/colossus/resources/CSR-SF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokColossusR/characters/colossus/projectiles/EndBlade-Default.gd" type="Script" id=3]
+[ext_resource path="res://_NokColossusR/characters/colossus/projectiles/EndBlade.gd" type="Script" id=4]
+[ext_resource path="res://ObjectState.gd" type="Script" id=5]
+[ext_resource path="res://_NokColossusR/characters/colossus/effects/CSR-Hit1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=7]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/rock3.wav" type="AudioStream" id=8]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/punch-new2-3.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/hit1_strong.wav" type="AudioStream" id=10]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=11]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/bigwhoosh1.wav" type="AudioStream" id=12]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/punch-new2-2.wav" type="AudioStream" id=13]
+[ext_resource path="res://characters/robo/GroundSlamEffect.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_NokColossusR/characters/colossus/projectiles/EndBlade-Float.gd" type="Script" id=15]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/hand2.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/hit-hammer.wav" type="AudioStream" id=17]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/flame6.wav" type="AudioStream" id=18]
+[ext_resource path="res://_NokColossusR/characters/colossus/projectiles/EndBlade-Spin.gd" type="Script" id=19]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/parry1.wav" type="AudioStream" id=20]
+[ext_resource path="res://theme.tres" type="Theme" id=21]
+[ext_resource path="res://_NokColossusR/characters/colossus/sounds/rock2.wav" type="AudioStream" id=22]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+max_fall_speed = "15"
+extra_state_variables = "attack_primed
+attack_force
+
+durability"
+has_projectile_parry_window = false
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+projectile_immune = true
+tag = "EndBlade"
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 2 )
+animation = "proj-endblade"
+
+[node name="Fly" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 12 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 11 )
+pitch_variation = 0.05
+
+[node name="Prime" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 17 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 11 )
+pitch_variation = 0.05
+
+[node name="Spin" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 18 )
+volume_db = -6.0
+pitch_scale = 5.0
+bus = "Fx"
+script = ExtResource( 11 )
+pitch_variation = 0.05
+
+[node name="SpinHit" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 20 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 11 )
+pitch_variation = 0.05
+
+[node name="Break" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+stream = ExtResource( 22 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 11 )
+pitch_variation = 0.05
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_forces_no_limit = true
+fallback_state = "Spin"
+sprite_animation = "proj-endblade"
+anim_length = 30
+ticks_per_frame = 2
+loop_animation = true
+endless = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 7 )
+width = 26
+height = 26
+damage = 50
+hitstun_ticks = 14
+hitlag_ticks = 6
+victim_hitlag = 6
+plus_frames = 1
+hit_particle = ExtResource( 6 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 13 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -3.0
+dir_x = "0"
+dir_y = "0"
+knockback = "0"
+vacuum = true
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+start_tick = 1
+active_ticks = 1
+always_on = true
+
+[node name="Slam" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+fallback_state = "Default"
+sprite_animation = "proj-endblade3"
+loop_animation = true
+endless = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Slam" index="0"]
+z_index = 1000
+script = ExtResource( 7 )
+y = -15
+width = 60
+damage = 70
+hitstun_ticks = 22
+hitlag_ticks = 6
+victim_hitlag = 6
+cancellable = false
+block_cancel_allowed = false
+hit_height = 2
+screenshake_amount = 8
+screenshake_frames = 18
+hit_particle = ExtResource( 6 )
+replace_hit_particle = true
+whiff_particle = ExtResource( 14 )
+bump_on_whiff = true
+whiff_sound = ExtResource( 8 )
+hit_sound = ExtResource( 9 )
+hit_bass_sound = ExtResource( 10 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -6.0
+bass_sound_volume = -3.0
+bass_on_whiff = true
+dir_x = "0.25"
+dir_y = "-1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 1
+active_ticks = 2
+
+[node name="Float" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 15 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+fallback_state = "Default"
+sprite_animation = "proj-endblade2"
+loop_animation = true
+endless = true
+particle_scene = ExtResource( 14 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 1
+state_screenshake_amount = 8
+enter_sfx = ExtResource( 16 )
+enter_sfx_volume = -3.0
+
+[node name="Spin" type="Node2D" parent="StateMachine" index="3"]
+script = ExtResource( 19 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+sprite_animation = "proj-endblade4"
+anim_length = 8
+ticks_per_frame = 2
+loop_animation = true
+endless = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Spin" index="0"]
+z_index = 1000
+script = ExtResource( 7 )
+width = 40
+height = 40
+damage = 40
+hitstun_ticks = 18
+victim_hitlag = 8
+plus_frames = 1
+hit_particle = ExtResource( 6 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 13 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+grounded_hit_state = "HurtAerial"
+start_tick = 1
+active_ticks = 2
+
+[node name="Info" type="RichTextLabel" parent="." index="7"]
+unique_name_in_owner = true
+margin_left = -250.0
+margin_top = 14.0
+margin_right = 250.0
+margin_bottom = 116.0
+theme = ExtResource( 21 )
+bbcode_enabled = true

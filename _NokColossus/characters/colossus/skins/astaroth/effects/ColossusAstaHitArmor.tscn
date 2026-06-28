@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokColossus/characters/colossus/skins/astaroth/effects/192-1922987_transparent-transmutation-circle-png-transmutation-circle-png-download_2.png" type="Texture" id=2]
+[ext_resource path="res://_NokColossus/characters/colossus/effects/shockwave2.png" type="Texture" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
+[ext_resource path="res://_NokColossus/characters/colossus/effects/very thin diamond 2 rotated by 90 degrees.png" type="Texture" id=47]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=310]
+blend_mode = 1
+
+[sub_resource type="Curve" id=311]
+_data = [ Vector2( 0, 0.713636 ), 0.0, 0.895787, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=306]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=307]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=309]
+blend_mode = 1
+
+[sub_resource type="Curve" id=308]
+_data = [ Vector2( 0.019802, 1 ), 0.0, -1.0202, 0, 1, Vector2( 1, 0 ), -1.0202, 0.0, 1, 0 ]
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+lifetime = 2.0
+
+[node name="shield" type="CPUParticles2D" parent="." index="1"]
+material = SubResource( 310 )
+z_index = 1
+amount = 1
+lifetime = 0.25
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.2
+scale_amount_curve = SubResource( 311 )
+color = Color( 1, 1, 1, 0.509804 )
+color_ramp = SubResource( 306 )
+
+[node name="shockwave" type="CPUParticles2D" parent="." index="2"]
+material = SubResource( 307 )
+amount = 1
+lifetime = 0.4
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+color = Color( 1, 1, 1, 0.235294 )
+anim_speed = 1.0
+
+[node name="shockwave2" type="CPUParticles2D" parent="." index="3"]
+material = SubResource( 307 )
+amount = 1
+lifetime = 0.3
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 1.5
+color = Color( 1, 1, 1, 0.117647 )
+anim_speed = 1.0
+
+[node name="shockwave3" type="CPUParticles2D" parent="." index="4"]
+material = SubResource( 307 )
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.5
+color = Color( 1, 1, 1, 0.0588235 )
+anim_speed = 1.0
+
+[node name="lines" type="CPUParticles2D" parent="." index="5"]
+material = SubResource( 309 )
+amount = 5
+lifetime = 0.25
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 47 )
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.5
+damping = 1000.0
+scale_amount = 0.05
+scale_amount_random = 0.1
+scale_amount_curve = SubResource( 308 )
+
+[node name="lines2" type="CPUParticles2D" parent="." index="6"]
+material = SubResource( 309 )
+amount = 5
+lifetime = 0.5
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 47 )
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.5
+damping = 200.0
+scale_amount = 0.1
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 308 )
+color = Color( 1, 1, 1, 0.0784314 )

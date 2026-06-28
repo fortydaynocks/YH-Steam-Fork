@@ -1,0 +1,15 @@
+{
+  "author": "nok (fortydaynocks)",
+  "client_side": false,
+  "description": "Blades of justice are still blades? DAMN RIGHT THEY ARE.",
+  "friendly_name": "Betrayer",
+  "id": "12345",
+  "link": "",
+  "name": "Betrayer",
+  "overwrites": false,
+  "priority": 0,
+  "requires": [
+    "char_loader"
+  ],
+  "version": "steam"
+}

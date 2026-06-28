@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bats2.wav-7ec83a77003d74220dc5b8587be6a100.sample"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/bats2.wav"
+dest_files=[ "res://.import/bats2.wav-7ec83a77003d74220dc5b8587be6a100.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

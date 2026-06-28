@@ -1,0 +1,16 @@
+var values = [
+	["nok", 1],
+	["Cherry", 1],
+	["Pres", 1],
+	["soopernoob", 1],
+	["Death", 1],
+	["N.O.X", 1],
+	["SpadesofAce49", 1],
+	["CTM9001", 1],
+	["THExplosion24", 1],
+	["Mana", 1],
+	["samuraiarceus", 1],
+	["Draedon", 1],
+	["heeruv", 1],
+	["Mahoraga", 1],
+]

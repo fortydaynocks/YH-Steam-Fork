@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme5-dfkiryu-betwitching.ogg-662674a7a933ea5be82e53aa9b95f285.oggstr"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/theme5-dfkiryu-betwitching.ogg"
+dest_files=[ "res://.import/theme5-dfkiryu-betwitching.ogg-662674a7a933ea5be82e53aa9b95f285.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

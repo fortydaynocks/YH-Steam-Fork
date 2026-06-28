@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SWING06.wav-41f063a9ce8677e3c3b51b07807ea2ee.sample"
+
+[deps]
+
+source_file="res://_NokColossusR/characters/colossus/sounds/SWING06.wav"
+dest_files=[ "res://.import/SWING06.wav-41f063a9ce8677e3c3b51b07807ea2ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

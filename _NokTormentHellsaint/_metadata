@@ -1,0 +1,13 @@
+ {
+  "name": "Hellsaint",
+  "friendly_name": "Hellsaint",
+  "description": "May the blood run rampant. Nothing without darkness.",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "777666777666",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": false,
+  "priority": 0
+}

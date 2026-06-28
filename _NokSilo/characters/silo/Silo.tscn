@@ -1,0 +1,3432 @@
+[gd_scene load_steps=175 format=2]
+
+[ext_resource path="res://sound/common/slash2.wav" type="AudioStream" id=1]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=2]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+[ext_resource path="res://theme.tres" type="Theme" id=5]
+[ext_resource path="res://sound/common/jump1.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound/common/ex1.wav" type="AudioStream" id=7]
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sound/common/explosion6.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/DreadWheel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Hit1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/WitheringHand.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_NokSilo/characters/silo/auid/AUID_XYPlot.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/Sustainer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/TortureMark.tscn" type="PackedScene" id=15]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/PortalSpike.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/WretchedEye.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_NokSilo/characters/silo/auid/AUID_Horiz.tscn" type="PackedScene" id=18]
+[ext_resource path="res://_NokSilo/characters/silo/auid/AUID_Adjust.tscn" type="PackedScene" id=19]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Slash.tscn" type="PackedScene" id=20]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-PortalSpikeCosmetic.tscn" type="PackedScene" id=21]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloArcOfMisfortune.gd" type="Script" id=22]
+[ext_resource path="res://_NokSilo/characters/silo/Silo.gd" type="Script" id=23]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloChaoticFlair.gd" type="Script" id=24]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloDreadWheel.gd" type="Script" id=25]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloEternalHunger.gd" type="Script" id=26]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloState.gd" type="Script" id=27]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloGloriousMotherspike.gd" type="Script" id=28]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloHaven.gd" type="Script" id=29]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloHumorlessLimbo.gd" type="Script" id=30]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloInfectant.gd" type="Script" id=31]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloInsideState.gd" type="Script" id=32]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloOcularMiracle.gd" type="Script" id=33]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloPalmOfLife.gd" type="Script" id=34]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloPalmofLife2.gd" type="Script" id=35]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloRoll.gd" type="Script" id=36]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloInsanity.gd" type="Script" id=37]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloSolaceHarvest.gd" type="Script" id=38]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloRun.gd" type="Script" id=39]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloSensation.gd" type="Script" id=40]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloSolace.gd" type="Script" id=41]
+[ext_resource path="res://_NokSilo/characters/silo/sprites/slidle.png" type="Texture" id=42]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/grip02.wav" type="AudioStream" id=43]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/roll05.wav" type="AudioStream" id=44]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/slash05.wav" type="AudioStream" id=45]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing04.wav" type="AudioStream" id=46]
+[ext_resource path="res://sound/common/swish2.wav" type="AudioStream" id=47]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/super04.wav" type="AudioStream" id=48]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_ocularmiracle.png" type="Texture" id=49]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/slash07.wav" type="AudioStream" id=50]
+[ext_resource path="res://characters/wizard/sounds/moisture.wav" type="AudioStream" id=51]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/psychohit1nobass.wav" type="AudioStream" id=52]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/heavyhit04.wav" type="AudioStream" id=53]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/void04.wav" type="AudioStream" id=54]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_palmoflife.png" type="Texture" id=55]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/dash01.wav" type="AudioStream" id=56]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_humorlesslimbo.png" type="Texture" id=57]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger6.png" type="Texture" id=58]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger3.png" type="Texture" id=59]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing07.wav" type="AudioStream" id=60]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_dreadwheel2.png" type="Texture" id=61]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/roll04.wav" type="AudioStream" id=62]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/warning03.wav" type="AudioStream" id=63]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/land.wav" type="AudioStream" id=64]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_punch.png" type="Texture" id=65]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_insidestate.png" type="Texture" id=66]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/breaker02.wav" type="AudioStream" id=67]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_arcofmisfortune.png" type="Texture" id=68]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_dreadwheel4.png" type="Texture" id=69]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/super03.wav" type="AudioStream" id=70]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger7.png" type="Texture" id=71]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger8.png" type="Texture" id=72]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/slash03.wav" type="AudioStream" id=73]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing11.wav" type="AudioStream" id=74]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_seraphim.png" type="Texture" id=75]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger1.png" type="Texture" id=76]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger5.png" type="Texture" id=77]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven7.png" type="Texture" id=78]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven8.png" type="Texture" id=79]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven3.png" type="Texture" id=80]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/slash01.wav" type="AudioStream" id=81]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing10.wav" type="AudioStream" id=82]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_dreadwheel3.png" type="Texture" id=83]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger4.png" type="Texture" id=84]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/roll03.wav" type="AudioStream" id=85]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_dreadwheel1.png" type="Texture" id=86]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing01.wav" type="AudioStream" id=87]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing13.wav" type="AudioStream" id=88]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/psychohit1.wav" type="AudioStream" id=89]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/void03.wav" type="AudioStream" id=90]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/super13.wav" type="AudioStream" id=91]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_chaoticflair.png" type="Texture" id=92]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/heavyhit05.wav" type="AudioStream" id=93]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/heavyhit06.wav" type="AudioStream" id=94]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_shelter.png" type="Texture" id=95]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing12.wav" type="AudioStream" id=96]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/dragonstrike04.wav" type="AudioStream" id=97]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/jump.wav" type="AudioStream" id=98]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/void06.wav" type="AudioStream" id=99]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing09.wav" type="AudioStream" id=100]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/swing02.wav" type="AudioStream" id=101]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/step03.wav" type="AudioStream" id=102]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/void05.wav" type="AudioStream" id=103]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_airsolver.png" type="Texture" id=104]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_eternalhunger2.png" type="Texture" id=105]
+[ext_resource path="res://_NokSilo/characters/silo/ui/slui_marker.png" type="Texture" id=106]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven2.png" type="Texture" id=107]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_sensation.png" type="Texture" id=108]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/edge02.wav" type="AudioStream" id=109]
+[ext_resource path="res://_NokSilo/characters/silo/icons/sliconblockfail.png" type="Texture" id=110]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_gloriousmotherspike.png" type="Texture" id=111]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven5.png" type="Texture" id=112]
+[ext_resource path="res://_NokSilo/characters/silo/effects/yomifx_dot2.png" type="Texture" id=113]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/warning04.wav" type="AudioStream" id=114]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/harvest.wav" type="AudioStream" id=115]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/crash03.wav" type="AudioStream" id=116]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/whisper02.wav" type="AudioStream" id=117]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven4.png" type="Texture" id=118]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/slowmotion02.wav" type="AudioStream" id=119]
+[ext_resource path="res://_NokSilo/characters/silo/icons/sliconblock.png" type="Texture" id=120]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven1.png" type="Texture" id=121]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_solace.png" type="Texture" id=122]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/stresslow.wav" type="AudioStream" id=123]
+[ext_resource path="res://_NokSilo/characters/silo/effects/static.png" type="Texture" id=124]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_haven6.png" type="Texture" id=125]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/stresshigh.wav" type="AudioStream" id=126]
+[ext_resource path="res://_NokSilo/characters/silo/icons/sliconblockdodge.png" type="Texture" id=127]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/void10.wav" type="AudioStream" id=128]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_insanity.png" type="Texture" id=129]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_run.png" type="Texture" id=130]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_infectant.png" type="Texture" id=131]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/coolhit02.wav" type="AudioStream" id=132]
+[ext_resource path="res://_NokSilo/characters/silo/ui/slui_bar.png" type="Texture" id=133]
+[ext_resource path="res://_NokSilo/characters/silo/icons/sliconblocksuper.png" type="Texture" id=134]
+[ext_resource path="res://_NokSilo/characters/silo/resources/SiloSF.tres" type="SpriteFrames" id=135]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Harvest.tscn" type="PackedScene" id=136]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Hit2.tscn" type="PackedScene" id=137]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/MotherspikeSpawner.tscn" type="PackedScene" id=138]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Flower.tscn" type="PackedScene" id=139]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Insanity.tscn" type="PackedScene" id=140]
+[ext_resource path="res://_NokSilo/characters/silo/auid/AUID_Jump.tscn" type="PackedScene" id=141]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/Monolith.tscn" type="PackedScene" id=142]
+[ext_resource path="res://_NokSilo/characters/silo/ui/SiloExtra.tscn" type="PackedScene" id=143]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/Motherspike.tscn" type="PackedScene" id=144]
+[ext_resource path="res://_NokSilo/characters/silo/auid/AUID_OcularMiracle.tscn" type="PackedScene" id=145]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/Infectant.tscn" type="PackedScene" id=146]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Misc1.tscn" type="PackedScene" id=147]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Harvest2.tscn" type="PackedScene" id=148]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/Bloodflower.tscn" type="PackedScene" id=149]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-SuperFlash.tscn" type="PackedScene" id=150]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Hit3.tscn" type="PackedScene" id=151]
+[ext_resource path="res://_NokSilo/characters/silo/auid/AUID_XYPlotMax.tscn" type="PackedScene" id=152]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloIntro.gd" type="Script" id=153]
+[ext_resource path="res://_NokSilo/characters/silo/nokui/CustomUISilo.gd" type="Script" id=154]
+[ext_resource path="res://sound/common/swish.wav" type="AudioStream" id=155]
+[ext_resource path="res://_NokSilo/characters/silo/resources/SiloVIP.tres" type="Resource" id=156]
+[ext_resource path="res://_NokSilo/characters/silo/skins/sinestrosa/SiloSF-Sin.tres" type="SpriteFrames" id=157]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/phim_spawn.wav" type="AudioStream" id=158]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/root_grow.wav" type="AudioStream" id=159]
+[ext_resource path="res://_NokSilo/characters/silo/skins/sinestrosa/sounds/sin-ambience3.wav" type="AudioStream" id=160]
+[ext_resource path="res://_NokSilo/characters/silo/states/SiloSurveyor.gd" type="Script" id=161]
+[ext_resource path="res://_NokSilo/characters/silo/skins/sinestrosa/sounds/sin-summonwings.wav" type="AudioStream" id=162]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/Surveyor.tscn" type="PackedScene" id=163]
+[ext_resource path="res://_NokSilo/characters/silo/icons/slicon_surveyor.png" type="Texture" id=164]
+[ext_resource path="res://_NokSilo/characters/silo/skins/sinestrosa/sounds/sin-V-soundbyte2.wav" type="AudioStream" id=165]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.52514, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.411765, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="AnimatedTexture" id=2]
+frames = 8
+fps = 15.0
+frame_0/texture = ExtResource( 76 )
+frame_1/texture = ExtResource( 105 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 59 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 84 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 77 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 58 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 71 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 72 )
+frame_7/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 4
+fps = 15.0
+frame_0/texture = ExtResource( 86 )
+frame_1/texture = ExtResource( 61 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 83 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 69 )
+frame_3/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=4]
+frames = 8
+fps = 15.0
+frame_0/texture = ExtResource( 121 )
+frame_1/texture = ExtResource( 107 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 80 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 118 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 112 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 125 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 78 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 79 )
+frame_7/delay_sec = 0.0
+
+[node name="Silo" instance=ExtResource( 8 )]
+script = ExtResource( 23 )
+__meta__ = {
+"_editor_description_": ""
+}
+extra_state_variables = "objs_table
+vfx_table
+tweens
+vip
+
+charname
+run
+
+stress
+last_stress
+high_stress
+low_stress
+
+insanity
+
+portalspikes
+portalspike_frame
+portalspike_interval
+portalspike_cooldown
+
+grabbyhands
+grabbyhands_frame
+grabbyhands_interval
+
+eyes
+torturemarks
+sustainers
+bloodflowers
+monoliths
+monoliths_created_in_combo
+
+eye_distance
+eye_deadzone
+
+bloodflower_range
+buffer_harvest"
+character_portrait = ExtResource( 42 )
+character_portrait2 = ExtResource( 42 )
+player_extra_params_scene = ExtResource( 143 )
+use_extra_color_1 = true
+extra_color_1 = Color( 1, 0, 0, 1 )
+objs_table = {
+"Bloodflower": ExtResource( 149 ),
+"DreadWheel": ExtResource( 10 ),
+"Infectant": ExtResource( 146 ),
+"Monolith": ExtResource( 142 ),
+"Motherspike": ExtResource( 144 ),
+"MotherspikeSpawner": ExtResource( 138 ),
+"PortalSpike": ExtResource( 16 ),
+"Surveyor": ExtResource( 163 ),
+"Sustainer": ExtResource( 14 ),
+"TortureMark": ExtResource( 15 ),
+"WitheringHand": ExtResource( 12 ),
+"WretchedEye": ExtResource( 17 )
+}
+vfx_table = {
+"Flower": ExtResource( 139 ),
+"Harvest": ExtResource( 136 ),
+"Harvest2": ExtResource( 148 ),
+"Hit1": ExtResource( 11 ),
+"Hit2": ExtResource( 137 ),
+"Misc1": ExtResource( 147 ),
+"PortalSpikeFX": ExtResource( 21 ),
+"Slash": ExtResource( 20 )
+}
+vip = ExtResource( 156 )
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 1 )
+frames = ExtResource( 135 )
+animation = "airsolver"
+frame = 5
+
+[node name="InsanityAura" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+unique_name_in_owner = true
+visible = false
+material = SubResource( 6 )
+position = Vector2( 0, -18 )
+rotation = 0.174533
+z_index = -1
+amount = 4
+lifetime = 0.2
+texture = ExtResource( 42 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 4.0
+angle = 20.0
+angle_random = 1.0
+scale_amount = 1.25
+scale_amount_random = 1.0
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 7 )
+
+[node name="InsanityAura2" type="CPUParticles2D" parent="Flip/Sprite" index="1"]
+unique_name_in_owner = true
+visible = false
+material = SubResource( 8 )
+position = Vector2( 0, -18 )
+z_index = -1
+amount = 100
+lifetime = 0.35
+lifetime_randomness = 0.5
+local_coords = false
+texture = ExtResource( 113 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 250.0
+initial_velocity_random = 0.5
+damping = 500.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.2
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 9 )
+color = Color( 1, 0, 0, 0.588235 )
+
+[node name="InsanityAura3" type="CPUParticles2D" parent="Flip/Sprite" index="2"]
+unique_name_in_owner = true
+visible = false
+material = SubResource( 5 )
+z_index = -100
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 124 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+color = Color( 1, 0, 0, 0.156863 )
+anim_speed = 1.0
+
+[node name="SinWings" type="AnimatedSprite" parent="Flip/Sprite" index="3"]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 0, -18 )
+z_index = -1
+frames = ExtResource( 157 )
+animation = "sinwings"
+
+[node name="Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 6 )
+volume_db = -6.0
+script = ExtResource( 3 )
+
+[node name="Intro2" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 155 )
+volume_db = -9.0
+script = ExtResource( 3 )
+
+[node name="Super" parent="Sounds" index="7"]
+stream = ExtResource( 67 )
+volume_db = -6.0
+
+[node name="Super2" parent="Sounds" index="8"]
+stream = ExtResource( 91 )
+volume_db = -6.0
+
+[node name="Super3" parent="Sounds" index="9"]
+stream = ExtResource( 63 )
+volume_db = -6.0
+pitch_variation = 0.0
+
+[node name="Ex4" parent="Sounds" index="13"]
+stream = ExtResource( 48 )
+volume_db = -6.0
+pitch_variation = 0.0
+
+[node name="MarkApplied" type="AudioStreamPlayer2D" parent="Sounds" index="23"]
+stream = ExtResource( 97 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Run1" type="AudioStreamPlayer2D" parent="Sounds" index="24"]
+stream = ExtResource( 102 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+
+[node name="Sensation" type="AudioStreamPlayer2D" parent="Sounds" index="25"]
+stream = ExtResource( 85 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Harvest" type="AudioStreamPlayer2D" parent="Sounds" index="26"]
+stream = ExtResource( 115 )
+bus = "Fx"
+script = ExtResource( 3 )
+
+[node name="Harvest2" type="AudioStreamPlayer2D" parent="Sounds" index="27"]
+stream = ExtResource( 109 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="StressHigh" type="AudioStreamPlayer2D" parent="Sounds" index="28"]
+stream = ExtResource( 126 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="StressHigh2" type="AudioStreamPlayer2D" parent="Sounds" index="29"]
+stream = ExtResource( 67 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="StressLow" type="AudioStreamPlayer2D" parent="Sounds" index="30"]
+stream = ExtResource( 123 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="InsanityWarning" type="AudioStreamPlayer2D" parent="Sounds" index="31"]
+stream = ExtResource( 114 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Insanity" type="AudioStreamPlayer2D" parent="Sounds" index="32"]
+stream = ExtResource( 132 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Insanity2" type="AudioStreamPlayer2D" parent="Sounds" index="33"]
+stream = ExtResource( 116 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Insanity3" type="AudioStreamPlayer2D" parent="Sounds" index="34"]
+stream = ExtResource( 67 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Insanity4" type="AudioStreamPlayer2D" parent="Sounds" index="35"]
+stream = ExtResource( 119 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="InsanityLaugh" type="AudioStreamPlayer2D" parent="Sounds" index="36"]
+stream = ExtResource( 117 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="ChaoticFlairHit" type="AudioStreamPlayer2D" parent="Sounds" index="37"]
+stream = ExtResource( 81 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+
+[node name="Sin-Spawn" type="AudioStreamPlayer2D" parent="Sounds" index="38"]
+stream = ExtResource( 158 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Sin-Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="39"]
+stream = ExtResource( 160 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Sin-Intro2" type="AudioStreamPlayer2D" parent="Sounds" index="40"]
+stream = ExtResource( 81 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Sin-Intro3" type="AudioStreamPlayer2D" parent="Sounds" index="41"]
+stream = ExtResource( 159 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Sin-Intro4" type="AudioStreamPlayer2D" parent="Sounds" index="42"]
+stream = ExtResource( 162 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Sin-Intro5" type="AudioStreamPlayer2D" parent="Sounds" index="43"]
+stream = ExtResource( 103 )
+volume_db = -15.0
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.0
+
+[node name="Voiceline" type="AudioStreamPlayer2D" parent="Sounds" index="44"]
+unique_name_in_owner = true
+bus = "Fx"
+script = ExtResource( 3 )
+pitch_variation = 0.025
+
+[node name="Sin-Soundbyte" type="AudioStreamPlayer2D" parent="Sounds" index="45"]
+unique_name_in_owner = true
+stream = ExtResource( 165 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 3 )
+
+[node name="CollisionBox" parent="." index="2"]
+y = -12
+width = 4
+height = 10
+
+[node name="Hurtbox" parent="." index="3"]
+y = -12
+width = 8
+height = 12
+
+[node name="Start" parent="StateMachine" index="0"]
+script = ExtResource( 153 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "Intro"
+anim_length = 120
+ticks_per_frame = 4
+title = ""
+show_in_menu = true
+interrupt_into_string = "Aerial
+Grounded
+Jump"
+change_stance_to = "Intro"
+
+[node name="ParrySuper" parent="StateMachine" index="1"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 101 )
+enter_sfx_volume = -6.0
+title = "Pain Denial"
+button_texture = ExtResource( 134 )
+
+[node name="ParryHigh" parent="StateMachine" index="2"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+title = "Forgive Me"
+button_texture = ExtResource( 120 )
+
+[node name="ParryAfterWhiff" parent="StateMachine" index="3"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+title = "Forget Me"
+button_texture = ExtResource( 110 )
+
+[node name="ParryAuto" parent="StateMachine" index="4"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+button_texture = ExtResource( 120 )
+
+[node name="ParryLow" parent="StateMachine" index="5"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+button_texture = ExtResource( 120 )
+
+[node name="ParryAir" parent="StateMachine" index="6"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+title = "Forgive Me"
+button_texture = ExtResource( 120 )
+
+[node name="Roll" parent="StateMachine" index="7"]
+script = ExtResource( 36 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_anim_length = -1
+ticks_per_frame = 2
+enter_sfx = ExtResource( 98 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 56 )
+sfx_volume = -9.0
+title = "Flower Play"
+button_texture = ExtResource( 127 )
+
+[node name="Burst" parent="StateMachine" index="12"]
+__meta__ = {
+"_editor_description_": "IgnoreHarvest"
+}
+ticks_per_frame = 2
+particle_scene = ExtResource( 137 )
+enter_sfx = ExtResource( 126 )
+enter_sfx_volume = -12.0
+
+[node name="Hitbox" parent="StateMachine/Burst" index="0"]
+hit_particle = ExtResource( 136 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 67 )
+hit_sound = ExtResource( 94 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+
+[node name="DefensiveBurst" parent="StateMachine" index="13"]
+__meta__ = {
+"_editor_description_": "IgnoreHarvest"
+}
+ticks_per_frame = 2
+particle_scene = ExtResource( 137 )
+enter_sfx = ExtResource( 126 )
+enter_sfx_volume = -12.0
+
+[node name="Hitbox" parent="StateMachine/DefensiveBurst" index="0"]
+hit_particle = ExtResource( 136 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 67 )
+hit_sound = ExtResource( 94 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+
+[node name="OffensiveBurst" parent="StateMachine" index="14"]
+__meta__ = {
+"_editor_description_": "IgnoreHarvest"
+}
+ticks_per_frame = 2
+particle_scene = ExtResource( 137 )
+enter_sfx = ExtResource( 126 )
+enter_sfx_volume = -12.0
+
+[node name="Hitbox" parent="StateMachine/OffensiveBurst" index="0"]
+hit_particle = ExtResource( 136 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 67 )
+hit_sound = ExtResource( 94 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+
+[node name="Fall" parent="StateMachine" index="18"]
+sprite_animation = "Fall"
+ticks_per_frame = 2
+
+[node name="SuperFallStartup" parent="StateMachine" index="19"]
+title = "Subsidence"
+
+[node name="Landing" parent="StateMachine" index="21"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 64 )
+enter_sfx_volume = -6.0
+
+[node name="Knockdown" parent="StateMachine" index="22"]
+enter_sfx = ExtResource( 93 )
+enter_sfx_volume = -6.0
+
+[node name="HardKnockdown" parent="StateMachine" index="23"]
+enter_sfx = ExtResource( 93 )
+enter_sfx_volume = -6.0
+
+[node name="Getup" parent="StateMachine" index="24"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 6 )
+enter_sfx_volume = -6.0
+
+[node name="TechRoll" parent="StateMachine" index="25"]
+script = ExtResource( 36 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_anim_length = -1
+ticks_per_frame = 2
+enter_sfx = ExtResource( 98 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 56 )
+sfx_volume = -9.0
+title = "Petal Play"
+button_texture = ExtResource( 127 )
+
+[node name="run" type="Node2D" parent="StateMachine" index="27"]
+script = ExtResource( 39 )
+apply_forces = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.3"
+fallback_state = "run"
+sprite_animation = "run"
+anim_length = 11
+ticks_per_frame = 2
+title = "Run"
+button_texture = ExtResource( 130 )
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedMovement
+AerialMovement
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+no_collision_start_frame = 1
+no_collision_end_frame = 99
+
+[node name="DashForward" parent="StateMachine" index="28"]
+show_in_menu = false
+
+[node name="ChargeDashForward" parent="StateMachine" index="29"]
+show_in_menu = false
+
+[node name="DashBackward" parent="StateMachine" index="30"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 56 )
+enter_sfx_volume = -6.0
+title = "Retreat"
+
+[node name="Jump" parent="StateMachine" index="33"]
+ticks_per_frame = 2
+loop_animation = false
+sfx = ExtResource( 98 )
+sfx_volume = -6.0
+
+[node name="SuperJump" parent="StateMachine" index="35"]
+ticks_per_frame = 2
+loop_animation = false
+title = "Elevation"
+
+[node name="DoubleJump" parent="StateMachine" index="36"]
+ticks_per_frame = 2
+loop_animation = false
+sfx = ExtResource( 98 )
+sfx_volume = -6.0
+title = "Air Jump"
+data_ui_scene = ExtResource( 141 )
+
+[node name="AirDash" parent="StateMachine" index="37"]
+show_in_menu = false
+
+[node name="WallSlam" parent="StateMachine" index="41"]
+enter_sfx = ExtResource( 93 )
+enter_sfx_volume = -6.0
+sfx_volume = -9.0
+
+[node name="Taunt" parent="StateMachine" index="56"]
+show_in_menu = false
+
+[node name="punch" type="Node2D" parent="StateMachine" index="58"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "punch"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "3"
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+title = "Punch"
+type = 1
+button_texture = ExtResource( 65 )
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/punch" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 14
+y = -19
+width = 16
+height = 6
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 16
+hitlag_ticks = 6
+victim_hitlag = 6
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 43 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "2"
+pushback_x = "-1"
+knockdown_extends_hitstun = false
+start_tick = 4
+active_ticks = 1
+
+[node name="punchA" type="Node2D" parent="StateMachine" index="59"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "punch"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "3"
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+title = "Punch"
+type = 1
+button_texture = ExtResource( 65 )
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 5
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/punchA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 14
+y = -19
+width = 16
+height = 6
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 16
+hitlag_ticks = 6
+victim_hitlag = 6
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 43 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "2"
+pushback_x = "-1"
+knockdown_extends_hitstun = false
+start_tick = 4
+active_ticks = 1
+
+[node name="seraphim" type="Node2D" parent="StateMachine" index="60"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "seraphim"
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "5"
+enter_sfx = ExtResource( 60 )
+enter_sfx_volume = -6.0
+title = "Seraphim"
+type = 1
+button_texture = ExtResource( 75 )
+iasa_on_hit = 6
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "seraphimA"
+hit_cancel_exceptions_string = "seraphimA"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/seraphim" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 14
+y = -46
+width = 17
+height = 12
+damage = 50
+minimum_damage = 16
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 4
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+hit_height = 0
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 73 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -9.0
+bass_sound_volume = -6.0
+dir_x = "0.75"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 5
+active_ticks = 2
+
+[node name="Hitbox+" type="Node2D" parent="StateMachine/seraphim" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -22
+width = 17
+damage = 50
+minimum_damage = 16
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 4
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+hit_height = 0
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 73 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -9.0
+bass_sound_volume = -6.0
+dir_x = "0.75"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 5
+active_ticks = 2
+
+[node name="seraphimA" type="Node2D" parent="StateMachine" index="61"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "seraphim"
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_dir_y = "0"
+enter_force_speed = "2.5"
+enter_sfx = ExtResource( 60 )
+enter_sfx_volume = -6.0
+title = "Seraphim"
+type = 1
+button_texture = ExtResource( 75 )
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 7
+iasa_on_hit = 6
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "seraphim"
+hit_cancel_exceptions_string = "seraphim"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/seraphimA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 14
+y = -46
+width = 17
+height = 12
+damage = 50
+minimum_damage = 16
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 4
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+hit_height = 0
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 73 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -9.0
+bass_sound_volume = -6.0
+dir_x = "0.75"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 5
+active_ticks = 2
+
+[node name="Hitbox+" type="Node2D" parent="StateMachine/seraphimA" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -22
+width = 17
+damage = 50
+minimum_damage = 16
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 4
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+hit_height = 0
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 73 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -9.0
+bass_sound_volume = -6.0
+dir_x = "0.75"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 5
+active_ticks = 2
+
+[node name="shelter" type="Node2D" parent="StateMachine" index="62"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "shelter"
+anim_length = 32
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_dir_y = "-0.25"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 96 )
+enter_sfx_volume = -6.0
+title = "Shelter"
+type = 1
+button_texture = ExtResource( 95 )
+air_type = 1
+iasa_on_hit = 27
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "shelterA"
+hit_cancel_exceptions_string = "shelterA"
+apply_pushback = false
+drag = true
+offset_x = 48
+end_on = 25
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/shelter" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 0
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 7
+active_ticks = 4
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/shelter" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 0
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 13
+active_ticks = 4
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/shelter" index="2"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 0
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+group = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 19
+active_ticks = 4
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/shelter" index="3"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 2
+victim_hitlag = 10
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+plus_frames = 1
+group = 3
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "5"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 25
+active_ticks = 4
+
+[node name="shelterA" type="Node2D" parent="StateMachine" index="63"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "shelter"
+anim_length = 32
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "6"
+force_tick = 7
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 96 )
+enter_sfx_volume = -6.0
+title = "Shelter"
+type = 1
+button_texture = ExtResource( 95 )
+iasa_on_hit = 27
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "shelter"
+hit_cancel_exceptions_string = "shelter"
+apply_pushback = false
+drag = true
+offset_x = 48
+end_on = 25
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/shelterA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 0
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 7
+active_ticks = 4
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/shelterA" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 0
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 13
+active_ticks = 4
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/shelterA" index="2"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 0
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+group = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 19
+active_ticks = 4
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/shelterA" index="3"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 22
+y = -21
+width = 21
+height = 18
+damage = 15
+minimum_damage = 5
+hitstun_ticks = 20
+hitlag_ticks = 2
+victim_hitlag = 10
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+plus_frames = 1
+group = 3
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 74 )
+hit_sound = ExtResource( 52 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "5"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 25
+active_ticks = 4
+
+[node name="insidestate" type="Node2D" parent="StateMachine" index="64"]
+script = ExtResource( 32 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "insidestate"
+anim_length = 18
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "6"
+enter_sfx = ExtResource( 88 )
+enter_sfx_volume = -6.0
+title = "Inside State"
+type = 1
+button_texture = ExtResource( 66 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "insidestateA"
+hit_cancel_exceptions_string = "insidestateA"
+beats_backdash = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/insidestate" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 26
+y = -17
+width = 32
+height = 8
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 12
+hitlag_ticks = 6
+victim_hitlag = 4
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "6"
+knockdown_extends_hitstun = false
+start_tick = 6
+active_ticks = 2
+
+[node name="insidestateA" type="Node2D" parent="StateMachine" index="65"]
+script = ExtResource( 32 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "insidestate"
+anim_length = 18
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 88 )
+enter_sfx_volume = -6.0
+title = "Inside State"
+type = 1
+button_texture = ExtResource( 66 )
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 7
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "insidestate"
+hit_cancel_exceptions_string = "insidestate"
+beats_backdash = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/insidestateA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 26
+y = -17
+width = 32
+height = 8
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 12
+hitlag_ticks = 6
+victim_hitlag = 4
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "6"
+knockdown_extends_hitstun = false
+start_tick = 6
+active_ticks = 2
+
+[node name="airsolver" type="Node2D" parent="StateMachine" index="66"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "airsolver"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "-0.5"
+force_speed = "6"
+force_tick = 5
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 46 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 60 )
+sfx_tick = 6
+sfx_volume = -6.0
+title = "Air Solver"
+type = 1
+button_texture = ExtResource( 104 )
+land_cancel = true
+min_land_cancel_frame = 20
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "airsolverA"
+hit_cancel_exceptions_string = "airsolverA"
+drag = true
+offset_x = 36
+end_on = 11
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/airsolver" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 24
+y = -17
+width = 18
+height = 22
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 20
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 7 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.25"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/airsolver" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 24
+y = -17
+width = 18
+height = 22
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 20
+victim_hitlag = 8
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+plus_frames = 1
+group = 1
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 7 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.25"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 11
+active_ticks = 2
+
+[node name="airsolverA" type="Node2D" parent="StateMachine" index="67"]
+script = ExtResource( 27 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "airsolver"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "-0.5"
+force_speed = "6"
+force_tick = 5
+enter_sfx = ExtResource( 46 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 60 )
+sfx_tick = 6
+sfx_volume = -6.0
+title = "Air Solver"
+type = 1
+button_texture = ExtResource( 104 )
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 12
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "airsolver"
+hit_cancel_exceptions_string = "airsolver"
+drag = true
+offset_x = 36
+end_on = 11
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/airsolverA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 24
+y = -17
+width = 18
+height = 22
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 20
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 7 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.25"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/airsolverA" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 24
+y = -17
+width = 18
+height = 22
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 20
+victim_hitlag = 8
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+plus_frames = 1
+group = 1
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 7 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.25"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 11
+active_ticks = 2
+
+[node name="humorlesslimbo" type="Node2D" parent="StateMachine" index="68"]
+script = ExtResource( 30 )
+__meta__ = {
+"_editor_description_": "Grounded"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "humorlesslimbo"
+anim_length = 22
+ticks_per_frame = 2
+title = "Humorless Limbo"
+type = 1
+data_ui_scene = ExtResource( 18 )
+button_texture = ExtResource( 57 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "humorlesslimboA"
+hit_cancel_exceptions_string = "humorlesslimboA"
+no_collision_start_frame = 7
+no_collision_end_frame = 16
+drag = true
+offset_x = 28
+offset_y = -9
+end_on = 14
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/humorlesslimbo" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -18
+width = 32
+height = 32
+damage = 25
+minimum_damage = 8
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 1 )
+hit_bass_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 8
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/humorlesslimbo" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -18
+width = 32
+height = 32
+damage = 25
+minimum_damage = 8
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 1 )
+hit_bass_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 11
+active_ticks = 2
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/humorlesslimbo" index="2"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -18
+width = 32
+height = 32
+damage = 25
+minimum_damage = 8
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+plus_frames = 1
+group = 3
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 1 )
+hit_bass_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 14
+active_ticks = 2
+
+[node name="humorlesslimboA" type="Node2D" parent="StateMachine" index="69"]
+script = ExtResource( 30 )
+__meta__ = {
+"_editor_description_": "Aerial"
+}
+apply_forces = true
+apply_fric = true
+apply_custom_x_fric = true
+apply_custom_grav = true
+custom_x_fric = "0.05"
+custom_grav = "1.5"
+custom_grav_max_fall_speed = "16"
+sprite_animation = "humorlesslimbo"
+anim_length = 22
+ticks_per_frame = 2
+title = "Humorless Limbo"
+type = 1
+data_ui_scene = ExtResource( 18 )
+button_texture = ExtResource( 57 )
+air_type = 1
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "humorlesslimbo"
+hit_cancel_exceptions_string = "humorlesslimbo"
+no_collision_start_frame = 7
+no_collision_end_frame = 16
+drag = true
+offset_x = 28
+offset_y = -9
+end_on = 14
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/humorlesslimboA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -18
+width = 32
+height = 32
+damage = 25
+minimum_damage = 8
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 1 )
+hit_bass_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 8
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/humorlesslimboA" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -18
+width = 32
+height = 32
+damage = 25
+minimum_damage = 8
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 1
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 1 )
+hit_bass_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 11
+active_ticks = 2
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/humorlesslimboA" index="2"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -18
+width = 32
+height = 32
+damage = 25
+minimum_damage = 8
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "0.75"
+plus_frames = 1
+group = 3
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 1 )
+hit_bass_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 14
+active_ticks = 2
+
+[node name="chaoticflair" type="Node2D" parent="StateMachine" index="70"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "chaoticflair"
+anim_length = 24
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+particle_scene = ExtResource( 11 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+timed_particle_scene = ExtResource( 151 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 6
+enter_sfx = ExtResource( 128 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 100 )
+sfx_tick = 6
+sfx_volume = -6.0
+title = "Chaotic Flair"
+type = 1
+data_ui_scene = ExtResource( 19 )
+button_texture = ExtResource( 92 )
+iasa_on_hit = 12
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial	"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "chaoticflairA"
+hit_cancel_exceptions_string = "chaoticflairA"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/chaoticflair" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 68
+y = -18
+width = 56
+height = 18
+damage = 80
+minimum_damage = 26
+hitstun_ticks = 24
+hitlag_ticks = 10
+victim_hitlag = 10
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 2
+screenshake_amount = 8
+screenshake_frames = 8
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 44 )
+hit_sound = ExtResource( 45 )
+hit_bass_sound = ExtResource( 94 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "-0.4"
+knockback = "10"
+block_pushback_modifier = "2.0"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 3
+
+[node name="chaoticflairA" type="Node2D" parent="StateMachine" index="71"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "chaoticflair"
+anim_length = 24
+ticks_per_frame = 2
+particle_scene = ExtResource( 11 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+timed_particle_scene = ExtResource( 151 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 6
+enter_sfx = ExtResource( 128 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 100 )
+sfx_tick = 6
+sfx_volume = -6.0
+title = "Chaotic Flair"
+type = 1
+data_ui_scene = ExtResource( 19 )
+button_texture = ExtResource( 92 )
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 10
+iasa_on_hit = 12
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial	"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "chaoticflair"
+hit_cancel_exceptions_string = "chaoticflair"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/chaoticflairA" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 68
+y = -18
+width = 56
+height = -26
+damage = 80
+minimum_damage = 26
+hitstun_ticks = 24
+hitlag_ticks = 10
+victim_hitlag = 16
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+block_cancel_allowed = false
+plus_frames = 2
+screenshake_amount = 8
+screenshake_frames = 8
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 44 )
+hit_sound = ExtResource( 45 )
+hit_bass_sound = ExtResource( 94 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "-0.4"
+knockback = "10"
+block_pushback_modifier = "2.0"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 3
+
+[node name="palmoflife" type="Node2D" parent="StateMachine" index="72"]
+script = ExtResource( 34 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_forces_no_limit = true
+sprite_animation = "palmoflife"
+anim_length = 32
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-2"
+enter_sfx = ExtResource( 60 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 70 )
+sfx_tick = 9
+sfx_volume = -6.0
+title = "Palm of Life"
+type = 1
+data_ui_scene = ExtResource( 19 )
+button_texture = ExtResource( 55 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+no_collision_start_frame = 9
+no_collision_end_frame = 16
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/palmoflife" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 6
+y = -18
+width = 30
+height = 16
+damage = 20
+minimum_damage = 6
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 2
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+followup_state = "palmoflife2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 94 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "20"
+start_tick = 11
+active_ticks = 7
+
+[node name="palmoflife2" type="Node2D" parent="StateMachine" index="73"]
+script = ExtResource( 35 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "palmoflife2"
+anim_length = 36
+ticks_per_frame = 2
+title = "Palm of Life"
+show_in_menu = false
+type = 1
+button_texture = ExtResource( 55 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+no_collision_start_frame = 1
+no_collision_end_frame = 99
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/palmoflife2" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 32
+height = 32
+damage = 20
+minimum_damage = 6
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 2
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 52 )
+hit_bass_sound = ExtResource( 45 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "0"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 4
+active_ticks = 2
+misc_data = "1"
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/palmoflife2" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 32
+height = 32
+damage = 30
+minimum_damage = 10
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 2
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 52 )
+hit_bass_sound = ExtResource( 45 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "0"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 8
+active_ticks = 2
+misc_data = "2"
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/palmoflife2" index="2"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 32
+height = 32
+damage = 30
+minimum_damage = 10
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 2
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+group = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 52 )
+hit_bass_sound = ExtResource( 45 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "0"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 12
+active_ticks = 2
+misc_data = "3"
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/palmoflife2" index="3"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 32
+height = 32
+damage = 30
+minimum_damage = 10
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 2
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+group = 3
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 52 )
+hit_bass_sound = ExtResource( 45 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "0"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 16
+active_ticks = 2
+misc_data = "4"
+
+[node name="Hitbox5" type="Node2D" parent="StateMachine/palmoflife2" index="4"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 32
+height = 32
+damage = 30
+minimum_damage = 10
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 2
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 1
+group = 4
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 52 )
+hit_bass_sound = ExtResource( 45 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "0"
+pushback_x = "-2"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 20
+active_ticks = 2
+misc_data = "5"
+
+[node name="Hitbox6" type="Node2D" parent="StateMachine/palmoflife2" index="5"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 27
+y = -26
+width = 56
+height = 30
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 28
+victim_hitlag = 8
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "1.25"
+block_cancel_allowed = false
+plus_frames = 1
+group = 5
+screenshake_amount = 8
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "1"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+ground_bounce = false
+start_tick = 24
+active_ticks = 2
+misc_data = "placemark"
+
+[node name="Hitbox7" type="Node2D" parent="StateMachine/palmoflife2" index="6"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 27
+y = -26
+width = 56
+height = 30
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 28
+hitlag_ticks = 8
+victim_hitlag = 12
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "1.25"
+block_cancel_allowed = false
+plus_frames = 1
+group = 7
+screenshake_amount = 8
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 89 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "1"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+ground_bounce = false
+start_tick = 28
+active_ticks = 2
+misc_data = "placemark"
+
+[node name="ocularmiracle" type="Node2D" parent="StateMachine" index="74"]
+script = ExtResource( 33 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "ocularmiracle"
+anim_length = 14
+ticks_per_frame = 2
+enter_sfx = ExtResource( 101 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 47 )
+sfx_tick = 4
+sfx_volume = -6.0
+title = "Ocular Miracle"
+type = 2
+data_ui_scene = ExtResource( 145 )
+button_texture = ExtResource( 49 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+force_feintable = true
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="surveyor" type="Node2D" parent="StateMachine" index="75"]
+script = ExtResource( 161 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.05"
+sprite_animation = "ocularmiracle"
+anim_length = 16
+ticks_per_frame = 2
+enter_sfx = ExtResource( 47 )
+enter_sfx_volume = -9.0
+title = "Surveyor"
+type = 2
+data_ui_scene = ExtResource( 18 )
+button_texture = ExtResource( 164 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="arcofmisfortune" type="Node2D" parent="StateMachine" index="76"]
+script = ExtResource( 22 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "arcofmisfortune"
+anim_length = 24
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "6"
+enter_sfx = ExtResource( 48 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 60 )
+sfx_volume = -6.0
+title = "Arc of Misfortune"
+type = 2
+data_ui_scene = ExtResource( 19 )
+button_texture = ExtResource( 68 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/arcofmisfortune" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 41
+y = -30
+width = 35
+height = 30
+damage = 90
+minimum_damage = 30
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "1.5"
+plus_frames = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 50 )
+hit_bass_sound = ExtResource( 9 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "0.5"
+knockback = "20"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+hard_knockdown = true
+ground_bounce = false
+start_tick = 7
+active_ticks = 3
+
+[node name="solace" type="Node2D" parent="StateMachine" index="77"]
+script = ExtResource( 41 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "solace"
+anim_length = 14
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 151 )
+timed_particle_position = Vector2( 8, 0 )
+timed_spawn_particle_tick = 4
+enter_sfx = ExtResource( 6 )
+enter_sfx_volume = -9.0
+title = "Solace"
+type = 2
+data_ui_scene = ExtResource( 18 )
+button_texture = ExtResource( 122 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+force_feintable = true
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="solaceharvest" type="Node2D" parent="StateMachine" index="78"]
+script = ExtResource( 38 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "solaceharvest"
+anim_length = 6
+ticks_per_frame = 2
+title = "Harvest"
+show_in_menu = false
+type = 2
+next_state_on_hold_on_opponent_turn = true
+selectable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="eternalhunger" type="Node2D" parent="StateMachine" index="79"]
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "eternalhunger"
+anim_length = 24
+ticks_per_frame = 2
+particle_scene = ExtResource( 147 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 1
+state_screenshake_amount = 2
+enter_sfx = ExtResource( 103 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 54 )
+sfx_volume = -9.0
+title = "Eternal Hunger"
+type = 2
+data_ui_scene = ExtResource( 13 )
+button_texture = SubResource( 2 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+marks_required = 1
+consume_mark = true
+
+[node name="dreadwheel" type="Node2D" parent="StateMachine" index="80"]
+script = ExtResource( 25 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "dreadwheel"
+anim_length = 16
+ticks_per_frame = 2
+particle_scene = ExtResource( 147 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 100 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 90 )
+sfx_tick = 4
+sfx_volume = -6.0
+title = "Dread Wheel"
+type = 2
+button_texture = SubResource( 3 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+marks_required = 1
+consume_mark = true
+
+[node name="haven" type="Node2D" parent="StateMachine" index="81"]
+script = ExtResource( 29 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.15"
+custom_y_fric = "0.15"
+sprite_animation = "haven"
+anim_length = 48
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "6"
+force_tick = 28
+particle_scene = ExtResource( 147 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 91 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 51 )
+sfx_volume = -9.0
+title = "Haven"
+type = 2
+button_texture = SubResource( 4 )
+air_type = 2
+land_cancel = true
+min_land_cancel_frame = 38
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+apply_pushback = false
+no_collision_start_frame = 1
+no_collision_end_frame = 30
+drag = true
+offset_x = 48
+end_on = 30
+marks_required = 1
+consume_mark = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/haven" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 30
+y = -25
+width = 40
+height = 15
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 96 )
+hit_sound = ExtResource( 50 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+block_pushback_modifier = "0"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/haven" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 30
+y = -25
+width = 40
+height = 15
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 96 )
+hit_sound = ExtResource( 50 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+block_pushback_modifier = "0"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 13
+active_ticks = 2
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/haven" index="2"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 30
+y = -25
+width = 40
+height = 15
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+group = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 96 )
+hit_sound = ExtResource( 50 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+block_pushback_modifier = "0"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 17
+active_ticks = 2
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/haven" index="3"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 30
+y = -25
+width = 40
+height = 15
+damage = 35
+minimum_damage = 11
+hitstun_ticks = 24
+hitlag_ticks = 2
+victim_hitlag = 8
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+group = 3
+screenshake_amount = 2
+hit_particle = ExtResource( 11 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 96 )
+hit_sound = ExtResource( 50 )
+hit_bass_sound = ExtResource( 93 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+block_pushback_modifier = "0"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 21
+active_ticks = 2
+
+[node name="Hitbox5" type="Node2D" parent="StateMachine/haven" index="4"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 30
+y = -25
+width = 40
+height = 15
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 22
+hitlag_ticks = 12
+victim_hitlag = 12
+combo_scaling_amount = 0
+cancellable = false
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+meter_gain_modifier = "2"
+guard_break = true
+plus_frames = 2
+group = 4
+screenshake_amount = 10
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 82 )
+hit_sound = ExtResource( 99 )
+hit_bass_sound = ExtResource( 53 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "12"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+hard_knockdown = true
+start_tick = 30
+active_ticks = 2
+
+[node name="infectant" type="Node2D" parent="StateMachine" index="82"]
+script = ExtResource( 31 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "infectant"
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-1"
+particle_scene = ExtResource( 136 )
+particle_position = Vector2( 0, -12 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 60 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 62 )
+sfx_tick = 8
+sfx_volume = -6.0
+title = "Infectant"
+type = 3
+data_ui_scene = ExtResource( 152 )
+button_texture = ExtResource( 131 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_level_ = 1
+supers_used_ = 1
+super_freeze_ticks_ = 0
+super_effect_ = true
+scale_combo_meter_ = true
+
+[node name="gloriousmotherspike" type="Node2D" parent="StateMachine" index="83"]
+script = ExtResource( 28 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "gloriousmotherspike"
+anim_length = 14
+ticks_per_frame = 2
+particle_scene = ExtResource( 150 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 87 )
+enter_sfx_volume = -6.0
+title = "Glorious Motherspike"
+type = 3
+data_ui_scene = ExtResource( 18 )
+button_texture = ExtResource( 111 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_level_ = 2
+supers_used_ = 2
+super_freeze_ticks_ = 10
+super_effect_ = true
+scale_combo_meter_ = true
+force_super_effect = true
+
+[node name="sensation" type="Node2D" parent="StateMachine" index="84"]
+script = ExtResource( 40 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+reset_momentum = true
+reset_x_momentum = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+sprite_animation = "gloriousmotherspike"
+anim_length = 40
+ticks_per_frame = 2
+enter_force_dir_x = "0"
+enter_force_dir_y = "-1"
+enter_force_speed = "1"
+particle_scene = ExtResource( 147 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 1
+state_screenshake_length = 0.5
+state_screenshake_amount = 2
+enter_sfx = ExtResource( 98 )
+enter_sfx_volume = -6.0
+title = "Sensation"
+type = 3
+data_ui_scene = ExtResource( 13 )
+button_texture = ExtResource( 108 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_level_ = 3
+supers_used_ = 3
+super_freeze_ticks_ = 5
+super_effect_ = true
+scale_combo_meter_ = true
+force_super_effect = true
+
+[node name="insanity" type="Node2D" parent="StateMachine" index="85"]
+script = ExtResource( 37 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "insanity"
+anim_length = 50
+ticks_per_frame = 2
+particle_scene = ExtResource( 20 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+timed_particle_scene = ExtResource( 140 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 35
+title = "Insanity"
+type = 3
+button_texture = ExtResource( 129 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_level_ = 1
+supers_used_ = 1
+scale_combo_meter_ = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/insanity" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+y = -12
+width = 80
+height = 80
+damage = 100
+minimum_damage = 33
+hitstun_ticks = 20
+hitlag_ticks = 18
+victim_hitlag = 18
+cancellable = false
+hits_otg = true
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "0"
+ignore_armor = true
+screenshake_amount = 16
+hit_particle = ExtResource( 137 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 94 )
+hit_bass_sound = ExtResource( 50 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "-0.1"
+knockback = "48"
+pushback_x = "-1"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 36
+active_ticks = 2
+
+[node name="StressIndicator" type="Sprite" parent="." index="15"]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 0, -46 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 133 )
+
+[node name="Bar" type="Sprite" parent="StressIndicator" index="0"]
+position = Vector2( 0.5, 0 )
+texture = ExtResource( 106 )
+
+[node name="Text" type="Label" parent="StressIndicator" index="1"]
+margin_left = -28.6667
+margin_top = -11.3333
+margin_right = 84.3333
+margin_bottom = 2.66667
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 5 )
+text = "Stress: 50%"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="FlavorText" type="Label" parent="." index="16"]
+unique_name_in_owner = true
+visible = false
+margin_left = -20.0
+margin_top = 12.0
+margin_right = 20.0
+margin_bottom = 26.0
+theme = ExtResource( 5 )
+text = "You"
+align = 1
+
+[node name="PrivelegeText" type="RichTextLabel" parent="." index="17"]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -250.0
+margin_top = 16.0
+margin_right = 250.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 500, 50 )
+theme = ExtResource( 5 )
+bbcode_enabled = true
+
+[node name="Emote" type="RichTextLabel" parent="." index="18"]
+unique_name_in_owner = true
+margin_left = -75.0
+margin_top = -66.0
+margin_right = 75.0
+margin_bottom = -54.0
+grow_vertical = 0
+rect_clip_content = false
+theme = ExtResource( 5 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+
+[node name="CustomUI" type="Node" parent="." index="19"]
+script = ExtResource( 154 )

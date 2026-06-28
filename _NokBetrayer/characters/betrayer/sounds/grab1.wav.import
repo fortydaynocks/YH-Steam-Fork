@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grab1.wav-3c0fe9183a575c690a4cc13421e62c3c.sample"
+
+[deps]
+
+source_file="res://_NokBetrayer/characters/betrayer/sounds/grab1.wav"
+dest_files=[ "res://.import/grab1.wav-3c0fe9183a575c690a4cc13421e62c3c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

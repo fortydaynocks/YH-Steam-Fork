@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/SK-Summon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/doomwight/Doomwight-Default.gd" type="Script" id=2]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/effects/SK-Spark.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/doomwight/Doomwight-Flurry.gd" type="Script" id=5]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=6]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/effects/SK-Hit1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/swing5-high.wav" type="AudioStream" id=8]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/hit3.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/slash1.wav" type="AudioStream" id=11]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/hit-slash.wav" type="AudioStream" id=12]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/doomwight/Doomwight-FlashSlash.gd" type="Script" id=13]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/swing5.wav" type="AudioStream" id=14]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/slash3.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/spell1.wav" type="AudioStream" id=16]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+ground_friction = "1.5"
+air_friction = "1.5"
+tag = "Doomwight"
+
+[node name="Sprite" parent="Flip" index="0"]
+frame = 4
+
+[node name="Spawn" parent="StateMachine" index="0"]
+sprite_animation = "dmw-spawn"
+anim_length = 18
+timed_particle_scene = ExtResource( 4 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 10
+sfx = ExtResource( 16 )
+sfx_volume = -6.0
+timeout = 18
+
+[node name="hard slash" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+fallback_state = "Default"
+sprite_animation = "dmw-hardslash"
+anim_length = 20
+ticks_per_frame = 2
+enter_sfx = ExtResource( 8 )
+enter_sfx_volume = -6.0
+action = true
+timeout = 30
+auto_facing = false
+chase_range = 0
+chase_vertical = true
+chase_limit = 16
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/hard slash" index="0"]
+z_index = 1000
+script = ExtResource( 6 )
+x = 26
+y = -17
+width = 26
+height = 21
+damage = 60
+hitstun_ticks = 18
+hitlag_ticks = 8
+victim_hitlag = 8
+cancellable = false
+plus_frames = 1
+hit_particle = ExtResource( 7 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 11 )
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 9 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.25"
+knockback = "5"
+start_tick = 10
+active_ticks = 3
+
+[node name="flash slash" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+fallback_state = "Default"
+sprite_animation = "dmw-flashslash"
+anim_length = 30
+ticks_per_frame = 2
+enter_sfx = ExtResource( 14 )
+enter_sfx_volume = -6.0
+action = true
+timeout = 50
+auto_facing = false
+chase_range = 0
+chase_vertical = true
+chase_limit = 11
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/flash slash" index="0"]
+z_index = 1000
+script = ExtResource( 6 )
+y = -19
+width = 90
+height = 9
+damage = 90
+hitstun_ticks = 20
+hitlag_ticks = 10
+victim_hitlag = 10
+cancellable = false
+plus_frames = 1
+hit_particle = ExtResource( 7 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 15 )
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 9 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 11
+active_ticks = 2
+
+[node name="Default" parent="StateMachine" index="3"]
+script = ExtResource( 2 )
+apply_grav = false
+apply_custom_y_fric = true
+custom_y_fric = "0.1"
+sprite_animation = "dmw"
+chase_speed = 0.25
+chase_vertical = true
+move_animation = "dmw-move"
+air_animation = "dmw"
+use_air_animation = false

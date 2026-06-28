@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pl41_act_start.wav-902b1a85fcd718714630c2872e2d297b.sample"
+
+[deps]
+
+source_file="res://_NokNiflheim/characters/niflheim/sounds/pl41_act_start.wav"
+dest_files=[ "res://.import/pl41_act_start.wav-902b1a85fcd718714630c2872e2d297b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

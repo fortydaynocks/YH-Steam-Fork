@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/ui/THS-Extra.gd" type="Script" id=3]
+[ext_resource path="res://theme.tres" type="Theme" id=4]
+
+[node name="PlayerExtra" instance=ExtResource( 2 )]
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_right = 99.0
+margin_bottom = 360.0
+alignment = 2
+
+[node name="PlaceContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
+unique_name_in_owner = true
+margin_top = 322.0
+margin_right = 99.0
+margin_bottom = 334.0
+
+[node name="PlaceLabel" type="CheckButton" parent="VBoxContainer/PlaceContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 48.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 33, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Place"
+flat = true
+
+[node name="Place" type="HSlider" parent="VBoxContainer/PlaceContainer" index="1"]
+unique_name_in_owner = true
+margin_left = 49.0
+margin_right = 99.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 50, 0 )
+hint_tooltip = "Freely place an Array while in Terminus."
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="ArrayContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 335.0
+margin_right = 99.0
+margin_bottom = 347.0
+
+[node name="Label" type="Label" parent="VBoxContainer/ArrayContainer" index="0"]
+margin_right = 33.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 33, 0 )
+custom_colors/font_color = Color( 1, 0, 0.266667, 1 )
+text = "Array: "
+
+[node name="Array" type="HSlider" parent="VBoxContainer/ArrayContainer" index="1"]
+unique_name_in_owner = true
+modulate = Color( 1, 0, 0.266667, 1 )
+margin_left = 34.0
+margin_right = 99.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 50, 0 )
+hint_tooltip = "Move this to the left to pick the leftmost Array, and vice versa."
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="DisableArray" type="CheckButton" parent="VBoxContainer" index="2"]
+unique_name_in_owner = true
+margin_top = 348.0
+margin_right = 56.0
+margin_bottom = 360.0
+hint_tooltip = "Disable the Array. Cannot be used while using an Array."
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Disable"
+
+[connection signal="pressed" from="VBoxContainer/PlaceContainer/PlaceLabel" to="." method="_on_PlaceLabel_pressed"]
+[connection signal="drag_ended" from="VBoxContainer/PlaceContainer/Place" to="." method="_on_Place_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/ArrayContainer/Array" to="." method="_on_Array_drag_ended"]
+[connection signal="pressed" from="VBoxContainer/DisableArray" to="." method="_on_DisableArray_pressed"]

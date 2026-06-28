@@ -1,0 +1,137 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/resources/SK-SF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/SK-Summon.gd" type="Script" id=3]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/SK-SummonSpawn.gd" type="Script" id=5]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/SK-SummonDefault.gd" type="Script" id=7]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=8]
+[ext_resource path="res://theme.tres" type="Theme" id=9]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/ui/sk-ui-summonbar3.png" type="Texture" id=10]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/ui/sk-ui-summonbar5.png" type="Texture" id=11]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/ui/sk-ui-summonbar4.png" type="Texture" id=12]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/summon-end.wav" type="AudioStream" id=14]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/effects/SK-Despawn.tscn" type="PackedScene" id=15]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+gravity = "0.5"
+air_friction = "2.5"
+max_air_speed = "15"
+has_projectile_parry_window = false
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+projectile_immune = true
+tag = "Summon"
+disable_particle = ExtResource( 15 )
+disable_particle_offset = Vector2( 0, -18 )
+disable_sound = "Vanish"
+is_summon = true
+summon_weight = 1
+max_hp = 1
+hp_bar_length = 30
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 2 )
+offset = Vector2( 0, -18 )
+
+[node name="Vanish" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 14 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 8 )
+
+[node name="CollisionBox" parent="." index="2"]
+__meta__ = {
+"_editor_description_": ""
+}
+y = -14
+width = 12
+height = 14
+
+[node name="Hurtbox" parent="." index="3"]
+__meta__ = {
+"_editor_description_": ""
+}
+y = -16
+width = 14
+height = 16
+
+[node name="Spawn" type="Node2D" parent="StateMachine" index="0"]
+script = ExtResource( 5 )
+fallback_state = "Default"
+sprite_animation = "skl-spawn"
+anim_length = 16
+ticks_per_frame = 2
+timeout = 16
+auto_facing = false
+chase = false
+
+[node name="Default" parent="StateMachine" index="1"]
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "skl"
+endless = false
+_c_summon = 0
+action = false
+timeout = 0
+auto_facing = true
+disable_after = false
+chase = true
+chase_range = 100
+chase_speed = 0.5
+chase_vertical = false
+chase_limit = -1
+move_animation = "skl-move"
+air_animation = "skl-air"
+use_air_animation = true
+
+[node name="HPContainer" type="Node2D" parent="." index="7"]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 0, 14 )
+
+[node name="HPBar" type="TextureProgress" parent="HPContainer" index="0"]
+unique_name_in_owner = true
+margin_top = -10.0
+margin_right = 30.0
+margin_bottom = -3.0
+max_value = 1.0
+value = 1.0
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 10 )
+tint_under = Color( 0.160784, 0.164706, 0.184314, 1 )
+tint_over = Color( 0, 1, 0, 1 )
+tint_progress = Color( 0, 1, 0, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+
+[node name="HPCount" type="RichTextLabel" parent="HPContainer" index="1"]
+unique_name_in_owner = true
+margin_top = -12.0
+margin_right = 30.0
+margin_bottom = 2.0
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]1"
+text = "1"
+
+[node name="Info" type="RichTextLabel" parent="." index="8"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = -250.0
+margin_top = 14.0
+margin_right = 250.0
+margin_bottom = 116.0
+theme = ExtResource( 9 )
+bbcode_enabled = true

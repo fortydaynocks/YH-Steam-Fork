@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing4.wav-317152b7960ba123f4a8e113afd01af3.sample"
+
+[deps]
+
+source_file="res://_NokSnowdancer/characters/snowdancer/sounds/swing4.wav"
+dest_files=[ "res://.import/swing4.wav-317152b7960ba123f4a8e113afd01af3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

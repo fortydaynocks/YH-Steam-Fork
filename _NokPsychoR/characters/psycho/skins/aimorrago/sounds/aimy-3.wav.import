@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/aimy-3.wav-c208c87288b9e0138ffd177a9dc5a24b.sample"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/skins/aimorrago/sounds/aimy-3.wav"
+dest_files=[ "res://.import/aimy-3.wav-c208c87288b9e0138ffd177a9dc5a24b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

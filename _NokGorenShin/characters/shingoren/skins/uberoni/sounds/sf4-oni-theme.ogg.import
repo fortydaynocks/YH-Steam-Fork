@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sf4-oni-theme.ogg-447c5c8b2c9218b44fab36026faf7ad2.oggstr"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/uberoni/sounds/sf4-oni-theme.ogg"
+dest_files=[ "res://.import/sf4-oni-theme.ogg-447c5c8b2c9218b44fab36026faf7ad2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

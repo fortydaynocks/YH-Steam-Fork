@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSilo/characters/silo/resources/SiloProjSF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/TortureMarkDefault.gd" type="Script" id=3]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/TortureMark.gd" type="Script" id=4]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+extra_state_variables = "victim"
+projectile_immune = true
+
+[node name="Sprite" parent="Flip" index="0"]
+z_index = 1
+frames = ExtResource( 2 )
+animation = "torturemark"
+
+[node name="CollisionBox" parent="." index="2"]
+width = 0
+height = 0
+
+[node name="Hurtbox" parent="." index="3"]
+width = 0
+height = 0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "torturemark"
+anim_length = 8
+ticks_per_frame = 2
+endless = false

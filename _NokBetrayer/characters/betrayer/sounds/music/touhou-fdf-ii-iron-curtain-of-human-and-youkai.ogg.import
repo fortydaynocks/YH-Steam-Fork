@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/touhou-fdf-ii-iron-curtain-of-human-and-youkai.ogg-836259ef4e025d58e92ffef2cf57bb82.oggstr"
+
+[deps]
+
+source_file="res://_NokBetrayer/characters/betrayer/sounds/music/touhou-fdf-ii-iron-curtain-of-human-and-youkai.ogg"
+dest_files=[ "res://.import/touhou-fdf-ii-iron-curtain-of-human-and-youkai.ogg-836259ef4e025d58e92ffef2cf57bb82.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

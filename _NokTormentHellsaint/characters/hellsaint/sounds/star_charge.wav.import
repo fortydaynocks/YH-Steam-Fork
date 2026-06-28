@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/star_charge.wav-276d1e85fe54dd1b9d17700156eb1311.sample"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/star_charge.wav"
+dest_files=[ "res://.import/star_charge.wav-276d1e85fe54dd1b9d17700156eb1311.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

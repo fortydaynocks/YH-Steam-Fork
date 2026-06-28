@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://_NokGentleman/characters/gentleman/effects/yomifx_ring32.png" type="Texture" id=3]
+[ext_resource path="res://_NokGentleman/characters/gentleman/effects/yomifx_hit.png" type="Texture" id=4]
+[ext_resource path="res://_NokGentleman/characters/gentleman/ui/gmui_item-brassknuckle.png" type="Texture" id=5]
+[ext_resource path="res://_NokGentleman/characters/gentleman/effects/yomifx_ring.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=15]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 0.790909 ), 0.0, 1.04339, 0, 0, Vector2( 1, 1 ), 0.209091, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=19]
+colors = PoolColorArray( 1, 1, 1, 0.392157, 1, 1, 1, 0.392157 )
+
+[sub_resource type="Curve" id=17]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=18]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=22]
+blend_mode = 1
+
+[sub_resource type="Curve" id=20]
+_data = [ Vector2( 0, 1 ), 0.0, -2.25348, 0, 0, Vector2( 0.122924, 0.693182 ), -0.7, -0.7, 0, 0, Vector2( 1, 0.493182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=21]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="hit" type="CPUParticles2D" parent="." index="1"]
+material = SubResource( 15 )
+z_index = 1
+amount = 4
+lifetime = 0.2
+explosiveness = 1.0
+texture = ExtResource( 6 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 16 )
+color = Color( 0.44, 0.45, 0.76, 1 )
+anim_speed = 1.0
+
+[node name="hit2" type="CPUParticles2D" parent="." index="2"]
+material = SubResource( 15 )
+z_index = 1
+amount = 2
+lifetime = 0.15
+explosiveness = 1.0
+texture = ExtResource( 6 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 16 )
+color = Color( 0.44, 0.45, 0.76, 1 )
+color_ramp = SubResource( 19 )
+anim_speed = 1.0
+
+[node name="shock" type="CPUParticles2D" parent="." index="3"]
+z_index = -1
+amount = 4
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 17 )
+color = Color( 0.44, 0.45, 0.76, 1 )
+color_ramp = SubResource( 18 )
+
+[node name="ring" type="CPUParticles2D" parent="." index="4"]
+z_index = -1
+amount = 1
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 6.0
+scale_amount_curve = SubResource( 17 )
+color = Color( 0.44, 0.45, 0.76, 1 )
+color_ramp = SubResource( 18 )
+
+[node name="icon" type="CPUParticles2D" parent="." index="5"]
+material = SubResource( 22 )
+position = Vector2( 0, -36 )
+amount = 1
+lifetime = 0.5
+texture = ExtResource( 5 )
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, -20 )
+scale_amount = 3.0
+scale_amount_curve = SubResource( 20 )
+color_ramp = SubResource( 21 )

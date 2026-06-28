@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/yomifx_slash4-straight2.png" type="Texture" id=1]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/yomifx_slash4.png" type="Texture" id=2]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/yomifx_ring.png" type="Texture" id=3]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/yomifx_slash2.png" type="Texture" id=7]
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void fragment(){
+	
+	vec4 color = vec4(texture(SCREEN_TEXTURE, SCREEN_UV).rgb, texture(TEXTURE, UV).a);
+	
+	COLOR = vec4(1.0 - color.rgb,  color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.5 ), 0.0, 0.247727, 0, 1, Vector2( 1, 0.747727 ), 0.247727, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[node name="ParticleEffect" instance=ExtResource( 5 )]
+material = SubResource( 10 )
+
+[node name="invert-slash" type="CPUParticles2D" parent="." index="1"]
+modulate = Color( 1, 0.5, 0.5, 1 )
+material = SubResource( 2 )
+z_index = 1
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 3 )
+
+[node name="invert-slash2" type="CPUParticles2D" parent="." index="2"]
+modulate = Color( 1, 0.5, 0.5, 0.25 )
+material = SubResource( 2 )
+z_index = 1
+amount = 1
+lifetime = 0.05
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_curve = SubResource( 3 )
+
+[node name="ring" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 6 )
+amount = 2
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 6.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 7 )
+color = Color( 1, 1, 1, 0.25 )
+color_ramp = SubResource( 8 )
+anim_speed = 1.0
+
+[node name="streaks" type="CPUParticles2D" parent="." index="4"]
+modulate = Color( 1, 0, 0, 1 )
+amount = 2
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 1 )
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 2000.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 9 )
+color = Color( 1, 1, 1, 0.25 )

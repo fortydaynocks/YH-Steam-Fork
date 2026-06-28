@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/OrderWave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slice4.wav" type="AudioStream" id=3]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/BTHit1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/hitbass4.wav" type="AudioStream" id=5]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/coolsound2.wav" type="AudioStream" id=6]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/coolsound3.wav" type="AudioStream" id=7]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/OrderWaveBig.gd" type="Script" id=8]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 8 )
+tag = "OrderWaveBig"
+
+[node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 2, 2 )
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0"]
+material = SubResource( 1 )
+
+[node name="slash" parent="Flip/Particles/ParticleEffect" index="1"]
+amount = 4
+initial_velocity = 1000.0
+scale_amount = 2.0
+
+[node name="Collide" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 7 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 9 )
+pitch_variation = 0.05
+
+[node name="Collide2" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+stream = ExtResource( 6 )
+volume_db = -6.0
+pitch_scale = 0.5
+bus = "Fx"
+script = ExtResource( 9 )
+pitch_variation = 0.05
+
+[node name="CollisionBox" parent="." index="2"]
+width = 40
+height = 40
+
+[node name="Hurtbox" parent="." index="3"]
+width = 40
+height = 40
+
+[node name="Default" parent="StateMachine" index="0"]
+lifetime = 90
+clash = true
+num_hits = 5
+
+[node name="Hitbox" parent="StateMachine/Default" index="0"]
+width = 60
+height = 60
+damage = 50
+hitlag_ticks = 4
+screenshake_amount = 8
+hit_particle = ExtResource( 4 )
+hit_sound = ExtResource( 3 )
+hit_bass_sound = ExtResource( 5 )
+knockdown = false
+looping = true

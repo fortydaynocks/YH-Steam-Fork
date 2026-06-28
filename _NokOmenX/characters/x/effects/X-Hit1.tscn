@@ -1,0 +1,160 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokOmenX/characters/x/effects/yomifx_ring.png" type="Texture" id=2]
+[ext_resource path="res://_NokOmenX/characters/x/effects/yomifx_hit2.png" type="Texture" id=3]
+[ext_resource path="res://_NokOmenX/characters/x/effects/yomifx_ring32.png" type="Texture" id=4]
+[ext_resource path="res://_NokOmenX/characters/x/effects/yomifx_dot2.png" type="Texture" id=5]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
+
+[sub_resource type="ShaderMaterial" id=9]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.265909 ), 0.0, -0.265909, 0, 1, Vector2( 1, 0 ), -0.265909, 0.0, 1, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 3.96818, 0, 0, Vector2( 0.245283, 1 ), 4.07692, -0.697131, 1, 1, Vector2( 1, 0.473864 ), -0.697131, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=11]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=12]
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 9 )
+
+[node name="blood" type="CPUParticles2D" parent="." index="1"]
+modulate = Color( 1, 0, 0, 1 )
+lifetime = 0.5
+explosiveness = 1.0
+texture = ExtResource( 5 )
+spread = 180.0
+gravity = Vector2( 0, 200 )
+initial_velocity = 500.0
+initial_velocity_random = 0.5
+damping = 500.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+
+[node name="blood2" type="CPUParticles2D" parent="." index="2"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 10 )
+lifetime = 0.25
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource( 5 )
+spread = 180.0
+gravity = Vector2( 0, 200 )
+initial_velocity = 500.0
+initial_velocity_random = 0.5
+angle = 360.0
+angle_random = 1.0
+scale_amount = 5.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 1, 1, 0.501961 )
+
+[node name="ring" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 1, 0, 0, 1 )
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 6.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+
+[node name="hit" type="CPUParticles2D" parent="." index="4"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 5 )
+rotation = 0.349066
+amount = 2
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 40.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 6 )
+color_ramp = SubResource( 8 )
+
+[node name="hit2" type="CPUParticles2D" parent="." index="5"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 7 )
+rotation = 0.349066
+z_index = -1
+amount = 4
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 40.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 6 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 8 )
+
+[node name="small-ring" type="CPUParticles2D" parent="." index="6"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 11 )
+z_index = 1
+amount = 2
+lifetime = 0.4
+explosiveness = 1.0
+texture = ExtResource( 2 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_random = 0.5
+color_ramp = SubResource( 12 )
+anim_speed = 1.0

@@ -1,0 +1,2114 @@
+[gd_scene load_steps=109 format=2]
+
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoR-SF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/DeoR.gd" type="Script" id=3]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoRApproach.gd" type="Script" id=4]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoRWait.gd" type="Script" id=5]
+[ext_resource path="res://_NokDeoR/characters/deo/sprites/deorportrait.png" type="Texture" id=6]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit3-cvs2.wav" type="AudioStream" id=7]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=8]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-State.gd" type="Script" id=9]
+[ext_resource path="res://HurtboxState.gd" type="Script" id=10]
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoR-Shader.tres" type="Shader" id=11]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Hit1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit1-hftf.wav" type="AudioStream" id=13]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit3-hftf.wav" type="AudioStream" id=14]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit2-cvs2.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit4-cvs2.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Hit2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://sound/common/swish.wav" type="AudioStream" id=18]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/swing1-hftf.wav" type="AudioStream" id=19]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/swing2-hftf.wav" type="AudioStream" id=20]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/swing3-hftf.wav" type="AudioStream" id=21]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/swing2-cvs2.wav" type="AudioStream" id=22]
+[ext_resource path="res://framework/VariableSound.gd" type="Script" id=23]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoRCrash.gd" type="Script" id=24]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/slam.wav" type="AudioStream" id=25]
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoRVoiceline.gd" type="Script" id=26]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_hmmm.wav" type="AudioStream" id=27]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_diye.wav" type="AudioStream" id=28]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_nyeh.wav" type="AudioStream" id=29]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoHideousOmen.gd" type="Script" id=30]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/step2-cvs2.wav" type="AudioStream" id=31]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/step-cvs2.wav" type="AudioStream" id=32]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/land-hftf.wav" type="AudioStream" id=33]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/summon_stand.wav" type="AudioStream" id=34]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_summon.wav" type="AudioStream" id=35]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Ring1.tscn" type="PackedScene" id=36]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-KnifeShine.tscn" type="PackedScene" id=37]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Volley.gd" type="Script" id=38]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_AirJump.tscn" type="PackedScene" id=39]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoRStand.tscn" type="PackedScene" id=40]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Ring2.tscn" type="PackedScene" id=41]
+[ext_resource path="res://_NokDeoR/characters/deo/ui/DeoR-Extra.tscn" type="PackedScene" id=42]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_XYPlot.tscn" type="PackedScene" id=43]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoRStandCommand.gd" type="Script" id=44]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Swipe.gd" type="Script" id=45]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoSwipe.gd" type="Script" id=46]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit2-hftf.wav" type="AudioStream" id=47]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/bloodsuck.wav" type="AudioStream" id=48]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/shiny_swing.wav" type="AudioStream" id=49]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_bloodsuck.wav" type="AudioStream" id=50]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/stab2-hftf.wav" type="AudioStream" id=51]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-LifeDrain2.gd" type="Script" id=52]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/heal.wav" type="AudioStream" id=53]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_wryyy.wav" type="AudioStream" id=54]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/throw_knife.wav" type="AudioStream" id=55]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_Volley.tscn" type="PackedScene" id=56]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_Volley2.tscn" type="PackedScene" id=57]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Volley2.gd" type="Script" id=58]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_hm.wav" type="AudioStream" id=59]
+[ext_resource path="res://_NokDeoR/characters/deo/sprites/deor-portrait2.png" type="Texture" id=60]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_Horiz.tscn" type="PackedScene" id=61]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-SignSlash.gd" type="Script" id=62]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-LifeDrain.gd" type="Script" id=63]
+[ext_resource path="res://mechanics/SweptHitbox.gd" type="Script" id=64]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/spaceripperstingyeyes.wav" type="AudioStream" id=65]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/stab3-hftf.wav" type="AudioStream" id=66]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit1-cvs2.wav" type="AudioStream" id=67]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-SpaceRipper.gd" type="Script" id=68]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_mudada.wav" type="AudioStream" id=69]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_takethis.wav" type="AudioStream" id=70]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Silencer.gd" type="Script" id=71]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_SignSlash.tscn" type="PackedScene" id=72]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/pullout_knives.wav" type="AudioStream" id=73]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Roundhouse.gd" type="Script" id=74]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=75]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Timezone.gd" type="Script" id=76]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Star1.tscn" type="PackedScene" id=77]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Halt.gd" type="Script" id=78]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/timeskip2.wav" type="AudioStream" id=79]
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoRVoiceline.tres" type="Resource" id=80]
+[ext_resource path="res://theme.tres" type="Theme" id=81]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Timestop.gd" type="Script" id=82]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_timestop.wav" type="AudioStream" id=83]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/misc_1.wav" type="AudioStream" id=84]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/timestop.wav" type="AudioStream" id=85]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/super.wav" type="AudioStream" id=86]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Ring3.tscn" type="PackedScene" id=87]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID-StandPower.tscn" type="PackedScene" id=88]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-StandPower.gd" type="Script" id=89]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_Adjust.tscn" type="PackedScene" id=90]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-RoundhouseA.gd" type="Script" id=91]
+[ext_resource path="res://characters/robo/GroundPoundEffect.tscn" type="PackedScene" id=92]
+[ext_resource path="res://fx/DashParticle.tscn" type="PackedScene" id=93]
+[ext_resource path="res://ui/ActionSelector/StateIcons/dash.png" type="Texture" id=94]
+[ext_resource path="res://sound/common/dash1.wav" type="AudioStream" id=95]
+[ext_resource path="res://_NokDurmak/characters/durmak/auid/AUID_Horiz.tscn" type="PackedScene" id=96]
+[ext_resource path="res://_NokDeoR/characters/deo/states/DeoR-Dash.gd" type="Script" id=97]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 11 )
+shader_param/use_extra_color_1 = true
+shader_param/use_extra_color_2 = true
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 26 )
+audio = [ null, ExtResource( 27 ) ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 26 )
+audio = [ null, ExtResource( 29 ) ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 26 )
+audio = [ null, ExtResource( 27 ) ]
+tick = 5
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 26 )
+audio = [ null, ExtResource( 28 ) ]
+tick = 8
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 26 )
+audio = [ ExtResource( 27 ) ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 26 )
+audio = [ ExtResource( 50 ), ExtResource( 54 ) ]
+tick = 1
+volume = -12.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 26 )
+audio = [ ExtResource( 59 ) ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 26 )
+audio = [ ExtResource( 27 ), ExtResource( 69 ), ExtResource( 70 ) ]
+tick = 1
+volume = -9.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 26 )
+audio = [ null, ExtResource( 29 ), ExtResource( 28 ) ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 26 )
+audio = [ null ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02
+
+[node name="DeoR" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+extra_state_variables = "objs_table
+vfx_table
+colors_table
+tweens
+
+charname
+turn_passed
+
+stand
+stand_scene
+stand_requirements
+
+stand_values
+
+timestop_time
+timestop_spread_distance
+stopped_entities"
+character_portrait = ExtResource( 6 )
+character_portrait2 = ExtResource( 60 )
+player_extra_params_scene = ExtResource( 42 )
+use_extra_color_1 = true
+extra_color_1 = Color( 1, 0.760784, 0.631373, 1 )
+objs_table = {
+"Stand": ExtResource( 40 )
+}
+vfx_table = {
+"Ring1": ExtResource( 36 ),
+"Ring2": ExtResource( 41 )
+}
+colors_table = {
+}
+
+[node name="Sprite" parent="Flip" index="0"]
+light_mask = 33
+material = SubResource( 1 )
+frames = ExtResource( 2 )
+animation = "timestop"
+frame = 13
+
+[node name="Voiceline" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+unique_name_in_owner = true
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 75 )
+pitch_variation = 0.025
+
+[node name="Super" parent="Sounds" index="6"]
+stream = ExtResource( 84 )
+volume_db = -6.0
+pitch_variation = 0.0
+
+[node name="Super2" parent="Sounds" index="7"]
+stream = ExtResource( 86 )
+volume_db = -6.0
+pitch_scale = 2.0
+
+[node name="Super3" parent="Sounds" index="8"]
+stream = ExtResource( 86 )
+volume_db = -12.0
+pitch_variation = 0.0
+
+[node name="Walk1" type="AudioStreamPlayer" parent="Sounds" index="22"]
+stream = ExtResource( 31 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 23 )
+
+[node name="Walk2" type="AudioStreamPlayer" parent="Sounds" index="23"]
+stream = ExtResource( 18 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 23 )
+
+[node name="Summon" type="AudioStreamPlayer" parent="Sounds" index="24"]
+stream = ExtResource( 34 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 23 )
+pitch_variation = 0.0
+
+[node name="SummonVoice" type="AudioStreamPlayer" parent="Sounds" index="25"]
+stream = ExtResource( 35 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 23 )
+pitch_variation = 0.02
+
+[node name="LifeDrainHit" type="AudioStreamPlayer" parent="Sounds" index="26"]
+stream = ExtResource( 51 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 23 )
+
+[node name="LifeDrainHeal" type="AudioStreamPlayer" parent="Sounds" index="27"]
+stream = ExtResource( 53 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 23 )
+pitch_variation = 0.0
+
+[node name="Timestop" type="AudioStreamPlayer" parent="Sounds" index="28"]
+stream = ExtResource( 85 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 23 )
+__meta__ = {
+"_editor_description_": ""
+}
+pitch_variation = 0.0
+
+[node name="Wait" parent="StateMachine" index="11"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Fall" parent="StateMachine" index="18"]
+sprite_animation = "Fall"
+ticks_per_frame = 2
+loop_animation = false
+
+[node name="SuperFallStartup" parent="StateMachine" index="19"]
+ticks_per_frame = 2
+
+[node name="SuperFall" parent="StateMachine" index="20"]
+sprite_animation = "Fall"
+ticks_per_frame = 2
+
+[node name="Landing" parent="StateMachine" index="21"]
+ticks_per_frame = 2
+enter_sfx = ExtResource( 32 )
+
+[node name="Knockdown" parent="StateMachine" index="22"]
+enter_sfx = ExtResource( 33 )
+enter_sfx_volume = -6.0
+
+[node name="HardKnockdown" parent="StateMachine" index="23"]
+enter_sfx = ExtResource( 33 )
+enter_sfx_volume = -6.0
+
+[node name="Getup" parent="StateMachine" index="24"]
+title = "STAND up... haha"
+
+[node name="approach" type="Node2D" parent="StateMachine" index="27"]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+fallback_state = "approach"
+sprite_animation = "walk"
+anim_length = 10
+title = "Approach..."
+interruptible_on_opponent_turn = true
+interrupt_from_string = "GroundedMovement
+AerialMovement
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+apply_pushback = false
+
+[node name="dash" type="Node2D" parent="StateMachine" index="28"]
+script = ExtResource( 97 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_grav = true
+reset_momentum = true
+custom_y_fric = "0.1"
+sprite_animation = "DashForward"
+anim_length = 11
+ticks_per_frame = 2
+particle_scene = ExtResource( 93 )
+enter_sfx = ExtResource( 95 )
+enter_sfx_volume = -9.0
+title = "Dash"
+data_ui_scene = ExtResource( 96 )
+button_texture = ExtResource( 94 )
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+usable_from_whiff_cancel_if_possible = false
+reversible = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedMovement
+AerialMovement
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="DashForward" parent="StateMachine" index="29"]
+show_in_menu = false
+
+[node name="DashBackward" parent="StateMachine" index="31"]
+show_in_menu = false
+
+[node name="Jump" parent="StateMachine" index="34"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+
+[node name="SuperJump" parent="StateMachine" index="36"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+
+[node name="DoubleJump" parent="StateMachine" index="37"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+data_ui_scene = ExtResource( 39 )
+
+[node name="AirDash" parent="StateMachine" index="38"]
+show_in_menu = false
+
+[node name="jab" type="Node2D" parent="StateMachine" index="59"]
+script = ExtResource( 9 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "jab"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "3"
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -3.0
+title = "Jab"
+type = 1
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/jab" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 18
+y = -25
+width = 13
+height = 7
+damage = 50
+hitstun_ticks = 18
+hitlag_ticks = 6
+victim_hitlag = 6
+screenshake_amount = 2
+screenshake_frames = 12
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 7 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_y = "0.5"
+knockback = "3"
+start_tick = 4
+active_ticks = 1
+
+[node name="jabA" type="Node2D" parent="StateMachine" index="60"]
+script = ExtResource( 9 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "jabA"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_y = "1"
+enter_force_speed = "1"
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -3.0
+title = "Jab"
+type = 1
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 4
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/jabA" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 18
+y = -12
+width = 13
+height = 10
+damage = 50
+hitstun_ticks = 18
+hitlag_ticks = 6
+victim_hitlag = 6
+screenshake_amount = 2
+screenshake_frames = 12
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 7 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_y = "0"
+knockback = "3"
+start_tick = 4
+active_ticks = 2
+
+[node name="uppercut" type="Node2D" parent="StateMachine" index="61"]
+script = ExtResource( 9 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "uppercut"
+anim_length = 16
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "3"
+force_tick = 4
+enter_force_dir_x = "1"
+enter_force_speed = "3"
+enter_sfx = ExtResource( 19 )
+enter_sfx_volume = -6.0
+title = "Uppercut"
+type = 1
+iasa_on_hit = 8
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 2 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/uppercut" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 18
+y = -14
+width = 13
+height = 12
+damage = 60
+hitstun_ticks = 18
+hitlag_ticks = 8
+victim_hitlag = 12
+cancellable = false
+hits_vs_aerial = false
+hit_height = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 13 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "0.5"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+start_tick = 5
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/uppercut" index="1"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 23
+y = -33
+width = 17
+damage = 60
+hitstun_ticks = 18
+hitlag_ticks = 8
+victim_hitlag = 12
+cancellable = false
+plus_frames = 1
+hit_height = 0
+screenshake_amount = 2
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 13 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "0.5"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+start_tick = 7
+active_ticks = 2
+
+[node name="swipe" type="Node2D" parent="StateMachine" index="62"]
+script = ExtResource( 45 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "-0.05"
+custom_y_fric = "-0.05"
+sprite_animation = "swipe"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "16"
+force_tick = 7
+enter_sfx = ExtResource( 21 )
+enter_sfx_volume = -6.0
+title = "Swipe"
+type = 1
+iasa_on_hit = 14
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 3 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/swipe" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 24
+y = -33
+width = 17
+height = 16
+damage = 70
+hitstun_ticks = 20
+hitlag_ticks = 10
+victim_hitlag = 14
+cancellable = false
+can_clash = false
+plus_frames = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 16 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.5"
+knockback = "8"
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+start_tick = 7
+active_ticks = 4
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/swipe" index="1"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 24
+y = -15
+width = 17
+height = 14
+damage = 70
+hitstun_ticks = 20
+hitlag_ticks = 10
+victim_hitlag = 14
+cancellable = false
+can_clash = false
+plus_frames = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 16 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.5"
+knockback = "8"
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+start_tick = 11
+active_ticks = 4
+
+[node name="swipeA" type="Node2D" parent="StateMachine" index="63"]
+script = ExtResource( 46 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.05"
+sprite_animation = "swipe"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "16"
+force_tick = 7
+enter_sfx = ExtResource( 21 )
+enter_sfx_volume = -6.0
+title = "Swipe"
+type = 1
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 7
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 3 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/swipeA" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 24
+y = -33
+width = 17
+height = 16
+damage = 70
+hitstun_ticks = 20
+hitlag_ticks = 14
+victim_hitlag = 16
+can_clash = false
+plus_frames = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 16 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.5"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+ground_bounce = false
+start_tick = 7
+active_ticks = 4
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/swipeA" index="1"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 24
+y = -15
+width = 17
+height = 14
+damage = 70
+hitstun_ticks = 20
+hitlag_ticks = 14
+victim_hitlag = 16
+can_clash = false
+plus_frames = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 16 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.5"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+ground_bounce = false
+start_tick = 11
+active_ticks = 4
+
+[node name="roundhouse" type="Node2D" parent="StateMachine" index="64"]
+script = ExtResource( 74 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.1"
+sprite_animation = "roundhouse"
+anim_length = 18
+ticks_per_frame = 2
+enter_sfx = ExtResource( 20 )
+enter_sfx_volume = -6.0
+title = "Roundhouse"
+type = 1
+iasa_on_hit = 10
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 4 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/roundhouse" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 20
+y = -22
+width = 19
+height = 11
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 8
+victim_hitlag = 16
+cancellable = false
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 14 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "-1"
+dir_y = "-0.25"
+knockback = "8"
+start_tick = 6
+active_ticks = 3
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/roundhouse" index="1"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 16
+y = -28
+width = 19
+height = 9
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 8
+victim_hitlag = 16
+cancellable = false
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 14 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "-1"
+dir_y = "-0.25"
+knockback = "8"
+start_tick = 9
+active_ticks = 2
+
+[node name="roundhouseA" type="Node2D" parent="StateMachine" index="65"]
+script = ExtResource( 91 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "roundhouse"
+anim_length = 18
+ticks_per_frame = 2
+enter_sfx = ExtResource( 20 )
+enter_sfx_volume = -6.0
+title = "Roundhouse"
+type = 1
+data_ui_scene = ExtResource( 90 )
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 8
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "roundhouse"
+hit_cancel_exceptions_string = "roundhouse"
+allowed_stances_string = "Normal
+Knives"
+start_on = 0
+end_on = 0
+voicelines = [ SubResource( 4 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/roundhouseA" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 20
+y = -22
+width = 19
+height = 11
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 12
+victim_hitlag = 14
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 14 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "-1"
+dir_y = "0"
+knockback = "6"
+start_tick = 6
+active_ticks = 3
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/roundhouseA" index="1"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 16
+y = -28
+width = 19
+height = 9
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 12
+victim_hitlag = 14
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 14 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "-1"
+dir_y = "0"
+knockback = "6"
+start_tick = 9
+active_ticks = 2
+
+[node name="crash" type="Node2D" parent="StateMachine" index="66"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "-0.05"
+sprite_animation = "crash"
+anim_length = 24
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+timed_particle_scene = ExtResource( 92 )
+timed_spawn_particle_tick = 8
+enter_sfx = ExtResource( 21 )
+enter_sfx_volume = -6.0
+title = "Crash"
+type = 1
+iasa_on_hit = 16
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 5 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/crash" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 32
+y = -12
+width = 32
+height = 10
+damage = 80
+hitstun_ticks = 18
+hitlag_ticks = 12
+victim_hitlag = 24
+cancellable = false
+plus_frames = 1
+hit_height = 2
+screenshake_amount = 12
+screenshake_frames = 16
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+bump_on_whiff = true
+whiff_sound = ExtResource( 25 )
+hit_sound = ExtResource( 15 )
+whiff_sound_volume = -9.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 3
+
+[node name="HurtboxState" type="Node2D" parent="StateMachine/crash" index="1"]
+z_index = 999
+script = ExtResource( 10 )
+x = 4
+y = -6
+height = 4
+start_tick = 8
+active_ticks = 8
+
+[node name="crashA" type="Node2D" parent="StateMachine" index="67"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": "Aerial"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_forces_no_limit = true
+sprite_animation = "crash"
+anim_length = 24
+ticks_per_frame = 2
+state_screenshake_amount = 2
+timed_particle_scene = ExtResource( 92 )
+timed_spawn_particle_tick = 8
+enter_sfx = ExtResource( 21 )
+enter_sfx_volume = -6.0
+title = "Crash"
+type = 1
+air_type = 1
+iasa_on_hit = 16
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+air_correction_x = 2.0
+air_correction_y = 2.0
+air_correction_frame = 1
+voicelines = [ SubResource( 5 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/crashA" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 32
+y = -12
+width = 32
+height = 10
+damage = 80
+hitstun_ticks = 18
+hitlag_ticks = 12
+victim_hitlag = 24
+cancellable = false
+plus_frames = 1
+hit_height = 2
+screenshake_amount = 12
+screenshake_frames = 16
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+bump_on_whiff = true
+whiff_sound = ExtResource( 25 )
+hit_sound = ExtResource( 15 )
+whiff_sound_volume = -9.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 3
+
+[node name="timezone" type="Node2D" parent="StateMachine" index="68"]
+script = ExtResource( 76 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "uppercut"
+anim_length = 16
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 77 )
+timed_particle_position = Vector2( 30, -18 )
+timed_spawn_particle_tick = 5
+enter_sfx = ExtResource( 49 )
+enter_sfx_volume = -6.0
+title = "Timezone"
+type = 2
+data_ui_scene = ExtResource( 43 )
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+force_feintable = true
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+
+[node name="halt" type="Node2D" parent="StateMachine" index="69"]
+script = ExtResource( 78 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "jab"
+anim_length = 16
+ticks_per_frame = 2
+enter_sfx = ExtResource( 22 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 79 )
+sfx_volume = -12.0
+title = "Halt"
+type = 2
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "timezone"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ ExtResource( 80 ) ]
+
+[node name="lifedrain" type="Node2D" parent="StateMachine" index="70"]
+script = ExtResource( 63 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "lifedrain"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 49 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 22 )
+sfx_tick = 8
+sfx_volume = -6.0
+title = "Life Drain"
+type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 7 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/lifedrain" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 19
+y = -31
+width = 21
+height = 21
+damage = 65
+hitstun_ticks = 20
+hitlag_ticks = 12
+victim_hitlag = 12
+di_modifier = "0"
+sdi_modifier = "0"
+followup_state = "lifedrain2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 51 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "10"
+block_pushback_modifier = "0.5"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+start_tick = 10
+active_ticks = 3
+
+[node name="lifedrainA" type="Node2D" parent="StateMachine" index="71"]
+script = ExtResource( 63 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "lifedrain"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 49 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 22 )
+sfx_tick = 8
+sfx_volume = -6.0
+title = "Life Drain"
+type = 2
+air_type = 1
+land_cancel = true
+min_land_cancel_frame = 10
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 7 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/lifedrainA" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 19
+y = -31
+width = 21
+height = 21
+damage = 65
+hitstun_ticks = 20
+hitlag_ticks = 12
+victim_hitlag = 12
+di_modifier = "0"
+sdi_modifier = "0"
+followup_state = "lifedrain2"
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 51 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "10"
+block_pushback_modifier = "0.5"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+start_tick = 10
+active_ticks = 3
+
+[node name="lifedrain2" type="Node2D" parent="StateMachine" index="72"]
+script = ExtResource( 52 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.05"
+sprite_animation = "lifedrain2"
+anim_length = 44
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "4"
+force_tick = 25
+particle_scene = ExtResource( 36 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 48 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 21 )
+sfx_tick = 20
+sfx_volume = -6.0
+force_same_direction_as_previous_state = true
+title = "Life Drain"
+show_in_menu = false
+type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+release_opponent_on_exit = true
+drag = true
+offset_x = 10
+offset_y = -4
+end_on = 25
+drag_strength = 1.5
+force_drag = true
+voicelines = [ SubResource( 8 ) ]
+
+[node name="HitboxFinish" type="Node2D" parent="StateMachine/lifedrain2" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 26
+y = -23
+width = 26
+height = 14
+damage = 60
+hitstun_ticks = 20
+hitlag_ticks = 8
+victim_hitlag = 8
+cancellable = false
+meter_gain_modifier = "0.5"
+block_cancel_allowed = false
+screenshake_amount = 8
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+camera_bump_dir = Vector2( 1, 0 )
+whiff_sound = null
+hit_sound = ExtResource( 47 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.25"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 25
+active_ticks = 2
+
+[node name="hideousomen" type="Node2D" parent="StateMachine" index="73"]
+script = ExtResource( 30 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "hideousomen"
+anim_length = 14
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 37 )
+timed_particle_position = Vector2( 4, -40 )
+timed_spawn_particle_tick = 5
+enter_sfx = ExtResource( 20 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 73 )
+sfx_tick = 5
+sfx_volume = -3.0
+title = "Hideous Omen"
+show_in_menu = false
+type = 2
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+change_stance_to = "Knives"
+
+[node name="volley" type="Node2D" parent="StateMachine" index="74"]
+script = ExtResource( 38 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.05"
+sprite_animation = "uppercut"
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-2"
+particle_scene = ExtResource( 41 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+timed_particle_scene = ExtResource( 37 )
+timed_particle_position = Vector2( 18, -18 )
+timed_spawn_particle_tick = 6
+enter_sfx = ExtResource( 73 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 55 )
+sfx_tick = 6
+sfx_volume = -3.0
+title = "Volley"
+type = 2
+data_ui_scene = ExtResource( 56 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial
+volley"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "hideousomen"
+change_stance_to = "Knives"
+
+[node name="volley2" type="Node2D" parent="StateMachine" index="75"]
+script = ExtResource( 58 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.05"
+sprite_animation = "swipe"
+anim_length = 18
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 37 )
+timed_particle_position = Vector2( 18, -18 )
+timed_spawn_particle_tick = 6
+enter_sfx = ExtResource( 19 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 55 )
+sfx_tick = 6
+sfx_volume = -3.0
+title = "Second Volley"
+type = 2
+data_ui_scene = ExtResource( 57 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "volley"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "volley"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 9 ) ]
+
+[node name="silencer" type="Node2D" parent="StateMachine" index="76"]
+script = ExtResource( 71 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.05"
+sprite_animation = "silencer"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "-1"
+enter_force_speed = "3"
+timed_particle_scene = ExtResource( 37 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 10
+enter_sfx = ExtResource( 55 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 49 )
+sfx_tick = 9
+sfx_volume = -6.0
+title = "Silencer"
+type = 2
+data_ui_scene = ExtResource( 61 )
+air_type = 2
+iasa_on_hit = 12
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial
+silencer"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Knives"
+voicelines = [ SubResource( 11 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/silencer" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = -39
+y = -16
+width = 50
+height = 12
+damage = 80
+hitstun_ticks = 18
+hitlag_ticks = 8
+victim_hitlag = 12
+cancellable = false
+plus_frames = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+camera_bump_dir = Vector2( 1, 0 )
+whiff_sound = ExtResource( 73 )
+hit_sound = ExtResource( 51 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "6"
+start_tick = 11
+active_ticks = 2
+
+[node name="silencerFree" type="Node2D" parent="StateMachine" index="77"]
+script = ExtResource( 71 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.05"
+sprite_animation = "silencer"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "-1"
+enter_force_speed = "3"
+timed_particle_scene = ExtResource( 37 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 10
+enter_sfx = ExtResource( 55 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 49 )
+sfx_tick = 9
+sfx_volume = -6.0
+title = "Silencer"
+type = 2
+data_ui_scene = ExtResource( 61 )
+air_type = 2
+iasa_on_hit = 12
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "silencer
+volley"
+interrupt_into_string = "Grounded
+Aerial
+silencer"
+hit_cancel_into_string = "Grounded
+Aerial"
+voicelines = [ SubResource( 11 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/silencerFree" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = -39
+y = -16
+width = 50
+height = 12
+damage = 80
+hitstun_ticks = 18
+hitlag_ticks = 8
+victim_hitlag = 12
+cancellable = false
+plus_frames = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+camera_bump_dir = Vector2( 1, 0 )
+whiff_sound = ExtResource( 73 )
+hit_sound = ExtResource( 51 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "6"
+start_tick = 11
+active_ticks = 2
+
+[node name="standpower" type="Node2D" parent="StateMachine" index="78"]
+script = ExtResource( 89 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "command"
+anim_length = 14
+ticks_per_frame = 2
+particle_scene = ExtResource( 41 )
+particle_position = Vector2( 0, -16 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 19 )
+enter_sfx_volume = -12.0
+title = "[Stand Power]"
+type = 2
+data_ui_scene = ExtResource( 88 )
+air_type = 2
+next_state_on_hold = false
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+
+[node name="stand-punch" type="Node2D" parent="StateMachine" index="79"]
+script = ExtResource( 44 )
+__meta__ = {
+"_editor_description_": "StandAction
+"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "command"
+anim_length = 13
+ticks_per_frame = 2
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -6.0
+title = "[Punch]"
+show_in_menu = false
+type = 2
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+stand_action = "Punch"
+
+[node name="stand-crossblow" type="Node2D" parent="StateMachine" index="80"]
+script = ExtResource( 44 )
+__meta__ = {
+"_editor_description_": "StandAction
+"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "command"
+anim_length = 14
+ticks_per_frame = 2
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -6.0
+title = "[Crossblow]"
+show_in_menu = false
+type = 2
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+stand_action = "Crossblow"
+
+[node name="stand-knifeswarm" type="Node2D" parent="StateMachine" index="81"]
+script = ExtResource( 44 )
+__meta__ = {
+"_editor_description_": "StandAction
+"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "command"
+anim_length = 13
+ticks_per_frame = 2
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -6.0
+title = "[Knife Swarm]"
+show_in_menu = false
+type = 2
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "hideousomen"
+allowed_stances_string = "Knives"
+stand_action = "KnifeSwarm"
+
+[node name="stand-knifeswarmFree" type="Node2D" parent="StateMachine" index="82"]
+script = ExtResource( 44 )
+__meta__ = {
+"_editor_description_": "StandAction
+"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "command"
+anim_length = 13
+ticks_per_frame = 2
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -6.0
+title = "[Knife Swarm]"
+show_in_menu = false
+type = 2
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "volley"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+interrupt_exceptions_string = "hideousomen"
+stand_action = "KnifeSwarm"
+
+[node name="signslash" type="Node2D" parent="StateMachine" index="83"]
+script = ExtResource( 62 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "signslash"
+anim_length = 22
+ticks_per_frame = 2
+enter_sfx = ExtResource( 20 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 49 )
+sfx_tick = 7
+sfx_volume = -6.0
+title = "Sign Slash"
+type = 2
+data_ui_scene = ExtResource( 72 )
+air_type = 2
+land_cancel = true
+min_land_cancel_frame = 9
+iasa_on_hit = 10
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+voicelines = [ SubResource( 10 ) ]
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/signslash" index="0"]
+z_index = 1000
+script = ExtResource( 8 )
+x = 34
+y = -2
+width = 32
+height = 24
+damage = 80
+hitstun_ticks = 20
+hitlag_ticks = 14
+victim_hitlag = 20
+cancellable = false
+block_cancel_allowed = false
+plus_frames = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+camera_bump_dir = Vector2( 1, 1 )
+whiff_sound = null
+hit_sound = ExtResource( 15 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "0.5"
+dir_y = "1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 8
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 2
+
+[node name="spaceripper" type="Node2D" parent="StateMachine" index="84"]
+script = ExtResource( 68 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "spaceripper"
+anim_length = 28
+ticks_per_frame = 2
+force_dir_x = "-1"
+force_speed = "4"
+force_tick = 8
+enter_sfx = ExtResource( 55 )
+enter_sfx_volume = -6.0
+title = "Space Ripper"
+type = 2
+air_type = 2
+iasa_on_hit = 15
+iasa_on_hit_on_block = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+allowed_stances_string = "Normal
+Knives"
+voicelines = [ SubResource( 2 ) ]
+
+[node name="SweptHitbox" type="Node2D" parent="StateMachine/spaceripper" index="0"]
+z_index = 1000
+script = ExtResource( 64 )
+__meta__ = {
+"_editor_description_": ""
+}
+x = 8
+y = -24
+width = 6
+height = 14
+damage = 100
+hitstun_ticks = 18
+hitlag_ticks = 12
+victim_hitlag = 20
+cancellable = false
+can_clash = false
+guard_break = true
+block_cancel_allowed = false
+plus_frames = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 17 )
+replace_hit_particle = true
+camera_bump_dir = Vector2( 1, -0.25 )
+whiff_sound = ExtResource( 65 )
+hit_sound = ExtResource( 66 )
+hit_bass_sound = ExtResource( 67 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.4"
+knockback = "7"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+wall_slam = true
+start_tick = 13
+active_ticks = 2
+to_x = 150
+to_y = -25
+
+[node name="stand-blazingfists" type="Node2D" parent="StateMachine" index="85"]
+script = ExtResource( 44 )
+__meta__ = {
+"_editor_description_": "StandAction
+"
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "command"
+anim_length = 16
+ticks_per_frame = 2
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -6.0
+title = "[Blazing Fists]"
+show_in_menu = false
+type = 3
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_level_ = 2
+supers_used_ = 2
+super_freeze_ticks_ = 5
+super_effect_ = true
+force_super_effect = true
+stand_action = "BlazingFists"
+
+[node name="timestop" type="Node2D" parent="StateMachine" index="86"]
+script = ExtResource( 82 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "timestop"
+anim_length = 30
+ticks_per_frame = 2
+particle_scene = ExtResource( 36 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 14
+state_screenshake_length = 0.1
+state_screenshake_amount = 8
+timed_particle_scene = ExtResource( 87 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 14
+title = "[THE WORLD]"
+type = 3
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_level_ = 3
+supers_used_ = 3
+super_freeze_ticks_ = 5
+super_effect_ = true
+scale_combo_meter_ = true
+force_super_effect = true
+voicelines = [ SubResource( 12 ) ]
+voicelines2 = [ ExtResource( 83 ) ]
+
+[node name="Info" type="RichTextLabel" parent="." index="15"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -250.0
+margin_top = 4.0
+margin_right = 250.0
+margin_bottom = 106.0
+theme = ExtResource( 81 )
+bbcode_enabled = true

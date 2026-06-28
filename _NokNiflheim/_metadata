@@ -1,0 +1,13 @@
+ {
+  "name": "Niflheim",
+  "friendly_name": "Niflheim",
+  "description": "The hellish fiend with a thirst for power, wielding the mandible of an unbelievably powerful monstrosity.",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "1737425729238563863946",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": false,
+  "priority": 0
+}

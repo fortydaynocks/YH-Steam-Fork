@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme4-kroww-hysteria.ogg-80b4930b4a4254b34ebda0868c0ec6d1.oggstr"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/theme4-kroww-hysteria.ogg"
+dest_files=[ "res://.import/theme4-kroww-hysteria.ogg-80b4930b4a4254b34ebda0868c0ec6d1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

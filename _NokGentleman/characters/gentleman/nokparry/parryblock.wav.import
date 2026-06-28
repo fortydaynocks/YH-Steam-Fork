@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/parryblock.wav-b0dd216f0e675a93f4a17ccb4edba8b8.sample"
+
+[deps]
+
+source_file="res://_NokGentleman/characters/gentleman/nokparry/parryblock.wav"
+dest_files=[ "res://.import/parryblock.wav-b0dd216f0e675a93f4a17ccb4edba8b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

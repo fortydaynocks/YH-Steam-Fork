@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://_NokSkullmage/characters/skullmage/projectiles/summons/SK-Summon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSkullmage/characters/skullmage/sounds/summon-end.wav" type="AudioStream" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+tag = "Haunty"
+
+[node name="Sprite" parent="Flip" index="0"]
+self_modulate = Color( 1, 1, 1, 0.5 )
+animation = "hnt-spectrebolt"
+offset = Vector2( 0, -16 )
+
+[node name="debris" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+unique_name_in_owner = true
+modulate = Color( 0.611765, 0.521569, 0.8, 1 )
+position = Vector2( 0, -18 )
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, -100 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+damping = 50.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 6.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
+[node name="CollisionBox" parent="." index="2"]
+y = -16
+width = 6
+height = 8
+
+[node name="Hurtbox" parent="." index="3"]
+width = 6
+height = 8
+
+[node name="Spawn" parent="StateMachine" index="0"]
+sprite_animation = "hnt-spawn"
+anim_length = 20
+sfx = ExtResource( 2 )
+sfx_volume = -6.0
+
+[node name="Default" parent="StateMachine" index="1"]
+apply_grav = false
+sprite_animation = "hnt"
+disable_after = false
+chase = false
+move_animation = "hnt"
+air_animation = "hnt"
+use_air_animation = false
+
+[node name="Node2D" type="Node2D" parent="StateMachine" index="2"]

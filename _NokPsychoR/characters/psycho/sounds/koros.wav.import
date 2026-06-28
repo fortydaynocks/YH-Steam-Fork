@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/koros.wav-5d9b84ee6cddc0d50befdf1864df3bcc.sample"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/sounds/koros.wav"
+dest_files=[ "res://.import/koros.wav-5d9b84ee6cddc0d50befdf1864df3bcc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

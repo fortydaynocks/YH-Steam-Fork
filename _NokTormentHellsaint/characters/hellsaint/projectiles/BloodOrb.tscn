@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/resources/HellsaintProjSF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/void10.wav" type="AudioStream" id=3]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Ring1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/projectiles/BloodOrbDefault.gd" type="Script" id=5]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/CMN_014.wav" type="AudioStream" id=6]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=7]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Hit1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/heavyhit05.wav" type="AudioStream" id=9]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+deletes_other_projectiles = false
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 2 )
+animation = "bloodorb"
+offset = Vector2( 1, 0 )
+
+[node name="CollisionBox" parent="." index="2"]
+width = 12
+height = 12
+
+[node name="Hurtbox" parent="." index="3"]
+width = 12
+height = 12
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.15"
+custom_y_fric = "0.15"
+sprite_animation = "bloodorb"
+anim_length = 58
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 4 )
+timed_spawn_particle_tick = 32
+sfx = ExtResource( 3 )
+sfx_tick = 30
+sfx_volume = -6.0
+move_x = 0
+clash = false
+num_hits = 999999
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 7 )
+width = 12
+height = 12
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 16
+victim_hitlag = 4
+di_modifier = "0.5"
+sdi_modifier = "0.5"
+screenshake_amount = 2
+hit_particle = ExtResource( 8 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 6 )
+hit_bass_sound = ExtResource( 9 )
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+launch_reversible = true
+knockdown_extends_hitstun = false
+air_ground_bounce = true
+ground_bounce = false
+start_tick = 30
+active_ticks = 1
+always_on = true

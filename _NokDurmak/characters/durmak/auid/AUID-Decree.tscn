@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokDurmak/characters/durmak/auid/AUID-Decree.gd" type="Script" id=3]
+[ext_resource path="res://ui/ActionSelector/StateIcons/sweep.png" type="Texture" id=4]
+
+[node name="ActionUIData" instance=ExtResource( 2 )]
+margin_right = 81.0
+margin_bottom = 17.0
+rect_scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_right = 34.0
+margin_bottom = 25.0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
+margin_right = 34.0
+margin_bottom = 12.0
+
+[node name="Last" type="Button" parent="VBoxContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 12.0
+margin_bottom = 12.0
+text = " < "
+
+[node name="Current" type="Button" parent="VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_left = 13.0
+margin_right = 21.0
+margin_bottom = 12.0
+button_mask = 0
+text = "..."
+
+[node name="Next" type="Button" parent="VBoxContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+margin_left = 22.0
+margin_right = 34.0
+margin_bottom = 12.0
+text = " > "
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 13.0
+margin_right = 34.0
+margin_bottom = 13.0
+custom_constants/vseparation = 1
+custom_constants/hseparation = 1
+columns = 4
+
+[node name="ActionName" type="Label" parent="VBoxContainer" index="2"]
+unique_name_in_owner = true
+margin_top = 14.0
+margin_right = 34.0
+margin_bottom = 25.0
+text = "..."
+
+[node name="ActionButton" type="Button" parent="." index="1"]
+unique_name_in_owner = true
+visible = false
+margin_left = 76.0
+margin_right = 94.0
+margin_bottom = 17.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+icon = ExtResource( 4 )
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Last" to="." method="_on_Last_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_pressed"]

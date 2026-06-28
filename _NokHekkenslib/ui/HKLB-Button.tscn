@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://_NokHekkenslib/ui/hklb-ui-book.png" type="Texture" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="."]
+margin_right = 16.0
+margin_bottom = 14.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 100, 0.2, 0.23, 1 )
+icon = ExtResource( 2 )
+icon_align = 1
+__meta__ = {
+"_editor_description_": ""
+}

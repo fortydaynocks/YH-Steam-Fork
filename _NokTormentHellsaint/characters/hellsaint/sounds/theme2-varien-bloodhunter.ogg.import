@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme2-varien-bloodhunter.ogg-afadf896262ec9b49c7b6cfebe84ccfb.oggstr"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/theme2-varien-bloodhunter.ogg"
+dest_files=[ "res://.import/theme2-varien-bloodhunter.ogg-afadf896262ec9b49c7b6cfebe84ccfb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

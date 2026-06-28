@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dragonstrike01.wav-2674354962b07071c37f9b923aed4ff0.sample"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/sounds/dragonstrike01.wav"
+dest_files=[ "res://.import/dragonstrike01.wav-2674354962b07071c37f9b923aed4ff0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

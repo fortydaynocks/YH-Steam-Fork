@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/test slash 5.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 6 )
+one_shot = false
+lifetime = 999.0
+
+[node name="fire" type="CPUParticles2D" parent="." index="1"]
+amount = 50
+lifetime = 0.5
+lifetime_randomness = 1.0
+texture = ExtResource( 5 )
+emission_shape = 1
+emission_sphere_radius = 60.0
+direction = Vector2( -1, -0.75 )
+spread = 0.0
+gravity = Vector2( 0, -500 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+linear_accel = -1500.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.02
+scale_amount_curve = SubResource( 9 )
+color = Color( 1, 0, 0, 1 )
+
+[node name="mist" type="CPUParticles2D" parent="." index="2"]
+amount = 50
+lifetime_randomness = 1.0
+texture = ExtResource( 5 )
+emission_shape = 1
+emission_sphere_radius = 60.0
+direction = Vector2( -1, -0.75 )
+spread = 0.0
+gravity = Vector2( 0, -500 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+linear_accel = -1500.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.3
+scale_amount_curve = SubResource( 9 )
+color = Color( 1, 0, 0, 0.0509804 )

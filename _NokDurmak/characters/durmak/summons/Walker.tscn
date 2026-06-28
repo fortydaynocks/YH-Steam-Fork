@@ -1,0 +1,326 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://_NokDurmak/characters/durmak/resources/DM-SF.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://_NokDurmak/characters/durmak/summons/WalkerDefault.gd" type="Script" id=2]
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_NokDurmak/characters/durmak/summons/Walker.gd" type="Script" id=4]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/swing3.wav" type="AudioStream" id=5]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/DM-EyeFlash.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_NokDurmak/characters/durmak/summons/WalkerState.gd" type="Script" id=7]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=8]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/woosh3.wav" type="AudioStream" id=9]
+[ext_resource path="res://ui/ActionSelector/StateIcons/no_icon.png" type="Texture" id=10]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=11]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/DM-Hit1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/hit-stab1.wav" type="AudioStream" id=13]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/hit-melee1.wav" type="AudioStream" id=14]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/hit-stab2.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/hit-melee3.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/swing-hard1.wav" type="AudioStream" id=17]
+[ext_resource path="res://theme.tres" type="Theme" id=18]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/magic1.wav" type="AudioStream" id=19]
+[ext_resource path="res://_NokDurmak/characters/durmak/summons/Walker-Salvo.gd" type="Script" id=20]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/woosh2.wav" type="AudioStream" id=21]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/hit-melee2.wav" type="AudioStream" id=22]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/swing2.wav" type="AudioStream" id=23]
+[ext_resource path="res://_NokDurmak/characters/durmak/summons/Walker-Heed.gd" type="Script" id=24]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/woosh4.wav" type="AudioStream" id=25]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/DM-Hit0.tscn" type="PackedScene" id=26]
+
+[node name="BaseProjectile" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+gravity = "0.25"
+air_friction = "2.5"
+max_air_speed = "13"
+max_fall_speed = "8"
+has_projectile_parry_window = false
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+apply_hitlag_when_hit_by_melee = false
+projectile_immune = true
+hitlag_modifier = "0"
+tag = "Walker"
+disable_particle = null
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = ""
+_c_walker = 0
+max_hp = 2
+lord = false
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 1 )
+animation = "walker-heed"
+offset = Vector2( 0, -18 )
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+volume_db = -6.0
+script = ExtResource( 8 )
+
+[node name="Vanish" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 19 )
+volume_db = -9.0
+pitch_scale = 0.75
+script = ExtResource( 8 )
+pitch_variation = 0.0
+
+[node name="CollisionBox" parent="." index="2"]
+y = -18
+width = 6
+height = 16
+
+[node name="Hurtbox" parent="." index="3"]
+y = -18
+width = 6
+height = 16
+
+[node name="Spawn" type="Node2D" parent="StateMachine" index="0"]
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+fallback_state = "Default"
+sprite_animation = "walker-spawn"
+anim_length = 12
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 6 )
+sfx = ExtResource( 5 )
+sfx_volume = -6.0
+auto_facing = false
+chase = false
+
+[node name="Default" parent="StateMachine" index="1"]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "walker"
+anim_length = 2
+ticks_per_frame = 2
+endless = false
+_c_walker = 0
+action = false
+action_icon = ExtResource( 10 )
+timeout = 0
+auto_facing = true
+disable_after = false
+chase = true
+chase_range = 60
+chase_speed = 0.5
+chase_limit = -1
+move_animation = "walker-move"
+air_animation = "walker-air"
+
+[node name="Hurt" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 7 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_momentum = true
+fallback_state = "Default"
+sprite_animation = "walker-hurt"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_x = "-1"
+enter_force_speed = "6"
+auto_facing = false
+chase = false
+
+[node name="Wound" type="Node2D" parent="StateMachine" index="3"]
+script = ExtResource( 7 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+fallback_state = "Default"
+sprite_animation = "walker-wound"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 5 )
+enter_sfx_volume = -6.0
+action = true
+timeout = 10
+auto_facing = false
+chase_range = 0
+chase_limit = 4
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Wound" index="0"]
+z_index = 1000
+script = ExtResource( 11 )
+x = 25
+y = -27
+width = 18
+height = 11
+damage = 50
+hitstun_ticks = 16
+hitlag_ticks = 8
+victim_hitlag = 8
+cancellable = false
+sdi_modifier = "0.5"
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 26 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 14 )
+hit_bass_sound = ExtResource( 13 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "3"
+knockdown_extends_hitstun = false
+start_tick = 3
+active_ticks = 2
+
+[node name="Snuff" type="Node2D" parent="StateMachine" index="4"]
+script = ExtResource( 7 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+fallback_state = "Default"
+sprite_animation = "walker-snuff"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "4"
+force_tick = 10
+enter_sfx = ExtResource( 17 )
+enter_sfx_volume = -6.0
+action = true
+timeout = 18
+auto_facing = false
+chase_range = 0
+chase_limit = 11
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Snuff" index="0"]
+z_index = 1000
+script = ExtResource( 11 )
+x = 34
+y = -28
+width = 28
+height = 26
+damage = 80
+hitstun_ticks = 18
+hitlag_ticks = 10
+victim_hitlag = 10
+cancellable = false
+sdi_modifier = "0.5"
+plus_frames = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 23 )
+hit_sound = ExtResource( 16 )
+hit_bass_sound = ExtResource( 15 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 4
+knockdown = true
+knockdown_extends_hitstun = false
+ground_bounce_knockback_modifier = "1.5"
+start_tick = 11
+active_ticks = 3
+
+[node name="Salvo" type="Node2D" parent="StateMachine" index="5"]
+script = ExtResource( 20 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_forces_no_limit = true
+fallback_state = "Default"
+sprite_animation = "walker-salvo"
+anim_length = 24
+ticks_per_frame = 2
+enter_sfx = ExtResource( 21 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 17 )
+sfx_tick = 4
+sfx_volume = -6.0
+action = true
+timeout = 24
+auto_facing = false
+chase_range = 0
+chase_speed = 1.0
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Salvo" index="0"]
+z_index = 1000
+script = ExtResource( 11 )
+x = 9
+y = -9
+width = 19
+height = 13
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 10
+victim_hitlag = 10
+cancellable = false
+sdi_modifier = "0.5"
+plus_frames = 2
+hit_height = 0
+screenshake_amount = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 22 )
+hit_bass_sound = ExtResource( 15 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "0.25"
+dir_y = "1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 7
+active_ticks = 1
+always_on = true
+
+[node name="Heed" type="Node2D" parent="StateMachine" index="6"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+fallback_state = "Default"
+sprite_animation = "walker-heed"
+anim_length = 25
+ticks_per_frame = 2
+enter_sfx = ExtResource( 25 )
+enter_sfx_volume = -6.0
+action = true
+timeout = 45
+auto_facing = false
+chase = false
+
+[node name="Info" type="RichTextLabel" parent="." index="7"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -250.0
+margin_top = 4.0
+margin_right = 250.0
+margin_bottom = 106.0
+theme = ExtResource( 18 )
+bbcode_enabled = true

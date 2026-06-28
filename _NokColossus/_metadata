@@ -1,0 +1,13 @@
+ {
+  "name": "Colossus",
+  "friendly_name": "Colossus",
+  "description": "you're gonna have a bad time.",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "8273102370140214",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": false,
+  "priority": 0
+}

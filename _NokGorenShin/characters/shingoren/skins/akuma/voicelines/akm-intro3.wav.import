@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/akm-intro3.wav-3756f2da4d1b732810c31d450f81ef9f.sample"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/akuma/voicelines/akm-intro3.wav"
+dest_files=[ "res://.import/akm-intro3.wav-3756f2da4d1b732810c31d450f81ef9f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/code-pandorum-left-to-suffer.ogg-c139e2c11101b6d63c87e0f7a59eacf9.oggstr"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/resources/music/code-pandorum-left-to-suffer.ogg"
+dest_files=[ "res://.import/code-pandorum-left-to-suffer.ogg-c139e2c11101b6d63c87e0f7a59eacf9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

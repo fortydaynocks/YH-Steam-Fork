@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/SG-Voiceline.gd" type="Script" id=1]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+audio = [  ]
+tick = 1
+volume = 0.0
+pitch = 1.0
+variation = 0.02

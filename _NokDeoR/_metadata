@@ -1,0 +1,13 @@
+ {
+  "name": "Deo",
+  "friendly_name": "Deo",
+  "description": "Joe Tarot... I am reborn! This truly is The Greatest High!!!",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": true,
+  "priority": 0
+}

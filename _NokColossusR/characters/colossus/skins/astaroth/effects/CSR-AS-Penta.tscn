@@ -1,0 +1,156 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokColossusR/characters/colossus/effects/yomifx_ring64.png" type="Texture" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 3 )
+
+[node name="penta1" type="CPUParticles2D" parent="." index="1"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( 24, -9.00002 )
+rotation = 1.25664
+scale = Vector2( 150, 1.5 )
+amount = 1
+lifetime = 0.3
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 2 )
+
+[node name="penta2" type="CPUParticles2D" parent="." index="2"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( 14, 18 )
+rotation = 2.51327
+scale = Vector2( 150, 1.5 )
+amount = 1
+lifetime = 0.3
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 2 )
+
+[node name="penta3" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( -14, 17.9997 )
+rotation = 3.76991
+scale = Vector2( 150, 1.5 )
+amount = 1
+lifetime = 0.3
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 2 )
+
+[node name="penta4" type="CPUParticles2D" parent="." index="4"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( -23, -9.00004 )
+rotation = 5.02655
+scale = Vector2( 150, 1.5 )
+amount = 1
+lifetime = 0.3
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 2 )
+
+[node name="penta5" type="CPUParticles2D" parent="." index="5"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( 5.72205e-06, -26 )
+rotation = 6.28319
+scale = Vector2( 150, 1.5 )
+amount = 1
+lifetime = 0.3
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 2 )
+
+[node name="penta6" type="CPUParticles2D" parent="." index="6"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( 24, -9.00002 )
+rotation = 1.25664
+scale = Vector2( 150, 8 )
+amount = 1
+lifetime = 0.2
+gravity = Vector2( 0, 0 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 2 )
+
+[node name="penta7" type="CPUParticles2D" parent="." index="7"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( 14, 18 )
+rotation = 2.51327
+scale = Vector2( 150, 8 )
+amount = 1
+lifetime = 0.2
+gravity = Vector2( 0, 0 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 2 )
+
+[node name="penta8" type="CPUParticles2D" parent="." index="8"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( -14, 17.9997 )
+rotation = 3.76991
+scale = Vector2( 150, 8 )
+amount = 1
+lifetime = 0.2
+gravity = Vector2( 0, 0 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 2 )
+
+[node name="penta9" type="CPUParticles2D" parent="." index="9"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( -23, -9.00004 )
+rotation = 5.02655
+scale = Vector2( 150, 8 )
+amount = 1
+lifetime = 0.2
+gravity = Vector2( 0, 0 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 2 )
+
+[node name="penta10" type="CPUParticles2D" parent="." index="10"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+position = Vector2( 5.72205e-06, -26 )
+rotation = 6.28319
+scale = Vector2( 150, 8 )
+amount = 1
+lifetime = 0.2
+gravity = Vector2( 0, 0 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 2 )
+
+[node name="ring" type="CPUParticles2D" parent="." index="11"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 1 )
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+angle = 45.0
+scale_amount = 2.5
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 2 )

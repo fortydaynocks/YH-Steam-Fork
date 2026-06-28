@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/a-kings-decapitation-mix-1.ogg-c61d98fc606010f9bfb2643d021a956a.oggstr"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/skins/guillotine/music/a-kings-decapitation-mix-1.ogg"
+dest_files=[ "res://.import/a-kings-decapitation-mix-1.ogg-c61d98fc606010f9bfb2643d021a956a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

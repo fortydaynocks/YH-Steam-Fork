@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIDataCheckButton.gd" type="Script" id=1]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=2]
+
+[node name="ActionUIData" instance=ExtResource( 2 )]
+
+[node name="Dash" type="CheckButton" parent="." index="0"]
+margin_right = 71.0
+margin_bottom = 12.0
+text = "Stance up"
+script = ExtResource( 1 )

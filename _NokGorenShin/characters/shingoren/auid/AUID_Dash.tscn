@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/HorizSlider/HorizSlider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CheckButton
+
+signal data_changed()
+
+func _on_Cut_pressed():
+	emit_signal(\"data_changed\")
+
+func get_data():
+	return self.pressed
+
+
+
+"
+
+[node name="ActionUIData" instance=ExtResource( 2 )]
+custom_constants/separation = 4
+
+[node name="Distance" parent="." index="0" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 60.0
+margin_bottom = 36.0
+min_value = -100
+
+[node name="Cut" type="CheckButton" parent="." index="1"]
+margin_left = 64.0
+margin_top = 12.0
+margin_right = 102.0
+margin_bottom = 24.0
+hint_tooltip = "Cut momentum early."
+size_flags_vertical = 4
+text = "Cut"
+script = SubResource( 1 )
+
+[connection signal="pressed" from="Cut" to="Cut" method="_on_Cut_pressed"]

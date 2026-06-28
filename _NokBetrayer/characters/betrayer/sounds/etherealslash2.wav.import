@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/etherealslash2.wav-efd13ed4c9388f0c0fa685cf74b856e0.sample"
+
+[deps]
+
+source_file="res://_NokBetrayer/characters/betrayer/sounds/etherealslash2.wav"
+dest_files=[ "res://.import/etherealslash2.wav-efd13ed4c9388f0c0fa685cf74b856e0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

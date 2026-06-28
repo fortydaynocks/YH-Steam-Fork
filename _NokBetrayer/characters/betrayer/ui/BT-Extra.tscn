@@ -1,0 +1,163 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/XYPlot/XYPlot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/BetrayerExtra.gd" type="Script" id=3]
+
+[node name="PlayerExtra" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 153.0
+margin_bottom = 360.0
+alignment = 2
+
+[node name="PassJudgement" type="CheckBox" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_top = 327.0
+margin_right = 102.0
+margin_bottom = 344.0
+hint_tooltip = "- Lend one of your specials to the Knight of Occlusion for it to use.
+- The special cannot be used until the Knight is done using it.
+"
+theme = ExtResource( 2 )
+text = "Pass Judgement"
+
+[node name="ActivateJudgeEye" type="OptionButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_top = 281.0
+margin_right = 153.0
+margin_bottom = 293.0
+hint_tooltip = "- Select an available Judge Eye to activate and attack the opponent.
+- Use while taunting to recall the eye."
+theme = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 294.0
+margin_right = 153.0
+margin_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 66.0
+alignment = 2
+
+[node name="Judge Eye" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+unique_name_in_owner = true
+modulate = Color( 0, 0.415686, 1, 1 )
+anchor_right = 0.0
+anchor_bottom = 0.0
+mouse_filter = 1
+snap_radius = 0.5
+
+[node name="PlotPanel" parent="VBoxContainer/HBoxContainer/VBoxContainer/Judge Eye" index="0"]
+hint_tooltip = "Spend a Judge Point to summon a Judge Eye.
+Keep neutral to not use.
+
+Judge Points are gained when you gain meter."
+
+[node name="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Judge Eye" index="2"]
+text = "Judge Eye"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 61.0
+margin_right = 153.0
+margin_bottom = 66.0
+alignment = 2
+
+[node name="EyeTypesLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 29.0
+margin_right = 92.0
+margin_bottom = 40.0
+hint_tooltip = "The type of Judge Eye to spawn.
+Hover over each toggle to see details.
+
+Gain Judge Eyes by using specials."
+mouse_filter = 1
+text = "Variant"
+align = 1
+
+[node name="EyeTypes" type="GridContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 41.0
+margin_right = 92.0
+margin_bottom = 66.0
+custom_constants/vseparation = 1
+columns = 3
+
+[node name="EyeTruth" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2/EyeTypes"]
+margin_right = 28.0
+margin_bottom = 12.0
+hint_tooltip = "Eye of Truth"
+text = "0"
+__meta__ = {
+"_editor_description_": "Truth"
+}
+
+[node name="EyeMight" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2/EyeTypes"]
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 12.0
+hint_tooltip = "Eye of Might"
+text = "0"
+__meta__ = {
+"_editor_description_": "Might"
+}
+
+[node name="EyeOrder" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2/EyeTypes"]
+margin_left = 64.0
+margin_right = 92.0
+margin_bottom = 12.0
+hint_tooltip = "Eye of Order"
+text = "0"
+__meta__ = {
+"_editor_description_": "Order"
+}
+
+[node name="EyeShadow" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2/EyeTypes"]
+margin_top = 13.0
+margin_right = 28.0
+margin_bottom = 25.0
+hint_tooltip = "Eye of Shadow"
+text = "0"
+__meta__ = {
+"_editor_description_": "Shadow"
+}
+
+[node name="EyeAcumen" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2/EyeTypes"]
+margin_left = 32.0
+margin_top = 13.0
+margin_right = 60.0
+margin_bottom = 25.0
+hint_tooltip = "Eye of Acumen"
+text = "0"
+__meta__ = {
+"_editor_description_": "Acumen"
+}
+
+[node name="EyeJustice" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2/EyeTypes"]
+modulate = Color( 0, 0.415686, 1, 1 )
+margin_left = 64.0
+margin_top = 13.0
+margin_right = 92.0
+margin_bottom = 25.0
+hint_tooltip = "Eye of Justice"
+text = "0"
+__meta__ = {
+"_editor_description_": "Justice"
+}
+
+[connection signal="pressed" from="VBoxContainer/PassJudgement" to="." method="_on_PassJudgement_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ActivateJudgeEye" to="." method="_on_ActivateJudgeEye_item_selected"]
+[connection signal="data_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/Judge Eye" to="." method="_on_Judge_Eye_data_changed"]
+
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/Judge Eye"]

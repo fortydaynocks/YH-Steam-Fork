@@ -130,6 +130,57 @@ var name_paths = {
 	"Robot": "res://characters/robo/Robot.tscn",
 	"Mutant": "res://characters/mutant/Mutant.tscn",
 #	"Alien": "res://characters/alien/Alien.tscn",
+			
+	#	--
+	#"Admiral":"res://_NokCommander/characters/commander/Admiral.tscn",
+	#"Arkhangelsk":"res://_NokArkhangelsk/characters/arkhangelsk/Arkhangelsk.tscn",
+	#"Bastion":"res://_NokBastion/characters/bastion/Bastion.tscn",
+	"Betrayer":"res://_NokBetrayer/characters/betrayer/Betrayer.tscn",
+	#"Bonehead":"res://_NokBonehead/characters/bonehead/Bonehead.tscn",
+	#"Carriophim":"res://_NokCarriophim/characters/carriophim/Carriophim.tscn",
+	#"Construct":"res://_NokConstruct/characters/construct/Construct.tscn",
+	#"Colossus":"res://_NokColossus/characters/colossus/Colossus.tscn",
+	"Colossus":"res://_NokColossusR/characters/colossus/Colossus.tscn",
+	#"Dark Crown":"res://_NokDarkCrown/characters/darkcrown/DarkCrown.tscn",
+	#"Deo":"res://_NokDeo/characters/deo/Deo.tscn",
+	"DeoR":"res://_NokDeoR/characters/deo/DeoR.tscn",	
+	#"Developer":"res://_NokDeveloper/characters/developer/Developer.tscn",
+	#"Developer":"res://_NokDeveloperR/characters/developer/Developer.tscn",		
+	#"Doubledown":"res://_NokDoubledownR/characters/doubledown/Doubledown.tscn",
+	"Durmak":"res://_NokDurmak/characters/durmak/Durmak.tscn",	
+	#"Gentleman":"res://_NokGentleman/characters/gentleman/Gentleman.tscn",
+	#"Goren":"res://_NokGoren/characters/goren/Goren.tscn",
+	#"Guardian":"res://_NokGuardian/characters/guardian/Guardian.tscn",
+	"Hellsaint":"res://_NokTormentHellsaint/characters/hellsaint/Hellsaint.tscn",
+	#"Huntress":"res://_NokHuntress/characters/huntress/Huntress.tscn",
+	#"Jupiter":"res://_NokJupiter/characters/jupiter/Jupiter.tscn",
+	#"Magistra":"res://_NokMagistra/characters/magistra/Magistra.tscn",
+	#"Niflheim":"res://_NokNiflheim/characters/niflheim/Niflheim.tscn",
+	#"Poole":"res://_NokPoole/characters/poole/Poole.tscn",
+	"Psycho":"res://_NokPsychoR/characters/psycho/Psycho.tscn",
+	#"Raiders":"res://_NokRaiders/characters/raiders/Raiders.tscn",
+	#"Ruffian":"res://_NokRuffian/characters/ruffian/Ruffian.tscn",
+	"Shin Goren":"res://_NokGorenShin/characters/shingoren/ShinGoren.tscn",
+	#"Silo":"res://_NokSilo/characters/silo/Silo.tscn",
+	#"Skullmage":"res://_NokSkullmage/characters/skullmage/Skullmage.tscn",
+	#"Snowdancer":"res://_NokSnowdancer/characters/snowdancer/Snowdancer.tscn",
+	#"The Master":"res://_NokMaster/characters/master/Master.tscn",
+	#"Thrasher":"res://_NokThrasher/characters/thrasher/Thrasher.tscn",
+	#"Torment":"res://_NokTorment/characters/torment/Torment.tscn",
+	#"Undertaker":"res://_NokUndertaker/characters/undertaker/Undertaker.tscn",
+	#"Undertaker2":"res://_NokUndertaker/characters/undertaker/Undertaker2.tscn",
+	#"Wrath":"res://_NokWrathR/characters/wrath/Wrath.tscn",
+	#"Zrath":"res://_NokZrath/characters/zrath/Zrath.tscn",
+	#"X":"res://_NokOmenX/characters/x/X.tscn",
+	
+	#	--	COLLABORATIONS
+	
+	#"Acolyte":"res://_Acolyte/Acolyte.tscn",
+	"Goku":"res://_YomiZ-Goku/characters/goku/Goku.tscn"
+	
+	#	--	STRAIGHT UP JUST NOT MY CHARACTERS
+	
+	#"Miyuki":"res://_MiyukiFox/characters/miyuki/MiyukiFox.tscn",
 }
 
 var songs = {

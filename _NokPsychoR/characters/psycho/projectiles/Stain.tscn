@@ -1,0 +1,188 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokPsychoR/characters/psycho/projectiles/Stain.gd" type="Script" id=2]
+[ext_resource path="res://_NokPsychoR/characters/psycho/projectiles/StainDefault.gd" type="Script" id=3]
+[ext_resource path="res://_NokPsychoR/characters/psycho/PsychoProjSF.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/yomifx_ring64.png" type="Texture" id=5]
+[ext_resource path="res://theme.tres" type="Theme" id=6]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=7]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/edge01.wav" type="AudioStream" id=8]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/imaginbreaker.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoStar2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/psychohit1nobass.wav" type="AudioStream" id=11]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=12]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/superhit07.wav" type="AudioStream" id=13]
+[ext_resource path="res://_NokPsychoR/characters/psycho/projectiles/StainBloodstain.gd" type="Script" id=14]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoHit2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/crash03.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokPsychoR/characters/psycho/projectiles/StainBloodwash.gd" type="Script" id=17]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/coolhit02.wav" type="AudioStream" id=18]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/slash07.wav" type="AudioStream" id=19]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoStar1.tscn" type="PackedScene" id=20]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/slash01.wav" type="AudioStream" id=21]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/slash05.wav" type="AudioStream" id=22]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+extra_state_variables = "stain_type
+clean_strike_threshold
+
+lifetime"
+has_projectile_parry_window = false
+projectile_immune = true
+tag = "Stain"
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 4 )
+
+[node name="Bloodstream" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+volume_db = -6.0
+script = ExtResource( 7 )
+pitch_variation = 0.05
+
+[node name="Bloodstream2" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 8 )
+volume_db = -12.0
+script = ExtResource( 7 )
+pitch_variation = 0.05
+
+[node name="Bloodwash" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 18 )
+volume_db = -6.0
+script = ExtResource( 7 )
+pitch_variation = 0.0
+
+[node name="Bloodwash2" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 19 )
+volume_db = -6.0
+script = ExtResource( 7 )
+pitch_variation = 0.05
+
+[node name="CollisionBox" parent="." index="2"]
+width = 0
+height = 0
+
+[node name="Hurtbox" parent="." index="3"]
+width = 35
+height = 35
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "default"
+
+[node name="Bloodstain" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 14 )
+__meta__ = {
+"_editor_description_": ""
+}
+fallback_state = "Default"
+sprite_animation = "default"
+endless = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Bloodstain" index="0"]
+z_index = 1000
+script = ExtResource( 12 )
+width = 80
+height = 80
+damage = 70
+hitstun_ticks = 16
+hitlag_ticks = 12
+victim_hitlag = 12
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+plus_frames = 2
+hit_particle = ExtResource( 10 )
+replace_hit_particle = true
+whiff_particle = ExtResource( 15 )
+whiff_sound = ExtResource( 16 )
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 13 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -12.0
+bass_on_whiff = true
+dir_x = "1"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+ground_bounce = false
+start_tick = 1
+active_ticks = 2
+
+[node name="Bloodwash" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 17 )
+__meta__ = {
+"_editor_description_": ""
+}
+fallback_state = "Default"
+sprite_animation = "default"
+anim_length = 60
+ticks_per_frame = 2
+endless = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Bloodwash" index="0"]
+z_index = 1000
+script = ExtResource( 12 )
+width = 30
+height = 30
+damage = 40
+hitstun_ticks = 18
+hitlag_ticks = 1
+victim_hitlag = 4
+di_modifier = "0.5"
+sdi_modifier = "0.5"
+plus_frames = 1
+hit_particle = ExtResource( 20 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 21 )
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 22 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "6"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 1
+active_ticks = 1
+always_on = true
+looping = true
+
+[node name="GhostMarker" type="TextureRect" parent="." index="7"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+material = SubResource( 1 )
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="Info" type="RichTextLabel" parent="." index="8"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -250.0
+margin_top = 4.0
+margin_right = 250.0
+margin_bottom = 106.0
+theme = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Type: Stain"
+text = "Type: Stain"

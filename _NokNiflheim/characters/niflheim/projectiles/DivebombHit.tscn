@@ -1,0 +1,114 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=3]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/HitEffect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/100_hit_grap_2.wav" type="AudioStream" id=5]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdivebombhiteffect.png" type="Texture" id=6]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifDivebombHitParticles.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = SubResource( 11 )
+
+[node name="Default" parent="StateMachine" index="0"]
+sprite_animation = "default"
+anim_length = 18
+ticks_per_frame = 2
+particle_scene = ExtResource( 7 )
+spawn_particle_on_enter = true
+move_x = 0
+clash = false
+num_hits = 9999
+lifetime = 18
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 3 )
+x = -2
+y = -9
+width = 66
+height = 26
+damage = 50
+minimum_damage = 12
+hitstun_ticks = 12
+hitlag_ticks = 8
+cancellable = false
+plus_frames = 2
+screenshake_amount = 6
+screenshake_frames = 8
+hit_particle = ExtResource( 4 )
+replace_hit_particle = true
+hit_sound = ExtResource( 5 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+start_tick = 1
+active_ticks = 10

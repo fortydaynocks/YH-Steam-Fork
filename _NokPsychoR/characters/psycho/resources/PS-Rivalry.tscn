@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://_NokPsychoR/characters/psycho/resources/PS-Rivalry2.gd" type="Script" id=2]
+
+[node name="RV-Rivalry" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "Wait"
+anim_length = 120
+ticks_per_frame = 4
+show_in_menu = false
+interrupt_into_string = "Grounded
+Aerial
+Parry"
+change_stance_to = "RivalIntro"
+rivals = "Hellsaint"
+
+[node name="RivalText" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -37.0
+margin_top = -80.0
+margin_right = 38.0
+margin_bottom = -50.0
+grow_vertical = 0
+rect_clip_content = false
+theme = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]"
+fit_content_height = true
+scroll_active = false
+
+[node name="RivalWarning" type="Node2D" parent="."]
+visible = false
+scale = Vector2( 8, 8 )
+z_index = 5
+
+[node name="Label" type="Label" parent="RivalWarning"]
+margin_left = -22.0
+margin_top = -7.0
+margin_right = 22.0
+margin_bottom = 7.0
+theme = ExtResource( 1 )
+text = "RIVALRY!!"

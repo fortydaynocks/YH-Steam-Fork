@@ -1,0 +1,615 @@
+[gd_scene load_steps=50 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-Shadow.gd" type="Script" id=3]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/resources/BT-SF.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sprites/bt-knight-wings.png" type="Texture" id=5]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-Idle.gd" type="Script" id=6]
+[ext_resource path="res://sound/common/swish.wav" type="AudioStream" id=7]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=8]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/knight1.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-State.gd" type="Script" id=10]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slice1.wav" type="AudioStream" id=11]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/spawnblade2.wav" type="AudioStream" id=12]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=13]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/BTHit1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slash2.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/hitbass.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slashB-1.wav" type="AudioStream" id=17]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slash1.wav" type="AudioStream" id=18]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/BTHit2.tscn" type="PackedScene" id=19]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/judgementslash2.wav" type="AudioStream" id=20]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/hitbass4.wav" type="AudioStream" id=21]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slice3.wav" type="AudioStream" id=22]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/block_activate.wav" type="AudioStream" id=23]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-Order.gd" type="Script" id=24]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/BTMisc1.tscn" type="PackedScene" id=25]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/judgementslash1.wav" type="AudioStream" id=26]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/BT-Teleport.tscn" type="PackedScene" id=27]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-Acumen.gd" type="Script" id=28]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slash3.wav" type="AudioStream" id=29]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-Acumen2.gd" type="Script" id=30]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/knight2-faster.wav" type="AudioStream" id=31]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/knight2.wav" type="AudioStream" id=32]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/knight/KOO-Ascension.gd" type="Script" id=33]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/slashB-4.wav" type="AudioStream" id=34]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/skins/munanyou/sounds/mu-thunder1-processed.wav" type="AudioStream" id=35]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/skins/munanyou/sounds/mu-holy1.wav" type="AudioStream" id=36]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=37]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/skins/munanyou/sprites/bt-knight-kanji-mu.png" type="Texture" id=38]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.996403, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 0.32549, 0, 1, 0 )
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 37 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, -1.78554, 0, 0, Vector2( 1, 0.493182 ), -0.506818, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=10]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0.2375 ), 0.0, 0.7625, 0, 1, Vector2( 1, 1 ), 0.7625, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0.0212766, 0.37234, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.0434783, 1, 1, 1, 0 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+max_air_speed = "20"
+max_fall_speed = "20"
+extra_state_variables = "next_attack"
+has_projectile_parry_window = false
+immunity_susceptible = false
+deletes_other_projectiles = false
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+projectile_immune = true
+tag = "Knight"
+disable_particle = null
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 4 )
+animation = "knight-idle"
+offset = Vector2( 0, -18 )
+
+[node name="Wings" type="AnimatedSprite" parent="Flip/Sprite" index="0"]
+unique_name_in_owner = true
+modulate = Color( 0, 0.415686, 1, 1 )
+frames = ExtResource( 4 )
+animation = "knight-wings"
+offset = Vector2( 0, -18 )
+
+[node name="wings-particle" type="CPUParticles2D" parent="Flip/Sprite/Wings" index="0"]
+unique_name_in_owner = true
+material = SubResource( 2 )
+position = Vector2( 0, -18 )
+z_index = -1
+amount = 2
+lifetime = 0.25
+texture = ExtResource( 5 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+color_ramp = SubResource( 3 )
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0" instance=ExtResource( 2 )]
+material = null
+one_shot = false
+lifetime = 9999.0
+
+[node name="dots" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="1"]
+unique_name_in_owner = true
+modulate = Color( 0, 0.415686, 1, 1 )
+material = SubResource( 4 )
+position = Vector2( 0, -18 )
+z_index = 1
+amount = 16
+lifetime = 1.5
+speed_scale = 2.0
+lifetime_randomness = 0.5
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 20, 30 )
+gravity = Vector2( 0, -150 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 6.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Mu-Kanji" parent="Flip/Particles" index="1" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+material = SubResource( 7 )
+position = Vector2( 0, -18 )
+start_enabled = false
+
+[node name="kanji1" type="CPUParticles2D" parent="Flip/Particles/Mu-Kanji" index="1"]
+unique_name_in_owner = true
+material = SubResource( 8 )
+z_index = 2
+emitting = false
+amount = 1
+lifetime = 0.4
+local_coords = false
+texture = ExtResource( 38 )
+gravity = Vector2( 0, 0 )
+scale_amount = 2.0
+scale_amount_curve = SubResource( 9 )
+color_ramp = SubResource( 10 )
+
+[node name="kanji2" type="CPUParticles2D" parent="Flip/Particles/Mu-Kanji" index="2"]
+unique_name_in_owner = true
+modulate = Color( 0, 0.415686, 1, 1 )
+material = SubResource( 8 )
+z_index = 1
+emitting = false
+amount = 1
+lifetime = 0.4
+local_coords = false
+texture = ExtResource( 38 )
+gravity = Vector2( 0, 0 )
+scale_amount = 4.0
+scale_amount_curve = SubResource( 11 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 12 )
+
+[node name="Spawn1" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.0
+
+[node name="SpawnMu" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 35 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.05
+
+[node name="SpawnMu2" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 36 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.0
+
+[node name="Spawn2" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 32 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.05
+
+[node name="Disable" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+stream = ExtResource( 12 )
+volume_db = -9.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.0
+
+[node name="CollisionBox" parent="." index="2"]
+__meta__ = {
+"_editor_description_": ""
+}
+y = -14
+width = 12
+height = 14
+
+[node name="Hurtbox" parent="." index="3"]
+__meta__ = {
+"_editor_description_": ""
+}
+y = -24
+width = 14
+height = 16
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "knight-idle"
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+idle_state = true
+hurt_state = false
+chase_x = 0.0
+chase_y = 0.0
+stop_chasing_at = -1
+update_facing_on_enter = true
+disable_on_exit = false
+
+[node name="Hurt" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 10 )
+apply_forces = true
+reset_momentum = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+fallback_state = "Default"
+sprite_animation = "knight-hurt"
+anim_length = 20
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-2"
+enter_sfx = ExtResource( 7 )
+enter_sfx_volume = -3.0
+hurt_state = true
+update_facing_on_enter = false
+disable_on_exit = true
+
+[node name="Truth" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 10 )
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+fallback_state = "Default"
+sprite_animation = "knight-truth"
+anim_length = 24
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "12"
+force_tick = 9
+enter_sfx = ExtResource( 15 )
+enter_sfx_volume = -6.0
+chase_x = 1.25
+chase_y = 1.25
+stop_chasing_at = 9
+disable_on_exit = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Truth" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 33
+y = -22
+width = 42
+height = 9
+damage = 90
+hitstun_ticks = 18
+hitlag_ticks = 12
+victim_hitlag = 12
+cancellable = false
+plus_frames = 1
+screenshake_amount = 6
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 17 )
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 16 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.4"
+knockback = "10"
+grounded_hit_state = "HurtAerial"
+start_tick = 9
+active_ticks = 3
+
+[node name="Might" type="Node2D" parent="StateMachine" index="3"]
+script = ExtResource( 10 )
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+fallback_state = "Default"
+sprite_animation = "knight-might"
+anim_length = 28
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "2"
+force_tick = 15
+enter_sfx = ExtResource( 20 )
+enter_sfx_volume = -6.0
+chase_x = 1.0
+chase_y = 1.5
+stop_chasing_at = 15
+disable_on_exit = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Might" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 25
+y = -9
+width = 53
+height = 33
+damage = 120
+hitstun_ticks = 18
+hitlag_ticks = 14
+victim_hitlag = 14
+cancellable = false
+plus_frames = 2
+screenshake_amount = 10
+hit_particle = ExtResource( 19 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 18 )
+hit_sound = ExtResource( 22 )
+hit_bass_sound = ExtResource( 21 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.75"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+wall_slam = true
+start_tick = 16
+active_ticks = 3
+
+[node name="Order" type="Node2D" parent="StateMachine" index="4"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+fallback_state = "Default"
+sprite_animation = "knight-order"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-2"
+timed_particle_scene = ExtResource( 25 )
+timed_particle_position = Vector2( 62, 8 )
+timed_spawn_particle_tick = 9
+enter_sfx = ExtResource( 23 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 26 )
+sfx_tick = 9
+sfx_volume = -6.0
+stop_chasing_at = 10
+disable_on_exit = true
+
+[node name="Shadow" type="Node2D" parent="StateMachine" index="5"]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+fallback_state = "Default"
+sprite_animation = "knight-shadow"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "-1"
+enter_force_speed = "1"
+timed_particle_scene = ExtResource( 25 )
+timed_particle_position = Vector2( 58, 28 )
+timed_spawn_particle_tick = 5
+enter_sfx = ExtResource( 17 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 31 )
+sfx_tick = 5
+sfx_volume = -6.0
+disable_on_exit = true
+
+[node name="Acumen" type="Node2D" parent="StateMachine" index="6"]
+script = ExtResource( 28 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+fallback_state = "Default"
+sprite_animation = "knight-acumen"
+anim_length = 45
+ticks_per_frame = 2
+enter_sfx_volume = -6.0
+chase_x = 0.5
+chase_y = 0.25
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Acumen" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 65
+y = -22
+width = 65
+height = 3
+hitbox_type = 6
+whiff_sound = null
+start_tick = 10
+always_on = true
+
+[node name="Acumen2" type="Node2D" parent="StateMachine" index="7"]
+script = ExtResource( 30 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+fallback_state = "Default"
+sprite_animation = "knight-acumen2"
+anim_length = 20
+ticks_per_frame = 2
+particle_scene = ExtResource( 27 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 29 )
+enter_sfx_volume = -6.0
+disable_on_exit = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Acumen2" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 28
+y = -22
+width = 48
+height = 12
+damage = 80
+hitstun_ticks = 18
+hitlag_ticks = 12
+victim_hitlag = 14
+cancellable = false
+plus_frames = 1
+screenshake_amount = 6
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 17 )
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 16 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.4"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 5
+active_ticks = 2
+
+[node name="Justice" type="Node2D" parent="StateMachine" index="8"]
+script = ExtResource( 33 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.2"
+custom_y_fric = "0.2"
+sprite_animation = "knight-ascension"
+anim_length = 80
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "6"
+force_tick = 60
+sfx = ExtResource( 34 )
+sfx_tick = 48
+sfx_volume = -6.0
+chase_x = 0.75
+chase_y = 0.75
+stop_chasing_at = 62
+disable_on_exit = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Justice" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+y = -18
+width = 55
+damage = 35
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 6
+cancellable = false
+di_modifier = "0.5"
+sdi_modifier = "0.5"
+plus_frames = 1
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 17 )
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 16 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "6"
+vacuum = true
+minimum_grounded_frames = 6
+start_tick = 15
+active_ticks = 20
+looping = true
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/Justice" index="1"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 40
+y = -20
+width = 68
+height = 36
+damage = 100
+hitstun_ticks = 18
+hitlag_ticks = 14
+victim_hitlag = 14
+cancellable = false
+plus_frames = 2
+group = 1
+screenshake_amount = 10
+hit_particle = ExtResource( 19 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 18 )
+hit_sound = ExtResource( 22 )
+hit_bass_sound = ExtResource( 21 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0.75"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+wall_slam = true
+start_tick = 61
+active_ticks = 3
+
+[editable path="Flip/Particles/ParticleEffect"]

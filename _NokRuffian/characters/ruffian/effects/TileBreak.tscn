@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://_NokRuffian/characters/ruffian/effects/csr-massbreaker-slam.png" type="Texture" id=2]
+[ext_resource path="res://fx/ParticleEffect.gd" type="Script" id=3]
+[ext_resource path="res://characters/CharacterMaterial.tres" type="Material" id=4]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.394595, 0.72973 )
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[node name="ParticleEffect" type="Node2D"]
+material = ExtResource( 4 )
+script = ExtResource( 3 )
+lifetime = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.064
+one_shot = true
+
+[node name="Rubble" type="CPUParticles2D" parent="."]
+position = Vector2( 8, -16 )
+amount = 1
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource( 2 )
+direction = Vector2( 0, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+angle_random = 1.0
+color_ramp = SubResource( 2 )

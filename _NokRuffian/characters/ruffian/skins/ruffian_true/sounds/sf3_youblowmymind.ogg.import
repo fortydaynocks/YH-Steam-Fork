@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sf3_youblowmymind.ogg-0a93666dcf448f37373751d6efa11734.oggstr"
+
+[deps]
+
+source_file="res://_NokRuffian/characters/ruffian/skins/ruffian_true/sounds/sf3_youblowmymind.ogg"
+dest_files=[ "res://.import/sf3_youblowmymind.ogg-0a93666dcf448f37373751d6efa11734.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

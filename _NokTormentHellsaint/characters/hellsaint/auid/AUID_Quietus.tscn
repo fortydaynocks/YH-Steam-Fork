@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/auid/AUID_Quietus.gd" type="Script" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://ui/8Way/8Way.tscn" type="PackedScene" id=4]
+
+[node name="ActionUIData" type="VBoxContainer"]
+margin_right = 110.0
+margin_bottom = 76.0
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Direction" parent="." instance=ExtResource( 4 )]
+unique_name_in_owner = true
+margin_bottom = 39.0
+NW = false
+N = false
+NE = false
+Neutral = false
+SW = false
+S = false
+SE = false
+
+[node name="ShortToggle" type="CheckButton" parent="Direction"]
+unique_name_in_owner = true
+margin_top = 27.0
+margin_right = 50.0
+margin_bottom = 39.0
+text = "Short"
+
+[node name="StanceLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+margin_top = 40.0
+margin_right = 110.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 110, 0 )
+bbcode_enabled = true
+bbcode_text = "State: ..."
+text = "State: ..."
+fit_content_height = true
+
+[connection signal="data_changed" from="Direction" to="." method="_on_Direction_data_changed"]
+[connection signal="pressed" from="Direction/ShortToggle" to="." method="_on_ShortToggle_pressed"]

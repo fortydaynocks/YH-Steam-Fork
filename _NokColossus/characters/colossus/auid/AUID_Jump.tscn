@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/XYPlot/SemicirclePlot.tscn" type="PackedScene" id=2]
+
+[node name="ActionUIData" instance=ExtResource( 1 )]
+
+[node name="Direction" parent="." index="0" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 60.0
+rect_min_size = Vector2( 60, 66 )
+panel_type = 0
+limit_range_degrees = 225.0
+default_value = Vector2( -4.37114e-08, -1 )
+snap_radius = 0.7

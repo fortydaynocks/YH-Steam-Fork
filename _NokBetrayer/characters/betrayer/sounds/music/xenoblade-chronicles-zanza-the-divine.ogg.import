@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/xenoblade-chronicles-zanza-the-divine.ogg-987ab159caa652fac3aff67b0ffc6103.oggstr"
+
+[deps]
+
+source_file="res://_NokBetrayer/characters/betrayer/sounds/music/xenoblade-chronicles-zanza-the-divine.ogg"
+dest_files=[ "res://.import/xenoblade-chronicles-zanza-the-divine.ogg-987ab159caa652fac3aff67b0ffc6103.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

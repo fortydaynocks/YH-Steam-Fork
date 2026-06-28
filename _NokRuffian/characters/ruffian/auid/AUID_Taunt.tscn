@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficontaunt.png" type="Texture" id=1]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=2]
+
+[node name="ActionUIData" instance=ExtResource( 2 )]
+
+[node name="OptionButton" type="OptionButton" parent="." index="0"]
+margin_right = 91.0
+margin_bottom = 17.0
+text = "Select taunt"
+icon = ExtResource( 1 )

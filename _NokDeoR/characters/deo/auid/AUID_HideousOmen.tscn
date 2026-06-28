@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.gd" type="Script" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/auid/AUID_NullReciever.gd" type="Script" id=3]
+[ext_resource path="res://ui/XYPlot/XYPlot.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends OptionButton
+
+signal data_changed()
+
+func _ready():
+	self.add_item(\"Stand\")
+	self.add_item(\"Follow\")
+
+func _on_OptionButton_item_selected(index):
+	emit_signal(\"data_changed\")
+	
+	if is_instance_valid($\"%Position\"):
+		$\"%Position\".visible = self.get_item_text(index) == \"Stand\"
+
+func get_data():
+	return self.get_item_text(self.selected)
+"
+
+[node name="ActionUIData" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+alignment = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Position" parent="." instance=ExtResource( 4 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 269.0
+margin_bottom = 335.0
+
+[node name="Label" type="Label" parent="."]
+margin_top = 336.0
+margin_right = 640.0
+margin_bottom = 347.0
+text = "Stand behavior:"
+script = ExtResource( 3 )
+
+[node name="StandMode" type="OptionButton" parent="."]
+margin_top = 348.0
+margin_right = 640.0
+margin_bottom = 360.0
+hint_tooltip = "Choose the behavior of your stand.
+
+Stand: the stand remains stationary.
+Follow: the stand follows your motion."
+text = "..."
+script = SubResource( 2 )
+
+[connection signal="item_selected" from="StandMode" to="StandMode" method="_on_OptionButton_item_selected"]

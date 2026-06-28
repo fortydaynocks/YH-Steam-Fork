@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/knifeswing1.wav-c2b9a0f2b0155afa25c5b74a10d1d4a3.sample"
+
+[deps]
+
+source_file="res://_NokGentleman/characters/gentleman/sounds/knifeswing1.wav"
+dest_files=[ "res://.import/knifeswing1.wav-c2b9a0f2b0155afa25c5b74a10d1d4a3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

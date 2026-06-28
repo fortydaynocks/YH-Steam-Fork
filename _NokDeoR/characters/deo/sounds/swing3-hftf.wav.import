@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing3-hftf.wav-dce79fc6cef736972155c6c59b7569ef.sample"
+
+[deps]
+
+source_file="res://_NokDeoR/characters/deo/sounds/swing3-hftf.wav"
+dest_files=[ "res://.import/swing3-hftf.wav-dce79fc6cef736972155c6c59b7569ef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

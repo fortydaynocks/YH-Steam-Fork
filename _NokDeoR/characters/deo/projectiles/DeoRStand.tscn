@@ -1,0 +1,420 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://obj/BaseObj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoR-SF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoRStand.gd" type="Script" id=3]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoRStandState.gd" type="Script" id=4]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoRStandDefault.gd" type="Script" id=5]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoRStandCallback.gd" type="Script" id=6]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-StandCallback.tscn" type="PackedScene" id=7]
+[ext_resource path="res://framework/VariableSound.gd" type="Script" id=8]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/unsummon_stand.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Ring1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Hit1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=13]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-Hit2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit2-cvs2.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit4-cvs2.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit2-hftf.wav" type="AudioStream" id=17]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/swing1-hftf.wav" type="AudioStream" id=18]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/swing2-hftf.wav" type="AudioStream" id=19]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/pullout_knives.wav" type="AudioStream" id=20]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoR-Stand-Dash.gd" type="Script" id=21]
+[ext_resource path="res://theme.tres" type="Theme" id=22]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/hit3-hftf.wav" type="AudioStream" id=23]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoR-Stand-Summon.gd" type="Script" id=24]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-KnifeShine.tscn" type="PackedScene" id=25]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/throw_knife.wav" type="AudioStream" id=26]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoR-Stand-KnifeSwarm.gd" type="Script" id=27]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_barrage_extended.wav" type="AudioStream" id=28]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_barrage_end.wav" type="AudioStream" id=29]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoR-Stand-BlazingFists.gd" type="Script" id=30]
+
+[node name="DeoRStand" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "NoTimestop"
+}
+extra_state_variables = "buffer_action
+can_disable
+actionable
+
+action_queue
+idle_time"
+has_projectile_parry_window = false
+immunity_susceptible = true
+deletes_other_projectiles = true
+fizzle_on_ceiling = false
+movable = true
+can_be_hit_by_melee = true
+hit_by_self_projectiles = false
+hit_cancel_on_hit = false
+free_cancel_on_hit = true
+apply_hitlag_when_hit_by_melee = true
+projectile_immune = true
+hitlag_modifier = "1.0"
+tag = "DeoStand"
+spawn_particle = null
+spawn_particle_offset = Vector2( 0, 0 )
+spawn_sound = ""
+disable_particle = null
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = ""
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 2 )
+animation = "stand-default"
+offset = Vector2( 0, -18 )
+
+[node name="Callback" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+volume_db = -9.0
+script = ExtResource( 8 )
+pitch_variation = 0.0
+
+[node name="Target" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource( 20 )
+volume_db = -12.0
+pitch_scale = 1.5
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.05
+
+[node name="GotHit" type="AudioStreamPlayer" parent="Sounds" index="2"]
+stream = ExtResource( 23 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.05
+
+[node name="BlazingFists" type="AudioStreamPlayer" parent="Sounds" index="3"]
+stream = ExtResource( 28 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.02
+
+[node name="BlazingFistsEnd" type="AudioStreamPlayer" parent="Sounds" index="4"]
+stream = ExtResource( 29 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 8 )
+pitch_variation = 0.02
+
+[node name="CollisionBox" parent="." index="2"]
+y = -18
+width = 12
+height = 18
+
+[node name="Hurtbox" parent="." index="3"]
+__meta__ = {
+"_editor_description_": ""
+}
+y = -24
+width = 8
+height = 24
+
+[node name="StateMachine" parent="." index="4"]
+starting_state = "Summon"
+
+[node name="Summon" type="Node2D" parent="StateMachine" index="0"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+state_screenshake_tick = 1
+state_screenshake_amount = 2
+action = false
+fully_actionable = false
+
+[node name="Wait" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "stand-default"
+anim_length = 32
+ticks_per_frame = 8
+loop_animation = true
+endless = true
+action = false
+
+[node name="Dash" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 21 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "stand-dash"
+anim_length = 6
+ticks_per_frame = 2
+action = false
+fully_actionable = false
+
+[node name="Callback" type="Node2D" parent="StateMachine" index="3"]
+script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "stand-default"
+anim_length = 2
+particle_scene = ExtResource( 7 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+action = false
+fully_actionable = false
+
+[node name="Punch" type="Node2D" parent="StateMachine" index="4"]
+script = ExtResource( 4 )
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "stand-punch"
+anim_length = 16
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "6"
+force_tick = 4
+enter_sfx = ExtResource( 18 )
+enter_sfx_volume = -6.0
+fully_actionable = false
+iasa_on_hit = 6
+self_cancellable = false
+flip_on_entry = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Punch" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 16
+y = -25
+width = 17
+height = 12
+damage = 40
+minimum_damage = 13
+hitstun_ticks = 20
+hitlag_ticks = 8
+victim_hitlag = 8
+plus_frames = 1
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 15 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "6"
+start_tick = 5
+active_ticks = 2
+
+[node name="Crossblow" type="Node2D" parent="StateMachine" index="5"]
+script = ExtResource( 4 )
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "stand-crossblow"
+anim_length = 20
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "10"
+force_tick = 7
+enter_sfx = ExtResource( 19 )
+enter_sfx_volume = -6.0
+fully_actionable = false
+iasa_on_hit = 12
+self_cancellable = false
+flip_on_entry = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Crossblow" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 21
+y = -24
+width = 15
+height = 10
+damage = 30
+hitstun_ticks = 22
+hitlag_ticks = 8
+victim_hitlag = 8
+di_modifier = "0"
+sdi_modifier = "0"
+plus_frames = 1
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 15 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "6"
+start_tick = 8
+active_ticks = 3
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/Crossblow" index="1"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 21
+y = -19
+width = 15
+height = 10
+damage = 30
+hitstun_ticks = 22
+hitlag_ticks = 8
+victim_hitlag = 8
+plus_frames = 1
+group = 1
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 16 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 11
+active_ticks = 2
+
+[node name="KnifeSwarm" type="Node2D" parent="StateMachine" index="6"]
+script = ExtResource( 27 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+fallback_state = "Callback"
+sprite_animation = "stand-knifeswarm"
+anim_length = 24
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "-3"
+force_tick = 8
+timed_particle_scene = ExtResource( 25 )
+timed_particle_position = Vector2( 18, -18 )
+timed_spawn_particle_tick = 8
+enter_sfx = ExtResource( 20 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 26 )
+sfx_tick = 8
+sfx_volume = -3.0
+fully_actionable = false
+flip_on_entry = true
+
+[node name="BlazingFists" type="Node2D" parent="StateMachine" index="7"]
+script = ExtResource( 30 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+fallback_state = "Callback"
+sprite_animation = "stand-blazingfists"
+anim_length = 56
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "4"
+force_tick = 40
+particle_scene = ExtResource( 10 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+fully_actionable = false
+flip_on_entry = true
+action_cost = 2
+
+[node name="HitboxBarrage" type="Node2D" parent="StateMachine/BlazingFists" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 22
+y = -21
+height = 15
+damage = 25
+chip_damage_modifier = "0.5"
+hitstun_ticks = 20
+hitlag_ticks = 2
+victim_hitlag = 4
+di_modifier = "0.1"
+sdi_modifier = "0.1"
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 16 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "2"
+vacuum = true
+block_pushback_modifier = "0.5"
+pushback_x = "0.0"
+start_tick = 11
+active_ticks = 24
+looping = true
+loop_inactive_ticks = 1
+
+[node name="HitboxEnd" type="Node2D" parent="StateMachine/BlazingFists" index="1"]
+z_index = 1000
+script = ExtResource( 13 )
+x = 21
+y = -19
+width = 15
+height = 16
+damage = 30
+hitstun_ticks = 20
+hitlag_ticks = 8
+victim_hitlag = 8
+plus_frames = 2
+group = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 17 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+start_tick = 41
+active_ticks = 2
+
+[node name="Info" type="RichTextLabel" parent="." index="6"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -250.0
+margin_top = 4.0
+margin_right = 250.0
+margin_bottom = 106.0
+theme = ExtResource( 22 )
+bbcode_enabled = true

@@ -1,0 +1,165 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://characters/PlayerInfo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/music/goukisan-betrayal-of-fear.ogg" type="AudioStream" id=2]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/musicplayer/musicplayer-next.png" type="Texture" id=3]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/musicplayer/musicplayer-musicON.png" type="Texture" id=4]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/BetrayerInfo.gd" type="Script" id=5]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/music/goukisan-betrayal-of-fate.ogg" type="AudioStream" id=6]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/musicplayer/musicplayer-traySHOW.png" type="Texture" id=7]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/musicplayer/musicplayer-previous.png" type="Texture" id=8]
+[ext_resource path="res://theme.tres" type="Theme" id=9]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/ui/musicplayer/MusicPlayerBetrayer.gd" type="Script" id=10]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/music/azur-lane-a-dance-for-amahara-above-boss-theme-2.ogg" type="AudioStream" id=11]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/music/touhou-fdf-ii-iron-curtain-of-human-and-youkai.ogg" type="AudioStream" id=12]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/music/xenoblade-chronicles-zanza-the-divine.ogg" type="AudioStream" id=13]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+export (AudioStream) var song
+export (String) var song_name
+"
+
+[node name="PlayerInfo" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MusicPlayer" type="VBoxContainer" parent="." index="0"]
+unique_name_in_owner = true
+margin_right = 500.0
+margin_bottom = 47.0
+mouse_filter = 2
+script = ExtResource( 10 )
+
+[node name="MusicAudioPlayer" type="AudioStreamPlayer" parent="MusicPlayer" index="0"]
+unique_name_in_owner = true
+volume_db = -80.0
+
+[node name="SongsM" type="Node" parent="MusicPlayer/MusicAudioPlayer" index="0"]
+unique_name_in_owner = true
+
+[node name="Song" type="Node" parent="MusicPlayer/MusicAudioPlayer/SongsM" index="0"]
+script = SubResource( 1 )
+song = ExtResource( 13 )
+song_name = "Xenoblade Chronicles - Zanza the Divine"
+
+[node name="Song2" type="Node" parent="MusicPlayer/MusicAudioPlayer/SongsM" index="1"]
+script = SubResource( 1 )
+song = ExtResource( 12 )
+song_name = "Touhou FDF II - Iron Curtain of Human and Youkai"
+
+[node name="Song3" type="Node" parent="MusicPlayer/MusicAudioPlayer/SongsM" index="2"]
+script = SubResource( 1 )
+song = ExtResource( 11 )
+song_name = "Azur Lane - A Dance for Amahara Above (Boss Theme 2)"
+
+[node name="Songs" type="Node" parent="MusicPlayer/MusicAudioPlayer" index="1"]
+unique_name_in_owner = true
+
+[node name="Song" type="Node" parent="MusicPlayer/MusicAudioPlayer/Songs" index="0"]
+script = SubResource( 1 )
+song = ExtResource( 2 )
+song_name = "Goukisan - Betrayal of Fear"
+
+[node name="Song2" type="Node" parent="MusicPlayer/MusicAudioPlayer/Songs" index="1"]
+script = SubResource( 1 )
+song = ExtResource( 6 )
+song_name = "Goukisan - Betrayal of Fate"
+
+[node name="TrayButtonContainer" type="HBoxContainer" parent="MusicPlayer" index="1"]
+unique_name_in_owner = true
+margin_right = 500.0
+margin_bottom = 12.0
+mouse_filter = 2
+
+[node name="Tray" type="Button" parent="MusicPlayer/TrayButtonContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 18.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 18, 0 )
+size_flags_horizontal = 0
+theme = ExtResource( 9 )
+toggle_mode = true
+pressed = true
+icon = ExtResource( 7 )
+expand_icon = true
+
+[node name="MusicVBoxContainer" type="VBoxContainer" parent="MusicPlayer" index="2"]
+unique_name_in_owner = true
+margin_top = 16.0
+margin_right = 500.0
+margin_bottom = 67.0
+mouse_filter = 2
+custom_constants/separation = 6
+
+[node name="Title" type="Label" parent="MusicPlayer/MusicVBoxContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 500.0
+margin_bottom = 11.0
+theme = ExtResource( 9 )
+text = "Music Control"
+
+[node name="SongNameContainer" type="HBoxContainer" parent="MusicPlayer/MusicVBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 17.0
+margin_right = 500.0
+margin_bottom = 29.0
+
+[node name="SongName" type="Button" parent="MusicPlayer/MusicVBoxContainer/SongNameContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 134.0
+margin_bottom = 12.0
+size_flags_horizontal = 0
+theme = ExtResource( 9 )
+button_mask = 0
+text = "No song currently playing..."
+
+[node name="MusicPlayerContainer" type="HBoxContainer" parent="MusicPlayer/MusicVBoxContainer" index="2"]
+unique_name_in_owner = true
+margin_top = 35.0
+margin_right = 500.0
+margin_bottom = 51.0
+mouse_filter = 2
+
+[node name="Previous" type="Button" parent="MusicPlayer/MusicVBoxContainer/MusicPlayerContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+theme = ExtResource( 9 )
+icon = ExtResource( 8 )
+icon_align = 1
+expand_icon = true
+
+[node name="Mute" type="Button" parent="MusicPlayer/MusicVBoxContainer/MusicPlayerContainer" index="1"]
+unique_name_in_owner = true
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+theme = ExtResource( 9 )
+toggle_mode = true
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="Next" type="Button" parent="MusicPlayer/MusicVBoxContainer/MusicPlayerContainer" index="2"]
+unique_name_in_owner = true
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+theme = ExtResource( 9 )
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[connection signal="toggled" from="MusicPlayer/TrayButtonContainer/Tray" to="MusicPlayer" method="_on_Tray_toggled"]
+[connection signal="pressed" from="MusicPlayer/MusicVBoxContainer/MusicPlayerContainer/Previous" to="MusicPlayer" method="_on_Previous_pressed"]
+[connection signal="toggled" from="MusicPlayer/MusicVBoxContainer/MusicPlayerContainer/Mute" to="MusicPlayer" method="_on_Mute_toggled"]
+[connection signal="pressed" from="MusicPlayer/MusicVBoxContainer/MusicPlayerContainer/Next" to="MusicPlayer" method="_on_Next_pressed"]

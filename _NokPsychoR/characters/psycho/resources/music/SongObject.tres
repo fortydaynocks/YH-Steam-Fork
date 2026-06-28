@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://_NokPsychoR/characters/psycho/resources/music/code-pandorum-left-to-suffer.wav" type="AudioStream" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "export (AudioStream) var song
+export (String) var song_name
+"
+
+[resource]
+resource_local_to_scene = true
+script = SubResource( 1 )
+song = ExtResource( 1 )
+song_name = "Code: Pandorum: Left to Suffer"

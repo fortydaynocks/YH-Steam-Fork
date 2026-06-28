@@ -1,0 +1,13 @@
+ {
+  "name": "Shin Goren",
+  "friendly_name": "Shin Goren",
+  "description": "Your body assumed its proper form when my saws tore it apart!",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": true,
+  "priority": 0
+}

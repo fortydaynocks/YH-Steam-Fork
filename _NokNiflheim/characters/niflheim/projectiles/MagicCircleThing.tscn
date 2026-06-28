@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/double sided gradient for ui.png" type="Texture" id=3]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/c43d06f7-e32d-44d6-85a5-b7e3682c946a.png" type="Texture" id=4]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/funnyportalspritesheet.png" type="Texture" id=5]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/petal off centre.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.256983, 0.513967, 0.776536, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 1, 0.0615578, 0.0997436, 0.477539, 1, 1, 0, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 24
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.0111732, 0.50838, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.00495049, 1 ), 0.0, -0.945187, 0, 0, Vector2( 1, 0 ), -0.998522, 0.0, 0, 0 ]
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="magiccircle" type="CPUParticles2D" parent="." index="1"]
+material = SubResource( 2 )
+scale = Vector2( 1, 0.25 )
+amount = 1
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angular_velocity = 45.0
+scale_amount = 0.2
+color_ramp = SubResource( 3 )
+
+[node name="gradient" type="CPUParticles2D" parent="." index="2"]
+material = SubResource( 4 )
+scale = Vector2( 1, 0.25 )
+amount = 1
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.5
+color = Color( 0.756863, 0.25098, 0.25098, 0.243137 )
+color_ramp = SubResource( 3 )
+anim_speed = 1.0
+
+[node name="gradient2" type="CPUParticles2D" parent="." index="3"]
+material = SubResource( 5 )
+position = Vector2( 0, -10 )
+scale = Vector2( 1, 0.5 )
+amount = 1
+lifetime = 0.5
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 90.0
+scale_amount = 0.09
+color = Color( 1, 0, 0, 0.243137 )
+color_ramp = SubResource( 6 )
+anim_speed = 1.0
+
+[node name="lolpetals" type="CPUParticles2D" parent="." index="4"]
+position = Vector2( 0, -10 )
+z_index = -1
+amount = 10
+lifetime = 0.25
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 40, 0 )
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 300.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = -100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.03
+scale_amount_random = 0.01
+scale_amount_curve = SubResource( 7 )
+color = Color( 1, 0, 0, 1 )
+
+[node name="lolpetals2" type="CPUParticles2D" parent="." index="5"]
+position = Vector2( 0, -10 )
+z_index = -1
+amount = 10
+lifetime = 0.25
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 40, 0 )
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 300.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = -100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.03
+scale_amount_random = 0.01
+scale_amount_curve = SubResource( 7 )
+color = Color( 0.145098, 0.14902, 0.231373, 1 )

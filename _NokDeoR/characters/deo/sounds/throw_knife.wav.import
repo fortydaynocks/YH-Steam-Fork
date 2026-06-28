@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/throw_knife.wav-920cf4650d59d743a111e876d8f22680.sample"
+
+[deps]
+
+source_file="res://_NokDeoR/characters/deo/sounds/throw_knife.wav"
+dest_files=[ "res://.import/throw_knife.wav-920cf4650d59d743a111e876d8f22680.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

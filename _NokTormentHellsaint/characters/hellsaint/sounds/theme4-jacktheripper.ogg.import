@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme4-jacktheripper.ogg-d6a2c45ccf1d2de54e75e62d385e1d6c.oggstr"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/theme4-jacktheripper.ogg"
+dest_files=[ "res://.import/theme4-jacktheripper.ogg-d6a2c45ccf1d2de54e75e62d385e1d6c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

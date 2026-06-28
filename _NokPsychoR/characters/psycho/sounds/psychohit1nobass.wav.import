@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/psychohit1nobass.wav-d42df506c38757c8d86cb641b0bd0a11.sample"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/sounds/psychohit1nobass.wav"
+dest_files=[ "res://.import/psychohit1nobass.wav-d42df506c38757c8d86cb641b0bd0a11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

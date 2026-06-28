@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sf6-akuma-theme.ogg-ef24999a89f759d10fc5da5f329c1a3c.oggstr"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/sf6-akuma-theme.ogg"
+dest_files=[ "res://.import/sf6-akuma-theme.ogg-ef24999a89f759d10fc5da5f329c1a3c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

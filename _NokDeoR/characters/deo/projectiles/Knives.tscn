@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://projectile/DirProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/Knives.gd" type="Script" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoR-SF.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://_NokDeoR/characters/deo/sounds/knifehit.wav" type="AudioStream" id=5]
+[ext_resource path="res://_NokDeoR/characters/deo/projectiles/KnivesDefault.gd" type="Script" id=6]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/DEOR-KnifeDecay.tscn" type="PackedScene" id=7]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+has_projectile_parry_window = false
+fizzle_on_ceiling = true
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+tag = "Knives"
+spawn_particle = null
+spawn_particle_offset = Vector2( 0, 0 )
+spawn_sound = ""
+disable_particle = ExtResource( 7 )
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = ""
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 3 )
+animation = "proj-knives"
+
+[node name="CollisionBox" parent="." index="2"]
+width = 8
+height = 8
+
+[node name="Hurtbox" parent="." index="3"]
+width = 14
+height = 14
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_forces_no_limit = true
+sprite_animation = "proj-knives"
+move_x = 0
+lifetime = 200
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 4 )
+width = 12
+height = 12
+damage = 60
+hitstun_ticks = 18
+hitlag_ticks = 6
+victim_hitlag = 6
+plus_frames = 1
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 5 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.33"
+knockback = "4"
+start_tick = 1
+active_ticks = 1
+always_on = true

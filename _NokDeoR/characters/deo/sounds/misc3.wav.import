@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/misc3.wav-8df2cd3fa07d18d1c2acbeb46d2d3190.sample"
+
+[deps]
+
+source_file="res://_NokDeoR/characters/deo/sounds/misc3.wav"
+dest_files=[ "res://.import/misc3.wav-8df2cd3fa07d18d1c2acbeb46d2d3190.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

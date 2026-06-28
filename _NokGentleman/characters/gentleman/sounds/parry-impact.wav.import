@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/parry-impact.wav-d2181842654c88b4e1fd2e89488eb72d.sample"
+
+[deps]
+
+source_file="res://_NokGentleman/characters/gentleman/sounds/parry-impact.wav"
+dest_files=[ "res://.import/parry-impact.wav-d2181842654c88b4e1fd2e89488eb72d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

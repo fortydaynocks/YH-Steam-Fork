@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sprites/pscrimsonslashesproj.png" type="Texture" id=2]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/psychohit1nobass.wav" type="AudioStream" id=3]
+[ext_resource path="res://_NokPsychoR/characters/psycho/PsychoProjSF.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoHit1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/crash03.wav" type="AudioStream" id=8]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/slash05.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokPsychoR/characters/psycho/projectiles/CrimsonSlash.gd" type="Script" id=10]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.320225, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.994382 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+fizzle_on_ceiling = true
+tag = "CrimsonSlash"
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 4 )
+animation = "crimsonslashbig"
+
+[node name="dots" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+material = SubResource( 1 )
+amount = 50
+lifetime = 0.4
+lifetime_randomness = 0.5
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 20, 25 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+angle = 360.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 3 )
+
+[node name="trail" type="CPUParticles2D" parent="Flip/Sprite" index="1"]
+material = SubResource( 4 )
+z_index = -1
+amount = 20
+lifetime = 0.4
+local_coords = false
+texture = ExtResource( 2 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+color = Color( 1, 0, 0, 0.215686 )
+color_ramp = SubResource( 5 )
+anim_speed = 1.0
+
+[node name="CollisionBox" parent="." index="2"]
+width = 12
+height = 12
+
+[node name="Hurtbox" parent="." index="3"]
+height = 5
+
+[node name="Default" parent="StateMachine" index="0"]
+apply_forces = true
+apply_forces_no_limit = true
+sprite_animation = "crimsonslashbig"
+anim_length = 10
+ticks_per_frame = 2
+spawn_particle_on_enter = true
+timed_spawn_particle_tick = 14
+sfx = ExtResource( 8 )
+sfx_volume = -9.0
+move_x = 0
+num_hits = 99999
+lifetime = 100
+fizzle_on_ground = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 24
+height = 24
+damage = 50
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 16
+di_modifier = "0"
+sdi_modifier = "0"
+plus_frames = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 6 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 3 )
+hit_bass_sound = ExtResource( 9 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -9.0
+dir_x = "1"
+dir_y = "-0.4"
+knockback = "6"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 1
+active_ticks = 1
+always_on = true

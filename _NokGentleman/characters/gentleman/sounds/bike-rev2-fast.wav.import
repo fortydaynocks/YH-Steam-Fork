@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bike-rev2-fast.wav-163bf69e485d769aa40d2f0cc4badd47.sample"
+
+[deps]
+
+source_file="res://_NokGentleman/characters/gentleman/sounds/bike-rev2-fast.wav"
+dest_files=[ "res://.import/bike-rev2-fast.wav-163bf69e485d769aa40d2f0cc4badd47.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokPsychoR/characters/psycho/PsychoProjSF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/swing02.wav" type="AudioStream" id=3]
+[ext_resource path="res://_NokPsychoR/characters/psycho/projectiles/TwitchSpike.gd" type="Script" id=4]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoHit1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_NokPsychoR/characters/psycho/sounds/psychohit1nobass.wav" type="AudioStream" id=7]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoStar2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sound/common/swish.wav" type="AudioStream" id=9]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+has_projectile_parry_window = false
+deletes_other_projectiles = false
+movable = false
+
+[node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 1.25, 1.25 )
+frames = ExtResource( 2 )
+animation = "spike1"
+frame = 5
+offset = Vector2( 0, -17 )
+
+[node name="CollisionBox" parent="." index="2"]
+width = 0
+height = 0
+
+[node name="Hurtbox" parent="." index="3"]
+width = 0
+height = 0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "spike1"
+anim_length = 22
+ticks_per_frame = 2
+sfx = ExtResource( 3 )
+sfx_tick = 8
+sfx_volume = -6.0
+move_x = 0
+clash = false
+num_hits = 999999
+lifetime = 22
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+y = -22
+width = 14
+height = 24
+damage = 60
+minimum_damage = 20
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 8
+di_modifier = "0.75"
+sdi_modifier = "0.75"
+hit_height = 2
+hit_particle = ExtResource( 6 )
+replace_hit_particle = true
+whiff_particle = ExtResource( 8 )
+whiff_sound = ExtResource( 9 )
+hit_sound = ExtResource( 7 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "0"
+dir_y = "-1"
+knockback = "3"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+ground_bounce = false
+start_tick = 10
+active_ticks = 4

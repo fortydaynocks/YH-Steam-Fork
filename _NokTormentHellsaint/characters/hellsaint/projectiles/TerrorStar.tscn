@@ -1,0 +1,378 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://projectile/DirProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/resources/HellsaintSpriteFrames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://characters/stickman/projectiles/fireball_states/Default.gd" type="Script" id=3]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Hit2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=6]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/yomifx_crescent1.png" type="Texture" id=8]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Ring1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/projectiles/TerrorStar.gd" type="Script" id=10]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/CMN_007.wav" type="AudioStream" id=11]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/heavyhit03.wav" type="AudioStream" id=12]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/slash01-edit.wav" type="AudioStream" id=13]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Misc2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/CMN_014.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/swing03.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/Impact.wav" type="AudioStream" id=17]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Misc.tscn" type="PackedScene" id=18]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/projectiles/TerrorStarDefault.gd" type="Script" id=19]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/heavyhit05.wav" type="AudioStream" id=20]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=21]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/Impact_snow.wav" type="AudioStream" id=22]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/projectiles/TerrorStar-Spike.gd" type="Script" id=23]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/projectiles/TerrorStarSickle.gd" type="Script" id=24]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/jump.wav" type="AudioStream" id=25]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/effects/THS_Misc4.tscn" type="PackedScene" id=27]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/sounds/slash07-edit.wav" type="AudioStream" id=28]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 6 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.180851, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+max_air_speed = "12"
+max_fall_speed = "12"
+extra_state_variables = "will_sickle"
+has_projectile_parry_window = false
+projectile_immune = true
+tag = "TerrorStar"
+disable_particle = ExtResource( 4 )
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = ""
+
+[node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 1.5, 1.5 )
+frames = ExtResource( 2 )
+animation = "proj-terrorstar"
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0" instance=ExtResource( 7 )]
+material = SubResource( 1 )
+free = false
+one_shot = false
+lifetime = 99999.0
+
+[node name="blood" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="1"]
+amount = 20
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 16.0
+gravity = Vector2( 0, 200 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 0, 0.266667, 1 )
+color_ramp = SubResource( 3 )
+
+[node name="ring" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="2"]
+modulate = Color( 1, 0, 0.266667, 1 )
+z_index = -1
+lifetime = 0.5
+texture = ExtResource( 8 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.75
+scale_amount_curve = SubResource( 4 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 5 )
+
+[node name="Star" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 25 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 21 )
+pitch_variation = 0.0
+
+[node name="Deflect" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 20 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 21 )
+
+[node name="Deflect2" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 13 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 21 )
+
+[node name="Spike" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 25 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 21 )
+pitch_variation = 0.0
+
+[node name="Sickle" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+stream = ExtResource( 22 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 21 )
+pitch_variation = 0.0
+
+[node name="Sickle2" type="AudioStreamPlayer2D" parent="Sounds" index="5"]
+stream = ExtResource( 15 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 21 )
+pitch_variation = 0.0
+
+[node name="SickleSpin" type="AudioStreamPlayer2D" parent="Sounds" index="6"]
+stream = ExtResource( 16 )
+volume_db = -9.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 21 )
+pitch_variation = 0.0
+
+[node name="SickleSpin2" type="AudioStreamPlayer2D" parent="Sounds" index="7"]
+stream = ExtResource( 16 )
+volume_db = -18.0
+pitch_scale = 0.5
+bus = "Fx"
+script = ExtResource( 21 )
+pitch_variation = 0.0
+
+[node name="CollisionBox" parent="." index="2"]
+width = 8
+height = 8
+
+[node name="Hurtbox" parent="." index="3"]
+width = 14
+height = 14
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 19 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "proj-terrorstar"
+anim_length = 16
+ticks_per_frame = 4
+loop_animation = true
+timed_particle_scene = ExtResource( 9 )
+move_x = 0
+clash = false
+lifetime = 240
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 14
+height = 14
+damage = 60
+hitstun_ticks = 14
+hitlag_ticks = 0
+victim_hitlag = 8
+sdi_modifier = "0.5"
+plus_frames = 1
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+bump_on_whiff = true
+whiff_sound = null
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 22 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "1"
+knockback = "4"
+start_tick = 1
+active_ticks = 4
+
+[node name="Slice" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 3 )
+reset_momentum = true
+fallback_state = "Default"
+sprite_animation = "proj-terrorstarslice"
+anim_length = 10
+ticks_per_frame = 2
+particle_scene = ExtResource( 9 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 15 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 16 )
+sfx_volume = -3.0
+move_x = 0
+clash = false
+num_hits = 0
+lifetime = 10
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Slice" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 40
+height = 40
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 2
+victim_hitlag = 8
+sdi_modifier = "0.5"
+plus_frames = 1
+hit_particle = ExtResource( 4 )
+replace_hit_particle = true
+whiff_particle = ExtResource( 18 )
+bump_on_whiff = true
+whiff_sound = null
+hit_sound = ExtResource( 17 )
+hit_bass_sound = ExtResource( 11 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+bass_sound_volume = -6.0
+bass_on_whiff = true
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "5"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 6
+start_tick = 1
+active_ticks = 2
+always_on = true
+
+[node name="Spike" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 23 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+reset_momentum = true
+sprite_animation = "proj-terrorspike"
+anim_length = 12
+ticks_per_frame = 2
+loop_animation = true
+endless = true
+particle_scene = ExtResource( 27 )
+spawn_particle_on_enter = true
+move_x = 0
+num_hits = 2
+lifetime = 60
+fizzle_on_ground = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Spike" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 10
+height = 10
+damage = 50
+hitstun_ticks = 16
+hitlag_ticks = 0
+victim_hitlag = 6
+sdi_modifier = "0.5"
+plus_frames = 1
+replace_hit_particle = true
+bump_on_whiff = true
+whiff_sound = null
+hit_sound = ExtResource( 15 )
+hit_bass_sound = ExtResource( 20 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "6"
+minimum_grounded_frames = 4
+start_tick = 1
+active_ticks = 1
+always_on = true
+
+[node name="Sickle" type="Node2D" parent="StateMachine" index="3"]
+script = ExtResource( 24 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+fallback_state = "Default"
+sprite_animation = "proj-sickle"
+anim_length = 24
+ticks_per_frame = 2
+loop_animation = true
+endless = true
+move_x = 0
+num_hits = 4
+lifetime = 180
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Sickle" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+width = 16
+height = 16
+damage = 60
+hitstun_ticks = 14
+hitlag_ticks = 0
+victim_hitlag = 12
+sdi_modifier = "0.5"
+plus_frames = 1
+hit_particle = ExtResource( 14 )
+replace_hit_particle = true
+bump_on_whiff = true
+whiff_sound = null
+hit_sound = ExtResource( 28 )
+hit_bass_sound = ExtResource( 20 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "5"
+minimum_grounded_frames = 6
+start_tick = 1
+active_ticks = 1
+always_on = true
+looping = true
+loop_active_ticks = 9
+loop_inactive_ticks = 1
+
+[editable path="Flip/Particles/ParticleEffect"]

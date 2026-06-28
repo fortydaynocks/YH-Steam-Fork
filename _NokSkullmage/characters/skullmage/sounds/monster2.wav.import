@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monster2.wav-291bc8766f5bbc6413ca85fc16fcb55b.sample"
+
+[deps]
+
+source_file="res://_NokSkullmage/characters/skullmage/sounds/monster2.wav"
+dest_files=[ "res://.import/monster2.wav-291bc8766f5bbc6413ca85fc16fcb55b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

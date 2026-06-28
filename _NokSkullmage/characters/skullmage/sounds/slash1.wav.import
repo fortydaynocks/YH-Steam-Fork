@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slash1.wav-a98a98d72cfd3a9f240aa22daa26a146.sample"
+
+[deps]
+
+source_file="res://_NokSkullmage/characters/skullmage/sounds/slash1.wav"
+dest_files=[ "res://.import/slash1.wav-a98a98d72cfd3a9f240aa22daa26a146.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

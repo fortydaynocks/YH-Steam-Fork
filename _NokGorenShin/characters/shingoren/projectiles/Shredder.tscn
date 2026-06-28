@@ -1,0 +1,149 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://projectile/DirProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/resources/SG-SF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=3]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/effects/SG_Hit1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/goren_punch.wav" type="AudioStream" id=5]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/punch_weak.wav" type="AudioStream" id=6]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/projectiles/ShredderDefault.gd" type="Script" id=7]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/effects/yomifx_dot3.png" type="Texture" id=8]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/projectiles/Shredder.gd" type="Script" id=9]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=10]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/block2.wav" type="AudioStream" id=11]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/resources/SG-Shader.tres" type="Shader" id=12]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/flame1.wav" type="AudioStream" id=13]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/aku-sound4.wav" type="AudioStream" id=14]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/flame4.wav" type="AudioStream" id=15]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/effects/SG_Hit3.tscn" type="PackedScene" id=16]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+shader_param/uber = false
+shader_param/purple_flame_1 = Color( 0.8, 0.184314, 0.482353, 1 )
+shader_param/purple_flame_2 = Color( 0.611765, 0.164706, 0.439216, 1 )
+shader_param/orange_flame_1 = Color( 1, 0.537255, 0.2, 1 )
+shader_param/orange_flame_2 = Color( 0.901961, 0.270588, 0.223529, 1 )
+shader_param/red_death = Color( 1, 0, 0.266667, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 9 )
+__meta__ = {
+"_editor_description_": ""
+}
+max_fall_speed = "15"
+extra_state_variables = ""
+has_projectile_parry_window = false
+tag = "Shredder"
+disable_particle = ExtResource( 16 )
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = "Vanish"
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 1 )
+scale = Vector2( 1.5, 1.5 )
+frames = ExtResource( 2 )
+animation = "proj-shredder"
+
+[node name="dots" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+modulate = Color( 0.8, 0.184314, 0.482353, 1 )
+z_index = -1
+amount = 6
+lifetime = 0.5
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 8 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, -200 )
+initial_velocity = 100.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 1.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+
+[node name="Bounce" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 11 )
+volume_db = -6.0
+script = ExtResource( 10 )
+
+[node name="Transform" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 13 )
+volume_db = -6.0
+pitch_scale = 1.5
+bus = "Fx"
+script = ExtResource( 10 )
+
+[node name="Transform2" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 14 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 10 )
+pitch_variation = 0.05
+
+[node name="Vanish" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 15 )
+volume_db = -12.0
+pitch_scale = 3.0
+bus = "Fx"
+script = ExtResource( 10 )
+pitch_variation = 0.05
+
+[node name="Hurtbox" parent="." index="3"]
+width = 8
+height = 8
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_forces_no_limit = true
+sprite_animation = "proj-shredder"
+anim_length = 8
+ticks_per_frame = 2
+loop_animation = true
+can_transform = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 3 )
+width = 8
+height = 8
+damage = 60
+hitstun_ticks = 16
+hitlag_ticks = 6
+victim_hitlag = 6
+di_modifier = "0.5"
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 4 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 6 )
+hit_bass_sound = ExtResource( 5 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "3"
+start_tick = 1
+active_ticks = 1
+always_on = true

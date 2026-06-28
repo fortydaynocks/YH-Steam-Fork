@@ -1,0 +1,15 @@
+{
+  "author": "nok (fortydaynocks)",
+  "client_side": true,
+  "description": "Yes, you may have a loan... but you must pay it back in full within 4 minutes. Do you think you can do that?",
+  "friendly_name": "Gentleman",
+  "id": "12345",
+  "link": "",
+  "name": "Gentleman",
+  "overwrites": false,
+  "priority": 0,
+  "requires": [
+    "char_loader"
+  ],
+  "version": "steam"
+}

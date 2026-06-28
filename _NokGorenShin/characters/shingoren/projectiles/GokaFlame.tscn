@@ -1,0 +1,213 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://projectile/DirProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=2]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/resources/SG-SF.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/projectiles/GokaFlameDefault.gd" type="Script" id=4]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/projectiles/GokaFlame.gd" type="Script" id=5]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=6]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/aku-sound3.wav" type="AudioStream" id=7]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/effects/SG_Hit0.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/focus-charge.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/punch_weak.wav" type="AudioStream" id=10]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/goren_punch.wav" type="AudioStream" id=11]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/effects/SG_Hit1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=13]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.727273 ), 0.0, 0.0, 0, 0, Vector2( 0.507109, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.718182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 13 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+extra_state_variables = ""
+has_projectile_parry_window = false
+can_be_hit_by_melee = true
+projectile_immune = true
+tag = "GokaFlame"
+disable_particle = ExtResource( 8 )
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = "Vanish"
+
+[node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 0.75, 0.75 )
+frames = ExtResource( 3 )
+speed_scale = 4.0
+offset = Vector2( 1, 0 )
+
+[node name="glow" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+modulate = Color( 0.8, 0.184314, 0.482353, 1 )
+z_index = -1
+amount = 1
+gravity = Vector2( 0, 0 )
+angle = 45.0
+scale_amount = 25.0
+scale_amount_curve = SubResource( 5 )
+color = Color( 1, 1, 1, 0.25 )
+
+[node name="glow2" type="CPUParticles2D" parent="Flip/Sprite" index="1"]
+modulate = Color( 0.611765, 0.164706, 0.439216, 1 )
+z_index = -1
+amount = 1
+gravity = Vector2( 0, 0 )
+angle = 45.0
+scale_amount = 40.0
+scale_amount_curve = SubResource( 5 )
+color = Color( 1, 1, 1, 0.1 )
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0" instance=ExtResource( 14 )]
+material = SubResource( 6 )
+one_shot = false
+lifetime = 9999.0
+
+[node name="fire" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="1"]
+modulate = Color( 0.8, 0.184314, 0.482353, 1 )
+material = SubResource( 1 )
+scale = Vector2( 0.75, 0.75 )
+z_index = 1
+amount = 20
+lifetime = 0.5
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+damping = 50.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 8.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="fire2" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="2"]
+modulate = Color( 0.611765, 0.164706, 0.439216, 1 )
+material = SubResource( 4 )
+scale = Vector2( 0.75, 0.75 )
+amount = 20
+lifetime = 0.5
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.5
+damping = 50.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 8.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="Chase" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+volume_db = -12.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 6 )
+
+[node name="Vanish" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 7 )
+volume_db = -12.0
+pitch_scale = 4.0
+bus = "Fx"
+script = ExtResource( 6 )
+
+[node name="CollisionBox" parent="." index="2"]
+width = 6
+height = 6
+
+[node name="Hurtbox" parent="." index="3"]
+width = 6
+height = 6
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "default"
+anim_length = 12
+ticks_per_frame = 3
+loop_animation = true
+
+[node name="HitboxDetect" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 50
+height = 50
+hitbox_type = 6
+whiff_sound = null
+start_tick = 10
+active_ticks = 1
+always_on = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="1"]
+z_index = 1000
+script = ExtResource( 2 )
+width = 6
+height = 6
+damage = 40
+hitstun_ticks = 16
+hitlag_ticks = 6
+victim_hitlag = 6
+di_modifier = "0.5"
+plus_frames = 1
+group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 12 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 10 )
+hit_bass_sound = ExtResource( 11 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "3"
+start_tick = 10
+active_ticks = 1
+always_on = true

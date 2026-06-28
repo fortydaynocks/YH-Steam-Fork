@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sin-ambience2.wav-0b7577291ad4e5deed27c50c3560da9a.sample"
+
+[deps]
+
+source_file="res://_NokSilo/characters/silo/skins/sinestrosa/sounds/sin-ambience2.wav"
+dest_files=[ "res://.import/sin-ambience2.wav-0b7577291ad4e5deed27c50c3560da9a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

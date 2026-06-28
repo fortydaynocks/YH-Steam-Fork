@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/BTStar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/projectiles/BT-Projectile.gd" type="Script" id=5]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/resources/BT-SF.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/yomifx_slash4.png" type="Texture" id=7]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/effects/yomifx_crescent1.png" type="Texture" id=8]
+[ext_resource path="res://_NokBetrayer/characters/betrayer/sounds/bleedsuccess.wav" type="AudioStream" id=9]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -1.02913, 0, 1, Vector2( 0.971698, 0 ), -1.02913, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.539683 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.527273 ), 0.0, 0.221591, 0, 1, Vector2( 1, 0.748864 ), 0.221591, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.518519, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+projectile_immune = true
+tag = "OrderRift"
+disable_particle = ExtResource( 4 )
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 6 )
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0" instance=ExtResource( 2 )]
+material = null
+one_shot = false
+lifetime = 99999.0
+
+[node name="slash" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="1"]
+modulate = Color( 0, 0.415686, 1, 1 )
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 1.5
+scale_amount_curve = SubResource( 2 )
+
+[node name="slash2" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="2"]
+z_index = 1
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 1.5
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 3 )
+
+[node name="slash-black" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="3"]
+z_index = 2
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="slash-bg" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="4"]
+modulate = Color( 0.32549, 0, 1, 1 )
+material = SubResource( 4 )
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 3.0
+scale_amount_curve = SubResource( 5 )
+color = Color( 1, 1, 1, 0.25 )
+color_ramp = SubResource( 6 )
+
+[node name="ring" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="5"]
+modulate = Color( 0.32549, 0, 1, 1 )
+material = SubResource( 7 )
+z_index = -1
+amount = 2
+lifetime = 0.4
+explosiveness = 1.0
+texture = ExtResource( 8 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 6.0
+scale_amount_curve = SubResource( 8 )
+color = Color( 1, 1, 1, 0.25 )
+color_ramp = SubResource( 9 )
+
+[node name="Default" parent="StateMachine" index="0"]
+sprite_animation = "default"
+enter_sfx = ExtResource( 9 )
+enter_sfx_volume = -12.0
+move_x = 0
+clash = false
+lifetime = 90
+fizzle_on_ground = false
+fizzle_on_walls = false

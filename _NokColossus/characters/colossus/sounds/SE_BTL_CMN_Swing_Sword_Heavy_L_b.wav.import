@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SE_BTL_CMN_Swing_Sword_Heavy_L_b.wav-fa94f8e675316a5b121a5e6e2bd07a2a.sample"
+
+[deps]
+
+source_file="res://_NokColossus/characters/colossus/sounds/SE_BTL_CMN_Swing_Sword_Heavy_L_b.wav"
+dest_files=[ "res://.import/SE_BTL_CMN_Swing_Sword_Heavy_L_b.wav-fa94f8e675316a5b121a5e6e2bd07a2a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

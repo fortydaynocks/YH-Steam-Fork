@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/flame4.wav-ac2f6ff4d02db5e8f8c9350b446c903c.sample"
+
+[deps]
+
+source_file="res://_NokColossusR/characters/colossus/sounds/flame4.wav"
+dest_files=[ "res://.import/flame4.wav-ac2f6ff4d02db5e8f8c9350b446c903c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,137 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSilo/characters/silo/resources/SiloProjSF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/WretchedEyeDefault.gd" type="Script" id=3]
+[ext_resource path="res://mechanics/SweptHitbox.gd" type="Script" id=4]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/WretchedEye.gd" type="Script" id=5]
+[ext_resource path="res://HurtboxState.gd" type="Script" id=6]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/WretchedEyeClose.gd" type="Script" id=7]
+[ext_resource path="res://_NokSilo/characters/silo/projectiles/WretchedEyeActivate.gd" type="Script" id=8]
+[ext_resource path="res://sound/common/swish2.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokSilo/characters/silo/sounds/super04.wav" type="AudioStream" id=10]
+[ext_resource path="res://_NokSilo/characters/silo/effects/SL-Slash.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+extra_state_variables = "wretchedeye
+target
+
+follow_target
+follow_offset"
+deletes_other_projectiles = false
+movable = false
+projectile_immune = true
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 2 )
+animation = "wretchedeye"
+
+[node name="Eyeball" type="AnimatedSprite" parent="Flip" index="1"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+frames = ExtResource( 2 )
+animation = "wretchedeyeball"
+
+[node name="Tracker" type="Line2D" parent="Flip" index="2"]
+unique_name_in_owner = true
+visible = false
+material = SubResource( 1 )
+points = PoolVector2Array( 0, 0, 100, 100 )
+width = 3.0
+width_curve = SubResource( 2 )
+default_color = Color( 1, 0, 0, 0.392157 )
+
+[node name="CollisionBox" parent="." index="2"]
+width = 4
+height = 4
+
+[node name="Hurtbox" parent="." index="3"]
+width = 4
+height = 4
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "wretchedeye"
+anim_length = 14
+ticks_per_frame = 2
+move_x = 0
+clash = false
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Detector" type="Node2D" parent="StateMachine/Default" index="0"]
+unique_name_in_owner = true
+z_index = 1000
+script = ExtResource( 4 )
+width = 2
+height = 2
+hitbox_type = 6
+can_clash = false
+whiff_sound = null
+start_tick = 14
+active_ticks = 1
+always_on = true
+looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="Close" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 7 )
+fallback_state = "Default"
+sprite_animation = "wretchedeyeclose"
+anim_length = 10
+ticks_per_frame = 2
+move_x = 0
+clash = false
+lifetime = 10
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="HurtboxState" type="Node2D" parent="StateMachine/Close" index="0"]
+z_index = 999
+script = ExtResource( 6 )
+width = 0
+height = 0
+endless = true
+
+[node name="Activate" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+fallback_state = "Default"
+sprite_animation = "wretchedeyeactivate"
+anim_length = 20
+ticks_per_frame = 2
+particle_scene = ExtResource( 11 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 9 )
+enter_sfx_volume = -12.0
+sfx = ExtResource( 10 )
+sfx_volume = -6.0
+move_x = 0
+clash = false
+lifetime = 20
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="HurtboxState" type="Node2D" parent="StateMachine/Activate" index="0"]
+z_index = 999
+script = ExtResource( 6 )
+width = 0
+height = 0
+endless = true

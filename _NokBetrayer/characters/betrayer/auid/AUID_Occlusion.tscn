@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_NokBetrayer/characters/betrayer/auid/AUID_Occlusion.gd" type="Script" id=1]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=2]
+
+[node name="ActionUIData" instance=ExtResource( 2 )]
+margin_right = 70.0
+margin_bottom = 38.0
+alignment = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_right = 90.0
+margin_bottom = 50.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" index="0"]
+margin_right = 90.0
+margin_bottom = 11.0
+hint_tooltip = "Activate the corresponding Judge Eye.
+Only one may be selected."
+mouse_filter = 1
+text = "Activate:"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 12.0
+margin_right = 90.0
+margin_bottom = 50.0
+custom_constants/vseparation = 1
+
+[node name="Eye1" type="CheckButton" parent="VBoxContainer/GridContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 90.0
+margin_bottom = 12.0
+hint_tooltip = "Activate the first Judge Eye."
+disabled = true
+text = "Nothing found"
+
+[node name="Eye2" type="CheckButton" parent="VBoxContainer/GridContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 13.0
+margin_right = 90.0
+margin_bottom = 25.0
+hint_tooltip = "Activate the second Judge Eye."
+disabled = true
+text = "Nothing found"
+
+[node name="Eye3" type="CheckButton" parent="VBoxContainer/GridContainer" index="2"]
+unique_name_in_owner = true
+margin_top = 26.0
+margin_right = 90.0
+margin_bottom = 38.0
+hint_tooltip = "Activate the third Judge Eye."
+disabled = true
+text = "Nothing found"

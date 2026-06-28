@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing12.wav-68397c094865a31b076f0a9901f6186a.sample"
+
+[deps]
+
+source_file="res://_NokPsychoR/characters/psycho/sounds/swing12.wav"
+dest_files=[ "res://.import/swing12.wav-68397c094865a31b076f0a9901f6186a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

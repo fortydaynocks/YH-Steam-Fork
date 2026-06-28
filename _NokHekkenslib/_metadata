@@ -1,0 +1,15 @@
+{
+  "author": "hekkenok (nok)",
+  "client_side": true,
+  "description": "A wonderful little library for my characters and other mods.",
+  "friendly_name": "Hekkenslib",
+  "id": "12345",
+  "link": "",
+  "name": "Hekkenslib",
+  "overwrites": false,
+  "priority": 0,
+  "requires": [
+
+  ],
+  "version": "steam"
+}

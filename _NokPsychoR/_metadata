@@ -1,0 +1,13 @@
+ {
+  "name": "Psycho",
+  "friendly_name": "Psycho",
+  "description": "welcome to london, sucker",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "57227273",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": false,
+  "priority": 0
+}

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://_NokPsychoR/characters/psycho/resources/PsychoStuff.gd" type="Script" id=1]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoHit1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoStar1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoHit2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoStar2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoSlam.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_NokPsychoR/characters/psycho/effects/PsychoSilentTreatment.tscn" type="PackedScene" id=7]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+objs = {
+}
+vfx = {
+"Hit1": ExtResource( 2 ),
+"Hit2": ExtResource( 4 ),
+"SilentTreatment": ExtResource( 7 ),
+"Slam": ExtResource( 6 ),
+"Star1": ExtResource( 3 ),
+"Star2": ExtResource( 5 )
+}

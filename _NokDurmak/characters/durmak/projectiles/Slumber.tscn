@@ -1,0 +1,112 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=2]
+[ext_resource path="res://_NokDurmak/characters/durmak/resources/DM-SF.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/yomifx_crescent3.png" type="Texture" id=6]
+[ext_resource path="res://_NokDurmak/characters/durmak/effects/yomifx_star2.png" type="Texture" id=7]
+[ext_resource path="res://_NokDurmak/characters/durmak/projectiles/Slumber.gd" type="Script" id=8]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/slumber.wav" type="AudioStream" id=9]
+[ext_resource path="res://_NokDurmak/characters/durmak/sounds/magic1.wav" type="AudioStream" id=10]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+max_fall_speed = "15"
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+apply_hitlag_when_hit_by_melee = false
+projectile_immune = true
+tag = "Slumber"
+disable_particle = null
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = ""
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 3 )
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0" instance=ExtResource( 5 )]
+material = SubResource( 1 )
+one_shot = false
+lifetime = 999.0
+
+[node name="star" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="1"]
+modulate = Color( 0.701961, 0.701961, 0.72549, 1 )
+amount = 2
+lifetime = 0.25
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 1.5
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="ring" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="2"]
+modulate = Color( 0.701961, 0.701961, 0.72549, 1 )
+amount = 1
+lifetime = 0.25
+texture = ExtResource( 6 )
+gravity = Vector2( 0, 0 )
+angle = 180.0
+scale_amount = 3.0
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+
+[node name="Slumber" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 2 )
+pitch_variation = 0.0
+
+[node name="SlumberActiv" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 10 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 2 )
+
+[node name="CollisionBox" parent="." index="2"]
+width = 10
+height = 10
+
+[node name="Hurtbox" parent="." index="3"]
+height = 10
+
+[node name="Default" parent="StateMachine" index="0"]
+sprite_animation = "default"
+move_x = 0
+clash = false
+lifetime = 300
+fizzle_on_ground = false
+fizzle_on_walls = false

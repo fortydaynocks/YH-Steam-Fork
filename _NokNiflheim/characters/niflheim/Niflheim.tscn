@@ -1,0 +1,5544 @@
+[gd_scene load_steps=806 format=2]
+
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfhurtlow.png" type="Texture" id=2]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackslidekick.png" type="Texture" id=3]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconslidekick.png" type="Texture" id=4]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackquickslice.png" type="Texture" id=5]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconquickslice.png" type="Texture" id=6]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackultimusrive.png" type="Texture" id=7]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/UltimusRive.gd" type="Script" id=8]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconultimusrive.png" type="Texture" id=9]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifStartSuper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/DashForward.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfportrait0.png" type="Texture" id=12]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/super03.wav" type="AudioStream" id=13]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifBurn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/Niflheim.gd" type="Script" id=15]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=16]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=17]
+[ext_resource path="res://fx/DashParticle.tscn" type="PackedScene" id=18]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/Jump.tscn" type="PackedScene" id=19]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=20]
+[ext_resource path="res://characters/states/CharState.gd" type="Script" id=21]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconknockout.png" type="Texture" id=22]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/100_hit_grap_1.wav" type="AudioStream" id=23]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/006_swing_blade_0.wav" type="AudioStream" id=24]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/HitEffect.tscn" type="PackedScene" id=25]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/100_hit_grap_3.wav" type="AudioStream" id=26]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/005_swing_grap_2_2.wav" type="AudioStream" id=27]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/100_hit_grap_2.wav" type="AudioStream" id=28]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackinsurrection.png" type="Texture" id=29]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconshowofpower.png" type="Texture" id=30]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/010_swing_sword_0.wav" type="AudioStream" id=31]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/icongutpunch.png" type="Texture" id=32]
+[ext_resource path="res://characters/stickman/sprites/stickman6.png" type="Texture" id=33]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nffall.png" type="Texture" id=34]
+[ext_resource path="res://characters/stickman/sprites/stickman8.png" type="Texture" id=35]
+[ext_resource path="res://characters/stickman/sprites/stickman7.png" type="Texture" id=36]
+[ext_resource path="res://characters/stickman/sprites/stickman5.png" type="Texture" id=37]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfhurtmid.png" type="Texture" id=38]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfjump.png" type="Texture" id=39]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfknockdown.png" type="Texture" id=40]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfgetup.png" type="Texture" id=41]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/103_hit_counter_slash_0.wav" type="AudioStream" id=42]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfhurthigh.png" type="Texture" id=43]
+[ext_resource path="res://characters/stickman/sprites/stickman57.png" type="Texture" id=44]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfparryhigh.png" type="Texture" id=45]
+[ext_resource path="res://characters/stickman/sprites/stickman59.png" type="Texture" id=46]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfcancel.png" type="Texture" id=47]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfhurtair.png" type="Texture" id=48]
+[ext_resource path="res://characters/stickman/sprites/stickman58.png" type="Texture" id=49]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfparrylow.png" type="Texture" id=50]
+[ext_resource path="res://characters/stickman/sprites/stickman60.png" type="Texture" id=51]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/BrutalClause.gd" type="Script" id=52]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdashbackward.png" type="Texture" id=53]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfidle.png" type="Texture" id=54]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdashforward.png" type="Texture" id=55]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackgutpunch.png" type="Texture" id=56]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackknockout.png" type="Texture" id=57]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NiflSlam.tscn" type="PackedScene" id=58]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/Nuis-Drag-Attack.gd" type="Script" id=59]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/006_swing_blade_1.wav" type="AudioStream" id=60]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackroughsurface.png" type="Texture" id=61]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/Intro.gd" type="Script" id=62]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/101_hit_slash_3.wav" type="AudioStream" id=63]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/010_swing_sword_2.wav" type="AudioStream" id=64]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconatmoscleave.png" type="Texture" id=65]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackatmoscleave.png" type="Texture" id=66]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconroughsurface.png" type="Texture" id=67]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackshowofpower.png" type="Texture" id=68]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/101_hit_slash_0.wav" type="AudioStream" id=69]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/101_hit_slash_2.wav" type="AudioStream" id=70]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/nfdasheffect.png" type="Texture" id=71]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconhellsplumes.png" type="Texture" id=72]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackdeformation.png" type="Texture" id=73]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/006_swing_blade_2.wav" type="AudioStream" id=74]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifHitTest.tscn" type="PackedScene" id=75]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/016_explode_0.wav" type="AudioStream" id=76]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/petal off centre.png" type="Texture" id=77]
+[ext_resource path="res://sound/common/dash1.wav" type="AudioStream" id=78]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/004_swing_grap_1_1.wav" type="AudioStream" id=79]
+[ext_resource path="res://characters/states/Dash.gd" type="Script" id=80]
+[ext_resource path="res://fx/DashBackFloorParticle.tscn" type="PackedScene" id=81]
+[ext_resource path="res://ui/ActionSelector/StateIcons/dash_back.png" type="Texture" id=82]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/DashBackward.tscn" type="PackedScene" id=83]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfland.png" type="Texture" id=84]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattacklowpunch.png" type="Texture" id=85]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackspinkick.png" type="Texture" id=86]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconspinkick.png" type="Texture" id=87]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/004_swing_grap_1_0.wav" type="AudioStream" id=88]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackhelionstab.png" type="Texture" id=89]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/015_blaze_0.wav" type="AudioStream" id=90]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/101_hit_slash_1.wav" type="AudioStream" id=91]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/icondeformation.png" type="Texture" id=92]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackhellsplumes.png" type="Texture" id=93]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/016_explode_2.wav" type="AudioStream" id=94]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/ExcisionFlashcut.gd" type="Script" id=95]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/PlumeSpawner.tscn" type="PackedScene" id=96]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackexcisionflashcut.png" type="Texture" id=97]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackbrutalclause.png" type="Texture" id=98]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconbrutalclause.png" type="Texture" id=99]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/HellsPlume.gd" type="Script" id=100]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/104_guard_grap_0.wav" type="AudioStream" id=101]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackwrathfulwave.png" type="Texture" id=102]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/303_reject.wav" type="AudioStream" id=103]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/YanmeiKnifeHit.wav" type="AudioStream" id=104]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/303_crossburst.wav" type="AudioStream" id=105]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/WrathfulWave.tscn" type="PackedScene" id=106]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackresurrectionredone.png" type="Texture" id=107]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconresurrection.png" type="Texture" id=108]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/auid/NifResurrectionAUID.tscn" type="PackedScene" id=109]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/015_blaze_1.wav" type="AudioStream" id=110]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/ResurrectionSmiteCosmetic.tscn" type="PackedScene" id=111]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/(9) HIT-Metal Hit 13 - Roblox.wav" type="AudioStream" id=112]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/PlumeStationaryCosmetic.tscn" type="PackedScene" id=113]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfintro.png" type="Texture" id=114]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/WrathfulWaveAir.tscn" type="PackedScene" id=115]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackwrathfulwaveair.png" type="Texture" id=116]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/Resurrection.gd" type="Script" id=117]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackturmoil.png" type="Texture" id=118]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/Turmoil.gd" type="Script" id=119]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconinsurrection.png" type="Texture" id=120]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconwrathfulwaveair.png" type="Texture" id=121]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconwrathfulwave.png" type="Texture" id=122]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconturmoil.png" type="Texture" id=123]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/icongrab.png" type="Texture" id=124]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackturmoilcounter.png" type="Texture" id=125]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/WrathfulWave.gd" type="Script" id=126]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackcontrolledslice.png" type="Texture" id=127]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/ControlledSlice.gd" type="Script" id=128]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconcontrolledslice.png" type="Texture" id=129]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/auid/NifControlledSliceAUID.tscn" type="PackedScene" id=130]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackoverhead.png" type="Texture" id=131]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconoverhead.png" type="Texture" id=132]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconultimus.png" type="Texture" id=133]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackultimus.png" type="Texture" id=134]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfwallsplat.png" type="Texture" id=135]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfburst.png" type="Texture" id=136]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifBurst.tscn" type="PackedScene" id=137]
+[ext_resource path="res://sound/common/whiff1.wav" type="AudioStream" id=138]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackexcisionflashcutmiss.png" type="Texture" id=139]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconexcisionflashcut.png" type="Texture" id=140]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/pl41_act_start.wav" type="AudioStream" id=141]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/act_hit_deadly_damage; act_hit_deadly_damage2.wav" type="AudioStream" id=142]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/orochi_swing.wav" type="AudioStream" id=143]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifExcisionHit.tscn" type="PackedScene" id=144]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/ExcisionFlashCutHit.gd" type="Script" id=145]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/EFCChain.tscn" type="PackedScene" id=146]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/EFCEnd.tscn" type="PackedScene" id=147]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackfireandbrimstone.png" type="Texture" id=148]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconfireandbrimstone.png" type="Texture" id=149]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/FireAndBrimstone.gd" type="Script" id=150]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/BrimstoneDeath.tscn" type="PackedScene" id=151]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/stzak_jonin_pwerwav.wav" type="AudioStream" id=152]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifBrimstoneDeathHit.tscn" type="PackedScene" id=153]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/auid/NifFireAndBrimstoneAUID.tscn" type="PackedScene" id=154]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifFeatherBlast.tscn" type="PackedScene" id=155]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/icondivebomb.png" type="Texture" id=156]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdivebomb.png" type="Texture" id=157]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/000_airdash_0.wav" type="AudioStream" id=158]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/Divebomb.gd" type="Script" id=159]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/DashDown.tscn" type="PackedScene" id=160]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattacktakedown.png" type="Texture" id=161]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattacktakedownend.png" type="Texture" id=162]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattacktakedowndive.png" type="Texture" id=163]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/NiflheimInferno.gd" type="Script" id=164]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/016_explode_1.wav" type="AudioStream" id=165]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackinferno.png" type="Texture" id=166]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/PlumeStationary.tscn" type="PackedScene" id=167]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconfrontcarve.png" type="Texture" id=168]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackupslice.png" type="Texture" id=169]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackfrontcarve.png" type="Texture" id=170]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconupslice.png" type="Texture" id=171]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/DivebombHit.gd" type="Script" id=172]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdivebombhit.png" type="Texture" id=173]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/DivebombHit.tscn" type="PackedScene" id=174]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackmortalwound.png" type="Texture" id=175]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackmortalwoundmiss.png" type="Texture" id=176]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/MortalWound.gd" type="Script" id=177]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconmortalwound.png" type="Texture" id=178]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/MortalWoundHit.gd" type="Script" id=179]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/icondiablovortex.png" type="Texture" id=180]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackdiablovortex.png" type="Texture" id=181]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/super14.wav" type="AudioStream" id=182]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/DiabloVortex.gd" type="Script" id=183]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/effects/NifStartSuper2.tscn" type="PackedScene" id=184]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/auid/NifDiabloVortexAUID.tscn" type="PackedScene" id=185]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/ThroughTheFire.gd" type="Script" id=186]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackthroughthefire.png" type="Texture" id=187]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconashflare.png" type="Texture" id=188]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfportraitnew2.png" type="Texture" id=189]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/auid/NifHeatwaveAUID.tscn" type="PackedScene" id=190]
+[ext_resource path="res://ui/ActionSelector/StateIcons/dash.png" type="Texture" id=191]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdashbackwardnew.png" type="Texture" id=192]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfdashforwardnew.png" type="Texture" id=193]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/dash.wav" type="AudioStream" id=194]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/Heatwave.gd" type="Script" id=195]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfintrospecial.png" type="Texture" id=196]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/laugh02.wav" type="AudioStream" id=197]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/015_blaze_2.wav" type="AudioStream" id=198]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/BrimstoneDeathCosmetic.tscn" type="PackedScene" id=199]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/NiflheimWait.gd" type="Script" id=200]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconinferno.png" type="Texture" id=201]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sounds/022_magiccircle_b.wav" type="AudioStream" id=202]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/states/NiflheimFirestarter.gd" type="Script" id=203]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/sprites/nfattackfirestarter.png" type="Texture" id=204]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/icons/iconfirestarter.png" type="Texture" id=205]
+[ext_resource path="res://_NokNiflheim/characters/niflheim/projectiles/WrathfulWaveDiagonal.tscn" type="PackedScene" id=206]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 16 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 16 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 53 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 55 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=199]
+atlas = ExtResource( 39 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=200]
+atlas = ExtResource( 39 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=201]
+atlas = ExtResource( 39 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=202]
+atlas = ExtResource( 39 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=203]
+atlas = ExtResource( 39 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=204]
+atlas = ExtResource( 39 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=205]
+atlas = ExtResource( 34 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=327]
+atlas = ExtResource( 47 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=297]
+atlas = ExtResource( 114 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=298]
+atlas = ExtResource( 114 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=299]
+atlas = ExtResource( 114 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=300]
+atlas = ExtResource( 114 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=301]
+atlas = ExtResource( 114 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=302]
+atlas = ExtResource( 114 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=303]
+atlas = ExtResource( 114 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=304]
+atlas = ExtResource( 114 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=305]
+atlas = ExtResource( 114 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=306]
+atlas = ExtResource( 114 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=307]
+atlas = ExtResource( 114 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=308]
+atlas = ExtResource( 114 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=309]
+atlas = ExtResource( 114 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=310]
+atlas = ExtResource( 114 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=311]
+atlas = ExtResource( 114 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=312]
+atlas = ExtResource( 114 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=313]
+atlas = ExtResource( 114 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=314]
+atlas = ExtResource( 114 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=315]
+atlas = ExtResource( 114 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=316]
+atlas = ExtResource( 114 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=317]
+atlas = ExtResource( 114 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=318]
+atlas = ExtResource( 114 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=319]
+atlas = ExtResource( 114 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=320]
+atlas = ExtResource( 114 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=321]
+atlas = ExtResource( 114 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=322]
+atlas = ExtResource( 114 )
+region = Rect2( 4800, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=323]
+atlas = ExtResource( 114 )
+region = Rect2( 4992, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=324]
+atlas = ExtResource( 114 )
+region = Rect2( 5184, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=325]
+atlas = ExtResource( 114 )
+region = Rect2( 5376, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=326]
+atlas = ExtResource( 114 )
+region = Rect2( 5568, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=671]
+atlas = ExtResource( 196 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=672]
+atlas = ExtResource( 196 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=673]
+atlas = ExtResource( 196 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=674]
+atlas = ExtResource( 196 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=675]
+atlas = ExtResource( 196 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=676]
+atlas = ExtResource( 196 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=677]
+atlas = ExtResource( 196 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=678]
+atlas = ExtResource( 196 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=679]
+atlas = ExtResource( 196 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=680]
+atlas = ExtResource( 196 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=681]
+atlas = ExtResource( 196 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=682]
+atlas = ExtResource( 196 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=683]
+atlas = ExtResource( 196 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=684]
+atlas = ExtResource( 196 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=685]
+atlas = ExtResource( 196 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=686]
+atlas = ExtResource( 196 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=687]
+atlas = ExtResource( 196 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=688]
+atlas = ExtResource( 196 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=689]
+atlas = ExtResource( 196 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=690]
+atlas = ExtResource( 196 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=691]
+atlas = ExtResource( 196 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=692]
+atlas = ExtResource( 196 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=693]
+atlas = ExtResource( 196 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=694]
+atlas = ExtResource( 196 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=695]
+atlas = ExtResource( 196 )
+region = Rect2( 4800, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=696]
+atlas = ExtResource( 196 )
+region = Rect2( 4992, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=697]
+atlas = ExtResource( 196 )
+region = Rect2( 5184, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=698]
+atlas = ExtResource( 196 )
+region = Rect2( 5376, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=699]
+atlas = ExtResource( 196 )
+region = Rect2( 5568, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 54 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=206]
+atlas = ExtResource( 39 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=207]
+atlas = ExtResource( 39 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=208]
+atlas = ExtResource( 39 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=209]
+atlas = ExtResource( 39 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=210]
+atlas = ExtResource( 39 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=211]
+atlas = ExtResource( 39 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=212]
+atlas = ExtResource( 39 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=213]
+atlas = ExtResource( 39 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=214]
+atlas = ExtResource( 39 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=215]
+atlas = ExtResource( 39 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=216]
+atlas = ExtResource( 39 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=217]
+atlas = ExtResource( 39 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=218]
+atlas = ExtResource( 84 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=219]
+atlas = ExtResource( 45 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=220]
+atlas = ExtResource( 45 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=221]
+atlas = ExtResource( 45 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=222]
+atlas = ExtResource( 45 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=223]
+atlas = ExtResource( 50 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=224]
+atlas = ExtResource( 50 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=225]
+atlas = ExtResource( 50 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=226]
+atlas = ExtResource( 50 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 54 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 54 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 54 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 54 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 54 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 54 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 54 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 54 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 54 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 54 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 66 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 66 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 66 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 66 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 66 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 66 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 66 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 66 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 66 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 66 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 66 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 66 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 66 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=413]
+atlas = ExtResource( 98 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=414]
+atlas = ExtResource( 98 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=415]
+atlas = ExtResource( 98 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=416]
+atlas = ExtResource( 98 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=417]
+atlas = ExtResource( 98 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=418]
+atlas = ExtResource( 98 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=419]
+atlas = ExtResource( 98 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=420]
+atlas = ExtResource( 98 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=421]
+atlas = ExtResource( 98 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=422]
+atlas = ExtResource( 98 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=423]
+atlas = ExtResource( 98 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=365]
+atlas = ExtResource( 127 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=366]
+atlas = ExtResource( 127 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=367]
+atlas = ExtResource( 127 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=368]
+atlas = ExtResource( 127 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=369]
+atlas = ExtResource( 127 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=370]
+atlas = ExtResource( 127 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=371]
+atlas = ExtResource( 127 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=372]
+atlas = ExtResource( 127 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=373]
+atlas = ExtResource( 127 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=374]
+atlas = ExtResource( 127 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=375]
+atlas = ExtResource( 127 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=376]
+atlas = ExtResource( 127 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=377]
+atlas = ExtResource( 127 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=378]
+atlas = ExtResource( 127 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=654]
+atlas = ExtResource( 192 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=655]
+atlas = ExtResource( 192 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=656]
+atlas = ExtResource( 192 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=657]
+atlas = ExtResource( 192 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=658]
+atlas = ExtResource( 192 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=659]
+atlas = ExtResource( 192 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=660]
+atlas = ExtResource( 192 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=661]
+atlas = ExtResource( 192 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=662]
+atlas = ExtResource( 193 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=663]
+atlas = ExtResource( 193 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=664]
+atlas = ExtResource( 193 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=665]
+atlas = ExtResource( 193 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=666]
+atlas = ExtResource( 193 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=667]
+atlas = ExtResource( 193 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=668]
+atlas = ExtResource( 193 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=669]
+atlas = ExtResource( 193 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 73 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=90]
+atlas = ExtResource( 73 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=91]
+atlas = ExtResource( 73 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=92]
+atlas = ExtResource( 73 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=93]
+atlas = ExtResource( 73 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=94]
+atlas = ExtResource( 73 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=95]
+atlas = ExtResource( 73 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=96]
+atlas = ExtResource( 73 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=97]
+atlas = ExtResource( 73 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=98]
+atlas = ExtResource( 73 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=99]
+atlas = ExtResource( 73 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=628]
+atlas = ExtResource( 181 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=629]
+atlas = ExtResource( 181 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=630]
+atlas = ExtResource( 181 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=631]
+atlas = ExtResource( 181 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=632]
+atlas = ExtResource( 181 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=633]
+atlas = ExtResource( 181 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=634]
+atlas = ExtResource( 181 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=635]
+atlas = ExtResource( 181 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=636]
+atlas = ExtResource( 181 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=637]
+atlas = ExtResource( 181 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=638]
+atlas = ExtResource( 181 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=639]
+atlas = ExtResource( 181 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=640]
+atlas = ExtResource( 181 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=641]
+atlas = ExtResource( 181 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=642]
+atlas = ExtResource( 181 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=643]
+atlas = ExtResource( 181 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=644]
+atlas = ExtResource( 181 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=645]
+atlas = ExtResource( 181 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=646]
+atlas = ExtResource( 181 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=647]
+atlas = ExtResource( 181 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=502]
+atlas = ExtResource( 157 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=544]
+atlas = ExtResource( 173 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=545]
+atlas = ExtResource( 173 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=546]
+atlas = ExtResource( 173 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=547]
+atlas = ExtResource( 173 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=548]
+atlas = ExtResource( 173 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=549]
+atlas = ExtResource( 173 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=550]
+atlas = ExtResource( 173 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=551]
+atlas = ExtResource( 173 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=424]
+atlas = ExtResource( 139 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=425]
+atlas = ExtResource( 139 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=426]
+atlas = ExtResource( 139 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=427]
+atlas = ExtResource( 139 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=428]
+atlas = ExtResource( 139 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=429]
+atlas = ExtResource( 139 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=430]
+atlas = ExtResource( 139 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=431]
+atlas = ExtResource( 139 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=432]
+atlas = ExtResource( 139 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=433]
+atlas = ExtResource( 139 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=434]
+atlas = ExtResource( 139 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=435]
+atlas = ExtResource( 139 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=436]
+atlas = ExtResource( 139 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=437]
+atlas = ExtResource( 139 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=438]
+atlas = ExtResource( 139 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=439]
+atlas = ExtResource( 139 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=440]
+atlas = ExtResource( 139 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=441]
+atlas = ExtResource( 139 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=442]
+atlas = ExtResource( 139 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=443]
+atlas = ExtResource( 139 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=444]
+atlas = ExtResource( 139 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=445]
+atlas = ExtResource( 139 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=446]
+atlas = ExtResource( 97 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=447]
+atlas = ExtResource( 97 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=448]
+atlas = ExtResource( 97 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=449]
+atlas = ExtResource( 97 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=450]
+atlas = ExtResource( 97 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=451]
+atlas = ExtResource( 97 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=452]
+atlas = ExtResource( 97 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=453]
+atlas = ExtResource( 97 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=454]
+atlas = ExtResource( 97 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=455]
+atlas = ExtResource( 97 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=456]
+atlas = ExtResource( 97 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=457]
+atlas = ExtResource( 97 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=458]
+atlas = ExtResource( 97 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=459]
+atlas = ExtResource( 97 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=460]
+atlas = ExtResource( 97 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=461]
+atlas = ExtResource( 97 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=462]
+atlas = ExtResource( 97 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=463]
+atlas = ExtResource( 97 )
+region = Rect2( 4800, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=464]
+atlas = ExtResource( 97 )
+region = Rect2( 4992, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=465]
+atlas = ExtResource( 97 )
+region = Rect2( 5184, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=466]
+atlas = ExtResource( 97 )
+region = Rect2( 5376, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=467]
+atlas = ExtResource( 97 )
+region = Rect2( 5568, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=468]
+atlas = ExtResource( 97 )
+region = Rect2( 5760, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=469]
+atlas = ExtResource( 97 )
+region = Rect2( 5952, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=470]
+atlas = ExtResource( 97 )
+region = Rect2( 6144, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=471]
+atlas = ExtResource( 97 )
+region = Rect2( 6336, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=472]
+atlas = ExtResource( 97 )
+region = Rect2( 6528, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=473]
+atlas = ExtResource( 97 )
+region = Rect2( 6720, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=474]
+atlas = ExtResource( 97 )
+region = Rect2( 6912, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=475]
+atlas = ExtResource( 97 )
+region = Rect2( 7104, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=476]
+atlas = ExtResource( 97 )
+region = Rect2( 7296, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=477]
+atlas = ExtResource( 97 )
+region = Rect2( 7488, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=478]
+atlas = ExtResource( 97 )
+region = Rect2( 7680, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=479]
+atlas = ExtResource( 97 )
+region = Rect2( 7872, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=480]
+atlas = ExtResource( 97 )
+region = Rect2( 8064, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=481]
+atlas = ExtResource( 97 )
+region = Rect2( 8256, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=482]
+atlas = ExtResource( 97 )
+region = Rect2( 8448, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=483]
+atlas = ExtResource( 97 )
+region = Rect2( 8640, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=484]
+atlas = ExtResource( 97 )
+region = Rect2( 8832, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=485]
+atlas = ExtResource( 148 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=486]
+atlas = ExtResource( 148 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=487]
+atlas = ExtResource( 148 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=488]
+atlas = ExtResource( 148 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=489]
+atlas = ExtResource( 148 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=490]
+atlas = ExtResource( 148 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=491]
+atlas = ExtResource( 148 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=492]
+atlas = ExtResource( 148 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=493]
+atlas = ExtResource( 148 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=494]
+atlas = ExtResource( 148 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=495]
+atlas = ExtResource( 148 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=496]
+atlas = ExtResource( 148 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=497]
+atlas = ExtResource( 148 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=498]
+atlas = ExtResource( 148 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=499]
+atlas = ExtResource( 148 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=500]
+atlas = ExtResource( 148 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=501]
+atlas = ExtResource( 148 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=711]
+atlas = ExtResource( 204 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=712]
+atlas = ExtResource( 204 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=713]
+atlas = ExtResource( 204 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=714]
+atlas = ExtResource( 204 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=715]
+atlas = ExtResource( 204 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=716]
+atlas = ExtResource( 204 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=717]
+atlas = ExtResource( 204 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=718]
+atlas = ExtResource( 204 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=719]
+atlas = ExtResource( 204 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=720]
+atlas = ExtResource( 204 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=721]
+atlas = ExtResource( 204 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=526]
+atlas = ExtResource( 170 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=527]
+atlas = ExtResource( 170 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=528]
+atlas = ExtResource( 170 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=529]
+atlas = ExtResource( 170 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=530]
+atlas = ExtResource( 170 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=531]
+atlas = ExtResource( 170 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=532]
+atlas = ExtResource( 170 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 56 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 56 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 56 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 56 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 56 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 56 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=238]
+atlas = ExtResource( 89 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=239]
+atlas = ExtResource( 89 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=240]
+atlas = ExtResource( 89 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=241]
+atlas = ExtResource( 89 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=242]
+atlas = ExtResource( 89 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=243]
+atlas = ExtResource( 89 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=244]
+atlas = ExtResource( 89 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=245]
+atlas = ExtResource( 89 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=246]
+atlas = ExtResource( 89 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=247]
+atlas = ExtResource( 89 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=248]
+atlas = ExtResource( 93 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=249]
+atlas = ExtResource( 93 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=250]
+atlas = ExtResource( 93 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=251]
+atlas = ExtResource( 93 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=252]
+atlas = ExtResource( 93 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=253]
+atlas = ExtResource( 93 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=254]
+atlas = ExtResource( 93 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=255]
+atlas = ExtResource( 93 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=256]
+atlas = ExtResource( 93 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=257]
+atlas = ExtResource( 93 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=700]
+atlas = ExtResource( 166 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=701]
+atlas = ExtResource( 166 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=702]
+atlas = ExtResource( 166 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=703]
+atlas = ExtResource( 166 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=704]
+atlas = ExtResource( 166 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=705]
+atlas = ExtResource( 166 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=706]
+atlas = ExtResource( 166 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=707]
+atlas = ExtResource( 166 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=708]
+atlas = ExtResource( 166 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=709]
+atlas = ExtResource( 166 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=710]
+atlas = ExtResource( 166 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=142]
+atlas = ExtResource( 29 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=143]
+atlas = ExtResource( 29 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=144]
+atlas = ExtResource( 29 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=145]
+atlas = ExtResource( 29 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=146]
+atlas = ExtResource( 29 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=147]
+atlas = ExtResource( 29 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=148]
+atlas = ExtResource( 29 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=149]
+atlas = ExtResource( 29 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=150]
+atlas = ExtResource( 29 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=151]
+atlas = ExtResource( 29 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=152]
+atlas = ExtResource( 29 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=153]
+atlas = ExtResource( 29 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=154]
+atlas = ExtResource( 29 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=155]
+atlas = ExtResource( 29 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=156]
+atlas = ExtResource( 29 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=157]
+atlas = ExtResource( 29 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=386]
+atlas = ExtResource( 57 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=387]
+atlas = ExtResource( 57 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=388]
+atlas = ExtResource( 57 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=389]
+atlas = ExtResource( 57 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=390]
+atlas = ExtResource( 57 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=391]
+atlas = ExtResource( 57 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=392]
+atlas = ExtResource( 57 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=393]
+atlas = ExtResource( 57 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=394]
+atlas = ExtResource( 57 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=395]
+atlas = ExtResource( 57 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=396]
+atlas = ExtResource( 57 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=397]
+atlas = ExtResource( 57 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=227]
+atlas = ExtResource( 85 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=228]
+atlas = ExtResource( 85 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=229]
+atlas = ExtResource( 85 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=230]
+atlas = ExtResource( 85 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=552]
+atlas = ExtResource( 176 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=553]
+atlas = ExtResource( 176 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=554]
+atlas = ExtResource( 176 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=555]
+atlas = ExtResource( 176 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=556]
+atlas = ExtResource( 176 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=557]
+atlas = ExtResource( 176 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=558]
+atlas = ExtResource( 176 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=559]
+atlas = ExtResource( 176 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=560]
+atlas = ExtResource( 176 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=561]
+atlas = ExtResource( 176 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=562]
+atlas = ExtResource( 176 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=563]
+atlas = ExtResource( 176 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=564]
+atlas = ExtResource( 176 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=565]
+atlas = ExtResource( 176 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=566]
+atlas = ExtResource( 176 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=567]
+atlas = ExtResource( 176 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=568]
+atlas = ExtResource( 176 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=569]
+atlas = ExtResource( 176 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=570]
+atlas = ExtResource( 176 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=571]
+atlas = ExtResource( 175 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=572]
+atlas = ExtResource( 175 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=573]
+atlas = ExtResource( 175 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=574]
+atlas = ExtResource( 175 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=575]
+atlas = ExtResource( 175 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=576]
+atlas = ExtResource( 175 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=577]
+atlas = ExtResource( 175 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=578]
+atlas = ExtResource( 175 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=579]
+atlas = ExtResource( 175 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=580]
+atlas = ExtResource( 175 )
+region = Rect2( 3456, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=581]
+atlas = ExtResource( 175 )
+region = Rect2( 3648, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=582]
+atlas = ExtResource( 175 )
+region = Rect2( 3840, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=583]
+atlas = ExtResource( 175 )
+region = Rect2( 4032, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=584]
+atlas = ExtResource( 175 )
+region = Rect2( 4224, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=585]
+atlas = ExtResource( 175 )
+region = Rect2( 4416, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=586]
+atlas = ExtResource( 175 )
+region = Rect2( 4608, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=587]
+atlas = ExtResource( 175 )
+region = Rect2( 4800, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=588]
+atlas = ExtResource( 175 )
+region = Rect2( 4992, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=589]
+atlas = ExtResource( 175 )
+region = Rect2( 5184, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=590]
+atlas = ExtResource( 175 )
+region = Rect2( 5376, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=591]
+atlas = ExtResource( 175 )
+region = Rect2( 5568, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=379]
+atlas = ExtResource( 131 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=380]
+atlas = ExtResource( 131 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=381]
+atlas = ExtResource( 131 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=382]
+atlas = ExtResource( 131 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=383]
+atlas = ExtResource( 131 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=384]
+atlas = ExtResource( 131 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=385]
+atlas = ExtResource( 131 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=602]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=603]
+atlas = ExtResource( 5 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=604]
+atlas = ExtResource( 5 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=605]
+atlas = ExtResource( 5 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=606]
+atlas = ExtResource( 5 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=607]
+atlas = ExtResource( 5 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=608]
+atlas = ExtResource( 5 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=609]
+atlas = ExtResource( 5 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=610]
+atlas = ExtResource( 5 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=337]
+atlas = ExtResource( 107 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=338]
+atlas = ExtResource( 107 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=339]
+atlas = ExtResource( 107 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=340]
+atlas = ExtResource( 107 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=341]
+atlas = ExtResource( 107 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=342]
+atlas = ExtResource( 107 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=343]
+atlas = ExtResource( 107 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 61 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 61 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 61 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 61 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 61 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 61 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 61 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 61 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 61 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 61 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=129]
+atlas = ExtResource( 68 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=130]
+atlas = ExtResource( 68 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=131]
+atlas = ExtResource( 68 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=132]
+atlas = ExtResource( 68 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=133]
+atlas = ExtResource( 68 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=134]
+atlas = ExtResource( 68 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=135]
+atlas = ExtResource( 68 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=136]
+atlas = ExtResource( 68 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=137]
+atlas = ExtResource( 68 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=138]
+atlas = ExtResource( 68 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=139]
+atlas = ExtResource( 68 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=140]
+atlas = ExtResource( 68 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=141]
+atlas = ExtResource( 68 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=593]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=594]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=595]
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=596]
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=597]
+atlas = ExtResource( 3 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=598]
+atlas = ExtResource( 3 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=599]
+atlas = ExtResource( 3 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=600]
+atlas = ExtResource( 3 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=601]
+atlas = ExtResource( 3 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=231]
+atlas = ExtResource( 86 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=232]
+atlas = ExtResource( 86 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=233]
+atlas = ExtResource( 86 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=234]
+atlas = ExtResource( 86 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=235]
+atlas = ExtResource( 86 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=236]
+atlas = ExtResource( 86 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=237]
+atlas = ExtResource( 86 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=503]
+atlas = ExtResource( 161 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=504]
+atlas = ExtResource( 161 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=505]
+atlas = ExtResource( 161 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=506]
+atlas = ExtResource( 161 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=507]
+atlas = ExtResource( 161 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=508]
+atlas = ExtResource( 163 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=509]
+atlas = ExtResource( 162 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=510]
+atlas = ExtResource( 162 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=511]
+atlas = ExtResource( 162 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=512]
+atlas = ExtResource( 162 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=513]
+atlas = ExtResource( 162 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=514]
+atlas = ExtResource( 162 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=515]
+atlas = ExtResource( 162 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=516]
+atlas = ExtResource( 162 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=517]
+atlas = ExtResource( 161 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=518]
+atlas = ExtResource( 161 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=519]
+atlas = ExtResource( 161 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=520]
+atlas = ExtResource( 161 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=521]
+atlas = ExtResource( 161 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=522]
+atlas = ExtResource( 161 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=523]
+atlas = ExtResource( 161 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=524]
+atlas = ExtResource( 161 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=648]
+atlas = ExtResource( 187 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=649]
+atlas = ExtResource( 187 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=650]
+atlas = ExtResource( 187 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=651]
+atlas = ExtResource( 187 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=652]
+atlas = ExtResource( 187 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=653]
+atlas = ExtResource( 187 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=344]
+atlas = ExtResource( 118 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=345]
+atlas = ExtResource( 118 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=346]
+atlas = ExtResource( 118 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=347]
+atlas = ExtResource( 118 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=348]
+atlas = ExtResource( 118 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=349]
+atlas = ExtResource( 118 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=350]
+atlas = ExtResource( 118 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=351]
+atlas = ExtResource( 118 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=352]
+atlas = ExtResource( 118 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=353]
+atlas = ExtResource( 118 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=354]
+atlas = ExtResource( 118 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=355]
+atlas = ExtResource( 125 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=356]
+atlas = ExtResource( 125 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=357]
+atlas = ExtResource( 125 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=358]
+atlas = ExtResource( 125 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=359]
+atlas = ExtResource( 125 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=360]
+atlas = ExtResource( 125 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=361]
+atlas = ExtResource( 125 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=362]
+atlas = ExtResource( 125 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=363]
+atlas = ExtResource( 125 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=398]
+atlas = ExtResource( 134 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=399]
+atlas = ExtResource( 134 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=400]
+atlas = ExtResource( 134 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=401]
+atlas = ExtResource( 134 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=402]
+atlas = ExtResource( 134 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=403]
+atlas = ExtResource( 134 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=404]
+atlas = ExtResource( 134 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=405]
+atlas = ExtResource( 134 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=406]
+atlas = ExtResource( 134 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=407]
+atlas = ExtResource( 134 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=408]
+atlas = ExtResource( 134 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=409]
+atlas = ExtResource( 134 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=410]
+atlas = ExtResource( 134 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=411]
+atlas = ExtResource( 134 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=412]
+atlas = ExtResource( 134 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=611]
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=612]
+atlas = ExtResource( 7 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=613]
+atlas = ExtResource( 7 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=614]
+atlas = ExtResource( 7 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=615]
+atlas = ExtResource( 7 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=616]
+atlas = ExtResource( 7 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=617]
+atlas = ExtResource( 7 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=618]
+atlas = ExtResource( 7 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=619]
+atlas = ExtResource( 7 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=620]
+atlas = ExtResource( 7 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=621]
+atlas = ExtResource( 7 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=622]
+atlas = ExtResource( 7 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=623]
+atlas = ExtResource( 7 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=624]
+atlas = ExtResource( 7 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=625]
+atlas = ExtResource( 7 )
+region = Rect2( 2880, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=626]
+atlas = ExtResource( 7 )
+region = Rect2( 3072, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=627]
+atlas = ExtResource( 7 )
+region = Rect2( 3264, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=533]
+atlas = ExtResource( 169 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=534]
+atlas = ExtResource( 169 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=535]
+atlas = ExtResource( 169 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=536]
+atlas = ExtResource( 169 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=537]
+atlas = ExtResource( 169 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=538]
+atlas = ExtResource( 169 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=539]
+atlas = ExtResource( 169 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=540]
+atlas = ExtResource( 169 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=541]
+atlas = ExtResource( 169 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=542]
+atlas = ExtResource( 169 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=543]
+atlas = ExtResource( 169 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=269]
+atlas = ExtResource( 102 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=270]
+atlas = ExtResource( 102 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=271]
+atlas = ExtResource( 102 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=272]
+atlas = ExtResource( 102 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=273]
+atlas = ExtResource( 102 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=274]
+atlas = ExtResource( 102 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=275]
+atlas = ExtResource( 102 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=276]
+atlas = ExtResource( 102 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=277]
+atlas = ExtResource( 102 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=278]
+atlas = ExtResource( 102 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=279]
+atlas = ExtResource( 102 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=280]
+atlas = ExtResource( 102 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=281]
+atlas = ExtResource( 102 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=328]
+atlas = ExtResource( 116 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=329]
+atlas = ExtResource( 116 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=330]
+atlas = ExtResource( 116 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=331]
+atlas = ExtResource( 116 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=332]
+atlas = ExtResource( 116 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=333]
+atlas = ExtResource( 116 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=334]
+atlas = ExtResource( 116 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=335]
+atlas = ExtResource( 116 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=336]
+atlas = ExtResource( 116 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=592]
+animations = [ {
+"frames": [ ExtResource( 136 ) ],
+"loop": true,
+"name": "Burst",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "DashBackward",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "DashForward",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 199 ), SubResource( 200 ), SubResource( 201 ), SubResource( 202 ), SubResource( 203 ), SubResource( 204 ) ],
+"loop": true,
+"name": "DoubleJump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 205 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 46 ), ExtResource( 51 ) ],
+"loop": true,
+"name": "ForwardThrow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ) ],
+"loop": true,
+"name": "Getup",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "Grab",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 37 ) ],
+"loop": true,
+"name": "Grabbed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "HurtAerial",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "HurtGroundedHigh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "HurtGroundedLow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 38 ) ],
+"loop": true,
+"name": "HurtGroundedMid",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 327 ) ],
+"loop": true,
+"name": "InstantCancel",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 297 ), SubResource( 298 ), SubResource( 299 ), SubResource( 300 ), SubResource( 301 ), SubResource( 302 ), SubResource( 303 ), SubResource( 304 ), SubResource( 305 ), SubResource( 306 ), SubResource( 307 ), SubResource( 308 ), SubResource( 309 ), SubResource( 310 ), SubResource( 311 ), SubResource( 312 ), SubResource( 313 ), SubResource( 314 ), SubResource( 315 ), SubResource( 316 ), SubResource( 317 ), SubResource( 318 ), SubResource( 319 ), SubResource( 320 ), SubResource( 321 ), SubResource( 322 ), SubResource( 323 ), SubResource( 324 ), SubResource( 325 ), SubResource( 326 ) ],
+"loop": true,
+"name": "Intro",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 671 ), SubResource( 672 ), SubResource( 673 ), SubResource( 674 ), SubResource( 675 ), SubResource( 676 ), SubResource( 677 ), SubResource( 678 ), SubResource( 679 ), SubResource( 680 ), SubResource( 681 ), SubResource( 682 ), SubResource( 683 ), SubResource( 684 ), SubResource( 685 ), SubResource( 686 ), SubResource( 687 ), SubResource( 688 ), SubResource( 689 ), SubResource( 690 ), SubResource( 691 ), SubResource( 692 ), SubResource( 693 ), SubResource( 694 ), SubResource( 695 ), SubResource( 696 ), SubResource( 697 ), SubResource( 698 ), SubResource( 699 ), SubResource( 38 ) ],
+"loop": true,
+"name": "IntroSpecial",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ), SubResource( 211 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 217 ) ],
+"loop": true,
+"name": "JumpBack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ) ],
+"loop": true,
+"name": "Knockdown",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 218 ) ],
+"loop": true,
+"name": "Landing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 219 ), SubResource( 220 ), SubResource( 221 ), SubResource( 222 ) ],
+"loop": true,
+"name": "ParryHigh",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 223 ), SubResource( 224 ), SubResource( 225 ), SubResource( 226 ) ],
+"loop": true,
+"name": "ParryLow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "RollBackward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "RollForward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "ThrowTech",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "Wait",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 135 ) ],
+"loop": true,
+"name": "WallSlam",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ) ],
+"loop": true,
+"name": "atmoscleave",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 413 ), SubResource( 414 ), SubResource( 415 ), SubResource( 416 ), SubResource( 417 ), SubResource( 418 ), SubResource( 419 ), SubResource( 420 ), SubResource( 421 ), SubResource( 422 ), SubResource( 423 ) ],
+"loop": true,
+"name": "brutalclause",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 365 ), SubResource( 366 ), SubResource( 367 ), SubResource( 368 ), SubResource( 369 ), SubResource( 370 ), SubResource( 371 ), SubResource( 372 ), SubResource( 373 ), SubResource( 374 ), SubResource( 375 ), SubResource( 376 ), SubResource( 377 ), SubResource( 378 ) ],
+"loop": true,
+"name": "controlledslice",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 654 ), SubResource( 655 ), SubResource( 656 ), SubResource( 657 ), SubResource( 658 ), SubResource( 659 ), SubResource( 660 ), SubResource( 661 ) ],
+"loop": true,
+"name": "dashbackwardnew",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 662 ), SubResource( 663 ), SubResource( 664 ), SubResource( 665 ), SubResource( 666 ), SubResource( 667 ), SubResource( 668 ), SubResource( 669 ) ],
+"loop": true,
+"name": "dashforwardnew",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ) ],
+"loop": true,
+"name": "deformation",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 628 ), SubResource( 629 ), SubResource( 630 ), SubResource( 631 ), SubResource( 632 ), SubResource( 633 ), SubResource( 634 ), SubResource( 635 ), SubResource( 636 ), SubResource( 637 ), SubResource( 638 ), SubResource( 639 ), SubResource( 640 ), SubResource( 641 ), SubResource( 642 ), SubResource( 643 ), SubResource( 644 ), SubResource( 645 ), SubResource( 646 ), SubResource( 647 ) ],
+"loop": true,
+"name": "diablovortex",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 502 ) ],
+"loop": true,
+"name": "divebomb",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 544 ), SubResource( 545 ), SubResource( 546 ), SubResource( 547 ), SubResource( 548 ), SubResource( 549 ), SubResource( 550 ), SubResource( 551 ) ],
+"loop": true,
+"name": "divebombhit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 424 ), SubResource( 425 ), SubResource( 426 ), SubResource( 427 ), SubResource( 428 ), SubResource( 429 ), SubResource( 430 ), SubResource( 431 ), SubResource( 432 ), SubResource( 433 ), SubResource( 434 ), SubResource( 435 ), SubResource( 436 ), SubResource( 437 ), SubResource( 438 ), SubResource( 439 ), SubResource( 440 ), SubResource( 441 ), SubResource( 442 ), SubResource( 443 ), SubResource( 444 ), SubResource( 445 ) ],
+"loop": true,
+"name": "excisionflashcut",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 446 ), SubResource( 447 ), SubResource( 448 ), SubResource( 449 ), SubResource( 450 ), SubResource( 451 ), SubResource( 452 ), SubResource( 453 ), SubResource( 454 ), SubResource( 455 ), SubResource( 456 ), SubResource( 457 ), SubResource( 458 ), SubResource( 459 ), SubResource( 460 ), SubResource( 461 ), SubResource( 462 ), SubResource( 463 ), SubResource( 464 ), SubResource( 465 ), SubResource( 466 ), SubResource( 467 ), SubResource( 468 ), SubResource( 469 ), SubResource( 470 ), SubResource( 471 ), SubResource( 472 ), SubResource( 473 ), SubResource( 474 ), SubResource( 475 ), SubResource( 476 ), SubResource( 477 ), SubResource( 478 ), SubResource( 479 ), SubResource( 480 ), SubResource( 481 ), SubResource( 482 ), SubResource( 483 ), SubResource( 484 ) ],
+"loop": true,
+"name": "excisionflashcuthit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 485 ), SubResource( 486 ), SubResource( 487 ), SubResource( 488 ), SubResource( 489 ), SubResource( 490 ), SubResource( 491 ), SubResource( 492 ), SubResource( 493 ), SubResource( 494 ), SubResource( 495 ), SubResource( 496 ), SubResource( 497 ), SubResource( 498 ), SubResource( 499 ), SubResource( 500 ), SubResource( 501 ) ],
+"loop": true,
+"name": "fireandbrimstone",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 711 ), SubResource( 712 ), SubResource( 713 ), SubResource( 714 ), SubResource( 715 ), SubResource( 716 ), SubResource( 717 ), SubResource( 718 ), SubResource( 719 ), SubResource( 720 ), SubResource( 721 ) ],
+"loop": true,
+"name": "firestarter",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 526 ), SubResource( 527 ), SubResource( 528 ), SubResource( 529 ), SubResource( 530 ), SubResource( 531 ), SubResource( 532 ) ],
+"loop": true,
+"name": "frontcarve",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "gutpunch",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 238 ), SubResource( 239 ), SubResource( 240 ), SubResource( 241 ), SubResource( 242 ), SubResource( 243 ), SubResource( 244 ), SubResource( 245 ), SubResource( 246 ), SubResource( 247 ) ],
+"loop": true,
+"name": "helionstab",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 248 ), SubResource( 249 ), SubResource( 250 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ), SubResource( 255 ), SubResource( 256 ), SubResource( 257 ) ],
+"loop": true,
+"name": "hellsplumes",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 700 ), SubResource( 701 ), SubResource( 702 ), SubResource( 703 ), SubResource( 704 ), SubResource( 705 ), SubResource( 706 ), SubResource( 707 ), SubResource( 708 ), SubResource( 709 ), SubResource( 710 ) ],
+"loop": true,
+"name": "inferno",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ) ],
+"loop": true,
+"name": "insurrection",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 386 ), SubResource( 387 ), SubResource( 388 ), SubResource( 389 ), SubResource( 390 ), SubResource( 391 ), SubResource( 392 ), SubResource( 393 ), SubResource( 394 ), SubResource( 395 ), SubResource( 396 ), SubResource( 397 ) ],
+"loop": true,
+"name": "knockout",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 227 ), SubResource( 228 ), SubResource( 229 ), SubResource( 230 ) ],
+"loop": true,
+"name": "lowpunch",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 552 ), SubResource( 553 ), SubResource( 554 ), SubResource( 555 ), SubResource( 556 ), SubResource( 557 ), SubResource( 558 ), SubResource( 559 ), SubResource( 560 ), SubResource( 561 ), SubResource( 562 ), SubResource( 563 ), SubResource( 564 ), SubResource( 565 ), SubResource( 566 ), SubResource( 567 ), SubResource( 568 ), SubResource( 569 ), SubResource( 570 ) ],
+"loop": true,
+"name": "mortalwound",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 571 ), SubResource( 572 ), SubResource( 573 ), SubResource( 574 ), SubResource( 575 ), SubResource( 576 ), SubResource( 577 ), SubResource( 578 ), SubResource( 579 ), SubResource( 580 ), SubResource( 581 ), SubResource( 582 ), SubResource( 583 ), SubResource( 584 ), SubResource( 585 ), SubResource( 586 ), SubResource( 587 ), SubResource( 588 ), SubResource( 589 ), SubResource( 590 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ), SubResource( 591 ) ],
+"loop": true,
+"name": "mortalwoundhit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 379 ), SubResource( 380 ), SubResource( 381 ), SubResource( 382 ), SubResource( 383 ), SubResource( 384 ), SubResource( 385 ) ],
+"loop": true,
+"name": "overhead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 602 ), SubResource( 603 ), SubResource( 604 ), SubResource( 605 ), SubResource( 606 ), SubResource( 607 ), SubResource( 608 ), SubResource( 609 ), SubResource( 610 ) ],
+"loop": true,
+"name": "quickslice",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 337 ), SubResource( 338 ), SubResource( 339 ), SubResource( 340 ), SubResource( 341 ), SubResource( 342 ), SubResource( 343 ) ],
+"loop": true,
+"name": "resurrection",
+"speed": 30.0
+}, {
+"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
+"loop": true,
+"name": "roughsurface",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ) ],
+"loop": true,
+"name": "showofpower",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 593 ), SubResource( 594 ), SubResource( 595 ), SubResource( 596 ), SubResource( 597 ), SubResource( 598 ), SubResource( 599 ), SubResource( 600 ), SubResource( 601 ) ],
+"loop": true,
+"name": "slidekick",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 231 ), SubResource( 232 ), SubResource( 233 ), SubResource( 234 ), SubResource( 235 ), SubResource( 236 ), SubResource( 237 ) ],
+"loop": true,
+"name": "spinkick",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 503 ), SubResource( 504 ), SubResource( 505 ), SubResource( 506 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ), SubResource( 507 ) ],
+"loop": true,
+"name": "takedowngrab",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 508 ) ],
+"loop": true,
+"name": "takedowngrabdive",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 509 ), SubResource( 510 ), SubResource( 511 ), SubResource( 512 ), SubResource( 513 ), SubResource( 514 ), SubResource( 515 ), SubResource( 516 ) ],
+"loop": true,
+"name": "takedowngrabend",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 517 ), SubResource( 518 ), SubResource( 519 ), SubResource( 520 ), SubResource( 521 ), SubResource( 522 ), SubResource( 523 ), SubResource( 524 ), SubResource( 508 ) ],
+"loop": true,
+"name": "takedowngrabhit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 648 ), SubResource( 649 ), SubResource( 650 ), SubResource( 651 ), SubResource( 652 ), SubResource( 653 ) ],
+"loop": true,
+"name": "throughthefire",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 344 ), SubResource( 345 ), SubResource( 346 ), SubResource( 347 ), SubResource( 348 ), SubResource( 349 ), SubResource( 350 ), SubResource( 351 ), SubResource( 352 ), SubResource( 353 ), SubResource( 354 ) ],
+"loop": true,
+"name": "turmoil",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 355 ), SubResource( 356 ), SubResource( 357 ), SubResource( 358 ), SubResource( 359 ), SubResource( 360 ), SubResource( 361 ), SubResource( 362 ), SubResource( 363 ) ],
+"loop": true,
+"name": "turmoilcounter",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 398 ), SubResource( 399 ), SubResource( 400 ), SubResource( 401 ), SubResource( 402 ), SubResource( 403 ), SubResource( 404 ), SubResource( 405 ), SubResource( 406 ), SubResource( 407 ), SubResource( 408 ), SubResource( 409 ), SubResource( 410 ), SubResource( 411 ), SubResource( 412 ) ],
+"loop": true,
+"name": "ultimus",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 611 ), SubResource( 612 ), SubResource( 613 ), SubResource( 614 ), SubResource( 615 ), SubResource( 616 ), SubResource( 617 ), SubResource( 618 ), SubResource( 619 ), SubResource( 620 ), SubResource( 621 ), SubResource( 622 ), SubResource( 623 ), SubResource( 624 ), SubResource( 625 ), SubResource( 626 ), SubResource( 627 ) ],
+"loop": true,
+"name": "ultimusrive",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 533 ), SubResource( 534 ), SubResource( 535 ), SubResource( 536 ), SubResource( 537 ), SubResource( 538 ), SubResource( 539 ), SubResource( 540 ), SubResource( 541 ), SubResource( 542 ), SubResource( 543 ) ],
+"loop": true,
+"name": "upslice",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 269 ), SubResource( 270 ), SubResource( 271 ), SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ) ],
+"loop": true,
+"name": "wrathfulwave",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 328 ), SubResource( 329 ), SubResource( 330 ), SubResource( 331 ), SubResource( 332 ), SubResource( 333 ), SubResource( 334 ), SubResource( 335 ), SubResource( 336 ) ],
+"loop": true,
+"name": "wrathfulwaveair",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve" id=198]
+_data = [ Vector2( 0.00495049, 1 ), 0.0, -0.945187, 0, 0, Vector2( 1, 0 ), -0.998522, 0.0, 0, 0 ]
+
+[sub_resource type="ShaderMaterial" id=178]
+resource_local_to_scene = true
+shader = ExtResource( 16 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=179]
+atlas = ExtResource( 71 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=180]
+atlas = ExtResource( 71 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=181]
+atlas = ExtResource( 71 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=182]
+atlas = ExtResource( 71 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=183]
+atlas = ExtResource( 71 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=184]
+atlas = ExtResource( 71 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=185]
+atlas = ExtResource( 71 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=186]
+atlas = ExtResource( 71 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=187]
+atlas = ExtResource( 71 )
+region = Rect2( 1536, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=188]
+atlas = ExtResource( 71 )
+region = Rect2( 1728, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=189]
+atlas = ExtResource( 71 )
+region = Rect2( 1920, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=190]
+atlas = ExtResource( 71 )
+region = Rect2( 2112, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=191]
+atlas = ExtResource( 71 )
+region = Rect2( 2304, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=192]
+atlas = ExtResource( 71 )
+region = Rect2( 2496, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=193]
+atlas = ExtResource( 71 )
+region = Rect2( 2688, 0, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=194]
+animations = [ {
+"frames": [ SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=195]
+offsets = PoolRealArray( 0, 0.586592 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=196]
+_data = [ Vector2( 0.00495049, 1 ), 0.0, -0.945187, 0, 0, Vector2( 1, 0 ), -0.998522, 0.0, 0, 0 ]
+
+[sub_resource type="PackedScene" id=197]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "ParticleEffect", "material", "Timer", "AnimatedSprite", "frames", "frame", "speed_scale", "flip_h", "CPUParticles2D", "amount", "lifetime", "texture", "direction", "spread", "gravity", "initial_velocity", "linear_accel", "color", "color_ramp", "CPUParticles2D2", "explosiveness", "lifetime_randomness", "initial_velocity_random", "angular_velocity", "angular_velocity_random", "angle", "angle_random", "scale_amount", "scale_amount_random", "scale_amount_curve" ),
+"node_count": 4,
+"node_paths": [  ],
+"nodes": PoolIntArray( -1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 0, 0, 3, 524291, -1, 4, 4, 2, 5, 3, 6, 4, 7, 5, 0, 0, 0, 8, 786440, -1, 10, 9, 3, 10, 6, 11, 7, 12, 8, 13, 4, 14, 9, 15, 10, 16, 11, 17, 12, 18, 13, 0, 0, 0, 8, 1048595, -1, 19, 9, 14, 10, 15, 20, 16, 21, 16, 11, 17, 12, 18, 13, 19, 14, 20, 15, 21, 22, 6, 23, 19, 24, 16, 16, 22, 25, 23, 26, 16, 27, 24, 28, 24, 29, 25, 17, 12, 0 ),
+"variants": [ ExtResource( 17 ), SubResource( 178 ), SubResource( 194 ), 1, 0.0, true, 0.25, ExtResource( 53 ), Vector2( -1, 0 ), Vector2( 0, 0 ), 375.0, -1000.0, Color( 1, 0, 0, 1 ), SubResource( 195 ), 30, 0.5, 1.0, ExtResource( 77 ), Vector2( 1, 1 ), 180.0, Vector2( 0, -48 ), 300.0, -500.0, 720.0, 0.01, SubResource( 196 ) ],
+"version": 2
+}
+
+[node name="Niflheim" instance=ExtResource( 1 )]
+material = SubResource( 2 )
+script = ExtResource( 15 )
+extra_state_variables = "idle
+plume
+wave
+applyburn
+currentburnparticle
+currentplume
+"
+num_air_movements = 3
+character_portrait = ExtResource( 12 )
+character_portrait2 = ExtResource( 189 )
+use_extra_color_1 = true
+extra_color_1 = Color( 0.133333, 0.12549, 0.203922, 1 )
+use_extra_color_2 = true
+extra_color_2 = Color( 0.67451, 0.196078, 0.196078, 1 )
+burn_particle = ExtResource( 14 )
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 3 )
+frames = SubResource( 592 )
+animation = "brutalclause"
+frame = 3
+
+[node name="lolpetals" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+position = Vector2( 0, -16 )
+z_index = -1
+amount = 5
+lifetime = 2.0
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 77 )
+direction = Vector2( 1, 1 )
+spread = 180.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = -100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.03
+scale_amount_random = 0.01
+scale_amount_curve = SubResource( 198 )
+color = Color( 1, 0, 0, 1 )
+
+[node name="lolpetals2" type="CPUParticles2D" parent="Flip/Sprite" index="1"]
+position = Vector2( 0, -16 )
+z_index = -1
+amount = 5
+lifetime = 2.0
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 77 )
+direction = Vector2( 1, 1 )
+spread = 180.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angular_velocity = 180.0
+angular_velocity_random = 1.0
+linear_accel = -100.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.03
+scale_amount_random = 0.01
+scale_amount_curve = SubResource( 198 )
+color = Color( 0.145098, 0.14902, 0.231373, 1 )
+
+[node name="Intro_1" type="AudioStreamPlayer2D" parent="Sounds" index="11"]
+stream = ExtResource( 197 )
+volume_db = -6.0
+
+[node name="Intro_56" type="AudioStreamPlayer2D" parent="Sounds" index="12"]
+stream = ExtResource( 79 )
+volume_db = -3.0
+
+[node name="Intro_72a" type="AudioStreamPlayer2D" parent="Sounds" index="13"]
+stream = ExtResource( 142 )
+volume_db = -3.0
+
+[node name="Intro_72b" type="AudioStreamPlayer2D" parent="Sounds" index="14"]
+stream = ExtResource( 198 )
+volume_db = 3.0
+
+[node name="Intro_96" type="AudioStreamPlayer2D" parent="Sounds" index="15"]
+stream = ExtResource( 24 )
+volume_db = -3.0
+
+[node name="MetalRing" type="AudioStreamPlayer2D" parent="Sounds" index="16"]
+stream = ExtResource( 112 )
+volume_db = 3.0
+
+[node name="MetalRingLoud" type="AudioStreamPlayer2D" parent="Sounds" index="17"]
+stream = ExtResource( 112 )
+volume_db = 6.0
+
+[node name="MetalRingQuiet" type="AudioStreamPlayer2D" parent="Sounds" index="18"]
+stream = ExtResource( 112 )
+volume_db = 1.0
+
+[node name="EFCWhoosh" type="AudioStreamPlayer2D" parent="Sounds" index="19"]
+stream = ExtResource( 31 )
+pitch_scale = 0.75
+
+[node name="Start" parent="StateMachine" index="0"]
+script = ExtResource( 62 )
+sprite_animation = "Intro"
+anim_length = 120
+ticks_per_frame = 4
+state_screenshake_tick = 68
+state_screenshake_amount = 6
+title = ""
+show_in_menu = true
+interrupt_into_string = "Aerial
+Grounded
+Jump"
+change_stance_to = "Intro"
+plume_scene = ExtResource( 113 )
+smite_scene = ExtResource( 111 )
+excision_scene = ExtResource( 144 )
+brimstone_scene = ExtResource( 199 )
+
+[node name="Wait" parent="StateMachine" index="10"]
+script = ExtResource( 200 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "Wait"
+ticks_per_frame = 2
+loop_animation = true
+absolute_loop = true
+title = ""
+interrupt_from_string = "GroundedIdle
+Grounded"
+interrupt_into_string = "Aerial
+Grounded"
+
+[node name="Burst" parent="StateMachine" index="11"]
+particle_scene = ExtResource( 137 )
+enter_sfx = ExtResource( 103 )
+enter_sfx_volume = -3.0
+
+[node name="Hitbox" parent="StateMachine/Burst" index="0"]
+whiff_sound = ExtResource( 138 )
+hit_sound = ExtResource( 26 )
+hit_bass_sound = ExtResource( 42 )
+hit_sound_volume = -3.0
+
+[node name="OffensiveBurst" parent="StateMachine" index="13"]
+particle_scene = ExtResource( 137 )
+
+[node name="Hitbox" parent="StateMachine/OffensiveBurst" index="0"]
+whiff_sound = ExtResource( 138 )
+hit_sound = ExtResource( 26 )
+hit_bass_sound = ExtResource( 42 )
+
+[node name="Fall" parent="StateMachine" index="17"]
+sprite_animation = "Fall"
+
+[node name="DashBackward2" type="Node2D" parent="StateMachine" index="20"]
+script = ExtResource( 80 )
+reset_momentum = true
+sprite_animation = "DashBackward"
+anim_length = 18
+particle_scene = ExtResource( 81 )
+spawn_particle_on_enter = true
+timed_particle_scene = ExtResource( 83 )
+timed_particle_position = Vector2( 0, -16 )
+enter_sfx = ExtResource( 78 )
+enter_sfx_volume = -10.0
+title = "Dash Back"
+show_in_menu = false
+button_texture = ExtResource( 82 )
+flip_with_facing = true
+iasa_at = 6
+backdash_iasa = true
+next_state_on_hold_on_opponent_turn = true
+reversible = false
+interrupt_from_string = "GroundedMovement
+Grounded
+Dash"
+interrupt_into_string = "Grounded"
+allowed_stances_string = "All"
+change_stance_to = "Normal"
+dir_x = -1
+dash_speed = 11
+fric = "0.01"
+startup_lag = 3
+stop_frame = 10
+
+[node name="heatwave" type="Node2D" parent="StateMachine" index="24"]
+script = ExtResource( 195 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+reset_momentum = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "dashforwardnew"
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 194 )
+enter_sfx_volume = -6.0
+title = "Heatwave"
+data_ui_scene = ExtResource( 190 )
+button_texture = ExtResource( 191 )
+iasa_at = 10
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+heatwave_config_speed = 12.0
+heatwave_y_modifier = 0.25
+dash_particle_fwd = ExtResource( 11 )
+dash_particle_bwd = ExtResource( 83 )
+
+[node name="heatwaveair" type="Node2D" parent="StateMachine" index="25"]
+script = ExtResource( 195 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+reset_momentum = true
+sprite_animation = "dashforwardnew"
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 194 )
+enter_sfx_volume = -6.0
+title = "Heatwave"
+data_ui_scene = ExtResource( 190 )
+button_texture = ExtResource( 191 )
+air_type = 1
+uses_air_movement = true
+land_cancel = true
+iasa_at = 10
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+heatwave_config_speed = 8.0
+heatwave_y_modifier = 1.0
+dash_particle_fwd = ExtResource( 11 )
+dash_particle_bwd = ExtResource( 83 )
+
+[node name="DashForward" parent="StateMachine" index="27"]
+particle_scene = ExtResource( 18 )
+timed_particle_scene = ExtResource( 11 )
+timed_particle_position = Vector2( 0, -16 )
+show_in_menu = false
+dash_speed = 16
+
+[node name="ChargeDashForward" parent="StateMachine" index="28"]
+show_in_menu = false
+
+[node name="DashBackward" parent="StateMachine" index="29"]
+timed_particle_scene = SubResource( 197 )
+timed_particle_position = Vector2( 0, -16 )
+show_in_menu = false
+dash_speed = 8
+stop_frame = 0
+
+[node name="DashBackwardHold" parent="StateMachine" index="30"]
+show_in_menu = false
+
+[node name="DashStartup" parent="StateMachine" index="31"]
+show_in_menu = false
+
+[node name="Jump" parent="StateMachine" index="32"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+timed_particle_scene = ExtResource( 19 )
+timed_particle_position = Vector2( 0, -16 )
+
+[node name="ChargeDash" parent="StateMachine" index="33"]
+timed_particle_scene = ExtResource( 11 )
+timed_particle_position = Vector2( 0, -9 )
+show_in_menu = false
+
+[node name="SuperJump" parent="StateMachine" index="34"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+timed_particle_scene = ExtResource( 19 )
+timed_particle_position = Vector2( 0, -18 )
+timed_spawn_particle_tick = 7
+
+[node name="DoubleJump" parent="StateMachine" index="35"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+timed_particle_scene = ExtResource( 19 )
+timed_particle_position = Vector2( 0, -16 )
+
+[node name="AirDash" parent="StateMachine" index="36"]
+timed_particle_scene = ExtResource( 11 )
+timed_particle_position = Vector2( 0, -16 )
+show_in_menu = false
+
+[node name="WallSlam" parent="StateMachine" index="40"]
+sprite_animation = "WallSlam"
+
+[node name="divebomb" type="Node2D" parent="StateMachine" index="44"]
+script = ExtResource( 159 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "divebomb"
+anim_length = 30
+ticks_per_frame = 2
+particle_scene = ExtResource( 160 )
+particle_position = Vector2( 0, 16 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 158 )
+enter_sfx_volume = -3.0
+title = "Divebomb"
+button_texture = ExtResource( 156 )
+air_type = 1
+next_state_on_hold = false
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="divebombhit" type="Node2D" parent="StateMachine" index="45"]
+script = ExtResource( 172 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "divebombhit"
+anim_length = 16
+ticks_per_frame = 2
+state_screenshake_tick = 1
+enter_sfx = ExtResource( 26 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 76 )
+sfx_volume = -3.0
+projectile_scene = ExtResource( 174 )
+projectile_pos_y = -18
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="gutpunch" type="Node2D" parent="StateMachine" index="46"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "gutpunch"
+anim_length = 12
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "5"
+enter_sfx_volume = -6.0
+title = "Gut Punch"
+type = 1
+button_texture = ExtResource( 32 )
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/gutpunch" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 18
+y = -21
+width = 8
+height = 8
+damage = 50
+minimum_damage = 13
+hitstun_ticks = 20
+hitlag_ticks = 6
+screenshake_frames = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 23 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "4"
+start_tick = 4
+active_ticks = 1
+
+[node name="overhead" type="Node2D" parent="StateMachine" index="47"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "overhead"
+anim_length = 14
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "12"
+enter_sfx_volume = -6.0
+title = "Overhead"
+type = 1
+button_texture = ExtResource( 132 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/overhead" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 9
+y = -26
+width = 19
+height = 16
+damage = 60
+minimum_damage = 15
+hitstun_ticks = 24
+hitlag_ticks = 6
+plus_frames = 1
+hit_height = 0
+screenshake_frames = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 23 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "4"
+start_tick = 6
+active_ticks = 1
+
+[node name="slidekick" type="Node2D" parent="StateMachine" index="48"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "slidekick"
+anim_length = 18
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "18"
+enter_sfx_volume = -6.0
+title = "Slidekick"
+type = 1
+button_texture = ExtResource( 4 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/slidekick" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 9
+y = -7
+width = 19
+height = 5
+damage = 60
+minimum_damage = 15
+hitstun_ticks = 24
+hitlag_ticks = 8
+plus_frames = 1
+hit_height = 2
+screenshake_frames = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+start_tick = 6
+active_ticks = 7
+
+[node name="quickslice" type="Node2D" parent="StateMachine" index="49"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "quickslice"
+anim_length = 18
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "10"
+enter_sfx = ExtResource( 24 )
+enter_sfx_volume = -6.0
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Quick Slice"
+type = 1
+button_texture = ExtResource( 6 )
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/quickslice" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 40
+y = -23
+width = 29
+height = 18
+damage = 70
+minimum_damage = 18
+hitstun_ticks = 20
+hitlag_ticks = 6
+plus_frames = 1
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "4"
+start_tick = 8
+active_ticks = 1
+
+[node name="knockout" type="Node2D" parent="StateMachine" index="50"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "knockout"
+anim_length = 24
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "30"
+force_tick = 10
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 64 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 31 )
+sfx_tick = 10
+sfx_volume = -6.0
+title = "Knockout"
+type = 1
+button_texture = ExtResource( 22 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/knockout" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 12
+y = -18
+width = 16
+height = 5
+damage = 80
+minimum_damage = 20
+hitlag_ticks = 10
+plus_frames = 3
+screenshake_amount = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 26 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "10"
+grounded_hit_state = "HurtAerial"
+start_tick = 14
+active_ticks = 6
+
+[node name="roughsurface" type="Node2D" parent="StateMachine" index="51"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "roughsurface"
+anim_length = 20
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+timed_particle_scene = ExtResource( 58 )
+timed_spawn_particle_tick = 7
+enter_sfx = ExtResource( 79 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 76 )
+sfx_tick = 7
+sfx_volume = -3.0
+title = "Rough Surface"
+type = 1
+button_texture = ExtResource( 67 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/roughsurface" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 41
+y = -6
+width = 40
+height = 4
+damage = 70
+minimum_damage = 18
+hitstun_ticks = 24
+hitlag_ticks = 12
+plus_frames = 1
+hit_height = 2
+screenshake_amount = 6
+screenshake_frames = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "4"
+grounded_hit_state = "HurtAerial"
+start_tick = 8
+active_ticks = 2
+
+[node name="atmoscleave" type="Node2D" parent="StateMachine" index="52"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "atmoscleave"
+anim_length = 26
+ticks_per_frame = 2
+force_dir_x = "0.1"
+force_dir_y = "-1"
+force_speed = "12"
+force_tick = 13
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 64 )
+enter_sfx_volume = -6.0
+title = "Atmos Cleave"
+type = 1
+button_texture = ExtResource( 65 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/atmoscleave" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 21
+y = -50
+width = 41
+height = 34
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 28
+hitlag_ticks = 12
+plus_frames = 3
+hit_height = 0
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 70 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0.25"
+dir_y = "-1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 14
+active_ticks = 3
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/atmoscleave" index="1"]
+z_index = 1000
+script = ExtResource( 20 )
+x = -21
+y = -61
+width = 29
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 28
+hitlag_ticks = 12
+plus_frames = 3
+hit_height = 0
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 70 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0.25"
+dir_y = "-1"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 14
+active_ticks = 3
+
+[node name="showofpower" type="Node2D" parent="StateMachine" index="53"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "showofpower"
+anim_length = 26
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "16"
+force_tick = 6
+enter_force_dir_x = "1"
+enter_force_speed = "6"
+enter_sfx = ExtResource( 27 )
+enter_sfx_volume = -6.0
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Show of Power"
+type = 1
+button_texture = ExtResource( 30 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/showofpower" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 40
+y = -27
+width = 31
+height = 8
+damage = 90
+minimum_damage = 23
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+guard_break = true
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 63 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.15"
+knockback = "6"
+knockdown = true
+wall_slam = true
+start_tick = 12
+
+[node name="lowpunch" type="Node2D" parent="StateMachine" index="54"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "lowpunch"
+anim_length = 14
+ticks_per_frame = 2
+enter_sfx_volume = -6.0
+title = "Low Punch"
+type = 1
+button_texture = ExtResource( 32 )
+air_type = 1
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/lowpunch" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 17
+y = -12
+width = 12
+height = 8
+damage = 50
+minimum_damage = 13
+hitstun_ticks = 24
+hitlag_ticks = 6
+hit_height = 2
+screenshake_frames = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 23 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "0.75"
+dir_y = "-1"
+knockback = "3"
+start_tick = 4
+active_ticks = 1
+
+[node name="spinkick" type="Node2D" parent="StateMachine" index="55"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "spinkick"
+anim_length = 14
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "6"
+force_tick = 5
+enter_sfx = ExtResource( 88 )
+enter_sfx_volume = -6.0
+title = "Spin Kick"
+type = 1
+button_texture = ExtResource( 87 )
+air_type = 1
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/spinkick" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 25
+y = -21
+width = 26
+height = 11
+damage = 60
+minimum_damage = 15
+hitstun_ticks = 24
+hitlag_ticks = 6
+plus_frames = 1
+screenshake_frames = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "4"
+start_tick = 8
+active_ticks = 1
+
+[node name="frontcarve" type="Node2D" parent="StateMachine" index="56"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "frontcarve"
+anim_length = 14
+ticks_per_frame = 2
+enter_sfx = ExtResource( 24 )
+enter_sfx_volume = -6.0
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Front Carve"
+type = 1
+button_texture = ExtResource( 168 )
+air_type = 1
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/frontcarve" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 25
+y = -18
+width = 35
+height = 14
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 20
+hitlag_ticks = 6
+plus_frames = 1
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "0"
+knockback = "4"
+start_tick = 8
+active_ticks = 1
+
+[node name="upslice" type="Node2D" parent="StateMachine" index="57"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "upslice"
+anim_length = 22
+ticks_per_frame = 2
+force_dir_y = "-1"
+force_speed = "12"
+force_tick = 6
+enter_sfx = ExtResource( 27 )
+enter_sfx_volume = -6.0
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Upslice"
+type = 1
+button_texture = ExtResource( 171 )
+air_type = 1
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/upslice" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 42
+y = -4
+width = 22
+height = 31
+damage = 80
+minimum_damage = 20
+plus_frames = 2
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 23 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0.4"
+dir_y = "-1"
+knockback = "6"
+grounded_hit_state = "HurtAerial"
+start_tick = 10
+active_ticks = 7
+
+[node name="helionstab" type="Node2D" parent="StateMachine" index="58"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "helionstab"
+anim_length = 20
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "3"
+enter_sfx = ExtResource( 27 )
+enter_sfx_volume = -6.0
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Helion Stab"
+type = 1
+button_texture = ExtResource( 30 )
+air_type = 1
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/helionstab" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 38
+y = 5
+width = 8
+height = 8
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "-0.5"
+dir_y = "-1"
+knockback = "5"
+start_tick = 12
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/helionstab" index="1"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 48
+y = 14
+width = 8
+height = 8
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "-0.5"
+dir_y = "-1"
+knockback = "5"
+start_tick = 12
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/helionstab" index="2"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 51
+y = 25
+width = 6
+height = 6
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "-0.5"
+dir_y = "-1"
+knockback = "5"
+start_tick = 12
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/helionstab" index="3"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 27
+y = -7
+width = 8
+height = 8
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "-0.5"
+dir_y = "-1"
+knockback = "5"
+start_tick = 12
+
+[node name="deformation" type="Node2D" parent="StateMachine" index="59"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "deformation"
+anim_length = 22
+ticks_per_frame = 2
+enter_sfx = ExtResource( 74 )
+enter_sfx_volume = -6.0
+title = "Deformation"
+type = 1
+button_texture = ExtResource( 92 )
+air_type = 1
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/deformation" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 17
+y = -21
+width = 33
+height = 39
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 20
+hitlag_ticks = 8
+victim_hitlag = 16
+guard_break = true
+plus_frames = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 70 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0.2"
+dir_y = "1"
+knockback = "12"
+knockdown = true
+air_ground_bounce = true
+start_tick = 12
+active_ticks = 3
+
+[node name="insurrection" type="Node2D" parent="StateMachine" index="60"]
+script = ExtResource( 59 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "insurrection"
+anim_length = 32
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_dir_y = "-0.5"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 60 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 24 )
+sfx_tick = 18
+sfx_volume = -6.0
+title = "Insurrection"
+type = 2
+button_texture = ExtResource( 120 )
+air_type = 1
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+apply_pushback = false
+scale_with_combo = true
+drag_start_tick = 10
+drag_end_tick = 18
+reset_per_tick = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/insurrection" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 13
+y = -20
+width = 51
+height = 17
+damage = 60
+minimum_damage = 15
+hitstun_ticks = 20
+cancellable = false
+sdi_modifier = "0"
+plus_frames = 2
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 91 )
+hit_bass_sound = ExtResource( 23 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "3"
+grounded_hit_state = "HurtAerial"
+start_tick = 10
+active_ticks = 2
+loop_active_ticks = 1
+loop_inactive_ticks = 6
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/insurrection" index="1"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 13
+y = -20
+width = 51
+height = 17
+damage = 60
+minimum_damage = 15
+hitstun_ticks = 20
+sdi_modifier = "0"
+plus_frames = 2
+group = 1
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 91 )
+hit_bass_sound = ExtResource( 23 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "3"
+grounded_hit_state = "HurtAerial"
+start_tick = 16
+active_ticks = 2
+loop_active_ticks = 1
+loop_inactive_ticks = 6
+
+[node name="HitboxEnd" type="Node2D" parent="StateMachine/insurrection" index="2"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 28
+y = -26
+width = 31
+height = 39
+damage = 90
+minimum_damage = 22
+hitstun_ticks = 20
+hitlag_ticks = 8
+victim_hitlag = 16
+plus_frames = 2
+group = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 70 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0.2"
+dir_y = "1"
+knockback = "12"
+knockdown = true
+start_tick = 24
+active_ticks = 1
+
+[node name="hellsplumes" type="Node2D" parent="StateMachine" index="61"]
+script = ExtResource( 100 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "hellsplumes"
+anim_length = 20
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+state_screenshake_tick = 9
+state_screenshake_amount = 3
+enter_sfx = ExtResource( 90 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 94 )
+sfx_tick = 9
+sfx_volume = -6.0
+projectile_scene = ExtResource( 96 )
+projectile_tick = 9
+projectile_pos_x = 32
+projectile_pos_y = -16
+title = "Hell's Plume"
+type = 2
+button_texture = ExtResource( 72 )
+iasa_at = 16
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="throughthefire" type="Node2D" parent="StateMachine" index="62"]
+script = ExtResource( 186 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "throughthefire"
+anim_length = 12
+ticks_per_frame = 2
+state_screenshake_tick = 9
+state_screenshake_amount = 3
+enter_sfx = ExtResource( 90 )
+enter_sfx_volume = 6.0
+sfx_tick = 9
+sfx_volume = -6.0
+title = "Through The Fire"
+type = 2
+button_texture = ExtResource( 188 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded
+AerialAttack
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="brutalclause" type="Node2D" parent="StateMachine" index="63"]
+script = ExtResource( 52 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "brutalclause"
+anim_length = 30
+ticks_per_frame = 2
+force_dir_x = "0.5"
+force_dir_y = "-1"
+force_speed = "10"
+force_tick = 6
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 90 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 27 )
+sfx_tick = 8
+sfx_volume = -6.0
+title = "Brutal Clause"
+type = 2
+button_texture = ExtResource( 99 )
+air_type = 2
+uses_air_movement = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/brutalclause" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 24
+y = -27
+width = 22
+height = 27
+damage = 90
+minimum_damage = 23
+hitstun_ticks = 40
+hitlag_ticks = 8
+cancellable = false
+block_punishable = true
+plus_frames = 2
+screenshake_amount = 6
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 26 )
+hit_bass_sound = ExtResource( 101 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0.5"
+dir_y = "-1"
+knockback = "10"
+grounded_hit_state = "HurtAerial"
+start_tick = 8
+active_ticks = 3
+
+[node name="wrathfulwaveold" type="Node2D" parent="StateMachine" index="64"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "wrathfulwave"
+anim_length = 26
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "0"
+force_speed = "-4"
+force_tick = 14
+enter_force_dir_x = "1"
+enter_force_speed = "6"
+enter_sfx = ExtResource( 105 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 110 )
+sfx_tick = 12
+sfx_volume = -6.0
+projectile_scene = ExtResource( 106 )
+projectile_tick = 16
+projectile_pos_y = -32
+title = "Wrathful Wave"
+show_in_menu = false
+type = 2
+button_texture = ExtResource( 122 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/wrathfulwaveold" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 17
+y = -31
+width = 51
+height = 26
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+guard_break = true
+plus_frames = 4
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 63 )
+hit_bass_sound = ExtResource( 103 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "8"
+start_tick = 16
+active_ticks = 2
+
+[node name="wrathfulwave" type="Node2D" parent="StateMachine" index="65"]
+script = ExtResource( 126 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "wrathfulwave"
+anim_length = 26
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "0"
+force_speed = "-4"
+force_tick = 14
+enter_force_dir_x = "1"
+enter_force_speed = "6"
+enter_sfx = ExtResource( 105 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 110 )
+sfx_tick = 12
+sfx_volume = -6.0
+projectile_scene = ExtResource( 106 )
+projectile_tick = 16
+projectile_pos_y = -32
+title = "Wrathful Wave"
+type = 2
+button_texture = ExtResource( 122 )
+iasa_at = 22
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded
+"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/wrathfulwave" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 17
+y = -31
+width = 51
+height = 26
+damage = 80
+minimum_damage = 20
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+plus_frames = 4
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 63 )
+hit_bass_sound = ExtResource( 103 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "8"
+start_tick = 16
+active_ticks = 2
+
+[node name="wrathfulwaveair" type="Node2D" parent="StateMachine" index="66"]
+script = ExtResource( 21 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "wrathfulwaveair"
+anim_length = 18
+ticks_per_frame = 2
+force_dir_x = "0"
+force_dir_y = "0"
+force_speed = "0"
+enter_sfx = ExtResource( 105 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 64 )
+sfx_tick = 8
+sfx_volume = -6.0
+projectile_scene = ExtResource( 115 )
+projectile_tick = 10
+title = "Wrathful Wave"
+type = 2
+button_texture = ExtResource( 121 )
+air_type = 1
+land_cancel = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/wrathfulwaveair" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 5
+y = -12
+width = 35
+height = 41
+damage = 70
+minimum_damage = 18
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 18
+plus_frames = 2
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 63 )
+hit_bass_sound = ExtResource( 103 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0"
+dir_y = "1"
+knockback = "8"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 10
+active_ticks = 2
+
+[node name="resurrection" type="Node2D" parent="StateMachine" index="67"]
+script = ExtResource( 117 )
+apply_forces = true
+sprite_animation = "resurrection"
+anim_length = 20
+ticks_per_frame = 2
+enter_sfx = ExtResource( 90 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 110 )
+sfx_tick = 10
+sfx_volume = -6.0
+title = "Resurrection"
+type = 2
+data_ui_scene = ExtResource( 109 )
+button_texture = ExtResource( 108 )
+air_type = 2
+uses_air_movement = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+no_collision_start_frame = 1
+no_collision_end_frame = 20
+resurrection_smite_scene = ExtResource( 111 )
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/resurrection" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+y = -16
+damage = 60
+minimum_damage = 15
+hitstun_ticks = 24
+plus_frames = 3
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 26 )
+hit_bass_sound = ExtResource( 69 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "6"
+start_tick = 13
+active_ticks = 7
+
+[node name="turmoil" type="Node2D" parent="StateMachine" index="68"]
+script = ExtResource( 119 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "turmoil"
+anim_length = 22
+ticks_per_frame = 2
+enter_sfx = ExtResource( 104 )
+enter_sfx_volume = -6.0
+title = "Turmoil"
+show_in_menu = false
+type = 2
+button_texture = ExtResource( 123 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+burst_cancellable = false
+self_hit_cancellable = false
+self_interruptable = false
+instant_cancellable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+
+[node name="turmoilcounter" type="Node2D" parent="StateMachine" index="69"]
+script = ExtResource( 21 )
+sprite_animation = "turmoilcounter"
+anim_length = 18
+ticks_per_frame = 2
+enter_sfx = ExtResource( 64 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 31 )
+sfx_tick = 14
+sfx_volume = -6.0
+show_in_menu = false
+type = 2
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/turmoilcounter" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 12
+y = -15
+width = 16
+height = 14
+damage = 80
+minimum_damage = 20
+hitlag_ticks = 10
+priority = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 25 )
+replace_hit_particle = true
+hit_sound = ExtResource( 26 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+dir_x = "1"
+dir_y = "0"
+knockback = "4"
+start_tick = 8
+active_ticks = 1
+
+[node name="controlledslice" type="Node2D" parent="StateMachine" index="70"]
+script = ExtResource( 128 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "controlledslice"
+anim_length = 28
+ticks_per_frame = 2
+enter_sfx = ExtResource( 74 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 64 )
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Controlled Slice"
+type = 2
+data_ui_scene = ExtResource( 130 )
+button_texture = ExtResource( 129 )
+air_type = 2
+iasa_at = 22
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/controlledslice" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 22
+y = -33
+width = 38
+height = 32
+damage = 100
+minimum_damage = 25
+hitstun_ticks = 18
+hitlag_ticks = 12
+plus_frames = 4
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 70 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 16
+active_ticks = 2
+
+[node name="ultimus" type="Node2D" parent="StateMachine" index="71"]
+script = ExtResource( 59 )
+apply_forces = true
+apply_fric = true
+reset_momentum = true
+sprite_animation = "ultimus"
+anim_length = 30
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "-0.5"
+force_speed = "6"
+force_tick = 12
+enter_force_dir_x = "1"
+enter_force_dir_y = "0"
+enter_force_speed = "2"
+enter_sfx = ExtResource( 110 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 27 )
+sfx_tick = 14
+sfx_volume = -6.0
+title = "Ultimus"
+type = 2
+button_texture = ExtResource( 133 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+apply_pushback = false
+scale_with_combo = true
+drag_start_tick = 14
+drag_end_tick = 22
+reset_per_tick = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/ultimus" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 39
+y = -33
+width = 39
+damage = 70
+minimum_damage = 18
+hitstun_ticks = 20
+cancellable = false
+sdi_modifier = "0"
+plus_frames = 3
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 23 )
+hit_bass_sound = ExtResource( 76 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "5"
+grounded_hit_state = "HurtAerial"
+start_tick = 14
+active_ticks = 10
+looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 8
+
+[node name="inferno" type="Node2D" parent="StateMachine" index="72"]
+script = ExtResource( 164 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "inferno"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "8"
+enter_sfx = ExtResource( 24 )
+enter_sfx_volume = -6.0
+sfx = ExtResource( 202 )
+sfx_volume = -6.0
+title = "Inferno"
+type = 2
+button_texture = ExtResource( 201 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+plume = ExtResource( 167 )
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/inferno" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 16
+y = -36
+width = 45
+height = 28
+damage = 100
+minimum_damage = 25
+hitstun_ticks = 24
+hitlag_ticks = 14
+victim_hitlag = 22
+cancellable = false
+di_modifier = "0.5"
+sdi_modifier = "0.5"
+ignore_armor = true
+plus_frames = 4
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 165 )
+hit_sound = ExtResource( 26 )
+hit_bass_sound = ExtResource( 63 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "1"
+knockback = "4"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+wall_slam = true
+start_tick = 14
+active_ticks = 2
+
+[node name="mortalwound" type="Node2D" parent="StateMachine" index="73"]
+script = ExtResource( 177 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "mortalwound"
+anim_length = 38
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+title = "Mortal Wound"
+type = 2
+button_texture = ExtResource( 178 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/mortalwound" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 36
+y = -23
+width = 39
+height = 14
+damage = 40
+minimum_damage = 10
+hitstun_ticks = 20
+hitlag_ticks = 0
+cancellable = false
+followup_state = "mortalwoundhit"
+guard_break = true
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 144 )
+replace_hit_particle = true
+hit_sound = ExtResource( 142 )
+hit_bass_sound = ExtResource( 28 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "0"
+dir_y = "0"
+knockback = "0"
+start_tick = 16
+active_ticks = 6
+
+[node name="mortalwoundhit" type="Node2D" parent="StateMachine" index="74"]
+script = ExtResource( 179 )
+apply_forces = true
+apply_fric = true
+reset_momentum = true
+sprite_animation = "mortalwoundhit"
+anim_length = 40
+ticks_per_frame = 2
+force_dir_x = "-1"
+force_speed = "8"
+force_tick = 28
+state_screenshake_tick = 30
+timed_particle_scene = ExtResource( 75 )
+timed_spawn_particle_tick = 30
+sfx = ExtResource( 42 )
+sfx_tick = 30
+sfx_volume = 0.0
+throw_positions = {
+SubResource( 583 ): {
+"x": 24,
+"y": -9
+},
+SubResource( 584 ): {
+"x": -7,
+"y": -15
+},
+SubResource( 575 ): {
+"x": 49,
+"y": -6
+},
+SubResource( 573 ): {
+"x": 47,
+"y": -6
+},
+SubResource( 577 ): {
+"x": 51,
+"y": -7
+},
+SubResource( 581 ): {
+"x": 45,
+"y": 1
+},
+SubResource( 572 ): {
+"x": 45,
+"y": -6
+},
+SubResource( 578 ): {
+"x": 51,
+"y": -6
+},
+SubResource( 579 ): {
+"x": 51,
+"y": -1
+},
+SubResource( 580 ): {
+"x": 49,
+"y": 0
+},
+SubResource( 582 ): {
+"x": 44,
+"y": 0
+},
+SubResource( 585 ): {
+"x": -24,
+"y": 3
+},
+SubResource( 571 ): {
+"x": 41,
+"y": -4
+},
+SubResource( 574 ): {
+"x": 50,
+"y": -6
+},
+SubResource( 576 ): {
+"x": 50,
+"y": -7
+}
+}
+iasa_at = 40
+next_state_on_hold_on_opponent_turn = true
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+release = true
+release_frame = 30
+hitstun_ticks = 30
+knockback = "12"
+dir_x = "-1.0"
+dir_y = "0"
+damage = 80
+damage_in_combo = 20
+wall_slam = true
+
+[node name="ultimusrive" type="Node2D" parent="StateMachine" index="75"]
+script = ExtResource( 8 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "ultimusrive"
+anim_length = 34
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "10"
+force_tick = 16
+enter_force_dir_x = "1"
+enter_force_speed = "10"
+particle_scene = ExtResource( 10 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 13 )
+enter_sfx_volume = 0.0
+title = "Ultimus Rive"
+type = 3
+button_texture = ExtResource( 9 )
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+Grounded"
+hit_cancel_into_string = "Grounded"
+apply_pushback = false
+supers_used = 1
+super_effect = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/ultimusrive" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 39
+y = -25
+width = 31
+height = 18
+damage = 40
+minimum_damage = 10
+hitstun_ticks = 20
+cancellable = false
+di_modifier = "0.0"
+sdi_modifier = "0.0"
+plus_frames = 2
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 76 )
+hit_bass_sound = ExtResource( 26 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "0.0"
+knockback = "2"
+pushback_x = "0.0"
+start_tick = 8
+active_ticks = 1
+
+[node name="HitboxEnd" type="Node2D" parent="StateMachine/ultimusrive" index="1"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 29
+y = -25
+width = 42
+damage = 40
+minimum_damage = 10
+hitstun_ticks = 18
+hitlag_ticks = 12
+plus_frames = 2
+group = 1
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 69 )
+hit_bass_sound = ExtResource( 70 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "8"
+grounded_hit_state = "HurtAerial"
+start_tick = 20
+active_ticks = 2
+
+[node name="diablovortex" type="Node2D" parent="StateMachine" index="76"]
+script = ExtResource( 183 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_momentum = true
+sprite_animation = "diablovortex"
+anim_length = 40
+ticks_per_frame = 2
+force_dir_x = "0.3"
+force_dir_y = "-1"
+force_speed = "10"
+force_tick = 10
+particle_scene = ExtResource( 184 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 182 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 152 )
+sfx_volume = -3.0
+title = "Diablo Vortex"
+type = 3
+data_ui_scene = ExtResource( 185 )
+button_texture = ExtResource( 180 )
+air_type = 2
+uses_air_movement = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+apply_pushback = false
+no_collision_start_frame = 1
+no_collision_end_frame = 40
+super_level = 2
+supers_used = 2
+super_effect = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/diablovortex" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 9
+y = -18
+width = 33
+height = 14
+damage = 20
+minimum_damage = 5
+hitstun_ticks = 40
+cancellable = false
+di_modifier = "0.0"
+sdi_modifier = "0.0"
+plus_frames = 3
+screenshake_amount = 6
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+hit_sound = ExtResource( 63 )
+hit_bass_sound = ExtResource( 101 )
+whiff_sound_volume = -6.0
+hit_sound_volume = 3.0
+dir_x = "0.0"
+dir_y = "0.0"
+knockback = "0.0"
+pushback_x = "0.0"
+grounded_hit_state = "HurtAerial"
+start_tick = 12
+active_ticks = 20
+looping = true
+loop_active_ticks = 4
+loop_inactive_ticks = 1
+
+[node name="firestarter" type="Node2D" parent="StateMachine" index="77"]
+script = ExtResource( 203 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "firestarter"
+anim_length = 22
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "8"
+particle_scene = ExtResource( 10 )
+particle_position = Vector2( 0, -18 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 1
+state_screenshake_length = 0.2
+state_screenshake_amount = 6
+timed_particle_scene = ExtResource( 155 )
+timed_particle_position = Vector2( 0, -1 )
+timed_spawn_particle_tick = 10
+enter_sfx = ExtResource( 13 )
+enter_sfx_volume = 0.0
+sfx = ExtResource( 105 )
+sfx_volume = -6.0
+title = "Firestarter"
+type = 3
+button_texture = ExtResource( 205 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+apply_pushback = false
+super_level = 3
+supers_used = 3
+super_freeze_ticks = 10
+wrathfulwave = ExtResource( 106 )
+wrathfulwave_d = ExtResource( 206 )
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/firestarter" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = 37
+y = -41
+width = 33
+height = 37
+damage = 100
+minimum_damage = 25
+hitstun_ticks = 24
+hitlag_ticks = 12
+victim_hitlag = 16
+di_modifier = "0.5"
+sdi_modifier = "0.5"
+ignore_armor = true
+plus_frames = 4
+screenshake_amount = 8
+hit_particle = ExtResource( 75 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 24 )
+hit_sound = ExtResource( 63 )
+hit_bass_sound = ExtResource( 103 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "7"
+grounded_hit_state = "HurtAerial"
+start_tick = 10
+active_ticks = 2
+
+[node name="excisionflashcut" type="Node2D" parent="StateMachine" index="78"]
+script = ExtResource( 95 )
+apply_forces = true
+apply_fric = true
+reset_momentum = true
+sprite_animation = "excisionflashcut"
+anim_length = 44
+ticks_per_frame = 2
+enter_sfx = ExtResource( 141 )
+enter_sfx_volume = -6.0
+title = "Excision Flashcut"
+type = 3
+button_texture = ExtResource( 140 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+can_feint_if_possible = false
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+super_level = 4
+supers_used = 4
+super_freeze_ticks = 18
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/excisionflashcut" index="0"]
+z_index = 1000
+script = ExtResource( 20 )
+x = -40
+y = -20
+width = 80
+height = 30
+damage = 50
+minimum_damage = 13
+hitstun_ticks = 20
+hitlag_ticks = 20
+victim_hitlag = 120
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+ignore_armor = true
+plus_frames = 3
+screenshake_amount = 8
+screenshake_frames = 20
+hit_particle = ExtResource( 144 )
+replace_hit_particle = true
+hit_sound = ExtResource( 143 )
+hit_bass_sound = ExtResource( 142 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -3.0
+dir_x = "1"
+dir_y = "-1"
+knockback = "5"
+start_tick = 14
+active_ticks = 3
+loop_active_ticks = 1
+loop_inactive_ticks = 8
+
+[node name="efchit" type="Node2D" parent="StateMachine" index="79"]
+script = ExtResource( 145 )
+sprite_animation = "excisionflashcuthit"
+anim_length = 76
+ticks_per_frame = 2
+show_in_menu = false
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+can_feint_if_possible = false
+chain_projectile = ExtResource( 146 )
+end_projectile = ExtResource( 147 )
+
+[node name="fireandbrimstone" type="Node2D" parent="StateMachine" index="80"]
+script = ExtResource( 150 )
+apply_forces = true
+apply_fric = true
+sprite_animation = "fireandbrimstone"
+anim_length = 34
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+particle_scene = ExtResource( 155 )
+particle_position = Vector2( 0, -16 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 20
+state_screenshake_amount = 16
+timed_particle_scene = ExtResource( 153 )
+timed_particle_position = Vector2( 0, -16 )
+timed_spawn_particle_tick = 20
+enter_sfx = ExtResource( 152 )
+enter_sfx_volume = -3.0
+sfx = ExtResource( 143 )
+sfx_tick = 16
+sfx_volume = -3.0
+title = "Fire and Brimstone"
+type = 3
+data_ui_scene = ExtResource( 154 )
+button_texture = ExtResource( 149 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+interrupt_from_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+interrupt_into_string = "GroundedAttack
+AerialAttack
+Grounded
+Aerial"
+super_level = 5
+supers_used = 5
+brimstone_death_scene = ExtResource( 151 )
+
+[node name="Grab" parent="StateMachine" index="83"]
+button_texture = ExtResource( 124 )
+
+[node name="AirGrab" parent="StateMachine" index="84"]
+button_texture = ExtResource( 124 )
+
+[node name="Taunt" parent="StateMachine" index="92"]
+show_in_menu = false

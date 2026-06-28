@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://_NokDurmak/characters/durmak/auid/AUID-Cleaver.gd" type="Script" id=2]
+[ext_resource path="res://ui/XYPlot/XYPlot.tscn" type="PackedScene" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CheckButton
+
+func get_data():
+	return self.pressed
+"
+
+[node name="ActionUIData" type="VBoxContainer"]
+margin_right = 50.0
+margin_bottom = 12.0
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Aim" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[node name="Mode" type="CheckButton" parent="."]
+margin_top = 67.0
+margin_right = 60.0
+margin_bottom = 79.0
+text = "Recoil"
+script = SubResource( 1 )
+
+[connection signal="toggled" from="Mode" to="." method="_on_Mode_toggled"]

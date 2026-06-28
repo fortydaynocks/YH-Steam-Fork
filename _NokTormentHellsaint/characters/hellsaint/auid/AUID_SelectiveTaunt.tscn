@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/HorizSlider/HorizSlider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokTormentHellsaint/characters/hellsaint/auid/AUID_SelectiveTaunt.gd" type="Script" id=3]
+
+[node name="ActionUIData" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_right = 189.0
+margin_bottom = 61.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
+margin_right = 189.0
+margin_bottom = 11.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" index="0"]
+margin_right = 27.0
+margin_bottom = 11.0
+text = "Text: "
+
+[node name="TauntText" type="LineEdit" parent="VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_left = 28.0
+margin_right = 66.0
+margin_bottom = 11.0
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+placeholder_text = "..."
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" index="1"]
+margin_top = 12.0
+margin_right = 189.0
+margin_bottom = 24.0
+
+[node name="TauntUpdate" type="Button" parent="VBoxContainer/HBoxContainer2" index="0"]
+unique_name_in_owner = true
+margin_right = 36.0
+margin_bottom = 12.0
+text = "update"
+
+[node name="TauntClear" type="Button" parent="VBoxContainer/HBoxContainer2" index="1"]
+unique_name_in_owner = true
+margin_left = 37.0
+margin_right = 64.0
+margin_bottom = 12.0
+text = "clear"
+
+[node name="TauntSkip" type="CheckButton" parent="VBoxContainer/HBoxContainer2" index="2"]
+unique_name_in_owner = true
+margin_left = 65.0
+margin_right = 106.0
+margin_bottom = 12.0
+text = "skip"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" index="2"]
+margin_top = 25.0
+margin_right = 189.0
+margin_bottom = 61.0
+custom_constants/separation = 10
+
+[node name="Emote" parent="VBoxContainer/HBoxContainer3" index="0" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 60.0
+margin_bottom = 36.0
+
+[node name="Label" parent="VBoxContainer/HBoxContainer3/Emote" index="0"]
+margin_right = 60.0
+
+[node name="Direction" parent="VBoxContainer/HBoxContainer3/Emote" index="1"]
+margin_right = 60.0
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+
+[node name="ValueLabel" parent="VBoxContainer/HBoxContainer3/Emote" index="2"]
+margin_right = 60.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" index="1"]
+modulate = Color( 1, 1, 1, 0.498039 )
+margin_left = 70.0
+margin_top = 12.0
+margin_right = 189.0
+margin_bottom = 23.0
+hint_tooltip = "Here's a couple things you might like
+
+hellsaint's filepath: \"res://_NokTormentHelllsaint/characters/hellsaint\"
+hellaint's color hex: #FF0044
+camila's color hex: #FF0000
+----------------------------------------------------------------------------------------------------
+[u]{text}[/u] - makes {text} underline
+[s]{text}[/s] - makes {text} strikethrough
+[color=#HEX]{text}[/color] - changes {text} to the color HEX
+
+[img]{path}[/img] - insert image at resource {path}
+
+[shake rate=X level=Y]{text}[/shake] - makes {text} shake
+[tornado radius=X freq=Y]{text}[/tornado] - makes {text} spin like a tornado
+[wave amp=X freq=Y]{text}[/wave] - makes {text} wavy
+----------------------------------------------------------------------------------------------------"
+mouse_filter = 1
+text = "[hover over me for info]"
+
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/TauntText" to="." method="_on_TauntText_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/TauntUpdate" to="." method="_on_TauntUpdate_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/TauntClear" to="." method="_on_TauntClear_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/TauntSkip" to="." method="_on_TauntSkip_pressed"]
+[connection signal="data_changed" from="VBoxContainer/HBoxContainer3/Emote" to="." method="_on_Emote_data_changed"]
+
+[editable path="VBoxContainer/HBoxContainer3/Emote"]

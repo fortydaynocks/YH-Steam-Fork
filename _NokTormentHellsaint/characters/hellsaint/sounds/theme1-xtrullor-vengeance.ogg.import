@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme1-xtrullor-vengeance.ogg-82c0bb3a35636b40260ba752c2041943.oggstr"
+
+[deps]
+
+source_file="res://_NokTormentHellsaint/characters/hellsaint/sounds/theme1-xtrullor-vengeance.ogg"
+dest_files=[ "res://.import/theme1-xtrullor-vengeance.ogg-82c0bb3a35636b40260ba752c2041943.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

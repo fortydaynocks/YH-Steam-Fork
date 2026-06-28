@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://_NokDeoR/characters/deo/resources/DeoRVoiceline.gd" type="Script" id=1]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_laugh3.wav" type="AudioStream" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_hmmm.wav" type="AudioStream" id=3]
+[ext_resource path="res://_NokDeoR/characters/deo/voicelines/va_hm.wav" type="AudioStream" id=4]
+
+[resource]
+script = ExtResource( 1 )
+audio = [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ]
+tick = 1
+volume = -3.0
+pitch = 1.0
+variation = 0.02

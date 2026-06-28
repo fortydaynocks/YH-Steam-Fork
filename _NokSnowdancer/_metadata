@@ -1,0 +1,13 @@
+ {
+  "name": "Snowdancer",
+  "friendly_name": "Snowdancer",
+  "description": "And among the snow she danced... among the ashes of titans",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "3921745-01515",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": true,
+  "priority": 0
+}

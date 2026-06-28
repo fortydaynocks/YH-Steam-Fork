@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/ui/DeoR-Extra.gd" type="Script" id=3]
+[ext_resource path="res://ui/XYPlot/XYPlot.tscn" type="PackedScene" id=4]
+
+[node name="PlayerExtra" instance=ExtResource( 1 )]
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_right = 60.0
+margin_bottom = 360.0
+alignment = 2
+
+[node name="Pilot" parent="VBoxContainer" index="0" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 294.0
+margin_bottom = 360.0
+snap = false
+
+[node name="StandActionContainer" type="VBoxContainer" parent="." index="1"]
+unique_name_in_owner = true
+visible = false
+margin_left = 61.0
+margin_right = 181.0
+margin_bottom = 360.0
+alignment = 2
+
+[node name="Label" type="Label" parent="StandActionContainer" index="0"]
+margin_top = 336.0
+margin_right = 120.0
+margin_bottom = 347.0
+text = "Stand action:"
+
+[node name="StandAction" type="OptionButton" parent="StandActionContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+margin_top = 307.0
+margin_right = 120.0
+margin_bottom = 319.0
+hint_tooltip = "Instruct the stand to perform something.
+It will do it next turn.
+
+[Callback happens instantly.]"
+text = "..."
+
+[node name="StandActionList" type="ItemList" parent="StandActionContainer" index="2"]
+unique_name_in_owner = true
+margin_top = 348.0
+margin_right = 120.0
+margin_bottom = 348.0
+max_text_lines = 2
+auto_height = true
+max_columns = 0
+
+[node name="StandBusy" type="Label" parent="StandActionContainer" index="3"]
+unique_name_in_owner = true
+modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
+margin_top = 349.0
+margin_right = 120.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 120, 0 )
+autowrap = true
+
+[connection signal="data_changed" from="VBoxContainer/Pilot" to="." method="_on_Pilot_data_changed"]
+[connection signal="item_selected" from="StandActionContainer/StandAction" to="." method="_on_StandAction_item_selected"]
+[connection signal="item_selected" from="StandActionContainer/StandActionList" to="." method="_on_StandActionList_item_selected"]

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit_ice.wav-4dec04e0bbb9ff6f10774c3c8c3ffb6d.sample"
+
+[deps]
+
+source_file="res://_NokSnowdancer/characters/snowdancer/sounds/hit_ice.wav"
+dest_files=[ "res://.import/hit_ice.wav-4dec04e0bbb9ff6f10774c3c8c3ffb6d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

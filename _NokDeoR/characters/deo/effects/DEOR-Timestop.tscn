@@ -1,0 +1,133 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/yomifx_ring32.png" type="Texture" id=3]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/yomifx_ring64.png" type="Texture" id=4]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/yomifx_star2.png" type="Texture" id=5]
+[ext_resource path="res://_NokDeoR/characters/deo/effects/yomifx_crescent1.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = true
+shader_param/use_extra_color_2 = true
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Shader" id=26]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 color = vec4(texture(SCREEN_TEXTURE, SCREEN_UV).rgb, texture(TEXTURE, UV).a);
+	COLOR = vec4(1.0 - color.rgb,  color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=27]
+shader = SubResource( 26 )
+
+[sub_resource type="Curve" id=30]
+_data = [ Vector2( 0, 1 ), 0.0, -1.00957, 0, 1, Vector2( 0.990521, 0 ), -1.00957, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=25]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=21]
+blend_mode = 1
+
+[sub_resource type="Curve" id=22]
+_data = [ Vector2( 0.00664452, 0 ), 0.0, 1.90909, 0, 0, Vector2( 1, 1 ), -0.160962, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=31]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=32]
+_data = [ Vector2( 0, 0 ), 0.0, 2.85158, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=33]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+lifetime = 3.0
+
+[node name="inv" type="CPUParticles2D" parent="." index="1"]
+material = SubResource( 27 )
+z_index = 5
+amount = 1
+lifetime = 0.25
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 12.0
+scale_amount_curve = SubResource( 30 )
+color_ramp = SubResource( 25 )
+
+[node name="ring" type="CPUParticles2D" parent="." index="2"]
+modulate = Color( 0.901961, 0.619608, 0.192157, 1 )
+material = SubResource( 21 )
+amount = 1
+lifetime = 0.2
+explosiveness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 8.0
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 31 )
+
+[node name="ring3" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 0.901961, 0.619608, 0.192157, 1 )
+material = SubResource( 21 )
+amount = 1
+lifetime = 0.1
+explosiveness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 16.0
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 31 )
+
+[node name="ring2" type="CPUParticles2D" parent="." index="4"]
+modulate = Color( 0.901961, 0.619608, 0.192157, 1 )
+material = SubResource( 21 )
+amount = 1
+lifetime = 0.2
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 10.0
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 31 )
+
+[node name="bg" type="CPUParticles2D" parent="." index="5"]
+modulate = Color( 0.901961, 0.619608, 0.192157, 1 )
+z_index = -1
+amount = 128
+lifetime = 3.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 6 )
+gravity = Vector2( 0, 0 )
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 16.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 32 )
+color = Color( 1, 1, 1, 0.01 )
+color_ramp = SubResource( 33 )

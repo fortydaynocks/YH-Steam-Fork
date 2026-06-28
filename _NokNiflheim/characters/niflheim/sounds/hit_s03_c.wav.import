@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit_s03_c.wav-c47855f0b7d93a8661b7b7ab990ed85e.sample"
+
+[deps]
+
+source_file="res://_NokNiflheim/characters/niflheim/sounds/hit_s03_c.wav"
+dest_files=[ "res://.import/hit_s03_c.wav-c47855f0b7d93a8661b7b7ab990ed85e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

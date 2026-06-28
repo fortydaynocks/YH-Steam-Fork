@@ -1,0 +1,13 @@
+ {
+  "name": "Durmak",
+  "friendly_name": "Durmak",
+  "description": "They won't know how to save you.",
+  "author": "nok (fortydaynocks)",
+  "version": "steam",
+  "link": "",
+  "id": "",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": true,
+  "priority": 0
+}

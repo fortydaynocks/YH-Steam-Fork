@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/asta-laughNew-1.wav-358ac7a8d3f90bd2e9c22f38cd0c5747.sample"
+
+[deps]
+
+source_file="res://_NokColossusR/characters/colossus/skins/astaroth/sounds/asta-laughNew-1.wav"
+dest_files=[ "res://.import/asta-laughNew-1.wav-358ac7a8d3f90bd2e9c22f38cd0c5747.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

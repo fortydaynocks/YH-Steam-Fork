@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/void06.wav-6c2479e99d57cd8ce72ca80da63c5add.sample"
+
+[deps]
+
+source_file="res://_NokSilo/characters/silo/sounds/void06.wav"
+dest_files=[ "res://.import/void06.wav-6c2479e99d57cd8ce72ca80da63c5add.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

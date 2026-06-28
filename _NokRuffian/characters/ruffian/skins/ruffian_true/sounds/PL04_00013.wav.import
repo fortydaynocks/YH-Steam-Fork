@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PL04_00013.wav-37a16796763f5e805b829dd5d966c3fb.sample"
+
+[deps]
+
+source_file="res://_NokRuffian/characters/ruffian/skins/ruffian_true/sounds/PL04_00013.wav"
+dest_files=[ "res://.import/PL04_00013.wav-37a16796763f5e805b829dd5d966c3fb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
