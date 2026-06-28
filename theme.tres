@@ -1,16 +1,12 @@
-[gd_resource type="Theme" load_steps=52 format=2]
+[gd_resource type="Theme" load_steps=59 format=2]
 
 [ext_resource path="res://ui/default_font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://ui/HorizSlider/grabber.png" type="Texture" id=2]
+[ext_resource path="res://ui/checkbutton4.png" type="Texture" id=2]
 [ext_resource path="res://ui/checkbutton1.png" type="Texture" id=3]
 [ext_resource path="res://ui/checkbutton2.png" type="Texture" id=4]
 [ext_resource path="res://ui/checkbutton3.png" type="Texture" id=5]
-[ext_resource path="res://ui/checkbutton4.png" type="Texture" id=6]
+[ext_resource path="res://ui/HorizSlider/grabber.png" type="Texture" id=6]
 [ext_resource path="res://ui/updown.png" type="Texture" id=7]
-[ext_resource path="res://ui/check_off.png" type="Texture" id=8]
-[ext_resource path="res://ui/check_on.png" type="Texture" id=9]
-[ext_resource path="res://ui/radio_on.webp" type="Texture" id=10]
-[ext_resource path="res://ui/radio_off.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
@@ -121,10 +117,28 @@ border_color = Color( 0.8, 0.8, 0.8, 0 )
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=48]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 1
 border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
+border_width_left = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
@@ -171,27 +185,68 @@ bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
 border_width_left = 2
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+border_width_left = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
+border_width_left = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=57]
+bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=58]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=59]
 bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=60]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_width_left = 1
+border_width_right = 2
+border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=47]
 bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 border_width_left = 4
 border_width_right = 2
 border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
-[sub_resource type="StyleBoxFlat" id=45]
+[sub_resource type="StyleBoxFlat" id=61]
 bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 border_width_top = 16
 expand_margin_top = 19.0
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=62]
 bg_color = Color( 1, 0.2, 0.239216, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -210,22 +265,22 @@ ChallengeButton/base_type = "Button"
 ChallengeButton/styles/hover = SubResource( 26 )
 ChallengeButton/styles/normal = SubResource( 27 )
 CheckBox/constants/hseparation = 4
-CheckBox/icons/checked = ExtResource( 9 )
-CheckBox/icons/checked_disabled = ExtResource( 9 )
-CheckBox/icons/unchecked = ExtResource( 8 )
-CheckBox/icons/unchecked_disabled = ExtResource( 8 )
+CheckBox/icons/checked = null
+CheckBox/icons/checked_disabled = null
+CheckBox/icons/unchecked = null
+CheckBox/icons/unchecked_disabled = null
 CheckButton/icons/off = ExtResource( 3 )
 CheckButton/icons/off_disabled = ExtResource( 5 )
 CheckButton/icons/on = ExtResource( 4 )
-CheckButton/icons/on_disabled = ExtResource( 6 )
+CheckButton/icons/on_disabled = ExtResource( 2 )
 ColorPicker/constants/sv_height = 60
 ColorPicker/constants/sv_width = 60
 GravLabel/base_type = "Label"
 GravLabel/constants/shadow_as_outline = 9
 HBoxContainer/constants/separation = 1
-HSlider/icons/grabber = ExtResource( 2 )
-HSlider/icons/grabber_disabled = ExtResource( 2 )
-HSlider/icons/grabber_highlight = ExtResource( 2 )
+HSlider/icons/grabber = ExtResource( 6 )
+HSlider/icons/grabber_disabled = ExtResource( 6 )
+HSlider/icons/grabber_highlight = ExtResource( 6 )
 HSlider/icons/tick = null
 HSlider/styles/grabber_area = SubResource( 18 )
 HSlider/styles/grabber_area_highlight = SubResource( 18 )
@@ -252,16 +307,16 @@ OptionButton/icons/arrow = ExtResource( 7 )
 Panel/styles/panel = SubResource( 4 )
 PanelAlt/base_type = "Panel"
 PanelAlt/styles/panel = SubResource( 31 )
-PanelContainer/styles/panel = SubResource( 21 )
-PopupDialog/styles/panel = SubResource( 4 )
-PopupMenu/icons/checked = ExtResource( 10 )
-PopupMenu/icons/radio_checked = ExtResource( 10 )
-PopupMenu/icons/radio_unchecked = ExtResource( 11 )
-PopupMenu/icons/unchecked = ExtResource( 11 )
-PopupMenu/styles/hover = SubResource( 11 )
-PopupMenu/styles/panel = SubResource( 4 )
-PopupMenu/styles/panel_disabled = SubResource( 9 )
-PopupPanel/styles/panel = SubResource( 4 )
+PanelContainer/styles/panel = SubResource( 48 )
+PopupDialog/styles/panel = SubResource( 49 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = SubResource( 50 )
+PopupMenu/styles/panel = SubResource( 49 )
+PopupMenu/styles/panel_disabled = SubResource( 51 )
+PopupPanel/styles/panel = SubResource( 49 )
 PredictButton/base_type = "Button"
 PredictButton/styles/normal = SubResource( 43 )
 PredictButton/styles/pressed = SubResource( 44 )
@@ -273,10 +328,10 @@ TabContainer/styles/panel = SubResource( 30 )
 TabContainer/styles/tab_bg = SubResource( 28 )
 TabContainer/styles/tab_disabled = SubResource( 28 )
 TabContainer/styles/tab_fg = SubResource( 29 )
-Tabs/styles/panel = SubResource( 30 )
-Tabs/styles/tab_bg = SubResource( 28 )
-Tabs/styles/tab_disabled = SubResource( 28 )
-Tabs/styles/tab_fg = SubResource( 29 )
+Tabs/styles/panel = SubResource( 52 )
+Tabs/styles/tab_bg = SubResource( 53 )
+Tabs/styles/tab_disabled = SubResource( 53 )
+Tabs/styles/tab_fg = SubResource( 54 )
 TextEdit/colors/background_color = Color( 0, 0, 0, 0 )
 TextEdit/colors/bookmark_color = Color( 0.08, 0.49, 0.98, 1 )
 TextEdit/colors/brace_mismatch_color = Color( 1, 0.2, 0.2, 1 )
@@ -311,21 +366,21 @@ TextEdit/icons/fold = null
 TextEdit/icons/folded = null
 TextEdit/icons/space = null
 TextEdit/icons/tab = null
-TextEdit/styles/completion = SubResource( 22 )
-TextEdit/styles/focus = SubResource( 23 )
-TextEdit/styles/normal = SubResource( 22 )
-TextEdit/styles/read_only = SubResource( 24 )
+TextEdit/styles/completion = SubResource( 55 )
+TextEdit/styles/focus = SubResource( 56 )
+TextEdit/styles/normal = SubResource( 55 )
+TextEdit/styles/read_only = SubResource( 57 )
 TooltipLabel/colors/font_color = Color( 1, 1, 1, 1 )
 TooltipLabel/fonts/font = ExtResource( 1 )
-TooltipPanel/styles/panel = SubResource( 19 )
+TooltipPanel/styles/panel = SubResource( 58 )
 VBoxContainer/constants/separation = 1
-VScrollBar/styles/grabber = SubResource( 5 )
-VScrollBar/styles/grabber_highlight = SubResource( 7 )
-VScrollBar/styles/grabber_pressed = SubResource( 5 )
-VScrollBar/styles/scroll = SubResource( 6 )
-VScrollBar/styles/scroll_focus = SubResource( 6 )
+VScrollBar/styles/grabber = SubResource( 59 )
+VScrollBar/styles/grabber_highlight = SubResource( 60 )
+VScrollBar/styles/grabber_pressed = SubResource( 45 )
+VScrollBar/styles/scroll = SubResource( 46 )
+VScrollBar/styles/scroll_focus = SubResource( 47 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
-WindowDialog/styles/panel = SubResource( 45 )
+WindowDialog/styles/panel = SubResource( 61 )
 YouButton/base_type = "Button"
 YouPanel/base_type = "PanelContainer"
-YouPanel/styles/panel = SubResource( 20 )
+YouPanel/styles/panel = SubResource( 62 )

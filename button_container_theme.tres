@@ -117,7 +117,7 @@ border_color = Color( 0.8, 0.8, 0.8, 0 )
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=48]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -153,13 +153,13 @@ bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
 border_width_left = 2
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=58]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=43]
+[sub_resource type="StyleBoxFlat" id=59]
 bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
 
-[sub_resource type="StyleBoxFlat" id=44]
+[sub_resource type="StyleBoxFlat" id=60]
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=45]
@@ -177,7 +177,7 @@ border_width_left = 4
 border_width_right = 2
 border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=62]
 bg_color = Color( 1, 0.2, 0.239216, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -231,7 +231,7 @@ OptionButton/icons/arrow = ExtResource( 5 )
 Panel/styles/panel = SubResource( 4 )
 PanelAlt/base_type = "Panel"
 PanelAlt/styles/panel = SubResource( 31 )
-PanelContainer/styles/panel = SubResource( 21 )
+PanelContainer/styles/panel = SubResource( 48 )
 SelectButton/base_type = "Button"
 SelectButton/styles/hover = SubResource( 13 )
 SelectButton/styles/normal = SubResource( 14 )
@@ -242,13 +242,13 @@ TabContainer/styles/tab_disabled = SubResource( 28 )
 TabContainer/styles/tab_fg = SubResource( 29 )
 TooltipLabel/colors/font_color = Color( 1, 1, 1, 1 )
 TooltipLabel/fonts/font = ExtResource( 1 )
-TooltipPanel/styles/panel = SubResource( 19 )
+TooltipPanel/styles/panel = SubResource( 58 )
 VBoxContainer/constants/separation = 1
-VScrollBar/styles/grabber = SubResource( 43 )
-VScrollBar/styles/grabber_highlight = SubResource( 44 )
+VScrollBar/styles/grabber = SubResource( 59 )
+VScrollBar/styles/grabber_highlight = SubResource( 60 )
 VScrollBar/styles/grabber_pressed = SubResource( 45 )
 VScrollBar/styles/scroll = SubResource( 46 )
 VScrollBar/styles/scroll_focus = SubResource( 47 )
 YouButton/base_type = "Button"
 YouPanel/base_type = "PanelContainer"
-YouPanel/styles/panel = SubResource( 20 )
+YouPanel/styles/panel = SubResource( 62 )

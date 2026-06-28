@@ -1,9 +1,9 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=153 format=2]
 
 [ext_resource path="res://ui/UILayer.gd" type="Script" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://ui/ActionSelector/ActionButtons.tscn" type="PackedScene" id=3]
-[ext_resource path="res://theme.tres" type="Theme" id=4]
+[ext_resource path="res://ui/default_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://ui/Lobby.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/MainMenu.gd" type="Script" id=6]
 [ext_resource path="res://ui/NetworkDebugLabel.gd" type="Script" id=7]
@@ -79,6 +79,12 @@
 [ext_resource path="res://ui/burstp2_4.png" type="Texture" id=77]
 [ext_resource path="res://HotkeysTab.gd" type="Script" id=78]
 [ext_resource path="res://ui/steed.png" type="Texture" id=79]
+[ext_resource path="res://ui/checkbutton4.png" type="Texture" id=80]
+[ext_resource path="res://ui/checkbutton1.png" type="Texture" id=81]
+[ext_resource path="res://ui/HorizSlider/grabber.png" type="Texture" id=82]
+[ext_resource path="res://ui/updown.png" type="Texture" id=83]
+[ext_resource path="res://ui/checkbutton2.png" type="Texture" id=84]
+[ext_resource path="res://ui/checkbutton3.png" type="Texture" id=85]
 [ext_resource path="res://ui/Window/Window.gd" type="Script" id=201]
 [ext_resource path="res://ui/CommunityEvents.gd" type="Script" id=202]
 [ext_resource path="res://MainHooks.gd" type="Script" id=203]
@@ -99,21 +105,398 @@ period = 3.0
 
 [sub_resource type="CanvasItemMaterial" id=10]
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.113725, 0.552941, 0.960784, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.0156863, 0.341176, 0.603922, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 6
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ImageTexture" id=32]
+
+[sub_resource type="ImageTexture" id=33]
+
+[sub_resource type="ImageTexture" id=34]
+
+[sub_resource type="ImageTexture" id=35]
+
+[sub_resource type="ImageTexture" id=36]
+
+[sub_resource type="ImageTexture" id=37]
+
+[sub_resource type="StyleBoxEmpty" id=38]
+
+[sub_resource type="StyleBoxEmpty" id=39]
+
+[sub_resource type="StyleBoxEmpty" id=40]
+
+[sub_resource type="StyleBoxEmpty" id=41]
+
+[sub_resource type="StyleBoxEmpty" id=42]
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=48]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 0.196078 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=44]
+bg_color = Color( 0.392157, 0.823529, 0.419608, 0.529412 )
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.776471, 0.462745, 0.462745, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.431373, 0.266667, 0.266667, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+border_width_left = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
+border_width_left = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+border_width_left = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
+border_width_left = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=57]
+bg_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=58]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=59]
+bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
+
+[sub_resource type="StyleBoxFlat" id=60]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0.470588, 0.470588, 0.470588, 1 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_width_left = 1
+border_width_right = 2
+border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=47]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_width_left = 4
+border_width_right = 2
+border_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=61]
+bg_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+border_width_top = 16
+expand_margin_top = 19.0
+
+[sub_resource type="StyleBoxFlat" id=62]
+bg_color = Color( 1, 0.2, 0.239216, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 0.2, 0.239216, 1 )
+
+[sub_resource type="Theme" id=63]
+default_font = ExtResource( 4 )
+Button/styles/disabled = SubResource( 9 )
+Button/styles/focus = SubResource( 15 )
+Button/styles/hover = SubResource( 11 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 8 )
+ChallengeButton/base_type = "Button"
+ChallengeButton/styles/hover = SubResource( 26 )
+ChallengeButton/styles/normal = SubResource( 27 )
+CheckBox/constants/hseparation = 4
+CheckBox/icons/checked = null
+CheckBox/icons/checked_disabled = null
+CheckBox/icons/unchecked = null
+CheckBox/icons/unchecked_disabled = null
+CheckButton/icons/off = ExtResource( 81 )
+CheckButton/icons/off_disabled = ExtResource( 85 )
+CheckButton/icons/on = ExtResource( 84 )
+CheckButton/icons/on_disabled = ExtResource( 80 )
+ColorPicker/constants/sv_height = 60
+ColorPicker/constants/sv_width = 60
+GravLabel/base_type = "Label"
+GravLabel/constants/shadow_as_outline = 9
+HBoxContainer/constants/separation = 1
+HSlider/icons/grabber = ExtResource( 82 )
+HSlider/icons/grabber_disabled = ExtResource( 82 )
+HSlider/icons/grabber_highlight = ExtResource( 82 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource( 18 )
+HSlider/styles/grabber_area_highlight = SubResource( 18 )
+HSlider/styles/slider = SubResource( 17 )
+InvisScrollbar/base_type = "VScrollBar"
+InvisScrollbar/icons/decrement = SubResource( 32 )
+InvisScrollbar/icons/decrement_highlight = SubResource( 33 )
+InvisScrollbar/icons/decrement_pressed = SubResource( 34 )
+InvisScrollbar/icons/increment = SubResource( 35 )
+InvisScrollbar/icons/increment_highlight = SubResource( 36 )
+InvisScrollbar/icons/increment_pressed = SubResource( 37 )
+InvisScrollbar/styles/grabber = SubResource( 38 )
+InvisScrollbar/styles/grabber_highlight = SubResource( 39 )
+InvisScrollbar/styles/grabber_pressed = SubResource( 40 )
+InvisScrollbar/styles/scroll = SubResource( 41 )
+InvisScrollbar/styles/scroll_focus = SubResource( 42 )
+ItemList/styles/bg = SubResource( 25 )
+ItemList/styles/bg_focus = SubResource( 25 )
+LineEdit/colors/font_color_uneditable = Color( 1, 1, 1, 0.752941 )
+LineEdit/styles/focus = SubResource( 23 )
+LineEdit/styles/normal = SubResource( 22 )
+LineEdit/styles/read_only = SubResource( 24 )
+OptionButton/icons/arrow = ExtResource( 83 )
+Panel/styles/panel = SubResource( 4 )
+PanelAlt/base_type = "Panel"
+PanelAlt/styles/panel = SubResource( 31 )
+PanelContainer/styles/panel = SubResource( 48 )
+PopupDialog/styles/panel = SubResource( 49 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = SubResource( 50 )
+PopupMenu/styles/panel = SubResource( 49 )
+PopupMenu/styles/panel_disabled = SubResource( 51 )
+PopupPanel/styles/panel = SubResource( 49 )
+PredictButton/base_type = "Button"
+PredictButton/styles/normal = SubResource( 43 )
+PredictButton/styles/pressed = SubResource( 44 )
+SelectButton/base_type = "Button"
+SelectButton/styles/hover = SubResource( 13 )
+SelectButton/styles/normal = SubResource( 14 )
+SpinBox/icons/updown = ExtResource( 83 )
+TabContainer/styles/panel = SubResource( 30 )
+TabContainer/styles/tab_bg = SubResource( 28 )
+TabContainer/styles/tab_disabled = SubResource( 28 )
+TabContainer/styles/tab_fg = SubResource( 29 )
+Tabs/styles/panel = SubResource( 52 )
+Tabs/styles/tab_bg = SubResource( 53 )
+Tabs/styles/tab_disabled = SubResource( 53 )
+Tabs/styles/tab_fg = SubResource( 54 )
+TextEdit/colors/background_color = Color( 0, 0, 0, 0 )
+TextEdit/colors/bookmark_color = Color( 0.08, 0.49, 0.98, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 1, 0.2, 0.2, 1 )
+TextEdit/colors/breakpoint_color = Color( 0.8, 0.8, 0.4, 0.2 )
+TextEdit/colors/caret_background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/caret_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/code_folding_color = Color( 0.8, 0.8, 0.8, 0.8 )
+TextEdit/colors/completion_background_color = Color( 0.17, 0.16, 0.2, 1 )
+TextEdit/colors/completion_existing_color = Color( 0.87, 0.87, 0.87, 0.13 )
+TextEdit/colors/completion_font_color = Color( 0.67, 0.67, 0.67, 1 )
+TextEdit/colors/completion_scroll_color = Color( 1, 1, 1, 0.29 )
+TextEdit/colors/completion_selected_color = Color( 0.26, 0.26, 0.27, 1 )
+TextEdit/colors/current_line_color = Color( 0.25, 0.25, 0.26, 0.8 )
+TextEdit/colors/executing_line_color = Color( 0.2, 0.8, 0.2, 0.4 )
+TextEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/font_color_readonly = Color( 0.88, 0.88, 0.88, 0.5 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0.4, 0.64, 0.81, 1 )
+TextEdit/colors/line_number_color = Color( 0.67, 0.67, 0.67, 0.4 )
+TextEdit/colors/mark_color = Color( 1, 0.4, 0.4, 0.4 )
+TextEdit/colors/member_variable_color = Color( 0.9, 0.31, 0.35, 1 )
+TextEdit/colors/number_color = Color( 0.92, 0.58, 0.2, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0.67, 0.78, 0.67, 0.6 )
+TextEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+TextEdit/colors/symbol_color = Color( 0.94, 0.94, 0.94, 1 )
+TextEdit/colors/word_highlighted_color = Color( 0.8, 0.9, 0.9, 0.15 )
+TextEdit/constants/completion_lines = 7
+TextEdit/constants/completion_max_width = 50
+TextEdit/constants/completion_scroll_width = 6
+TextEdit/constants/line_spacing = 4
+TextEdit/icons/fold = null
+TextEdit/icons/folded = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+TextEdit/styles/completion = SubResource( 55 )
+TextEdit/styles/focus = SubResource( 56 )
+TextEdit/styles/normal = SubResource( 55 )
+TextEdit/styles/read_only = SubResource( 57 )
+TooltipLabel/colors/font_color = Color( 1, 1, 1, 1 )
+TooltipLabel/fonts/font = ExtResource( 4 )
+TooltipPanel/styles/panel = SubResource( 58 )
+VBoxContainer/constants/separation = 1
+VScrollBar/styles/grabber = SubResource( 59 )
+VScrollBar/styles/grabber_highlight = SubResource( 60 )
+VScrollBar/styles/grabber_pressed = SubResource( 45 )
+VScrollBar/styles/scroll = SubResource( 46 )
+VScrollBar/styles/scroll_focus = SubResource( 47 )
+WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
+WindowDialog/styles/panel = SubResource( 61 )
+YouButton/base_type = "Button"
+YouPanel/base_type = "PanelContainer"
+YouPanel/styles/panel = SubResource( 62 )
+
+[sub_resource type="DynamicFont" id=64]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 69 )
 
-[sub_resource type="CanvasItemMaterial" id=25]
+[sub_resource type="CanvasItemMaterial" id=65]
 
-[sub_resource type="DynamicFont" id=24]
+[sub_resource type="DynamicFont" id=66]
 size = 36
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 69 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=67]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("WinLabel:visible")
@@ -144,9 +527,9 @@ tracks/0/keys = {
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=22]
+[sub_resource type="CanvasItemMaterial" id=68]
 
-[sub_resource type="AnimatedTexture" id=17]
+[sub_resource type="AnimatedTexture" id=69]
 resource_local_to_scene = true
 frames = 10
 pause = true
@@ -326,7 +709,7 @@ show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -724,7 +1107,7 @@ margin_top = -8.0
 margin_right = 36.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 40, 40 )
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 64 )
 text = "hits"
 align = 1
 valign = 2
@@ -767,7 +1150,7 @@ margin_top = -8.0
 margin_right = 25.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 40, 40 )
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 64 )
 text = "hits"
 align = 1
 valign = 2
@@ -930,7 +1313,7 @@ margin_left = -279.0
 margin_top = -56.0
 margin_right = -234.0
 margin_bottom = -45.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "COUNTER!"
 
 [node name="P1AdvantageLabel" type="Label" parent="HudLayer/HudLayer"]
@@ -945,7 +1328,7 @@ margin_left = -279.0
 margin_top = -38.0
 margin_right = -226.0
 margin_bottom = -27.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "INITIATIVE"
 
 [node name="P1SadnessLabel" type="Label" parent="HudLayer/HudLayer"]
@@ -960,7 +1343,7 @@ margin_left = -279.0
 margin_top = -29.0
 margin_right = -226.0
 margin_bottom = -18.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "SAD!"
 
 [node name="P1BraceLabel" type="Label" parent="HudLayer/HudLayer"]
@@ -975,7 +1358,7 @@ margin_left = -279.0
 margin_top = -20.0
 margin_right = -226.0
 margin_bottom = -9.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "BRACE!"
 
 [node name="P1GuardBreakLabel" type="Label" parent="HudLayer/HudLayer"]
@@ -990,7 +1373,7 @@ margin_left = -279.0
 margin_top = -47.0
 margin_right = -214.0
 margin_bottom = -36.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "GUARD BREAK"
 
 [node name="P2CounterLabel" type="Label" parent="HudLayer/HudLayer"]
@@ -1005,7 +1388,7 @@ margin_left = 235.0
 margin_top = -56.0
 margin_right = 280.0
 margin_bottom = -45.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "COUNTER!"
 align = 2
 
@@ -1022,7 +1405,7 @@ margin_top = -38.0
 margin_right = 280.0
 margin_bottom = -27.0
 grow_horizontal = 0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "INITIATIVE"
 align = 2
 
@@ -1039,7 +1422,7 @@ margin_top = -29.0
 margin_right = 280.0
 margin_bottom = -18.0
 grow_horizontal = 0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "SAD!"
 align = 2
 
@@ -1056,7 +1439,7 @@ margin_top = -20.0
 margin_right = 280.0
 margin_bottom = -9.0
 grow_horizontal = 0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "BRACE!"
 align = 2
 
@@ -1073,7 +1456,7 @@ margin_top = -47.0
 margin_right = 280.0
 margin_bottom = -36.0
 grow_horizontal = 0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "GUARD BREAK"
 align = 2
 
@@ -1081,7 +1464,7 @@ align = 2
 unique_name_in_owner = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0.427451 )
-material = SubResource( 25 )
+material = SubResource( 65 )
 margin_left = 275.0
 margin_top = 267.0
 margin_right = 319.0
@@ -1094,7 +1477,7 @@ text = "-initiative"
 unique_name_in_owner = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0.427451 )
-material = SubResource( 25 )
+material = SubResource( 65 )
 margin_left = 323.0
 margin_top = 267.0
 margin_right = 367.0
@@ -1112,15 +1495,15 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -22.0
 margin_bottom = 22.0
-theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 24 )
+theme = SubResource( 63 )
+custom_fonts/font = SubResource( 66 )
 text = "P1 WIN"
 align = 1
 clip_text = true
 
 [node name="HudAnimationPlayer" type="AnimationPlayer" parent="HudLayer"]
 unique_name_in_owner = true
-anims/RESET = SubResource( 11 )
+anims/RESET = SubResource( 67 )
 anims/game_won = SubResource( 12 )
 
 [node name="ExtraInfoContainer" type="HBoxContainer" parent="HudLayer"]
@@ -1141,7 +1524,7 @@ margin_bottom = 144.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 script = ExtResource( 72 )
 
 [node name="ExtraInfoLabel2" type="Label" parent="HudLayer/ExtraInfoContainer"]
@@ -1153,7 +1536,7 @@ margin_bottom = 144.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 align = 2
 script = ExtResource( 72 )
 
@@ -1162,7 +1545,7 @@ unique_name_in_owner = true
 script = ExtResource( 1 )
 
 [node name="BgCircle" type="Control" parent="UILayer"]
-material = SubResource( 22 )
+material = SubResource( 68 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1178,7 +1561,7 @@ modulate = Color( 1, 0.2, 0.239216, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 179.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "OPPONENT DISCONNECTED"
 align = 1
 valign = 1
@@ -1194,7 +1577,7 @@ unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1246,7 +1629,7 @@ margin_top = -156.0
 margin_right = 320.0
 margin_bottom = -4.0
 mouse_filter = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 custom_constants/separation = 0
 alignment = 1
 script = ExtResource( 11 )
@@ -1256,7 +1639,7 @@ visible = false
 margin_right = 641.0
 margin_bottom = 15.0
 mouse_filter = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 
 [node name="Timer" type="Control" parent="UILayer/GameUI/BottomBar/BottomSuperBar"]
 margin_right = 641.0
@@ -1334,7 +1717,7 @@ margin_right = 8.0
 margin_bottom = 8.0
 rect_min_size = Vector2( 10, 0 )
 mouse_filter = 2
-texture = SubResource( 17 )
+texture = SubResource( 69 )
 expand = true
 stretch_mode = 4
 
@@ -1467,7 +1850,7 @@ unique_name_in_owner = true
 margin_left = 12.0
 margin_right = 112.0
 margin_bottom = 12.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 pressed = true
 action_mode = 0
 text = "show prediction"
@@ -1507,7 +1890,7 @@ script = ExtResource( 13 )
 unique_name_in_owner = true
 margin_right = 84.0
 margin_bottom = 11.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "prediction speed:"
 
 [node name="1Speed" type="Button" parent="UILayer/GameUI/BottomBar/OptionsBarContainer/OptionsBar/GhostSpeed"]
@@ -1741,7 +2124,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = 71.0
 margin_bottom = 85.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 custom_colors/font_color = Color( 1, 0.2, 0.239216, 1 )
 align = 1
 __meta__ = {
@@ -1755,7 +2138,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = 56.0
 margin_bottom = 70.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 custom_colors/font_color = Color( 1, 0.2, 0.239216, 1 )
 align = 1
 __meta__ = {
@@ -1783,7 +2166,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -148.0
 margin_bottom = -123.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 custom_colors/font_color = Color( 1, 0.2, 0.239216, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/line_spacing = -2
@@ -1916,7 +2299,7 @@ margin_right = -43.5
 margin_bottom = -306.0
 rect_min_size = Vector2( 10, 0 )
 mouse_filter = 2
-texture = SubResource( 17 )
+texture = SubResource( 69 )
 expand = true
 stretch_mode = 4
 
@@ -2085,7 +2468,7 @@ unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
@@ -2223,7 +2606,7 @@ margin_left = -142.0
 margin_top = 40.0
 margin_right = 142.0
 margin_bottom = 90.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2462,7 +2845,7 @@ anchor_bottom = 1.0
 margin_left = -43.0
 margin_top = -144.0
 margin_right = 43.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 alignment = 1
 
 [node name="Label" type="Label" parent="UILayer/PostGameButtons"]
@@ -2476,7 +2859,7 @@ unique_name_in_owner = true
 margin_top = 65.0
 margin_right = 86.0
 margin_bottom = 77.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "Rematch"
 
 [node name="QuitButton" type="Button" parent="UILayer/PostGameButtons"]
@@ -2484,7 +2867,7 @@ unique_name_in_owner = true
 margin_top = 78.0
 margin_right = 86.0
 margin_bottom = 90.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "Quit"
 
 [node name="OptionsContainer" type="PanelContainer" parent="UILayer"]
@@ -2502,7 +2885,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 12
 size_flags_vertical = 12
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 script = ExtResource( 53 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/OptionsContainer"]
@@ -3078,7 +3461,7 @@ margin_top = 19.0
 margin_right = 69.0
 margin_bottom = 51.0
 mouse_filter = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 max_value = 1.0
 step = 0.001
 value = 1.0
@@ -3103,7 +3486,7 @@ margin_left = -287.0
 margin_top = -152.0
 margin_right = -247.0
 margin_bottom = -138.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "30:00"
 align = 1
 valign = 1
@@ -3119,7 +3502,7 @@ margin_left = -287.0
 margin_top = -142.0
 margin_right = -247.0
 margin_bottom = -131.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 custom_colors/font_color = Color( 1, 0.35, 0.35, 1 )
 text = "-0:00"
 align = 1
@@ -3135,7 +3518,7 @@ margin_top = 19.0
 margin_right = -37.0
 margin_bottom = 51.0
 mouse_filter = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 max_value = 1.0
 step = 0.001
 value = 1.0
@@ -3161,7 +3544,7 @@ margin_left = 247.0
 margin_top = -152.0
 margin_right = 287.0
 margin_bottom = -138.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "30:00"
 align = 1
 valign = 1
@@ -3177,7 +3560,7 @@ margin_left = 247.0
 margin_top = -142.0
 margin_right = 287.0
 margin_bottom = -131.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 custom_colors/font_color = Color( 1, 0.35, 0.35, 1 )
 text = "-0:00"
 align = 1
@@ -3198,7 +3581,7 @@ margin_left = -235.0
 margin_top = -155.0
 margin_right = 235.0
 margin_bottom = 127.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 
 [node name="Control" type="Control" parent="UILayer/ReplayWindow"]
 margin_left = 1.0
@@ -3375,7 +3758,7 @@ margin_right = 180.0
 margin_bottom = 55.0
 size_flags_horizontal = 12
 size_flags_vertical = 12
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 script = ExtResource( 201 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/MissingCharConfirmDialog"]
@@ -3459,7 +3842,7 @@ margin_right = 220.0
 margin_bottom = 95.0
 size_flags_horizontal = 12
 size_flags_vertical = 12
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 script = ExtResource( 201 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/OldVersionConfirmDialog"]
@@ -3546,7 +3929,7 @@ visible = false
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 color = Color( 0, 0, 0, 0.658824 )
 script = ExtResource( 55 )
 
@@ -3620,7 +4003,7 @@ margin_top = -119.0
 margin_right = 26.0
 margin_bottom = -100.0
 grow_horizontal = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "resync"
 
 [node name="DebugContainer" type="HBoxContainer" parent="UILayer"]
@@ -3639,7 +4022,7 @@ margin_right = 318.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -3651,7 +4034,7 @@ margin_right = 640.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 align = 2
 __meta__ = {
 "_edit_lock_": true
@@ -3688,7 +4071,7 @@ margin_left = -65.5
 margin_top = -103.0
 margin_right = 65.5
 margin_bottom = -89.0
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 text = "loading mod:"
 align = 1
 
@@ -3704,7 +4087,7 @@ margin_top = -93.0
 margin_right = 65.5
 margin_bottom = -79.0
 grow_horizontal = 2
-theme = ExtResource( 4 )
+theme = SubResource( 63 )
 align = 1
 
 [node name="InputBlocker" type="Control" parent="."]
