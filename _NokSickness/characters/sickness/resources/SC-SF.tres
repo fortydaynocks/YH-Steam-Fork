@@ -16,7 +16,7 @@
 [ext_resource path="res://characters/stickman/sprites/stickman9.png" type="Texture" id=14]
 [ext_resource path="res://characters/stickman/sprites/stickman18.png" type="Texture" id=15]
 [ext_resource path="res://_NokSickness/characters/sickness/sprites/sc-tentas.png" type="Texture" id=16]
-[ext_resource path="res://_NokSickness/characters/sickness/sprites/sc-jab.png" type="Texture" id=17]
+[ext_resource path="res://_NokSickness/characters/sickness/sprites/sc-prick.png" type="Texture" id=17]
 [ext_resource path="res://_NokSickness/characters/sickness/sprites/sc-array.png" type="Texture" id=18]
 [ext_resource path="res://_NokSickness/characters/sickness/sprites/sc-darkertendrils.png" type="Texture" id=19]
 [ext_resource path="res://_NokSickness/characters/sickness/sprites/sc-tendrils.png" type="Texture" id=20]
@@ -341,7 +341,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
 "loop": true,
-"name": "jab",
+"name": "prick",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
