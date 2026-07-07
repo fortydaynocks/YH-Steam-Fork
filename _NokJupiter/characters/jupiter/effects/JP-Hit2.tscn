@@ -1,0 +1,172 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokJupiter/characters/jupiter/effects/yomifx_hit2.png" type="Texture" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+[ext_resource path="res://_NokJupiter/characters/jupiter/effects/yomifx_ring.png" type="Texture" id=4]
+[ext_resource path="res://_NokJupiter/characters/jupiter/effects/yomifx_crescent3.png" type="Texture" id=5]
+[ext_resource path="res://_NokJupiter/characters/jupiter/effects/yomifx_big_shockwave.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = true
+shader_param/use_extra_color_2 = true
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 2.88636, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.00440529, 0.537445, 0.986784, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.729412, 0.729412, 1, 0.196078, 0.498039, 0.498039, 1, 0.0352941, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.204545 ), 0.0, 0.979624, 0, 0, Vector2( 1, 0.504545 ), 0.0428819, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.495454 ), 0.0, 1.99557, 0, 0, Vector2( 1, 1 ), 0.12089, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=10]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0.409692 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Gradient" id=13]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 11 )
+
+[node name="shock" type="CPUParticles2D" parent="." index="1"]
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = 90.0
+scale_amount = 4.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="shock2" type="CPUParticles2D" parent="." index="2"]
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = 90.0
+scale_amount = 3.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="core" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 0.372549, 0.803922, 0.894118, 1 )
+material = SubResource( 4 )
+amount = 2
+lifetime = 0.4
+explosiveness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 5 )
+anim_speed = 1.0
+
+[node name="core-outer" type="CPUParticles2D" parent="." index="4"]
+modulate = Color( 0.235294, 0.423529, 0.72549, 1 )
+material = SubResource( 6 )
+z_index = -1
+amount = 1
+lifetime = 0.3
+explosiveness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 6.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 5 )
+anim_speed = 1.0
+
+[node name="hit" type="CPUParticles2D" parent="." index="5"]
+modulate = Color( 0.372549, 0.803922, 0.894118, 1 )
+material = SubResource( 7 )
+amount = 1
+lifetime = 0.3
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+scale_amount = 3.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+anim_speed = 1.0
+
+[node name="hit2" type="CPUParticles2D" parent="." index="6"]
+modulate = Color( 0.235294, 0.423529, 0.72549, 1 )
+material = SubResource( 10 )
+rotation = 0.349066
+z_index = -1
+amount = 4
+lifetime = 0.2
+explosiveness = 1.0
+lifetime_randomness = 0.5
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+angle = 40.0
+angle_random = 1.0
+scale_amount = 6.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 12 )
+anim_speed = 1.0
+
+[node name="wind" type="CPUParticles2D" parent="." index="7"]
+position = Vector2( -100, 0 )
+scale = Vector2( 2, 1 )
+z_index = -2
+lifetime = 0.1
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+angle = 180.0
+scale_amount = 2.0
+color = Color( 1, 1, 1, 0.0392157 )
+color_ramp = SubResource( 13 )

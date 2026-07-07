@@ -15,3 +15,6 @@ homing_turn_speed = "3.0"
 homing_accel = "1.0"
 max_homing_speed = "10"
 start_homing = false
+relative_data_dir = false
+bounce_on_ground = false
+num_bounces = 2

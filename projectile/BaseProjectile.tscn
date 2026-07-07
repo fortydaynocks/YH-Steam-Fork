@@ -22,6 +22,7 @@ free_cancel_on_hit = false
 apply_hitlag_when_hit_by_melee = true
 projectile_immune = false
 hitlag_modifier = "1.0"
+hookable = true
 
 [node name="Default" type="Node2D" parent="StateMachine" index="0"]
 script = ExtResource( 3 )
@@ -46,5 +47,5 @@ text = "P1"
 align = 1
 valign = 1
 
-[node name="Hooks" parent="."]
+[node name="Hooks" parent="." index="7"]
 script = ExtResource( 7 )

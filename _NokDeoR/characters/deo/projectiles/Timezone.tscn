@@ -25,7 +25,19 @@ colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
 [node name="BaseProjectile" instance=ExtResource( 1 )]
 script = ExtResource( 11 )
 __meta__ = {
-"_editor_description_": "NoTimestop"
+"_editor_description_": "NoTimestop",
+"limb_data": {
+"Head": {
+},
+"LeftFoot": {
+},
+"LeftHand": {
+},
+"RightFoot": {
+},
+"RightHand": {
+}
+}
 }
 extra_state_variables = "stage
 turns_alive

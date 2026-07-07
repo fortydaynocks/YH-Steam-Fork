@@ -66,3 +66,19 @@ func _tick():
 			
 			host.opponent.set_vel(0, 0)
 			host.opponent.move_directly(str((pos.x + (offset_x * host.get_facing_int()) - opos.x) / drag_strength), str((pos.y - (offset_y + 18) - opos.y) / drag_strength))
+
+
+#	--
+func _process(d):
+	var main_scene = host.get_tree().get_current_scene()
+	var buttons = main_scene.get_node("%P1ActionButtons") if host.id == 1 else main_scene.get_node("%P2ActionButtons")
+	var fl = buttons.get_node("BottomRow/PanelContainer/CategoryContainer/Control/VBoxContainer/CenterContainer/FrameLabel")
+	
+	var color = "#ff0044"
+	if self.super_level_ < 1: color = "#4d0014"
+	if self.super_level_ == 2: color = "#990029"
+	
+	var bbcode = "[color=%s]LEVEL %d[/color]" % [color, self.super_level_]
+	if self.super_level_ >= 4: bbcode = "[shake]" + bbcode
+	
+	fl.bbcode_text = bbcode

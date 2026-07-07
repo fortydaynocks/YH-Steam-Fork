@@ -69,8 +69,6 @@ func update_selected_move(move_state):
 		
 		#	--	MARK
 		if fighter.supers_available >= 1:
-			$"%Mark".visible = true
-			
 			var opp_dist = int(fighter.distance_to(fighter.opponent))
 				
 			if opp_dist <= max_dist:
@@ -91,8 +89,6 @@ func update_selected_move(move_state):
 		#	--	DEMON STEP	
 		if fighter.get("active_mark") and is_instance_valid(fighter.objs_map.get(fighter.active_mark)):
 			var mark = fighter.objs_map[fighter.active_mark]
-			$"%DemonStep".visible = true
-			
 			var mark_dist = int(fighter.distance_to(mark))
 			
 			if mark_dist <= max_step_dist:

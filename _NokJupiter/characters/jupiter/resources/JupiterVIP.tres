@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://_NokJupiter/characters/jupiter/resources/JupiterVIP.gd" type="Script" id=1]
+[ext_resource path="res://_NokJupiter/characters/jupiter/skins/oracle/JupiterSF-OR.tres" type="SpriteFrames" id=2]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+skin_sprites = ExtResource( 2 )
+oracle_colors = {
+"Charge0": Color( 0, 0, 0, 1 ),
+"Charge1": Color( 0.188235, 0.376471, 0.509804, 1 ),
+"Charge2": Color( 0.6, 0.898039, 0.313726, 1 ),
+"Charge3": Color( 1, 0.933333, 0.513726, 1 )
+}

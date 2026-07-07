@@ -184,7 +184,8 @@ func copy_to(hitbox: CollisionBox):
 	native.copy_state(self, hitbox)
 
 func is_projectile():
-	return !host.is_in_group("Fighter")
+	if host:
+		return !host.is_in_group("Fighter")
 
 func setup_audio():
 	if !host.is_ghost:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
 [ext_resource path="res://obj/BaseObj.tscn" type="PackedScene" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://_NokDeoR/characters/deo/projectiles/DeoR-Projectile.gd" type="Script" id=4]
 [ext_resource path="res://characters/stickman/projectiles/fireball_states/Default.gd" type="Script" id=5]
 [ext_resource path="res://_NokDeoR/characters/deo/resources/DeoR-SF.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://projectile/ProjectileHooks.gd" type="Script" id=7]
 
 [node name="BaseProjectile" instance=ExtResource( 2 )]
 script = ExtResource( 4 )
 immunity_susceptible = true
+roll_immunity_susceptible = true
 deletes_other_projectiles = true
 fizzle_on_ceiling = false
 movable = true
@@ -20,6 +22,7 @@ free_cancel_on_hit = false
 apply_hitlag_when_hit_by_melee = true
 projectile_immune = false
 hitlag_modifier = "1.0"
+hookable = true
 tag = ""
 spawn_particle = null
 spawn_particle_offset = Vector2( 0, 0 )
@@ -64,3 +67,6 @@ margin_right = 250.0
 margin_bottom = 106.0
 theme = ExtResource( 1 )
 bbcode_enabled = true
+
+[node name="Hooks" parent="." index="8"]
+script = ExtResource( 7 )

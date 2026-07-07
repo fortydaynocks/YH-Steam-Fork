@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://_NokJupiter/characters/jupiter/resources/JupiterStuff.gd" type="Script" id=1]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+objs_table = {
+}
+vfx_table = {
+}
+default_colors = {
+"Charge0": Color( 0.431373, 0.52549, 0.588235, 1 ),
+"Charge1": Color( 0.235294, 0.423529, 0.72549, 1 ),
+"Charge2": Color( 0.372549, 0.803922, 0.894118, 1 ),
+"Charge3": Color( 1, 1, 1, 1 )
+}

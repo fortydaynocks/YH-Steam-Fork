@@ -15,18 +15,18 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 66.0
+margin_right = 171.0
 margin_bottom = 360.0
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 334.0
-margin_right = 66.0
+margin_top = 325.0
+margin_right = 171.0
 margin_bottom = 360.0
 
 [node name="FireThings" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 66.0
-margin_bottom = 26.0
+margin_bottom = 35.0
 
 [node name="Firewalk" type="CheckButton" parent="VBoxContainer/HBoxContainer/FireThings"]
 unique_name_in_owner = true
@@ -57,7 +57,6 @@ custom_colors/font_color = Color( 0.901961, 0.270588, 0.223529, 1 )
 text = "Firewarp"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-visible = false
 margin_left = 67.0
 margin_right = 171.0
 margin_bottom = 35.0
@@ -122,8 +121,8 @@ margin_right = 104.0
 margin_bottom = 14.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/FireThings/Firewalk" to="." method="_on_Firewalk_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/FireThings/Firewarp" to="." method="_on_Firewalk_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/FireThings/Firewarp" to="." method="_on_Firewarp_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/FireThings/Firewarp" to="." method="_on_Firewalk_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/CCEnd" to="." method="_on_CCEnd_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Mark" to="." method="_on_Mark_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/DemonStep" to="." method="_on_DemonStep_pressed"]
