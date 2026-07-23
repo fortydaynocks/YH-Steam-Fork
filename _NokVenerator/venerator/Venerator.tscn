@@ -1,0 +1,306 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokVenerator/venerator/Venerator.gd" type="Script" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+[ext_resource path="res://_NokVenerator/venerator/resources/VN-SF.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://_NokVenerator/venerator/sprites/vn-idle.png" type="Texture" id=5]
+[ext_resource path="res://_NokVenerator/venerator/auid/AUID_XYPlot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_NokVenerator/venerator/states/VN-Voyage.gd" type="Script" id=7]
+[ext_resource path="res://_NokVenerator/venerator/states/VN-Fall.gd" type="Script" id=8]
+[ext_resource path="res://_NokVenerator/venerator/states/VN-Flashbeam.gd" type="Script" id=9]
+[ext_resource path="res://_NokVenerator/venerator/auid/AUID-Flash.tscn" type="PackedScene" id=10]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=11]
+[ext_resource path="res://sound/common/hit5.wav" type="AudioStream" id=12]
+[ext_resource path="res://_NokVenerator/venerator/states/VN-Flashbeam-Flash.gd" type="Script" id=13]
+[ext_resource path="res://_NokVenerator/venerator/states/VN-Protostar.gd" type="Script" id=14]
+[ext_resource path="res://fx/InstantCancelEffect.tscn" type="PackedScene" id=15]
+[ext_resource path="res://sound/common/swish.wav" type="AudioStream" id=16]
+[ext_resource path="res://_NokVenerator/venerator/states/VN-Holyheaven.gd" type="Script" id=17]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[node name="Venerator" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "",
+"limb_data": {
+"Head": {
+},
+"LeftFoot": {
+},
+"LeftHand": {
+},
+"RightFoot": {
+},
+"RightHand": {
+}
+}
+}
+extra_state_variables = "charname
+
+voyage"
+character_portrait = ExtResource( 5 )
+character_portrait2 = ExtResource( 5 )
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 1 )
+frames = ExtResource( 4 )
+animation = "flashbeam"
+frame = 4
+
+[node name="Fall" parent="StateMachine" index="18"]
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "Fall"
+loop_animation = false
+
+[node name="SuperFall" parent="StateMachine" index="20"]
+sprite_animation = "Fall"
+
+[node name="Landing" parent="StateMachine" index="21"]
+ticks_per_frame = 2
+
+[node name="Getup" parent="StateMachine" index="24"]
+ticks_per_frame = 2
+
+[node name="Jump" parent="StateMachine" index="32"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+
+[node name="SuperJump" parent="StateMachine" index="34"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+
+[node name="DoubleJump" parent="StateMachine" index="35"]
+sprite_anim_length = -1
+ticks_per_frame = 2
+loop_animation = false
+
+[node name="voyage" type="Node2D" parent="StateMachine" index="37"]
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "Fall"
+anim_length = 12
+ticks_per_frame = 2
+title = "Voyage"
+data_ui_scene = ExtResource( 6 )
+air_type = 2
+interruptible_on_opponent_turn = true
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedMovement
+AerialMovement
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="flashbeam" type="Node2D" parent="StateMachine" index="59"]
+script = ExtResource( 9 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "flashbeam"
+anim_length = 20
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "-4"
+force_tick = 8
+enter_sfx = ExtResource( 16 )
+enter_sfx_volume = -6.0
+title = "Flashbeam"
+type = 2
+data_ui_scene = ExtResource( 10 )
+air_type = 2
+land_cancel = true
+min_land_cancel_frame = 9
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/flashbeam" index="0"]
+z_index = 1000
+script = ExtResource( 11 )
+x = 80
+y = -30
+width = 70
+height = 10
+damage = 80
+hitstun_ticks = 24
+hitlag_ticks = 8
+victim_hitlag = 8
+cancellable = false
+plus_frames = 1
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 12 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "12"
+grounded_hit_state = "HurtAerial"
+start_tick = 9
+active_ticks = 3
+
+[node name="flashbeam-flash" type="Node2D" parent="StateMachine" index="60"]
+script = ExtResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "flashbeam"
+anim_length = 20
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "-4"
+force_tick = 8
+enter_sfx = ExtResource( 16 )
+enter_sfx_volume = -6.0
+title = "Flashbeam // Flash"
+show_in_menu = false
+type = 2
+air_type = 2
+land_cancel = true
+min_land_cancel_frame = 9
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/flashbeam-flash" index="0"]
+z_index = 1000
+script = ExtResource( 11 )
+x = 50
+y = -18
+width = 16
+height = 16
+hitbox_type = 6
+whiff_particle = ExtResource( 15 )
+start_tick = 8
+active_ticks = 2
+
+[node name="protostar" type="Node2D" parent="StateMachine" index="61"]
+script = ExtResource( 14 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "flashbeam"
+anim_length = 16
+ticks_per_frame = 2
+enter_sfx = ExtResource( 16 )
+enter_sfx_volume = -6.0
+title = "Protostar"
+type = 2
+data_ui_scene = ExtResource( 6 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="holyheaven" type="Node2D" parent="StateMachine" index="62"]
+script = ExtResource( 17 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "flashbeam"
+anim_length = 16
+ticks_per_frame = 2
+title = "Holyheaven [beta]"
+type = 3
+data_ui_scene = ExtResource( 6 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSuper
+AerialSuper
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+super_freeze_ticks_ = 0
+force_super_effect = true

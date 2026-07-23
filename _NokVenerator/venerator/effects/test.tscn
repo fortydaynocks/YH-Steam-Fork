@@ -1,0 +1,206 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=3]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.240223, 0.50838, 0.782123, 1 )
+colors = PoolColorArray( 0.496094, 0.496094, 0.496094, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5, 1 )
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.681564, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 0, 1 )
+
+[node name="ParticleEffect" instance=ExtResource( 2 )]
+material = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="2"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="3"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+preprocess = 0.17
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="4"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+preprocess = 0.33
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="." index="5"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+preprocess = 0.5
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="." index="6"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+preprocess = 0.67
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="." index="7"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+preprocess = 0.83
+speed_scale = 0.5
+explosiveness = 1.0
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+color_ramp = SubResource( 3 )
+
+[node name="lala" type="CPUParticles2D" parent="." index="8"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+emission_shape = 3
+emission_points = PoolVector2Array( -20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+damping = 200.0
+color_ramp = SubResource( 4 )
+
+[node name="lala2" type="CPUParticles2D" parent="." index="9"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+emission_shape = 3
+emission_points = PoolVector2Array( -40, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -900.0
+damping = 400.0
+color_ramp = SubResource( 4 )
+
+[node name="lala3" type="CPUParticles2D" parent="." index="10"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+emission_shape = 3
+emission_points = PoolVector2Array( 20, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -600.0
+damping = 200.0
+scale_amount = 0.67
+color_ramp = SubResource( 4 )
+
+[node name="lala4" type="CPUParticles2D" parent="." index="11"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+emission_shape = 3
+emission_points = PoolVector2Array( 40, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -900.0
+damping = 400.0
+scale_amount = 0.67
+color_ramp = SubResource( 4 )
+
+[node name="lala5" type="CPUParticles2D" parent="." index="12"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+emission_shape = 3
+emission_points = PoolVector2Array( 60, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -1050.0
+damping = 400.0
+scale_amount = 0.33
+color_ramp = SubResource( 4 )
+
+[node name="lala6" type="CPUParticles2D" parent="." index="13"]
+visible = false
+material = SubResource( 2 )
+scale = Vector2( 10, 1e+06 )
+amount = 1
+emission_shape = 3
+emission_points = PoolVector2Array( -60, 0 )
+emission_colors = PoolColorArray(  )
+gravity = Vector2( 0, 0 )
+radial_accel = -1050.0
+damping = 400.0
+scale_amount = 0.33
+color_ramp = SubResource( 4 )

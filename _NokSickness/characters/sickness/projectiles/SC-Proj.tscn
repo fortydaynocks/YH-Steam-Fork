@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokSickness/characters/sickness/resources/SC-SF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokSickness/characters/sickness/projectiles/SC-Proj.gd" type="Script" id=3]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "",
+"limb_data": {
+"Head": {
+},
+"LeftFoot": {
+},
+"LeftHand": {
+},
+"RightFoot": {
+},
+"RightHand": {
+}
+}
+}
+tag = ""
+disable_particle = null
+disable_particle_offset = Vector2( 0, 0 )
+disable_sound = ""
+
+[node name="Sprite" parent="Flip" index="0"]
+frames = ExtResource( 2 )

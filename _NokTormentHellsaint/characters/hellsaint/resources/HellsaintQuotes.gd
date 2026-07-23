@@ -39,6 +39,9 @@ var torment_quotes = {
 		"Haoma": [
 			"Your services are redundant.",
 		],
+		"Venerator": [
+			"You damned Angel.",
+		],
 		"_": [
 			"What a miserable sight.",
 			"Prepare... for agony.",
@@ -88,6 +91,9 @@ var torment_quotes = {
 		"Haoma": [
 			"You're nothing without your defenses.",
 		],
+		"Venerator": [
+			"You cannot even dream of victory.",
+		],
 		"_": [
 			"I've had enough of you.",
 			"Off you go.",
@@ -135,6 +141,9 @@ var torment_quotes = {
 		],
 		"Haoma": [
 			"Don't make me laugh.",
+		],
+		"Venerator": [
+			"Just touching you makes me sick.",
 		],
 		"_": [
 			"I appreciate the attempt.",

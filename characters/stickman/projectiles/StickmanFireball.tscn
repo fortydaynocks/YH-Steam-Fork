@@ -54,6 +54,7 @@ script = ExtResource( 4 )
 gravity = "0.2"
 max_air_speed = "20"
 extra_state_variables = "can_stack"
+immunity_susceptible = false
 fizzle_on_ceiling = true
 apply_hitlag_when_hit_by_melee = false
 

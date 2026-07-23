@@ -172,6 +172,7 @@ var name_paths = {
 	#"Torment":"res://_NokTorment/characters/torment/Torment.tscn",
 	#"Undertaker":"res://_NokUndertaker/characters/undertaker/Undertaker.tscn",
 	#"Undertaker2":"res://_NokUndertaker/characters/undertaker/Undertaker2.tscn",
+	"Venerator":"res://_NokVenerator/venerator/Venerator.tscn",
 	#"Wrath":"res://_NokWrathR/characters/wrath/Wrath.tscn",
 	#"Zrath":"res://_NokZrath/characters/zrath/Zrath.tscn",
 	#"X":"res://_NokOmenX/characters/x/X.tscn",
