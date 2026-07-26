@@ -1,0 +1,13 @@
+ {
+  "name": "Venerator",
+  "friendly_name": "Venerator",
+  "description": "Don't look at my face",
+  "author": "hekkenok :: fortydaynocks",
+  "version": "steam",
+  "link": "",
+  "id": "",
+  "requires": ["char_loader"],
+  "overwrites": false,
+  "client_side": true,
+  "priority": 0
+}

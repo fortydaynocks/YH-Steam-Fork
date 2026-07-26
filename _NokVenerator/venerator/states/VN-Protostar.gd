@@ -5,8 +5,14 @@ var dist = 100
 var offset = 50
 var force = 6
 
+func _enter():
+	if data.get("Flash") == true and host.supers_available >= 1:
+		host.use_super_bar()
+		
+		host.protoflash = true
+
 func _frame_6():
-	var dir = xy_to_dir(data.x * host.get_facing_int(), data.y, str(dist))
+	var dir = xy_to_dir(data["Placement"].x * host.get_facing_int(), data["Placement"].y, str(dist))
 	var force_dir = xy_to_dir(host.current_di.x, host.current_di.y, str(force))
 	#var used_offset = offset
 	

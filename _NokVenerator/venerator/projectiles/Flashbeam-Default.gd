@@ -4,6 +4,12 @@ onready var hbox = $SweptHitbox
 
 var fire_interval = 8
 
+func _frame_0():
+	host.play_sound("Spawn")
+	host.play_sound("Spawn2")
+	host.screen_bump(Vector2(0, 0), 2, 0.1)
+	host.spawn_particle_effect_relative(preload("res://_NokVenerator/venerator/effects/VN-Star3.tscn"), Vector2(0, 0))
+
 func _tick():
 	._tick()
 	
@@ -23,8 +29,9 @@ func _tick():
 		#	--
 		var stars = []
 		for star in host.objs_map.values():
-			if is_instance_valid(star) and !star.disabled and star.get_owner() == host.get_owner() and star.get("tag") == "Protostar":
-				stars.append(star)
+			if is_instance_valid(star) and !star.disabled and star.get_owner() == host.get_owner() and star.get("tag"):
+				if "Protostar" in star.get("tag"):
+					stars.append(star)
 		
 		#	--
 		if len(stars) > 0:

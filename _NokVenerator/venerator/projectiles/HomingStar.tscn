@@ -1,0 +1,171 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://_NokVenerator/venerator/projectiles/VN-Proj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+[ext_resource path="res://_NokVenerator/venerator/effects/yomifx_star.png" type="Texture" id=4]
+[ext_resource path="res://_NokVenerator/venerator/projectiles/HomingStar-Default.gd" type="Script" id=5]
+[ext_resource path="res://_NokVenerator/venerator/effects/VN-Star1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=7]
+[ext_resource path="res://_NokVenerator/venerator/projectiles/HomingStar.gd" type="Script" id=8]
+[ext_resource path="res://_NokVenerator/venerator/effects/VN-Hit1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_NokVenerator/venerator/sounds/woosh-space4.wav" type="AudioStream" id=10]
+[ext_resource path="res://_NokVenerator/venerator/sounds/blast1.wav" type="AudioStream" id=11]
+[ext_resource path="res://framework/VariableSound2D.gd" type="Script" id=12]
+[ext_resource path="res://_NokVenerator/venerator/sounds/woosh-space2.wav" type="AudioStream" id=13]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, -0.231796, 0, 1, Vector2( 0.504951, 0.882954 ), -0.231796, 0.236432, 1, 1, Vector2( 1, 1 ), 0.236432, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.497207, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, -0.509091, 0, 1, Vector2( 1, 0.490909 ), -0.509091, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 8 )
+has_projectile_parry_window = false
+can_be_hit_by_melee = true
+free_cancel_on_hit = true
+tag = "ProtostarHoming"
+disable_particle = ExtResource( 6 )
+
+[node name="star" type="CPUParticles2D" parent="Flip/Sprite" index="0"]
+amount = 2
+lifetime = 0.5
+speed_scale = 2.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 45.0
+scale_amount = 0.6
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
+[node name="Trail" parent="Flip/Particles" index="0" instance=ExtResource( 2 )]
+material = SubResource( 3 )
+one_shot = false
+lifetime = 999.0
+
+[node name="trail" type="CPUParticles2D" parent="Flip/Particles/Trail" index="2"]
+modulate = Color( 0.941176, 0.709804, 0.254902, 1 )
+material = SubResource( 4 )
+z_index = -1
+amount = 16
+lifetime = 0.2
+local_coords = false
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 45.0
+scale_amount = 0.5
+scale_amount_curve = SubResource( 5 )
+color = Color( 1, 1, 1, 0.101961 )
+color_ramp = SubResource( 6 )
+
+[node name="particles" type="CPUParticles2D" parent="Flip/Particles/Trail" index="3"]
+modulate = Color( 0.941176, 0.709804, 0.254902, 1 )
+material = SubResource( 7 )
+lifetime = 0.5
+lifetime_randomness = 1.0
+local_coords = false
+spread = 180.0
+gravity = Vector2( 0, -500 )
+initial_velocity = 250.0
+damping = 250.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 8 )
+
+[node name="Blocked" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 13 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 12 )
+
+[node name="CollisionBox" parent="." index="2"]
+width = 12
+height = 12
+
+[node name="Hurtbox" parent="." index="3"]
+width = 8
+height = 8
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+apply_forces_no_limit = false
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+move_speed = "0"
+_c_Homing_Options = 0
+homing = true
+homing_turn_speed = "0.3"
+homing_accel = "0.3"
+max_homing_speed = "8"
+start_homing = false
+lifetime = 200
+relative_data_dir = false
+clash = false
+fizzle_on_ground = false
+bounce_on_ground = false
+num_bounces = 2
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 7 )
+width = 8
+height = 8
+damage = 50
+hitstun_ticks = 20
+hitlag_ticks = 8
+victim_hitlag = 8
+hit_particle = ExtResource( 9 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 11 )
+hit_bass_sound = ExtResource( 10 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_y = "-1"
+knockback = "5"
+start_tick = 1
+active_ticks = 1
+always_on = true

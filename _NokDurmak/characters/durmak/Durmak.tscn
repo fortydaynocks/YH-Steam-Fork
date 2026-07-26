@@ -181,7 +181,19 @@ shader_param/image = ExtResource( 43 )
 [node name="Durmak" instance=ExtResource( 1 )]
 script = ExtResource( 17 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "",
+"limb_data": {
+"Head": {
+},
+"LeftFoot": {
+},
+"LeftHand": {
+},
+"RightFoot": {
+},
+"RightHand": {
+}
+}
 }
 extra_state_variables = "buffers
 

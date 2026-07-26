@@ -133,6 +133,9 @@ var quotes_tor = {
 		"Haoma": [
 			"Your services are redundant.",
 		],
+		"Venerator": [
+			"You damned Angel.",
+		],
 		"_": [
 			"What a miserable sight.",
 			"Prepare... for agony.",
@@ -192,6 +195,9 @@ var quotes_tor = {
 		"Haoma": [
 			"You're nothing without your defenses.",
 		],
+		"Venerator": [
+			"You cannot even dream of victory.",
+		],
 		"_": [
 			"I've had enough of you.",
 			"Off you go.",
@@ -249,6 +255,9 @@ var quotes_tor = {
 		],
 		"Haoma": [
 			"Don't make me laugh.",
+		],
+			"Venerator": [
+			"Just touching you makes me sick.",
 		],
 		"_": [
 			"I appreciate the attempt.",

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/woosh-space4.wav-e77bf7e5551c6c4b087f2fe5f2f8c08c.sample"
+
+[deps]
+
+source_file="res://_NokVenerator/venerator/sounds/woosh-space4.wav"
+dest_files=[ "res://.import/woosh-space4.wav-e77bf7e5551c6c4b087f2fe5f2f8c08c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/angel3.wav-d7b9f8de436bc3b969db33c485d443cc.sample"
+
+[deps]
+
+source_file="res://_NokVenerator/venerator/sounds/angel3.wav"
+dest_files=[ "res://.import/angel3.wav-d7b9f8de436bc3b969db33c485d443cc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

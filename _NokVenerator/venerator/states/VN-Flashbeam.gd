@@ -1,10 +1,10 @@
 extends "res://_NokVenerator/venerator/states/VN-State.gd"
 
-func _enter():
-	._enter()
-	
+func _frame_0():
 	if data:
-		host.change_state("flashbeam-flash")
+		host.apply_force_relative("0", "6")
+	else:
+		host.apply_force_relative("0", "-3")
 
 func _frame_8():
 	host.spawn_particle_effect_relative(

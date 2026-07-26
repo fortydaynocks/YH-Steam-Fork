@@ -35,7 +35,6 @@ colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 0, 1 )
 material = SubResource( 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." index="2"]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 10, 1e+06 )
 amount = 1
@@ -49,7 +48,6 @@ radial_accel = -600.0
 color_ramp = SubResource( 3 )
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="3"]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 10, 1e+06 )
 amount = 1
@@ -64,7 +62,6 @@ radial_accel = -600.0
 color_ramp = SubResource( 3 )
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="4"]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 10, 1e+06 )
 amount = 1
@@ -79,7 +76,6 @@ radial_accel = -600.0
 color_ramp = SubResource( 3 )
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="." index="5"]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 10, 1e+06 )
 amount = 1
@@ -94,7 +90,6 @@ radial_accel = -600.0
 color_ramp = SubResource( 3 )
 
 [node name="CPUParticles2D5" type="CPUParticles2D" parent="." index="6"]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 10, 1e+06 )
 amount = 1
@@ -109,7 +104,6 @@ radial_accel = -600.0
 color_ramp = SubResource( 3 )
 
 [node name="CPUParticles2D6" type="CPUParticles2D" parent="." index="7"]
-visible = false
 material = SubResource( 2 )
 scale = Vector2( 10, 1e+06 )
 amount = 1
