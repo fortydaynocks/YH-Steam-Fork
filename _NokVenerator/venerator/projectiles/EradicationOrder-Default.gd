@@ -83,12 +83,12 @@ func _tick():
 			if host.get_opponent().hp - damages[0] / 90 <= 0:
 				host.get_opponent().hp = 1
 			else:
-				host.get_opponent().take_damage(damages[0] / 90)
+				host.get_opponent().take_damage(damages[0] / 90, damages[0] / 90)
 		else:
 			if host.get_opponent().hp - damages[1] / 90 <= 0:
 				host.get_opponent().hp = 1
 			else:
-				host.get_opponent().take_damage(damages[1] / 90)
+				host.get_opponent().take_damage(damages[1] / 90, damages[1] / 90)
 			
 		if is_instance_valid(hbox):
 			host.get_opponent().launched_by(hbox.to_data())

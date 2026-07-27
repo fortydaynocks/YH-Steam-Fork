@@ -8,7 +8,7 @@ var force = Vector2(6, 0)
 
 var spawn_count = 3
 
-var speed = 1.5
+var speed = 1
 
 func _frame_6():
 	pass

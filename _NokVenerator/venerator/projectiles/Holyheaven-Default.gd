@@ -4,9 +4,10 @@ onready var star = preload("res://_NokVenerator/venerator/projectiles/Protostar.
 var force = Vector2(6, 0)
 var interval = 10
 var spawn_count = 3
+var blast_time = 40
 
 var hit_opponent = false
-var drag_force = 0.75
+var drag_force = 1.25
 
 func _enter():
 	._enter()
@@ -19,7 +20,7 @@ func _on_hit_something(obj, hitbox):
 	if obj == host.get_opponent():
 		hit_opponent = true
 
-func _frame_39():
+func _frame_29():
 	var pos = host.get_pos()
 	
 	for i in range(0, spawn_count):
@@ -39,6 +40,8 @@ func _frame_39():
 		preload("res://_NokVenerator/venerator/effects/VN-Star3.tscn"),
 		Vector2(0, 0)
 	)
+	
+	host.disable()
 
 #	--
 func _tick():

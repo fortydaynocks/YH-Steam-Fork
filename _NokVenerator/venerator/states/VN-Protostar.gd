@@ -5,10 +5,9 @@ var dist = 100
 var offset = 50
 var force = 6
 
-func _enter():
+func _frame_0():
 	if data.get("Flash") == true and host.supers_available >= 1:
 		host.use_super_bar()
-		
 		host.protoflash = true
 
 func _frame_6():

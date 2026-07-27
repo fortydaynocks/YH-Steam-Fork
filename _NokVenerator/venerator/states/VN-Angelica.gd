@@ -3,6 +3,8 @@ extends "res://_NokVenerator/venerator/states/VN-State.gd"
 func _frame_0():
 	self.apply_custom_x_fric = true
 	self.apply_custom_y_fric = true
+	
+	self.interruptible_on_opponent_turn = host.combo_count > 0
 
 func _frame_14():
 	self.apply_custom_x_fric = false

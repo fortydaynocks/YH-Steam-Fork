@@ -3,6 +3,9 @@ extends "res://_NokVenerator/venerator/states/VN-State.gd"
 var force = 1.5
 var launch = 32
 
+func _frame_12():
+	host.update_facing()
+
 func _tick():
 	._tick()
 	
