@@ -1,7 +1,7 @@
 extends "res://_NokGorenShin/characters/shingoren/states/ShinGorenState.gd"
 
-var initial_dist = 4
-var speed = 12
+var initial_dist = 3
+var speed = 11
 var short = false
 
 func _frame_1():

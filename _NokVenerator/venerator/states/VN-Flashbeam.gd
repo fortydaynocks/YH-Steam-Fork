@@ -26,7 +26,7 @@ func on_got_blocked():
 
 func _frame_0():
 	if data:
-		host.apply_force_relative("0", "6")
+		host.apply_force_relative("0", "10")
 
 func _frame_8():
 	host.spawn_particle_effect_relative(

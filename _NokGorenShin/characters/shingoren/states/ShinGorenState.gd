@@ -42,7 +42,7 @@ func _tick():
 			host.set_facing(-prev.last_facing) if host.reverse_state else host.set_facing(prev.last_facing)
 			#current_tick += 2	--	THE FRAME REDUCTION WAS CRACKED. AS FUCK.
 			
-	if $"%Stuff".skin == "Akuma":
+	if $"%Stuff".skin == "Akuma" and !$"%Stuff".DORM:
 		if current_tick == akuma_voiceline_tick:
 			$"%Stuff".akuma_voiceline(akuma_voicelines, akuma_voiceline_volume)
 	

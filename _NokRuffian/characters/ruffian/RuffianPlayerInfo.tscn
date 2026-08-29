@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianPlayerInfo.gd" type="Script" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIDataCheckButton.gd" type="Script" id=3]
+[ext_resource path="res://_NokRuffian/characters/ruffian/icons/ExclamationMark.png" type="Texture" id=4]
+[ext_resource path="res://ui/default_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://_NokRuffian/characters/ruffian/icons/Weave_Mini.png" type="Texture" id=6]
+[ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficoncorkscrewmini.png" type="Texture" id=7]
+[ext_resource path="res://ui/HorizSlider/HorizSlider.tscn" type="PackedScene" id=8]
+
+[node name="RuffianPlayerInfo" type="Control"]
+margin_right = 319.0
+margin_bottom = 10.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AlignBox" type="HBoxContainer" parent="."]
+margin_right = 93.0
+margin_bottom = 87.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AlignBox"]
+margin_right = 95.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 89, 0 )
+mouse_filter = 2
+
+[node name="Volume" parent="AlignBox/VBoxContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 24.0
+
+[node name="Label" parent="AlignBox/VBoxContainer/Volume" index="0"]
+visible = false
+margin_right = 76.0
+
+[node name="Volume" type="Label" parent="AlignBox/VBoxContainer/Volume"]
+unique_name_in_owner = true
+margin_right = 95.0
+margin_bottom = 11.0
+text = "Volume = 12"
+align = 1
+clip_text = true
+
+[node name="Direction" parent="AlignBox/VBoxContainer/Volume" index="2"]
+margin_right = 95.0
+min_value = -25.0
+max_value = 0.0
+value = -13.0
+
+[node name="ValueLabel" parent="AlignBox/VBoxContainer/Volume" index="3"]
+visible = false
+margin_right = 60.0
+
+[node name="GuideBase" type="CheckButton" parent="AlignBox/VBoxContainer"]
+margin_top = 28.0
+margin_right = 95.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 75, 0 )
+hint_tooltip = "READ"
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "Guide"
+icon = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AlignBox/VBoxContainer"]
+margin_top = 44.0
+margin_right = 95.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 89, 0 )
+mouse_filter = 2
+
+[node name="Weave" type="CheckButton" parent="AlignBox/VBoxContainer/VBoxContainer2"]
+margin_right = 95.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 75, 0 )
+hint_tooltip = "READ"
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "Weave?"
+icon = ExtResource( 6 )
+script = ExtResource( 3 )
+
+[node name="Corkscrew" type="CheckButton" parent="AlignBox/VBoxContainer/VBoxContainer2"]
+margin_top = 16.0
+margin_right = 95.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 75, 0 )
+hint_tooltip = "READ"
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "Corkscrew?"
+icon = ExtResource( 7 )
+script = ExtResource( 3 )
+
+[node name="GuideText" type="Label" parent="AlignBox/VBoxContainer/VBoxContainer2"]
+margin_top = 32.0
+margin_right = 95.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 5 )
+text = "Debug Text"
+
+[connection signal="data_changed" from="AlignBox/VBoxContainer/Volume" to="." method="_on_Volume_data_changed"]
+
+[editable path="AlignBox/VBoxContainer/Volume"]

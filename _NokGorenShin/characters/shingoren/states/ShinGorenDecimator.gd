@@ -13,6 +13,10 @@ func _frame_10():
 	var obj = host.spawn_object(decimator, 24, -24, true, null, true)
 	obj.set_grounded(false)
 	obj.apply_force(dir.x, dir.y)
+	
+	if host.buffers.Firewalk:
+		host.firewalk.Value -= 1
+		obj.marked = true
 
 func _tick():
 	._tick()

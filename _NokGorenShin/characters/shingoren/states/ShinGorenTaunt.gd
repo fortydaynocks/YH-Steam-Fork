@@ -10,4 +10,5 @@ func _on_hit_something(obj, hitbox):
 func _tick():
 	._tick()
 	
-	host.gain_super_meter(3)
+	if current_tick >= 13:
+		host.gain_super_meter(6)

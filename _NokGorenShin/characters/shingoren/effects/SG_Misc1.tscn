@@ -27,7 +27,7 @@ _data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
 material = SubResource( 1 )
 
 [node name="dots" type="CPUParticles2D" parent="." index="1"]
-modulate = Color( 0.8, 0.184314, 0.482353, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 amount = 16
 lifetime = 0.4
 explosiveness = 1.0

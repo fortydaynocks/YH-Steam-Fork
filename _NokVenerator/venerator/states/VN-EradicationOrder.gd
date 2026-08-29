@@ -3,14 +3,11 @@ extends "res://_NokVenerator/venerator/states/VN-State.gd"
 var raw = false
 var force = 1
 
-func is_usable():
-	return .is_usable() and host.blessings.value >= 3
 
 func _frame_0():
 	host.reset_blessings()
 	raw = host.combo_count < 1
 	
-
 func _frame_16():
 	host.spawn_particle_effect_relative(
 		preload("res://_NokVenerator/venerator/effects/VN-Star4.tscn"),

@@ -1,4 +1,4 @@
-[gd_scene load_steps=804 format=2]
+[gd_scene load_steps=806 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/resources/SG-SF.tres" type="SpriteFrames" id=2]
@@ -47,7 +47,7 @@
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/grab.wav" type="AudioStream" id=45]
 [ext_resource path="res://characters/ThrowBox.gd" type="Script" id=46]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/effects/SG_1kTeleport.tscn" type="PackedScene" id=47]
-[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/AkumaSF.tres" type="SpriteFrames" id=48]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/SG-SF-AK.tres" type="SpriteFrames" id=48]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/satsu_finish_long.wav" type="AudioStream" id=49]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/icons/sgicon1kdemons.png" type="Texture" id=50]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/icons/sgiconuppercut.png" type="Texture" id=51]
@@ -167,7 +167,7 @@
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sg1kdeathsimpact.png" type="Texture" id=165]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgjump.png" type="Texture" id=166]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgdashforward.png" type="Texture" id=167]
-[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/Killing Moon (Akuma stage).ogg" type="AudioStream" id=168]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/auid/AUID-Trigger.tscn" type="PackedScene" id=168]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_start2.wav" type="AudioStream" id=169]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_start4.wav" type="AudioStream" id=170]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_roundstart3.wav" type="AudioStream" id=171]
@@ -175,7 +175,7 @@
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_start3.wav" type="AudioStream" id=173]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_roundstart2.wav" type="AudioStream" id=174]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_roundstart1.wav" type="AudioStream" id=175]
-[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/PL14_00008.wav" type="AudioStream" id=176]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/dorm/voicelines/bronzeage.wav" type="AudioStream" id=176]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/ac_ko.wav" type="AudioStream" id=177]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/PL14_00010.wav" type="AudioStream" id=178]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/auid/AUID_OnisMark.tscn" type="PackedScene" id=179]
@@ -199,7 +199,7 @@
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sginfernomarch.png" type="Texture" id=197]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/intro1.wav" type="AudioStream" id=198]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/AkumaVoiceline.gd" type="Script" id=199]
-[ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/voicelines/akm-intro.wav" type="AudioStream" id=200]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/effects/SG_Misc2.tscn" type="PackedScene" id=200]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sounds/aku-sound.wav" type="AudioStream" id=201]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/voicelines/akm-metsu.wav" type="AudioStream" id=202]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/skins/akuma/voicelines/akm-prepareyourself.wav" type="AudioStream" id=203]
@@ -2589,6 +2589,12 @@ _data = [ Vector2( 0, 0.863636 ), 0.0, 0.136364, 0, 1, Vector2( 1, 1 ), 0.136364
 [sub_resource type="Gradient" id=751]
 colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
 
+[sub_resource type="CanvasItemMaterial" id=764]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=765]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
 [sub_resource type="Resource" id=749]
 resource_local_to_scene = true
 script = ExtResource( 266 )
@@ -2797,11 +2803,22 @@ spriteframes = {
 }
 skins = ExtResource( 236 )
 
+[node name="BG" type="Node2D" parent="." index="0"]
+unique_name_in_owner = true
+visible = false
+position = Vector2( -50000, -50000 )
+z_index = -100
+
+[node name="ColorRect" type="ColorRect" parent="BG" index="0"]
+margin_right = 100000.0
+margin_bottom = 100000.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 1 )
 frames = ExtResource( 2 )
-animation = "demonstep"
-frame = 3
+animation = "whirlwind"
+frame = 6
 
 [node name="DS_1" type="AnimatedSprite" parent="Flip/Sprite" index="0"]
 unique_name_in_owner = true
@@ -3004,191 +3021,339 @@ scale_amount_random = 1.0
 scale_amount_curve = SubResource( 750 )
 color_ramp = SubResource( 751 )
 
-[node name="KillingMoon" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+[node name="AK-Halo" type="AnimatedSprite" parent="Flip" index="2"]
 unique_name_in_owner = true
-stream = ExtResource( 168 )
+visible = false
+modulate = Color( 1, 1, 1, 0.75 )
+material = SubResource( 1 )
+z_index = -1
+frames = ExtResource( 48 )
+animation = "fx-halo"
+frame = 2
+speed_scale = 2.0
+playing = true
+offset = Vector2( 0, -18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AK-Aura" type="CPUParticles2D" parent="Flip/AK-Halo" index="0"]
+unique_name_in_owner = true
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.0509804 )
+material = SubResource( 764 )
+rotation = 0.0872665
+z_index = -1
+amount = 2
+lifetime = 0.02
+texture = ExtResource( 248 )
+gravity = Vector2( 0, 0 )
+angle = 10.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 750 )
+color_ramp = SubResource( 765 )
+
+[node name="AK-Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 204 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.0
+
+[node name="AK-Intro2" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 201 )
+volume_db = -24.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="AK-Intro3" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 61 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="AK-Intro4" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 17 )
 volume_db = -6.0
 bus = "Fx"
+script = ExtResource( 136 )
 
-[node name="AK_IntroWarning" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+[node name="AK-Intro5" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+stream = ExtResource( 297 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="AK-Intro6" type="AudioStreamPlayer2D" parent="Sounds" index="5"]
+stream = ExtResource( 71 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="AK-Intro7" type="AudioStreamPlayer2D" parent="Sounds" index="6"]
+stream = ExtResource( 22 )
+volume_db = -12.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="AK-Intro8" type="AudioStreamPlayer2D" parent="Sounds" index="7"]
+stream = ExtResource( 110 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="AK-Intro9" type="AudioStreamPlayer2D" parent="Sounds" index="8"]
+stream = ExtResource( 34 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.0
+
+[node name="AK-Intro10" type="AudioStreamPlayer2D" parent="Sounds" index="9"]
+stream = ExtResource( 123 )
+volume_db = -6.0
+pitch_scale = 2.0
+bus = "Fx"
+script = ExtResource( 136 )
+
+[node name="AK-Intro11" type="AudioStreamPlayer2D" parent="Sounds" index="10"]
+stream = ExtResource( 71 )
+volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 136 )
+
+[node name="AK-Intro12" type="AudioStreamPlayer2D" parent="Sounds" index="11"]
+stream = ExtResource( 198 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 136 )
+
+[node name="AK-Intro13" type="AudioStreamPlayer2D" parent="Sounds" index="12"]
+stream = ExtResource( 32 )
+volume_db = -6.0
+bus = "Fx"
+script = ExtResource( 136 )
+
+[node name="AK-Intro14" type="AudioStreamPlayer2D" parent="Sounds" index="13"]
+stream = ExtResource( 100 )
+volume_db = -15.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.0
+
+[node name="AK-IntroVoice1" type="AudioStreamPlayer2D" parent="Sounds" index="14"]
+stream = ExtResource( 305 )
+volume_db = 3.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.002
+
+[node name="AK-IntroVoice2" type="AudioStreamPlayer2D" parent="Sounds" index="15"]
+stream = ExtResource( 304 )
+volume_db = 3.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.002
+
+[node name="AK-IntroVoice3" type="AudioStreamPlayer2D" parent="Sounds" index="16"]
+stream = ExtResource( 223 )
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.002
+
+[node name="AK-IntroVoice4" type="AudioStreamPlayer2D" parent="Sounds" index="17"]
+stream = ExtResource( 219 )
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.002
+
+[node name="AK_IntroWarning" type="AudioStreamPlayer2D" parent="Sounds" index="18"]
 stream = ExtResource( 204 )
 bus = "Fx"
 
-[node name="AK_RoundStart1" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+[node name="AK_RoundStart1" type="AudioStreamPlayer2D" parent="Sounds" index="19"]
 stream = ExtResource( 175 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_RoundStart2" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+[node name="AK_RoundStart2" type="AudioStreamPlayer2D" parent="Sounds" index="20"]
 stream = ExtResource( 174 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_RoundStart3" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+[node name="AK_RoundStart3" type="AudioStreamPlayer2D" parent="Sounds" index="21"]
 stream = ExtResource( 171 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_Go1" type="AudioStreamPlayer2D" parent="Sounds" index="5"]
+[node name="AK_Go1" type="AudioStreamPlayer2D" parent="Sounds" index="22"]
 stream = ExtResource( 172 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_Go2" type="AudioStreamPlayer2D" parent="Sounds" index="6"]
+[node name="AK_Go2" type="AudioStreamPlayer2D" parent="Sounds" index="23"]
 stream = ExtResource( 169 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_Go3" type="AudioStreamPlayer2D" parent="Sounds" index="7"]
+[node name="AK_Go3" type="AudioStreamPlayer2D" parent="Sounds" index="24"]
 stream = ExtResource( 173 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_Go4" type="AudioStreamPlayer2D" parent="Sounds" index="8"]
+[node name="AK_Go4" type="AudioStreamPlayer2D" parent="Sounds" index="25"]
 stream = ExtResource( 170 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_Intro" type="AudioStreamPlayer2D" parent="Sounds" index="9"]
-stream = ExtResource( 176 )
-volume_db = -6.0
-bus = "Fx"
-
-[node name="AK_KO" type="AudioStreamPlayer2D" parent="Sounds" index="10"]
+[node name="AK_KO" type="AudioStreamPlayer2D" parent="Sounds" index="26"]
 stream = ExtResource( 177 )
 volume_db = -3.0
 bus = "Fx"
 
-[node name="AK_KODeath" type="AudioStreamPlayer2D" parent="Sounds" index="11"]
+[node name="AK_KODeath" type="AudioStreamPlayer2D" parent="Sounds" index="27"]
 stream = ExtResource( 292 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_CCStart" type="AudioStreamPlayer2D" parent="Sounds" index="12"]
+[node name="AK_CCStart" type="AudioStreamPlayer2D" parent="Sounds" index="28"]
 stream = ExtResource( 103 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="AK_CC1" type="AudioStreamPlayer2D" parent="Sounds" index="13"]
+[node name="AK_CC1" type="AudioStreamPlayer2D" parent="Sounds" index="29"]
 stream = ExtResource( 105 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_CC2" type="AudioStreamPlayer2D" parent="Sounds" index="14"]
+[node name="AK_CC2" type="AudioStreamPlayer2D" parent="Sounds" index="30"]
 stream = ExtResource( 101 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_CC3" type="AudioStreamPlayer2D" parent="Sounds" index="15"]
+[node name="AK_CC3" type="AudioStreamPlayer2D" parent="Sounds" index="31"]
 stream = ExtResource( 104 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="AK_CC4" type="AudioStreamPlayer2D" parent="Sounds" index="16"]
+[node name="AK_CC4" type="AudioStreamPlayer2D" parent="Sounds" index="32"]
 stream = ExtResource( 198 )
 volume_db = -12.0
 bus = "Fx"
 
-[node name="AK_1KDRiser" type="AudioStreamPlayer2D" parent="Sounds" index="17"]
+[node name="AK_1KDRiser" type="AudioStreamPlayer2D" parent="Sounds" index="33"]
 stream = ExtResource( 246 )
 bus = "Fx"
 
-[node name="AK_1KDEnd" type="AudioStreamPlayer2D" parent="Sounds" index="18"]
+[node name="AK_1KDEnd" type="AudioStreamPlayer2D" parent="Sounds" index="34"]
 stream = ExtResource( 178 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="AKM-Spawn1" type="AudioStreamPlayer2D" parent="Sounds" index="19"]
+[node name="AKM-Spawn1" type="AudioStreamPlayer2D" parent="Sounds" index="35"]
 stream = ExtResource( 61 )
 volume_db = -9.0
 bus = "Fx"
 script = ExtResource( 136 )
 pitch_variation = 0.0
 
-[node name="AKM-Spawn2" type="AudioStreamPlayer2D" parent="Sounds" index="20"]
+[node name="AKM-Spawn2" type="AudioStreamPlayer2D" parent="Sounds" index="36"]
 stream = ExtResource( 201 )
 volume_db = -15.0
 bus = "Fx"
 script = ExtResource( 136 )
 pitch_variation = 0.0
 
-[node name="UBER_Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="21"]
+[node name="UBER_Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="37"]
 stream = ExtResource( 204 )
 bus = "Fx"
 
-[node name="UBER_Intro2" type="AudioStreamPlayer2D" parent="Sounds" index="22"]
+[node name="UBER_Intro2" type="AudioStreamPlayer2D" parent="Sounds" index="38"]
 stream = ExtResource( 271 )
 volume_db = -3.0
 bus = "Fx"
 
-[node name="Parry" parent="Sounds" index="23"]
+[node name="BronzeAge" type="AudioStreamPlayer2D" parent="Sounds" index="39"]
+unique_name_in_owner = true
+stream = ExtResource( 176 )
+bus = "Fx"
+
+[node name="Parry" parent="Sounds" index="40"]
 unique_name_in_owner = true
 stream = ExtResource( 284 )
 volume_db = 0.0
 
-[node name="Block" parent="Sounds" index="24"]
+[node name="Block" parent="Sounds" index="41"]
 stream = ExtResource( 82 )
 volume_db = -6.0
 pitch_variation = 0.0
 
-[node name="Block2" parent="Sounds" index="25"]
+[node name="Block2" parent="Sounds" index="42"]
 stream = ExtResource( 291 )
 volume_db = -6.0
 pitch_scale = 1.0
 pitch_variation = 0.0
 
-[node name="Block3" parent="Sounds" index="26"]
+[node name="Block3" parent="Sounds" index="43"]
 stream = null
 pitch_variation = 0.0
 
-[node name="Parry2" parent="Sounds" index="27"]
+[node name="Parry2" parent="Sounds" index="44"]
 unique_name_in_owner = true
 stream = ExtResource( 34 )
 volume_db = -3.0
 pitch_variation = 0.0
 
-[node name="Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="35"]
+[node name="Intro1" type="AudioStreamPlayer2D" parent="Sounds" index="52"]
 stream = ExtResource( 198 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="IntroSwing" type="AudioStreamPlayer2D" parent="Sounds" index="36"]
+[node name="IntroSwing" type="AudioStreamPlayer2D" parent="Sounds" index="53"]
 stream = ExtResource( 140 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="IntroCloth" type="AudioStreamPlayer2D" parent="Sounds" index="37"]
+[node name="IntroCloth" type="AudioStreamPlayer2D" parent="Sounds" index="54"]
 stream = ExtResource( 137 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="IntroAmbience" type="AudioStreamPlayer2D" parent="Sounds" index="38"]
+[node name="IntroAmbience" type="AudioStreamPlayer2D" parent="Sounds" index="55"]
 stream = ExtResource( 106 )
 volume_db = -9.0
 pitch_scale = 0.5
 bus = "Fx"
 
-[node name="IntroStomp" type="AudioStreamPlayer2D" parent="Sounds" index="39"]
+[node name="IntroStomp" type="AudioStreamPlayer2D" parent="Sounds" index="56"]
 stream = ExtResource( 148 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="IntroBlast" type="AudioStreamPlayer2D" parent="Sounds" index="40"]
+[node name="IntroBlast" type="AudioStreamPlayer2D" parent="Sounds" index="57"]
 stream = ExtResource( 32 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="1kDeaths_End" type="AudioStreamPlayer2D" parent="Sounds" index="41"]
+[node name="1kDeaths_End" type="AudioStreamPlayer2D" parent="Sounds" index="58"]
 stream = ExtResource( 49 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="1kDeaths_EndShort" type="AudioStreamPlayer2D" parent="Sounds" index="42"]
+[node name="1kDeaths_EndShort" type="AudioStreamPlayer2D" parent="Sounds" index="59"]
 stream = ExtResource( 95 )
 volume_db = 9.0
 bus = "Fx"
 
-[node name="1kDeaths-Blocked" type="AudioStreamPlayer2D" parent="Sounds" index="43"]
+[node name="1kDeaths-Blocked" type="AudioStreamPlayer2D" parent="Sounds" index="60"]
 stream = ExtResource( 14 )
 volume_db = -6.0
 bus = "Fx"
@@ -3197,7 +3362,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="1kDeaths-Blocked2" type="AudioStreamPlayer2D" parent="Sounds" index="44"]
+[node name="1kDeaths-Blocked2" type="AudioStreamPlayer2D" parent="Sounds" index="61"]
 stream = ExtResource( 106 )
 volume_db = -6.0
 bus = "Fx"
@@ -3207,7 +3372,7 @@ __meta__ = {
 }
 pitch_variation = 0.0
 
-[node name="1kDeaths-Blocked3" type="AudioStreamPlayer2D" parent="Sounds" index="45"]
+[node name="1kDeaths-Blocked3" type="AudioStreamPlayer2D" parent="Sounds" index="62"]
 stream = ExtResource( 66 )
 bus = "Fx"
 script = ExtResource( 136 )
@@ -3216,22 +3381,22 @@ __meta__ = {
 }
 pitch_variation = 0.0
 
-[node name="SF3Super" type="AudioStreamPlayer2D" parent="Sounds" index="46"]
+[node name="SF3Super" type="AudioStreamPlayer2D" parent="Sounds" index="63"]
 stream = ExtResource( 42 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="Damage_Bass" type="AudioStreamPlayer2D" parent="Sounds" index="47"]
+[node name="Damage_Bass" type="AudioStreamPlayer2D" parent="Sounds" index="64"]
 stream = ExtResource( 12 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="Damage_Main" type="AudioStreamPlayer2D" parent="Sounds" index="48"]
+[node name="Damage_Main" type="AudioStreamPlayer2D" parent="Sounds" index="65"]
 stream = ExtResource( 10 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="Spin" type="AudioStreamPlayer2D" parent="Sounds" index="49"]
+[node name="Spin" type="AudioStreamPlayer2D" parent="Sounds" index="66"]
 stream = ExtResource( 137 )
 bus = "Fx"
 script = ExtResource( 136 )
@@ -3239,7 +3404,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="FireBlast" type="AudioStreamPlayer2D" parent="Sounds" index="50"]
+[node name="FireBlast" type="AudioStreamPlayer2D" parent="Sounds" index="67"]
 stream = ExtResource( 32 )
 volume_db = -3.0
 bus = "Fx"
@@ -3248,121 +3413,143 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="LetsGo" type="AudioStreamPlayer2D" parent="Sounds" index="51"]
+[node name="LetsGo" type="AudioStreamPlayer2D" parent="Sounds" index="68"]
 stream = ExtResource( 100 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="ActivFlame1" type="AudioStreamPlayer2D" parent="Sounds" index="52"]
+[node name="ActivFlame1" type="AudioStreamPlayer2D" parent="Sounds" index="69"]
 stream = ExtResource( 106 )
 volume_db = -9.0
 pitch_scale = 0.5
 bus = "Fx"
 
-[node name="ActivFlame2" type="AudioStreamPlayer2D" parent="Sounds" index="53"]
+[node name="ActivFlame2" type="AudioStreamPlayer2D" parent="Sounds" index="70"]
 stream = ExtResource( 66 )
 volume_db = 3.0
 bus = "Fx"
 
-[node name="Rage1" type="AudioStreamPlayer2D" parent="Sounds" index="54"]
+[node name="Rage1" type="AudioStreamPlayer2D" parent="Sounds" index="71"]
 stream = ExtResource( 106 )
 volume_db = -9.0
 pitch_scale = 1.5
 bus = "Fx"
 
-[node name="Rage2" type="AudioStreamPlayer2D" parent="Sounds" index="55"]
+[node name="Rage2" type="AudioStreamPlayer2D" parent="Sounds" index="72"]
 stream = ExtResource( 12 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="Rage3" type="AudioStreamPlayer2D" parent="Sounds" index="56"]
+[node name="Rage3" type="AudioStreamPlayer2D" parent="Sounds" index="73"]
 stream = ExtResource( 34 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="Rage4" type="AudioStreamPlayer2D" parent="Sounds" index="57"]
+[node name="Rage4" type="AudioStreamPlayer2D" parent="Sounds" index="74"]
 stream = ExtResource( 204 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="Voiceline" type="AudioStreamPlayer2D" parent="Sounds" index="67"]
+[node name="Voiceline" type="AudioStreamPlayer2D" parent="Sounds" index="84"]
 unique_name_in_owner = true
 bus = "Fx"
 script = ExtResource( 136 )
 pitch_variation = 0.02
 
-[node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="68"]
+[node name="SC-Voiceline" type="AudioStreamPlayer2D" parent="Sounds" index="85"]
+unique_name_in_owner = true
+volume_db = 5.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.02
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="86"]
 stream = ExtResource( 23 )
 volume_db = -12.0
 pitch_scale = 2.0
 bus = "Fx"
 script = ExtResource( 136 )
 
-[node name="Dash2" type="AudioStreamPlayer2D" parent="Sounds" index="69"]
+[node name="Dash2" type="AudioStreamPlayer2D" parent="Sounds" index="87"]
 stream = ExtResource( 109 )
 volume_db = -12.0
 pitch_scale = 1.5
 bus = "Fx"
 script = ExtResource( 136 )
 
-[node name="Firewalk" type="AudioStreamPlayer2D" parent="Sounds" index="70"]
+[node name="Firewalk" type="AudioStreamPlayer2D" parent="Sounds" index="88"]
 stream = ExtResource( 34 )
 volume_db = -12.0
 pitch_scale = 1.5
 bus = "Fx"
 
-[node name="Firewalk2" type="AudioStreamPlayer2D" parent="Sounds" index="71"]
+[node name="Firewalk2" type="AudioStreamPlayer2D" parent="Sounds" index="89"]
 stream = ExtResource( 61 )
 volume_db = -9.0
 bus = "Fx"
 
-[node name="DemonStep" type="AudioStreamPlayer2D" parent="Sounds" index="72"]
+[node name="DemonStep" type="AudioStreamPlayer2D" parent="Sounds" index="90"]
 stream = ExtResource( 34 )
 volume_db = -6.0
 bus = "Fx"
 
-[node name="DemonStep2" type="AudioStreamPlayer2D" parent="Sounds" index="73"]
+[node name="DemonStep2" type="AudioStreamPlayer2D" parent="Sounds" index="91"]
 stream = ExtResource( 271 )
 volume_db = -6.0
 pitch_scale = 1.5
 bus = "Fx"
 
-[node name="DemonStep3" type="AudioStreamPlayer2D" parent="Sounds" index="74"]
+[node name="DemonStep3" type="AudioStreamPlayer2D" parent="Sounds" index="92"]
 stream = ExtResource( 61 )
 volume_db = -9.0
 bus = "Fx"
 script = ExtResource( 136 )
 pitch_variation = 0.0
 
-[node name="HelljumpDash" type="AudioStreamPlayer2D" parent="Sounds" index="75"]
+[node name="HelljumpDash" type="AudioStreamPlayer2D" parent="Sounds" index="93"]
 stream = ExtResource( 69 )
 volume_db = -6.0
 bus = "Fx"
 script = ExtResource( 136 )
 
-[node name="FocusPush" type="AudioStreamPlayer2D" parent="Sounds" index="76"]
+[node name="FocusPush" type="AudioStreamPlayer2D" parent="Sounds" index="94"]
 stream = ExtResource( 81 )
 volume_db = -9.0
 pitch_scale = 2.0
 bus = "Fx"
 
-[node name="DevilsArmSwing" type="AudioStreamPlayer2D" parent="Sounds" index="77"]
+[node name="DevilsArmSwing" type="AudioStreamPlayer2D" parent="Sounds" index="95"]
 stream = ExtResource( 110 )
 volume_db = -6.0
 pitch_scale = 1.5
 bus = "Fx"
 script = ExtResource( 136 )
 
-[node name="DevilsArmBlocked" type="AudioStreamPlayer2D" parent="Sounds" index="78"]
+[node name="DevilsArmBlocked" type="AudioStreamPlayer2D" parent="Sounds" index="96"]
 stream = ExtResource( 11 )
 volume_db = -3.0
 bus = "Fx"
 script = ExtResource( 136 )
 pitch_variation = 0.05
 
-[node name="DevilsArmBlocked2" type="AudioStreamPlayer2D" parent="Sounds" index="79"]
+[node name="DevilsArmBlocked2" type="AudioStreamPlayer2D" parent="Sounds" index="97"]
 stream = ExtResource( 81 )
 volume_db = -3.0
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="WW-Redirect" type="AudioStreamPlayer2D" parent="Sounds" index="98"]
+stream = ExtResource( 34 )
+volume_db = -6.0
+pitch_scale = 1.5
+bus = "Fx"
+script = ExtResource( 136 )
+pitch_variation = 0.05
+
+[node name="WW-Redirect2" type="AudioStreamPlayer2D" parent="Sounds" index="99"]
+stream = ExtResource( 284 )
+volume_db = -6.0
 bus = "Fx"
 script = ExtResource( 136 )
 pitch_variation = 0.05
@@ -3370,7 +3557,12 @@ pitch_variation = 0.05
 [node name="Start" parent="StateMachine" index="0"]
 script = ExtResource( 153 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-intro1
+dormVL=2=1=dorm-intro2
+dormVL=3=1=dorm-intro3
+dormVL=4=1=dorm-intro4
+dormVL=5=1=dorm-intro5
+dormVL=6=1=dorm-intro6"
 }
 sprite_animation = "Intro"
 anim_length = 120
@@ -3392,7 +3584,7 @@ _c_shin_goren = 0
 force_warp = -1
 firewalk_min = -1
 _c_skins = 0
-akuma_voicelines = [ ExtResource( 200 ), ExtResource( 117 ), ExtResource( 37 ) ]
+akuma_voicelines = [ ExtResource( 117 ), ExtResource( 37 ) ]
 akuma_voiceline_tick = 1
 akuma_voiceline_volume = 3
 u_voicelines = [ SubResource( 749 ) ]
@@ -3473,7 +3665,10 @@ ticks_per_frame = 2
 
 [node name="Burst" parent="StateMachine" index="13"]
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-begone
+dormVL=2=1=dorm-boom
+dormVL=3=1=dorm-getoffme
+dormVL=4=1=dorm-outtatheway"
 }
 ticks_per_frame = 2
 particle_scene = ExtResource( 92 )
@@ -3490,7 +3685,10 @@ replace_hit_particle = true
 
 [node name="DefensiveBurst" parent="StateMachine" index="14"]
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-begone
+dormVL=2=1=dorm-boom
+dormVL=3=1=dorm-getoffme
+dormVL=4=1=dorm-outtatheway"
 }
 ticks_per_frame = 2
 particle_scene = ExtResource( 92 )
@@ -3508,7 +3706,10 @@ replace_hit_particle = true
 [node name="OffensiveBurst" parent="StateMachine" index="15"]
 script = ExtResource( 300 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-begone
+dormVL=2=1=dorm-boom
+dormVL=3=1=dorm-getoffme
+dormVL=4=1=dorm-outtatheway"
 }
 ticks_per_frame = 2
 particle_scene = ExtResource( 92 )
@@ -3569,6 +3770,7 @@ Grounded
 Aerial"
 hit_cancel_into_string = "Grounded
 Aerial"
+velocity_forward_meter_gain_multiplier = "0.75"
 
 [node name="TechRoll" parent="StateMachine" index="27"]
 sprite_anim_length = -1
@@ -3843,6 +4045,8 @@ dir_y = "-1.0"
 grounded_hit_state = "HurtAerial"
 damage = 0
 increment_combo = false
+misc_data = "dormVL=1=1=dorm-comehere
+dormVL=2=1=dorm-gotchu"
 akuma_voicelines = [ ExtResource( 205 ), null ]
 
 [node name="Hitbox" type="Node2D" parent="StateMachine/shoyu2" index="0"]
@@ -4914,7 +5118,8 @@ akuma_voicelines = [ SubResource( 735 ) ]
 [node name="shredder" type="Node2D" parent="StateMachine" index="71"]
 script = ExtResource( 36 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-fire
+dormVL=2=1=<null>"
 }
 apply_forces = true
 apply_fric = true
@@ -4953,7 +5158,9 @@ akuma_voicelines = [ ExtResource( 215 ), null ]
 [node name="height" type="Node2D" parent="StateMachine" index="72"]
 script = ExtResource( 120 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-outtatheway
+dormVL=2=1=dorm-technique
+dormVL=3=1=<null>"
 }
 apply_forces = true
 apply_grav = true
@@ -5070,7 +5277,8 @@ active_ticks = 4
 [node name="scorchedheight" type="Node2D" parent="StateMachine" index="73"]
 script = ExtResource( 242 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-destroy
+dormVL=2=1=dorm-unstoppable"
 }
 apply_forces = true
 apply_grav = true
@@ -5097,6 +5305,8 @@ air_type = 2
 uses_air_movement = true
 land_cancel = true
 min_land_cancel_frame = 23
+iasa_on_hit = 24
+iasa_on_hit_on_block = false
 next_state_on_hold_on_opponent_turn = true
 self_hit_cancellable = false
 self_interruptable = false
@@ -5221,9 +5431,9 @@ y = -28
 width = 14
 height = 35
 damage = 90
-hitstun_ticks = 40
+hitstun_ticks = 24
 hitlag_ticks = 20
-victim_hitlag = 24
+victim_hitlag = 26
 cancellable = false
 can_clash = false
 plus_frames = 1
@@ -5250,7 +5460,11 @@ active_ticks = 4
 [node name="trigger" type="Node2D" parent="StateMachine" index="74"]
 script = ExtResource( 28 )
 __meta__ = {
-"_editor_description_": "DSAction"
+"_editor_description_": "DSAction
+
+dormVL=1=1=dorm-boom
+dormVL=2=1=dorm-checkthisout
+dormVL=3=1=<null>"
 }
 apply_forces = true
 apply_fric = true
@@ -5267,7 +5481,7 @@ sfx = ExtResource( 26 )
 sfx_volume = -6.0
 title = "Trigger"
 type = 2
-data_ui_scene = ExtResource( 27 )
+data_ui_scene = ExtResource( 168 )
 button_texture = ExtResource( 58 )
 air_type = 2
 next_state_on_hold_on_opponent_turn = true
@@ -5366,7 +5580,10 @@ ActivateFlameBlock"
 [node name="blasttrigger" type="Node2D" parent="StateMachine" index="75"]
 script = ExtResource( 299 )
 __meta__ = {
-"_editor_description_": "DSAction"
+"_editor_description_": "DSAction
+
+dormVL=1=1=dorm-fastasf
+dormVL=2=1=dorm-boom"
 }
 apply_forces = true
 apply_grav = true
@@ -5440,7 +5657,11 @@ active_ticks = 3
 [node name="downfall" type="Node2D" parent="StateMachine" index="76"]
 script = ExtResource( 31 )
 __meta__ = {
-"_editor_description_": "NoFirewalk"
+"_editor_description_": "NoFirewalk
+
+dormVL=1=1=dorm-laugh1
+dormVL=2=1=dorm-die
+dormVL=3=1=<null>"
 }
 apply_forces = true
 apply_grav = true
@@ -5574,8 +5795,8 @@ hit_bass_sound = ExtResource( 11 )
 whiff_sound_volume = -3.0
 hit_sound_volume = -3.0
 bass_sound_volume = -6.0
-dir_x = "0.5"
-dir_y = "-1"
+dir_x = "1"
+dir_y = "-0.6"
 knockback = "8"
 grounded_hit_state = "HurtAerial"
 knockdown = true
@@ -5587,7 +5808,10 @@ active_ticks = 2
 [node name="misogi" type="Node2D" parent="StateMachine" index="78"]
 script = ExtResource( 243 )
 __meta__ = {
-"_editor_description_": "NoFlamewalk"
+"_editor_description_": "NoFlamewalk
+
+dormVL=1=1=dorm-hammer
+dormVL=2=1=dorm-die"
 }
 apply_forces = true
 apply_fric = true
@@ -5671,12 +5895,11 @@ y = -6
 width = 48
 height = 6
 damage = 80
-hitstun_ticks = 24
+hitstun_ticks = 20
 hitlag_ticks = 8
-victim_hitlag = 16
+victim_hitlag = 20
 cancellable = false
 block_cancel_allowed = false
-plus_frames = -1
 group = 1
 screenshake_amount = 16
 hit_particle = ExtResource( 8 )
@@ -5689,10 +5912,11 @@ whiff_sound_volume = -9.0
 hit_sound_volume = -3.0
 bass_sound_volume = -6.0
 dir_x = "1"
-dir_y = "-1"
+dir_y = "-0.6"
 knockback = "8"
 block_pushback_modifier = "0.25"
 grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 4
 knockdown = true
 knockdown_extends_hitstun = false
 ground_bounce = false
@@ -5705,25 +5929,26 @@ __meta__ = {
 "_editor_description_": ""
 }
 apply_forces = true
-apply_fric = true
 apply_grav = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
 sprite_animation = "whirlwind"
-anim_length = 32
+anim_length = 34
 ticks_per_frame = 2
-enter_force_dir_x = "1"
-enter_force_speed = "4"
-enter_sfx = ExtResource( 24 )
-enter_sfx_volume = -6.0
+enter_sfx = ExtResource( 110 )
+enter_sfx_volume = -12.0
 title = "Whirlwind"
-show_in_menu = false
 type = 2
 button_texture = ExtResource( 57 )
 air_type = 2
-next_state_on_hold_on_opponent_turn = true
+iasa_on_hit = 26
+iasa_on_hit_on_block = false
+next_state_on_hold = false
 self_hit_cancellable = false
 self_interruptable = false
-interrupt_from_string = "NoFirewalk
-GroundedSpecial
+interrupt_from_string = "GroundedSpecial
 AerialSpecial
 Grounded
 Aerial"
@@ -5735,69 +5960,146 @@ Aerial
 apply_pushback = false
 no_collision_start_frame = 1
 no_collision_end_frame = 34
+drag = true
+offset_x = 30
+offset_y = -18
+end_on = 25
 
-[node name="HitboxChain" type="Node2D" parent="StateMachine/whirlwind" index="0"]
+[node name="Hitbox" type="Node2D" parent="StateMachine/whirlwind" index="0"]
 z_index = 1000
 script = ExtResource( 7 )
-y = -25
-width = 42
+y = -17
+width = 24
 height = 8
-damage = 50
+damage = 20
 hitstun_ticks = 20
 hitlag_ticks = 2
-victim_hitlag = 2
+victim_hitlag = 4
+damage_proration = 1
+scale_combo = false
 cancellable = false
-plus_frames = 2
+plus_frames = 1
 screenshake_amount = 2
-hit_particle = ExtResource( 8 )
+hit_particle = ExtResource( 200 )
 replace_hit_particle = true
-whiff_sound = null
-hit_sound = ExtResource( 10 )
-hit_bass_sound = ExtResource( 12 )
-whiff_sound_volume = -6.0
+whiff_sound = ExtResource( 272 )
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 10 )
+whiff_sound_volume = -3.0
 hit_sound_volume = -6.0
+bass_sound_volume = -6.0
 dir_x = "1"
-dir_y = "0.25"
-knockback = "3"
+dir_y = "-0.5"
+knockback = "6"
+block_pushback_modifier = "0.1"
 grounded_hit_state = "HurtAerial"
-start_tick = 10
-active_ticks = 20
-looping = true
-loop_inactive_ticks = 6
+minimum_grounded_frames = 10
+start_tick = 7
+active_ticks = 3
 
-[node name="HitboxEnd" type="Node2D" parent="StateMachine/whirlwind" index="1"]
+[node name="Hitbox2" type="Node2D" parent="StateMachine/whirlwind" index="1"]
 z_index = 1000
 script = ExtResource( 7 )
-x = 12
-y = -21
+y = -17
 width = 24
-height = 10
-damage = 50
+height = 8
+damage = 20
 hitstun_ticks = 20
-hitlag_ticks = 14
-victim_hitlag = 14
-damage_proration = 2
-plus_frames = 2
+hitlag_ticks = 2
+victim_hitlag = 4
+damage_proration = 1
+scale_combo = false
+cancellable = false
+plus_frames = 1
 group = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 200 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 272 )
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 14 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "6"
+block_pushback_modifier = "0.1"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 10
+start_tick = 13
+active_ticks = 3
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/whirlwind" index="2"]
+z_index = 1000
+script = ExtResource( 7 )
+y = -17
+width = 24
+height = 8
+damage = 20
+hitstun_ticks = 20
+hitlag_ticks = 2
+victim_hitlag = 6
+damage_proration = 1
+scale_combo = false
+cancellable = false
+plus_frames = 1
+group = 2
+screenshake_amount = 2
+hit_particle = ExtResource( 200 )
+replace_hit_particle = true
+whiff_sound = ExtResource( 272 )
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 10 )
+whiff_sound_volume = -3.0
+hit_sound_volume = -6.0
+bass_sound_volume = -6.0
+dir_x = "1"
+dir_y = "-0.5"
+knockback = "6"
+block_pushback_modifier = "0.1"
+grounded_hit_state = "HurtAerial"
+minimum_grounded_frames = 10
+start_tick = 19
+active_ticks = 3
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/whirlwind" index="3"]
+z_index = 1000
+script = ExtResource( 7 )
+y = -17
+width = 24
+height = 8
+damage = 40
+hitstun_ticks = 20
+hitlag_ticks = 10
+victim_hitlag = 14
+damage_proration = 1
+cancellable = false
+plus_frames = 1
+group = 3
 screenshake_amount = 2
 hit_particle = ExtResource( 8 )
 replace_hit_particle = true
-whiff_sound = null
-hit_sound = ExtResource( 13 )
-hit_bass_sound = ExtResource( 11 )
-whiff_sound_volume = -6.0
+whiff_sound = ExtResource( 272 )
+hit_sound = ExtResource( 12 )
+hit_bass_sound = ExtResource( 13 )
+whiff_sound_volume = -3.0
 hit_sound_volume = -6.0
+bass_sound_volume = -6.0
 dir_x = "1"
-dir_y = "0.5"
-knockback = "3"
+dir_y = "-0.5"
+knockback = "6"
 grounded_hit_state = "HurtAerial"
-start_tick = 38
-active_ticks = 2
+start_tick = 25
+active_ticks = 3
 
 [node name="devilsarm" type="Node2D" parent="StateMachine" index="80"]
 script = ExtResource( 255 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-finishthis
+dormVL=2=1=dorm-laugh2
+dormVL=3=1=dorm-mighthurt
+dormVL=4=1=<null>"
 }
 apply_forces = true
 apply_grav = true
@@ -5838,15 +6140,14 @@ akuma_voicelines = [ ExtResource( 205 ) ]
 [node name="Hitbox" type="Node2D" parent="StateMachine/devilsarm" index="0"]
 z_index = 1000
 script = ExtResource( 7 )
-x = 44
+x = 34
 y = -24
-width = 26
+width = 36
 height = 22
 damage = 100
 hitstun_ticks = 20
 hitlag_ticks = 8
 victim_hitlag = 16
-combo_scaling_amount = 2
 cancellable = false
 guard_break = true
 block_cancel_allowed = false
@@ -5860,7 +6161,7 @@ hit_bass_sound = ExtResource( 30 )
 whiff_sound_volume = -6.0
 hit_sound_volume = -3.0
 bass_sound_volume = -3.0
-dir_x = "0.4"
+dir_x = "1"
 dir_y = "1"
 knockback = "12"
 block_pushback_modifier = "0.5"
@@ -5966,8 +6267,7 @@ interrupt_into_string = "Grounded
 Aerial"
 hit_cancel_into_string = "Grounded
 Aerial"
-super_level_ = 1
-supers_used_ = 1
+supers_used_ = 0
 super_freeze_ticks_ = 0
 super_effect_ = true
 scale_combo_meter_ = true
@@ -6021,7 +6321,7 @@ supers_used_ = 1
 [node name="crusher" type="Node2D" parent="StateMachine" index="84"]
 script = ExtResource( 114 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-fire2"
 }
 apply_forces = true
 apply_fric = true
@@ -6104,7 +6404,10 @@ velocity_forward_meter_gain_multiplier = "0.0"
 [node name="demonstep" type="Node2D" parent="StateMachine" index="86"]
 script = ExtResource( 181 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-where
+dormVL=2=1=dorm-step
+dormVL=3=1=dorm-behindyou
+dormVL=4=1=<null>"
 }
 apply_forces = true
 apply_grav = true
@@ -6165,7 +6468,10 @@ active_ticks = 8
 [node name="infernomarch" type="Node2D" parent="StateMachine" index="87"]
 script = ExtResource( 70 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-mighthurt
+dormVL=2=1=dorm-die
+dormVL=3=1=dorm-destroy
+dormVL=4=1=dorm-hammer"
 }
 apply_forces = true
 apply_fric = true
@@ -6250,7 +6556,7 @@ active_ticks = 2
 [node name="decimator" type="Node2D" parent="StateMachine" index="88"]
 script = ExtResource( 118 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-fire3"
 }
 apply_forces = true
 apply_fric = true
@@ -6302,7 +6608,8 @@ decimator = ExtResource( 119 )
 [node name="customcombo" type="Node2D" parent="StateMachine" index="89"]
 script = ExtResource( 97 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "dormVL=1=1=dorm-technique
+dormVL=2=1=dorm-intro4"
 }
 apply_forces = true
 apply_fric = true
@@ -6372,7 +6679,11 @@ active_ticks = 1
 [node name="1kdeaths" type="Node2D" parent="StateMachine" index="90"]
 script = ExtResource( 41 )
 __meta__ = {
-"_editor_description_": "NoFirewalk"
+"_editor_description_": "NoFirewalk
+
+dormVL=1=1=dorm-die1k
+dormVL=2=1=dorm-live1klives
+dormVL=3=1=dorm-shungoku"
 }
 apply_forces = true
 apply_grav = true
@@ -6512,7 +6823,11 @@ SpareTheDying"
 [node name="1kdeaths3" type="Node2D" parent="StateMachine" index="92"]
 script = ExtResource( 125 )
 __meta__ = {
-"_editor_description_": "NoFirewalk"
+"_editor_description_": "NoFirewalk
+
+dormVL=1=1=dorm-winning
+dormVL=2=1=dorm-unstoppable
+dormVL=3=1=dorm-technique"
 }
 reset_momentum = true
 sprite_animation = "1kdeaths4"
@@ -6586,7 +6901,20 @@ active_ticks = 2
 [node name="Taunt" parent="StateMachine" index="98"]
 script = ExtResource( 149 )
 __meta__ = {
-"_editor_description_": "CanDemonStep"
+"_editor_description_": "CanDemonStep
+
+dormVL=1=1=dorm-cannotbebeat
+dormVL=2=1=dorm-coolpose
+dormVL=3=1=dorm-fistmaster
+dormVL=4=1=dorm-imevil
+dormVL=5=1=dorm-intro2
+dormVL=6=1=dorm-intro6
+dormVL=7=1=dorm-myname
+dormVL=8=1=dorm-seriously
+dormVL=9=1=dorm-takemeon
+dormVL=10=1=dorm-winning
+dormVL=11=1=dorm-unstoppable
+dormVL=12=1=dorm-divineart"
 }
 sprite_animation = "taunt"
 anim_length = 40
@@ -6618,6 +6946,7 @@ Aerial
 AerialAttack"
 hit_cancel_into_string = "Grounded
 Aerial"
+whiff_meter_gain_multiplier = "0"
 _c_drag = 0
 drag = false
 offset_x = 0
@@ -6669,7 +6998,7 @@ knockdown_extends_hitstun = false
 start_tick = 13
 active_ticks = 2
 
-[node name="Title" type="RichTextLabel" parent="." index="15"]
+[node name="Title" type="RichTextLabel" parent="." index="16"]
 unique_name_in_owner = true
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -250.0
@@ -6680,7 +7009,7 @@ rect_min_size = Vector2( 500, 50 )
 theme = ExtResource( 247 )
 bbcode_enabled = true
 
-[node name="Info" type="RichTextLabel" parent="." index="16"]
+[node name="Info" type="RichTextLabel" parent="." index="17"]
 unique_name_in_owner = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
@@ -6691,11 +7020,11 @@ margin_bottom = 106.0
 theme = ExtResource( 247 )
 bbcode_enabled = true
 
-[node name="Stuff" type="Node" parent="." index="17"]
+[node name="Stuff" type="Node" parent="." index="18"]
 unique_name_in_owner = true
 script = ExtResource( 231 )
 
-[node name="AngerDisplay" type="RichTextLabel" parent="." index="18"]
+[node name="AngerDisplay" type="RichTextLabel" parent="." index="19"]
 unique_name_in_owner = true
 visible = false
 modulate = Color( 1, 1, 1, 0.784314 )
@@ -6710,7 +7039,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="AngerCount" type="RichTextLabel" parent="." index="19"]
+[node name="AngerCount" type="RichTextLabel" parent="." index="20"]
 unique_name_in_owner = true
 visible = false
 modulate = Color( 1, 1, 1, 0.392157 )
@@ -6725,6 +7054,6 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="CustomUI" type="Node" parent="." index="20"]
+[node name="CustomUI" type="Node" parent="." index="21"]
 unique_name_in_owner = true
 script = ExtResource( 245 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hardest-working-man.ogg-5141a4867a656f8ee67b66dbd1388156.oggstr"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/hardest-working-man.ogg"
+dest_files=[ "res://.import/hardest-working-man.ogg-5141a4867a656f8ee67b66dbd1388156.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

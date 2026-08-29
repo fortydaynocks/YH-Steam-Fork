@@ -49,7 +49,6 @@ export var put_opponent_extra_above_ghost_hp : bool = false
 export var copy_opponent_extra_to_ghost_hp : bool = true
 
 export (int) var _c_cool_nok_stuff
-export (Theme) var nok_font = preload("res://_NokGorenShin/characters/shingoren/nokui/NokUIFontTheme.tres")
 
 const nodepaths = {
 	"hp" :					{ 1:"/root/Main/%P1HealthBar",			2:"/root/Main/%P2HealthBar" },
@@ -224,8 +223,6 @@ func _process(delta):
 		var player_name = get_node_or_null(nodepaths["player_name"][host.id])
 		
 		if is_instance_valid(player_name):
-			player_name.theme = nok_font
-			
 			match host.id:
 				1:
 					player_name.rect_position = Vector2(10, 2)

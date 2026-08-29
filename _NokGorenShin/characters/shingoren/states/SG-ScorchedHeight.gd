@@ -16,7 +16,7 @@ func on_got_perfect_parried():
 func on_got_blocked():
 	.on_got_blocked()
 	
-	host.opponent.apply_force_relative("0", "-5")
+	host.opponent.apply_force_relative("0", "-6")
 
 func _frame_0():
 	self.iasa_at = 47

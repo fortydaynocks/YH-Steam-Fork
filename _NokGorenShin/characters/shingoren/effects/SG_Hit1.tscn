@@ -51,7 +51,7 @@ _data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
 material = SubResource( 1 )
 
 [node name="hit" type="CPUParticles2D" parent="." index="1"]
-modulate = Color( 1, 0.266667, 0.101961, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 material = SubResource( 9 )
 z_index = 1
 amount = 4
@@ -72,7 +72,7 @@ original_color = Color( 1, 0.266667, 0.101961, 1 )
 replacement_color = Color( 1, 1, 1, 1 )
 
 [node name="hit2" type="CPUParticles2D" parent="." index="2"]
-modulate = Color( 1, 0.266667, 0.101961, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 self_modulate = Color( 1, 1, 1, 0.156863 )
 material = SubResource( 9 )
 z_index = 1
@@ -94,7 +94,7 @@ original_color = Color( 1, 0.254902, 0.0901961, 0.156863 )
 replacement_color = Color( 1, 0, 0, 0.156863 )
 
 [node name="shock" type="CPUParticles2D" parent="." index="3"]
-modulate = Color( 0.623529, 0.027451, 0.815686, 1 )
+modulate = Color( 0.611765, 0.164706, 0.439216, 1 )
 self_modulate = Color( 1, 1, 1, 0.117647 )
 material = SubResource( 11 )
 z_index = -1
@@ -113,7 +113,7 @@ original_color = Color( 0.623529, 0.027451, 0.815686, 0.117647 )
 replacement_color = Color( 1, 0, 0, 0.117647 )
 
 [node name="ring" type="CPUParticles2D" parent="." index="4"]
-modulate = Color( 0.819608, 0.027451, 0.32549, 1 )
+modulate = Color( 0.8, 0.184314, 0.482353, 1 )
 z_index = -1
 amount = 1
 lifetime = 0.1

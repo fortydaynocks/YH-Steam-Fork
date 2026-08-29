@@ -1,6 +1,7 @@
 extends BaseProjectile
 
 var split = false
+var parry_grace = 0
 
 func tick():
 	.tick()
@@ -10,6 +11,11 @@ func tick():
 	set_pos(get_pos().x, 0)
 
 	if hitlag_ticks <= 0:
+		parry_grace = min(parry_grace + 1, 5)
+		if parry_grace >= 5:
+			has_projectile_parry_window = true
+		else:
+			has_projectile_parry_window = false
 		for objs in objs_map.values():
 			if is_instance_valid(objs):
 				if objs is BaseProjectile:

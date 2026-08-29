@@ -1,5 +1,9 @@
 extends Fighter
 
+var buffers = {
+	"flash": false
+}
+
 var charname = "Venerator"
 
 #	========================================================================= >
@@ -8,43 +12,37 @@ onready var star = preload("res://_NokVenerator/venerator/projectiles/Protostar.
 var blessings = {
 	"value": 0,
 	"max": 3,
-	"parry": [0, 60]
-}
-
-var voyage = {
-	"left": 0,
-	
-	"turns_left": 0,
-	"enabled": false,
-	"dir": Vector2(0, 0),
-	"strength": 0.5,
-	"limit": 1,
-	"ticks": 0,
+	"parry": [0, 60],
+	"grab": [0, 150],
 }
 
 var protoflash = false
 
 #	========================================================================= >
 func afterimage(color:Color = Color.white, lifetime = 0.2):
-	if color == Color("#006aff") and self.applied_style and self.applied_style.get("extra_color_1"):
-		color = self.applied_style.get("extra_color_1")
+	if color == Color("#f0b541") and self.applied_style and self.applied_style.get("extra_color_2"):
+		color = self.applied_style.get("extra_color_2")
 	
 	self._create_speed_after_image(color, lifetime)
 	
 func gain_blessing(value = 1):
 	blessings.value = clamp(blessings.value + value, 0, blessings.max)
 	
-	self.play_sound("Blessing")
-	self.play_sound("Blessing2")
-	self.spawn_particle_effect_relative(
-		preload("res://_NokVenerator/venerator/effects/VN-Blessing.tscn"),
-		Vector2(0, -18)
-	)
+	if value > 0:
+		self.play_sound("Blessing")
+		self.play_sound("Blessing2")
+		self.spawn_particle_effect_relative(
+			preload("res://_NokVenerator/venerator/effects/VN-Blessing.tscn"),
+			Vector2(0, -18)
+		)
 	
 func reset_blessings():
 	blessings.value = 0
 
 #	========================================================================= >
+func global_hitlag(amount, force = false):
+	.global_hitlag(amount, true)	#	// FORCED HITLAG
+
 func on_parried():
 	.on_parried()
 	
@@ -52,6 +50,16 @@ func on_parried():
 		gain_blessing()
 		blessings.parry[0] = blessings.parry[1]
 		
+func spawn_object(projectile:PackedScene, pos_x:int, pos_y:int, relative = true, data = null, local = true):
+	var obj = .spawn_object(projectile, pos_x, pos_y, relative, data, local)
+	
+	obj.sprite.frames = self.sprite.frames
+	obj.sprite.material = self.sprite.material
+	
+	if self.applied_style and self.applied_style.get("extra_color_2"):
+		$"%Stuff".recursive_style_modulation(obj)
+		
+	return obj
 
 func spawn_particle_effect(particle_effect:PackedScene, pos:Vector2 = Vector2(), dir = Vector2.RIGHT):
 	if particle_effect == preload("res://fx/ParryEffect.tscn"):
@@ -62,25 +70,53 @@ func spawn_particle_effect(particle_effect:PackedScene, pos:Vector2 = Vector2(),
 		
 	.spawn_particle_effect(particle_effect, pos, dir)
 
+func _spawn_particle_effect(particle_effect:PackedScene, pos:Vector2, dir = Vector2.RIGHT):
+	var obj = ._spawn_particle_effect(particle_effect, pos, dir)
+	
+	if self.applied_style and self.applied_style.get("extra_color_2"):
+		$"%Stuff".recursive_style_modulation(obj)
+	
+	return obj
+
 func process_extra(extra):
 	.process_extra(extra)
 
-	if voyage.turns_left > 0 and voyage.enabled == false:
-		voyage.turns_left -= 1
+	buffers.flash = extra.get("flash") == true
 			
-		self.spawn_particle_effect_relative(
-			preload("res://fx/FeintEffect.tscn"),
-			Vector2(0, -18)
-		)
-			
-		if voyage.turns_left == 0:
-			voyage.enabled = true
-			voyage.ticks = 20
-				
-			self.reset_momentum()
-			
-	if protoflash == true:
-		protoflash = false
+	if buffers.flash == true:
+		buffers.flash = false
+		
+		self.use_super_bar()
+		self.play_sound("Protostar")
+		
+		var dist = 100
+		var offset = 0
+		var dir = xy_to_dir(self.current_di.x * self.get_facing_int(), self.current_di.y, str(dist))
+		
+		var proj = self.spawn_object(star, int(dir.x) + offset, int(dir.y) - 18, true, null, true)
+		proj.set_grounded(false)
+		
+#	========================================================================= >
+func init(pos = null):
+	.init(pos)
+	$"%Stuff"._start()
+	
+	self.melee_attack_combo_scaling_applied = false
+
+func tick():
+	.tick()
+	$"%Stuff"._tick()
+	
+	if self.infinite_resources:
+		blessings.value = blessings.max
+	
+	#	-- TIMERS
+	blessings.parry[0] = clamp(blessings.parry[0] - 1, 0, INF)
+	blessings.grab[0] = clamp(blessings.grab[0] - 1, 0, INF)
+
+	#	--	FLASH
+	if buffers.flash:
+		buffers.flash = false
 		
 		var dist = 100
 		var offset = 50
@@ -88,61 +124,9 @@ func process_extra(extra):
 		
 		var proj = self.spawn_object(star, int(dir.x) + offset, int(dir.y) - 18, true, null, true)
 		proj.set_grounded(false)
-
-#	========================================================================= >
-func tick():
-	.tick()
-	
-	#	-- TIMERS
-	blessings.parry[0] = clamp(blessings.parry[0] - 1, 0, INF)
-	
-	#	--	VOYAGE
-	if voyage.left > 0:
-		voyage.left -= 1
-		
-		var pos = self.get_pos()
-		var opos = self.opponent.get_pos()
-		var dir = Vector2(opos.x - pos.x, opos.y - pos.y).normalized()
-		var speed_vec = Vector2(self.get_vel().x, self.get_vel().y)
-		
-		self.apply_force(str(voyage.dir.x * voyage.strength), str(voyage.dir.y * voyage.strength))
-		self.apply_grav_custom("-0.25", "8")
-		#self.apply_force("0", )
-		
-		#if speed_vec.x * self.get_facing_int() >= voyage.limit:
-			#self.apply_force(str(voyage.dir.x * voyage.strength), str(voyage.dir.y * voyage.strength))
-			#self.apply_forces_no_limit()
-		#if speed_vec.y >= voyage.limit:
-			#self.apply_force("0", )
-			#self.apply_forces_no_limit()
-		#if speed_vec < voyage.max_speed:
-			#self.apply_force(str(voyage.dir.x * voyage.strength), str(voyage.dir.y * voyage.strength))
-			#self.apply_forces_no_limit()
-		
-		afterimage(Color("#ff8933"), 0.1)
-		afterimage(Color("#ffee83"), 0.05)
-		
-		if voyage.left <= 0:
-			self.spawn_particle_effect_relative(
-				preload("res://_NokVenerator/venerator/effects/VN-Star1.tscn"),
-				Vector2(0, -18)
-			)
-		
-	#if voyage.enabled == true:
-		#if voyage.dir and voyage.ticks > 0:
-			#var pos = self.get_pos()
-			#var opos = self.opponent.get_pos()
-			#var dir = Vector2(opos.x - pos.x, opos.y - pos.y).normalized()
 			
-			#self.apply_force(str(dir.x * voyage.strength), str(dir.y * voyage.strength))
-			#self.apply_forces_no_limit()
-			#voyage.ticks -= 1
-			
-			#afterimage(Color("#ff8933"), 0.1)
-			#afterimage(Color("#ffee83"), 0.05)
-		#else:
-			#voyage.enabled = false
-			#voyage.dir = null
+	if current_tick == 1:
+		$"%Stuff".recursive_style_modulation(self)
 
 func _process(d):
 	._process(d)
@@ -170,6 +154,13 @@ func _process(d):
 	
 	if blessings.parry[0] > 0:
 		$"%Info".bbcode_text += "[color=#ff8933]Blessed [Parry]: %s[/color]\n" % blessings.parry[0]
+		
+	if blessings.grab[0] > 0:
+		$"%Info".bbcode_text += "[color=#ff8933]Blessed [Grab]: %s[/color]\n" % blessings.grab[0]
 	#how tf does substitution work
+	
+	if self.current_state().state_name in ["voyage"] and self.current_state().current_tick >= 12:
+		if self.current_state().redirect_times > 0:
+			$"%Info".bbcode_text += "[color=#8f8f8f]Redirect [%s] time(s) with DI]\nUses air movement[/color]\n" % self.current_state().redirected[0]
 		
 	

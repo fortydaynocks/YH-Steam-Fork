@@ -1,0 +1,175 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_NokVenerator/venerator/effects/yomifx_ring64.png" type="Texture" id=3]
+[ext_resource path="res://_NokVenerator/venerator/effects/yomifx_star3.png" type="Texture" id=4]
+[ext_resource path="res://_NokVenerator/venerator/effects/yomifx_slash4-animated2.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=6]
+bake_resolution = 101
+_data = [ Vector2( 0, 0 ), 0.0, 4.12245, 0, 1, Vector2( 0.242574, 1 ), 4.12245, -1.32026, 1, 1, Vector2( 1, 0 ), -1.32026, 0.0, 1, 0 ]
+
+[sub_resource type="Curve" id=10]
+bake_resolution = 101
+_data = [ Vector2( 0, 0 ), 0.0, 3.62223, 0, 1, Vector2( 0.247525, 0.896591 ), 3.62223, 0.137425, 1, 1, Vector2( 1, 1 ), 0.137425, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 1 ), 0.0, -1.00498, 0, 1, Vector2( 0.995049, 0 ), -1.00498, 0.0, 1, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 1.75682, 0, 1, Vector2( 0.5, 0.878409 ), 1.75682, 0.243182, 1, 1, Vector2( 1, 1 ), 0.243182, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=14]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 2 )]
+material = SubResource( 1 )
+
+[node name="beam" type="CPUParticles2D" parent="." index="2"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 5 )
+position = Vector2( 300, 0 )
+scale = Vector2( 3, 0.5 )
+lifetime = 0.3
+explosiveness = 1.0
+texture = ExtResource( 5 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 3.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 6 )
+color = Color( 1, 1, 1, 0.2 )
+anim_speed = 1.0
+
+[node name="beam2" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 5 )
+position = Vector2( 300, 0 )
+scale = Vector2( 2, 1 )
+amount = 2
+lifetime = 0.6
+explosiveness = 1.0
+texture = ExtResource( 5 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+angle = -45.0
+scale_amount = 6.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 10 )
+color = Color( 1, 1, 1, 0.05 )
+color_ramp = SubResource( 11 )
+anim_speed = 1.0
+
+[node name="star" type="CPUParticles2D" parent="." index="4"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 2 )
+scale = Vector2( 0.5, 1 )
+amount = 4
+lifetime = 0.2
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 8.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+
+[node name="star2" type="CPUParticles2D" parent="." index="5"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 2 )
+scale = Vector2( 0.5, 1 )
+amount = 4
+lifetime = 0.4
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+scale_amount = 4.0
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 4 )
+
+[node name="ring" type="CPUParticles2D" parent="." index="6"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 7 )
+amount = 1
+lifetime = 0.2
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 180.0
+scale_amount = 6.0
+scale_amount_curve = SubResource( 8 )
+color = Color( 1, 1, 1, 0.2 )
+color_ramp = SubResource( 9 )
+
+[node name="ring2" type="CPUParticles2D" parent="." index="7"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 7 )
+amount = 1
+lifetime = 0.2
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 180.0
+scale_amount = 4.0
+scale_amount_curve = SubResource( 8 )
+color = Color( 1, 1, 1, 0.5 )
+color_ramp = SubResource( 9 )
+
+[node name="screen" type="CPUParticles2D" parent="." index="8"]
+modulate = Color( 1, 0.537255, 0.2, 1 )
+material = SubResource( 13 )
+z_index = -5
+amount = 1
+lifetime = 0.25
+gravity = Vector2( 0, 0 )
+scale_amount = 99999.0
+color = Color( 1, 1, 1, 0.2 )
+color_ramp = SubResource( 14 )

@@ -57,20 +57,3 @@ Some attacks leave fire on the ground. If the opponent is inside this fire, they
 - Landing a successful hit on Colossus immediately stops you from burning.
 
 """)
-
-#	--	OPTIONS
-func setup_options(options, params):
-	options.add_label("For special people only.")
-	options.add_seperator()
-	options.add_textline("custom_title", "Title", "Really Cool Title")
-	options.add_color("custom_title_color", "Title Color", Color("#FF0000"))
-	options.add_seperator()
-	options.add_label("(set to <NO-TITLE> to avoid rendering any titles)")
-
-func modify_style_data(style, params):
-	var lib = params.codex_library
-	var char_path = params.char_path
-	var options = lib.load_all_char_options(char_path)
-	
-	style.custom_title = options.get("custom_title", "Really Cool Title")
-	style.custom_title_color = options.get("custom_title_color", Color("#FF0000"))

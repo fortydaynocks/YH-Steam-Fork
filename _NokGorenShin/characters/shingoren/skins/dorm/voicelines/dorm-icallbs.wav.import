@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dorm-icallbs.wav-44261e9b0074c3c00e965b79f370bbc4.sample"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/dorm/voicelines/dorm-icallbs.wav"
+dest_files=[ "res://.import/dorm-icallbs.wav-44261e9b0074c3c00e965b79f370bbc4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -36,8 +36,7 @@ blend_mode = 1
 _data = [ Vector2( 0, 0.9125 ), 0.0, 0.497349, 0, 0, Vector2( 1, 1 ), 0.0875, 0.0, 1, 0 ]
 
 [sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0.189944, 1 )
-colors = PoolColorArray( 1, 0.266667, 0.101961, 1, 0.623529, 0.027451, 0.815686, 0 )
+colors = PoolColorArray( 1, 1, 1, 0.948357, 1, 0, 0, 0 )
 
 [node name="ParticleEffect" instance=ExtResource( 2 )]
 material = SubResource( 1 )
@@ -85,10 +84,12 @@ original_color = Color( 0.8, 0.184314, 0.482353, 1 )
 replacement_color = Color( 1, 0, 0, 1 )
 
 [node name="shin" type="CPUParticles2D" parent="." index="3"]
+modulate = Color( 0.8, 0.184314, 0.482353, 1 )
 material = SubResource( 4 )
 amount = 2
 lifetime = 0.2
 explosiveness = 1.0
+fract_delta = false
 texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )

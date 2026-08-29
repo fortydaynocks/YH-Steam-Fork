@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=737 format=2]
+[gd_resource type="SpriteFrames" load_steps=738 format=2]
 
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sg-firewalk.png" type="Texture" id=1]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sg-misogi.png" type="Texture" id=2]
@@ -14,13 +14,14 @@
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sggrabshoyu.png" type="Texture" id=12]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgtrigger.png" type="Texture" id=13]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgdemonstep.png" type="Texture" id=14]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgcustomcombo.png" type="Texture" id=15]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sghurtwallsplat.png" type="Texture" id=16]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sg1kdeaths.png" type="Texture" id=17]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgshogekishoyu2.png" type="Texture" id=18]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgairkick.png" type="Texture" id=19]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgpunch.png" type="Texture" id=20]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sghurtknockdown.png" type="Texture" id=21]
-[ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgcustomcombo.png" type="Texture" id=22]
+[ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sg-whirlwind.png" type="Texture" id=22]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgburst.png" type="Texture" id=23]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgroundhouse.png" type="Texture" id=24]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgparrylow.png" type="Texture" id=25]
@@ -51,7 +52,6 @@
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgidle.png" type="Texture" id=52]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgshredder.png" type="Texture" id=53]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgparryhigh.png" type="Texture" id=54]
-[ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgwhirlwind.png" type="Texture" id=55]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sginfernomarch.png" type="Texture" id=56]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgtriggerflame.png" type="Texture" id=57]
 [ext_resource path="res://_NokGorenShin/characters/shingoren/sprites/sgheightflame.png" type="Texture" id=58]
@@ -872,36 +872,36 @@ region = Rect2( 2304, 0, 256, 256 )
 atlas = ExtResource( 34 )
 region = Rect2( 2560, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=454]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1084]
+atlas = ExtResource( 15 )
 region = Rect2( 192, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=455]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1085]
+atlas = ExtResource( 15 )
 region = Rect2( 384, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=456]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1086]
+atlas = ExtResource( 15 )
 region = Rect2( 576, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=457]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1087]
+atlas = ExtResource( 15 )
 region = Rect2( 768, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=458]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1088]
+atlas = ExtResource( 15 )
 region = Rect2( 960, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=459]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1089]
+atlas = ExtResource( 15 )
 region = Rect2( 1152, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=460]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1090]
+atlas = ExtResource( 15 )
 region = Rect2( 1344, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=461]
-atlas = ExtResource( 22 )
+[sub_resource type="AtlasTexture" id=1091]
+atlas = ExtResource( 15 )
 region = Rect2( 1536, 0, 192, 192 )
 
 [sub_resource type="AtlasTexture" id=570]
@@ -2668,69 +2668,73 @@ region = Rect2( 1152, 0, 192, 192 )
 atlas = ExtResource( 36 )
 region = Rect2( 0, 0, 192, 192 )
 
-[sub_resource type="AtlasTexture" id=618]
-atlas = ExtResource( 55 )
-region = Rect2( 192, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1092]
+atlas = ExtResource( 22 )
+region = Rect2( 256, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=619]
-atlas = ExtResource( 55 )
-region = Rect2( 384, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1093]
+atlas = ExtResource( 22 )
+region = Rect2( 512, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=620]
-atlas = ExtResource( 55 )
-region = Rect2( 576, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1094]
+atlas = ExtResource( 22 )
+region = Rect2( 768, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=621]
-atlas = ExtResource( 55 )
-region = Rect2( 768, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1095]
+atlas = ExtResource( 22 )
+region = Rect2( 1024, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=622]
-atlas = ExtResource( 55 )
-region = Rect2( 960, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1096]
+atlas = ExtResource( 22 )
+region = Rect2( 1280, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=623]
-atlas = ExtResource( 55 )
-region = Rect2( 1152, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1097]
+atlas = ExtResource( 22 )
+region = Rect2( 1536, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=624]
-atlas = ExtResource( 55 )
-region = Rect2( 1344, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1098]
+atlas = ExtResource( 22 )
+region = Rect2( 1792, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=625]
-atlas = ExtResource( 55 )
-region = Rect2( 1536, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1099]
+atlas = ExtResource( 22 )
+region = Rect2( 2048, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=626]
-atlas = ExtResource( 55 )
-region = Rect2( 1728, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1100]
+atlas = ExtResource( 22 )
+region = Rect2( 2304, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=627]
-atlas = ExtResource( 55 )
-region = Rect2( 1920, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1101]
+atlas = ExtResource( 22 )
+region = Rect2( 2560, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=628]
-atlas = ExtResource( 55 )
-region = Rect2( 2112, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1102]
+atlas = ExtResource( 22 )
+region = Rect2( 2816, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=629]
-atlas = ExtResource( 55 )
-region = Rect2( 2304, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1103]
+atlas = ExtResource( 22 )
+region = Rect2( 3072, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=630]
-atlas = ExtResource( 55 )
-region = Rect2( 2496, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1104]
+atlas = ExtResource( 22 )
+region = Rect2( 3328, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=631]
-atlas = ExtResource( 55 )
-region = Rect2( 2688, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1105]
+atlas = ExtResource( 22 )
+region = Rect2( 3584, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=632]
-atlas = ExtResource( 55 )
-region = Rect2( 2880, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1106]
+atlas = ExtResource( 22 )
+region = Rect2( 3840, 0, 256, 256 )
 
-[sub_resource type="AtlasTexture" id=633]
-atlas = ExtResource( 55 )
-region = Rect2( 3072, 0, 192, 192 )
+[sub_resource type="AtlasTexture" id=1107]
+atlas = ExtResource( 22 )
+region = Rect2( 4096, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=1108]
+atlas = ExtResource( 22 )
+region = Rect2( 4352, 0, 256, 256 )
 
 [resource]
 animations = [ {
@@ -2909,7 +2913,7 @@ animations = [ {
 "name": "crusher",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 454 ), SubResource( 454 ), SubResource( 455 ), SubResource( 456 ), SubResource( 457 ), SubResource( 458 ), SubResource( 459 ), SubResource( 460 ), SubResource( 461 ) ],
+"frames": [ SubResource( 1084 ), SubResource( 1085 ), SubResource( 1086 ), SubResource( 1087 ), SubResource( 1088 ), SubResource( 1089 ), SubResource( 1090 ), SubResource( 1091 ) ],
 "loop": true,
 "name": "customcombo",
 "speed": 5.0
@@ -3154,7 +3158,7 @@ animations = [ {
 "name": "weaveforward",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 618 ), SubResource( 619 ), SubResource( 620 ), SubResource( 621 ), SubResource( 622 ), SubResource( 623 ), SubResource( 624 ), SubResource( 625 ), SubResource( 626 ), SubResource( 627 ), SubResource( 628 ), SubResource( 629 ), SubResource( 630 ), SubResource( 631 ), SubResource( 632 ), SubResource( 633 ) ],
+"frames": [ SubResource( 1092 ), SubResource( 1093 ), SubResource( 1094 ), SubResource( 1095 ), SubResource( 1096 ), SubResource( 1097 ), SubResource( 1098 ), SubResource( 1099 ), SubResource( 1100 ), SubResource( 1101 ), SubResource( 1102 ), SubResource( 1103 ), SubResource( 1104 ), SubResource( 1105 ), SubResource( 1106 ), SubResource( 1107 ), SubResource( 1108 ) ],
 "loop": true,
 "name": "whirlwind",
 "speed": 5.0

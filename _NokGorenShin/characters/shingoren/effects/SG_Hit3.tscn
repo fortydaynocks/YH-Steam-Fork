@@ -41,7 +41,7 @@ _data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
 material = SubResource( 1 )
 
 [node name="hit" type="CPUParticles2D" parent="." index="1"]
-modulate = Color( 1, 0.266667, 0.101961, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 material = SubResource( 9 )
 z_index = 1
 amount = 2
@@ -60,7 +60,7 @@ original_color = Color( 1, 0.266667, 0.101961, 1 )
 replacement_color = Color( 1, 1, 1, 1 )
 
 [node name="hit2" type="CPUParticles2D" parent="." index="2"]
-modulate = Color( 1, 0.266667, 0.101961, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 material = SubResource( 9 )
 z_index = 1
 amount = 1
@@ -81,7 +81,7 @@ original_color = Color( 1, 0.254902, 0.0901961, 0.156863 )
 replacement_color = Color( 1, 0, 0, 0.156863 )
 
 [node name="dots" type="CPUParticles2D" parent="." index="3"]
-modulate = Color( 1, 0.266667, 0.101961, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 material = SubResource( 14 )
 amount = 6
 lifetime = 0.4

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://ui/8Way/8Way.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/ActionSelector/StateIcons/dash.png" type="Texture" id=3]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CheckButton
+
+func get_data():
+	return self.pressed
+
+func _on_Dash_pressed():
+	owner.emit_signal(\"data_changed\")
+"
+
+[node name="ActionUIData" type="VBoxContainer"]
+margin_right = 50.0
+margin_bottom = 62.0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+alignment = 1
+script = ExtResource( 4 )
+
+[node name="Throw" parent="." instance=ExtResource( 2 )]
+margin_left = 8.0
+margin_right = 58.0
+margin_bottom = 62.0
+size_flags_horizontal = 4
+NW = false
+N = false
+NE = false
+Neutral = false
+SW = false
+SE = false
+
+[node name="Dash" type="CheckButton" parent="."]
+margin_top = 63.0
+margin_right = 66.0
+margin_bottom = 80.0
+hint_tooltip = "Dash forwards while grabbing, slowing down by 3f.
+
+Cannot be used in the air."
+text = "Dash"
+icon = ExtResource( 3 )
+script = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="pressed" from="Dash" to="Dash" method="_on_Dash_pressed"]

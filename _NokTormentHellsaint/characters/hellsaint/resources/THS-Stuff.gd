@@ -515,31 +515,30 @@ func _ready():
 	host = owner
 	music_access = true
 	
+	var ca_title = "[color=#ff0000]Scandalous Eyes[/color]"
+	
 	if is_instance_valid(Global.current_game):
+		var username = Network.pid_to_username(host.id)
 		var style = Global.current_game.match_data.selected_styles[host.id]
 		var titles = []
-		var ca_title = "[color=#ff0000]Scandalous Eyes[/color]"
 		var VIPs = {}
-	
-		if ResourceLoader.exists("res://_NokHekkenslib/VIP.tres"):
-			VIPs = ResourceLoader.load("res://_NokHekkenslib/VIP.tres").list
-			if VIPs.get("Hellsaint"): VIPs = VIPs.Hellsaint
 		
 		#	--	VIP
-		var username = Network.pid_to_username(host.id)
-		if username in VIPs:
-			var owned_skins = VIPs[username][0]
-			var title = VIPs[username][1]
+		if style and style.get("HKLB-VIPs"):
+			var VIP = style["HKLB-VIPs"].get(username)
 			
-			#	--	SKIN
-			if skin_enabled == true and style and style.style_name:
-				for available_skin in skins.keys():
-					var required_style_name = skins[available_skin]
-					
-					if available_skin in owned_skins and (required_style_name in style.style_name or "Mandate" in style.style_name):
-						skin = available_skin
+			if VIP:
+				var owned_skins = VIP[0]
+				
+				if skin_enabled == true:
+					for available_skin in skins.keys():
+						var required_style_name = skins[available_skin]
 						
-				if title != "<NO-TITLE>":
+						if available_skin in owned_skins and required_style_name in style.style_name:
+							skin = available_skin
+				
+				var title = style.get("HKLB-Title")
+				if title:
 					titles.append(title)
 		
 		if skin == "Camila":

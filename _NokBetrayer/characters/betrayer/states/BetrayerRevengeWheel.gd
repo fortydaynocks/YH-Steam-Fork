@@ -7,6 +7,13 @@ func _frame_1():
 		else:
 			host.apply_force_relative("2", "6")
 
+func _frame_6():
+	if !"Aerial" in self.editor_description:
+		if data == true:
+			host.apply_force_relative("2", "-8")
+		else:
+			host.apply_force_relative("8", "-4")
+
 func _tick():
 	._tick()
 	

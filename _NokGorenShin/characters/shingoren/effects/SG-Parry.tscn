@@ -42,7 +42,7 @@ animation = "fx-parry1"
 frame = 1
 
 [node name="SpriteGlow" type="AnimatedSprite" parent="." index="2"]
-modulate = Color( 1, 0.266667, 0.101961, 1 )
+modulate = Color( 0.901961, 0.270588, 0.223529, 1 )
 material = SubResource( 5 )
 z_index = -1
 frames = ExtResource( 2 )

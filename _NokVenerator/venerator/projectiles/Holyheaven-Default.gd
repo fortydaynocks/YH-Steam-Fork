@@ -41,11 +41,16 @@ func _frame_29():
 		Vector2(0, 0)
 	)
 	
+func _frame_30():
 	host.disable()
 
 #	--
 func _tick():
 	._tick()
+	
+	if host.get_opponent().combo_count > 0:
+		host.disable()
+		return
 	
 	if current_tick % interval == 0 and current_tick < 40:
 		host.play_sound("Collapse")

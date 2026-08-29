@@ -71,7 +71,7 @@ func try_firewalk():
 			#	--
 			var opos = self.opponent.get_pos()
 			var dir = xy_to_dir(-self.current_di.x, -self.current_di.y, str(firewalk.Range))
-			var swirl = self.spawn_object(preload("res://_NokGorenShin/characters/shingoren/projectiles/Fireswirl.tscn"), opos.x + int(dir.x), (opos.y + int(dir.y)), true, null, false)
+			var swirl = self.spawn_object(preload("res://_NokGorenShin/characters/shingoren/projectiles/Fireswirl.tscn"), opos.x + int(dir.x), (opos.y + int(dir.y)) - 18, true, null, false)
 			swirl.set_grounded(false)
 			swirl.apply_force(str(4 * fac), "0")
 		
@@ -80,6 +80,10 @@ func afterimage(color:Color = Color.white, lifetime = 0.2):
 		color = self.applied_style.get("extra_color_1")
 	
 	self._create_speed_after_image(color, lifetime)
+
+func spawn_mark(pos):
+	var proj = self.spawn_object(preload("res://_NokGorenShin/characters/shingoren/projectiles/Fireswirl.tscn"), pos.x, pos.y, false, null, false)
+	proj.set_grounded(false)
 
 #	-------------------------------------------------------------------------- |
 func _on_hit_something(obj, hitbox):
@@ -105,6 +109,10 @@ func _on_hit_something(obj, hitbox):
 				firewalk.GrantsGiven = true
 		
 		try_firewalk()
+		
+	#	--	SKIN FX
+	if $"Stuff".skin == "Akuma":
+		afterimage(Color("#ff0000"), clamp((hitbox.hitlag_ticks * 4) / 60.0, 0.05, INF))
 
 func on_got_blocked():
 	.on_got_blocked()
@@ -146,7 +154,7 @@ func _spawn_particle_effect(particle_effect:PackedScene, pos:Vector2, dir = Vect
 			#else:
 				#particle.modulate = particle.get("original_color")
 	
-	convert_particle_colors(obj)
+	recursive_style_modulation(obj)
 			
 	
 	obj.tick()
@@ -175,8 +183,21 @@ func spawn_object(projectile:PackedScene, pos_x:int, pos_y:int, relative = true,
 	if $"%Stuff".skin == "UberOni":
 		for fx in obj.sprite.get_children():
 			$"%Stuff".uber_modulation(fx)
+			
+	else:
+		recursive_style_modulation(obj)
 	
 	return obj
+
+func on_parried():
+	.on_parried()
+	
+	$"%Stuff".thing_happened("parried")
+
+func on_got_parried():
+	.on_got_parried()
+	
+	$"%Stuff".thing_happened("got_parried")
 
 #	--
 func play_voiceline(rsc):
@@ -197,14 +218,8 @@ func play_voiceline(rsc):
 	pass
 	
 #	-------------------------------------------------------------------------- |
-func convert_particle_colors(obj):
-	if $"%Stuff".skin == "Akuma":
-		for ptcl in obj.get_children():
-			$"%Stuff".akuma_modulation(ptcl)
-	
-	if $"%Stuff".skin == "UberOni":
-		for ptcl in obj.get_children():
-			$"%Stuff".uber_modulation(ptcl)
+func recursive_style_modulation(obj):
+	$"%Stuff".recursive_style_modulation(obj)
 
 func unlock_codex_achievement(ach, allow_offline = false, relock_after = false):
 	$"%Stuff".unlock_achievement(ach, allow_offline, relock_after)
@@ -219,6 +234,9 @@ func unlock_codex_achievement(ach, allow_offline = false, relock_after = false):
 				codex.relock_achievement(self, ach)
 
 #	-------------------------------------------------------------------------- |
+func global_hitlag(amount, force = false):
+	.global_hitlag(amount, true)
+
 func process_extra(extra):
 	.process_extra(extra)
 	
@@ -288,7 +306,7 @@ func tick():
 						if cstate.current_tick >= warp_at:
 							buffers.Firewarp = false
 							
-							self.set_pos(obj.get_pos().x, obj.get_pos().y)
+							self.set_pos(obj.get_pos().x, obj.get_pos().y + 18)
 							
 							self.spawn_particle_effect_relative(preload("res://_NokGorenShin/characters/shingoren/effects/SG_Hit1.tscn"), Vector2(0, -18))
 							afterimage(Color("#ff8933"), 0.5)
@@ -351,8 +369,10 @@ func tick():
 		pass
 	
 	#	--	WIN SCREEN
-
+	
 		
+	#	--	FX
+	
 #	--
 
 func _process(delta):
@@ -362,9 +382,9 @@ func _process(delta):
 	$"%Info".bbcode_text = "[center]"
 	
 	if firewalk.Value > 0:
-		$"%Info".bbcode_text += "\n[color=#ff8933]Firewalk: " + str(firewalk.Value) + "/" + str(firewalk.Max) + "[/color]"
+		$"%Info".bbcode_text += "\n[color=#ff8933]Marks: " + str(firewalk.Value) + "/" + str(firewalk.Max) + "[/color]"
 	else:
-		$"%Info".bbcode_text += "\n[color=#8f8f8f]Firewalk: 0/" + str(firewalk.Max) + "[/color]"
+		$"%Info".bbcode_text += "\n[color=#8f8f8f]Marks: 0/" + str(firewalk.Max) + "[/color]"
 	
 	if firewalk.Grants > 0:
 		$"%Info".bbcode_text += "\n[color=#e64539]Grants left: " + str(firewalk.Grants)

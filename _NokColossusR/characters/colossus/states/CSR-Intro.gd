@@ -8,6 +8,23 @@ var far_pos = Vector2(0, 0)	#	FURTHEST BACK POINT
 var high_pos = Vector2(0, 0)	#	HIGHEST POINT
 
 #	--
+func correct_placement():
+	var game = Global.current_game
+	
+	if $"%Stuff".skin != "Astaroth":
+		Global.current_game.max_char_distance = 600
+		
+	#	========== >
+	var height = 0
+	if game.match_data.has("char_height"):
+		height = -int(game.match_data.char_height)
+	
+	if host.id == 1:
+		host.set_pos(-game.char_distance, height)
+	else:
+		host.set_pos(game.char_distance, height)
+
+#	--
 func _enter():
 	
 	if $"%Stuff".skin != "Astaroth":
@@ -17,9 +34,7 @@ func _enter():
 func _exit():
 	._exit()
 	
-	if $"%Stuff".skin != "Astaroth":
-		Global.current_game.max_char_distance = 600
-		host.set_pos(str(start_pos.x), str(start_pos.y))
+	correct_placement()
 
 func _frame_0():
 	if host.opponent.state_machine.get_node("RVL-Rivalry"):
@@ -29,6 +44,9 @@ func _frame_0():
 	
 	for v in host.opponent.state_variables:
 		state_variables[v] = host.opponent.get(v)
+
+func _frame_119():
+	correct_placement()
 
 func _tick():
 	host.penalty = 0
@@ -120,7 +138,7 @@ func _tick():
 			var target_lerp = lerp(far2high, high2start, current_tick / 50.0)
 			host.set_pos(str(target_lerp.x), str(target_lerp.y))
 			
-		if current_tick > 50 and current_tick <= 120:
+		if current_tick > 50 and current_tick < 119:
 			var pos = Vector2(host.get_pos().x, host.get_pos().y)
 			var target_lerp = lerp(pos, start_pos, 0.2)
 			

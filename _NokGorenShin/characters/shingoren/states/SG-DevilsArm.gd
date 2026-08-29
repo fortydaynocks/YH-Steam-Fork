@@ -34,7 +34,7 @@ func _tick():
 		else:
 			host.apply_force(str(-chase_speed), "0")
 	
-	if current_tick in [17, 18]:
+	if current_tick in [17, 18, 19, 20]:
 		if (opos.x - pos.x) * host.get_facing_int() > 30:
 			host.move_directly_relative(str(dash_speed), "0")
 			

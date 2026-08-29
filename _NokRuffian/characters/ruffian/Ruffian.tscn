@@ -1,7 +1,7 @@
-[gd_scene load_steps=152 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://_NokRuffian/characters/ruffian/resources/RuffianSF.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianSF.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://_NokRuffian/characters/ruffian/Ruffian.gd" type="Script" id=3]
 [ext_resource path="res://_NokRuffian/characters/ruffian/sprites/rfportrait2.png" type="Texture" id=4]
 [ext_resource path="res://_NokRuffian/characters/ruffian/sprites/rfportrait.png" type="Texture" id=5]
@@ -16,7 +16,7 @@
 [ext_resource path="res://_NokRuffian/characters/ruffian/sounds/whiff1.wav" type="AudioStream" id=14]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianFiercePunchAir.gd" type="Script" id=15]
 [ext_resource path="res://_NokRuffian/characters/ruffian/sounds/hit3.wav" type="AudioStream" id=16]
-[ext_resource path="res://_NokRuffian/characters/ruffian/resources/RuffianShader.tres" type="Shader" id=17]
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianShader.tres" type="Shader" id=17]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianDrivethrough.gd" type="Script" id=18]
 [ext_resource path="res://_NokRuffian/characters/ruffian/sounds/explosion.wav" type="AudioStream" id=19]
 [ext_resource path="res://_NokRuffian/characters/ruffian/sounds/hit9.wav" type="AudioStream" id=20]
@@ -72,7 +72,7 @@
 [ext_resource path="res://_NokRuffian/characters/ruffian/skins/ruffian_true/sounds/sf3_youblowmymind.ogg" type="AudioStream" id=70]
 [ext_resource path="res://_NokRuffian/characters/ruffian/effects/yomifx_crescent2.png" type="Texture" id=71]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianVictory.gd" type="Script" id=72]
-[ext_resource path="res://_NokRuffian/characters/ruffian/ui/RuffianPlayerExtra.tscn" type="PackedScene" id=73]
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianPlayerExtra.tscn" type="PackedScene" id=73]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/quickmix.gd" type="Script" id=74]
 [ext_resource path="res://_NokRuffian/characters/ruffian/auid/NoteAUID.tscn" type="PackedScene" id=75]
 [ext_resource path="res://_NokRuffian/characters/ruffian/auid/AUID_Jetstream_Slider.tscn" type="PackedScene" id=76]
@@ -94,7 +94,7 @@
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficonexcover.png" type="Texture" id=92]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/Start.gd" type="Script" id=93]
 [ext_resource path="res://_NokRuffian/characters/ruffian/auid/AUID_2Way_WithMid.tscn" type="PackedScene" id=94]
-[ext_resource path="res://_NokRuffian/characters/ruffian/ui/RuffianPlayerInfo.tscn" type="PackedScene" id=95]
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianPlayerInfo.tscn" type="PackedScene" id=95]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/uppercut2.gd" type="Script" id=96]
 [ext_resource path="res://_NokRuffian/characters/ruffian/auid/RuffianSlider.tscn" type="PackedScene" id=97]
 [ext_resource path="res://fx/big_filled_circle.png" type="Texture" id=98]
@@ -122,7 +122,6 @@
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianDuck.gd" type="Script" id=120]
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficondrivethrough.png" type="Texture" id=121]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianBrasherHand.gd" type="Script" id=122]
-[ext_resource path="res://theme.tres" type="Theme" id=123]
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficonexducking.png" type="Texture" id=124]
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficonrollingthunder.png" type="Texture" id=125]
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficonjetstream.png" type="Texture" id=126]
@@ -131,7 +130,6 @@
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficonrusteddust.png" type="Texture" id=129]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianRustierDust.gd" type="Script" id=130]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianEXDuck.gd" type="Script" id=131]
-[ext_resource path="res://_NokRuffian/characters/ruffian/resources/RuffianStuff.gd" type="Script" id=132]
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficonblastchain.png" type="Texture" id=134]
 [ext_resource path="res://_NokRuffian/characters/ruffian/states/RuffianBlastChain.gd" type="Script" id=135]
 [ext_resource path="res://_NokRuffian/characters/ruffian/icons/rficontaunt2.png" type="Texture" id=136]
@@ -261,7 +259,6 @@ offset = Vector2( 0, -17 )
 
 [node name="SkinAura" type="Node2D" parent="Flip/Sprite" index="0"]
 unique_name_in_owner = true
-visible = false
 modulate = Color( 0.431373, 0.52549, 0.588235, 1 )
 self_modulate = Color( 0.431373, 0.52549, 0.588235, 1 )
 position = Vector2( 0, -17 )
@@ -4546,7 +4543,7 @@ hit_cancel_into_string = "Grounded
 Aerial"
 allowed_stances_string = "All"
 apply_pushback = false
-super_level_ = 4
+super_level_ = 5
 super_freeze_ticks_ = 0
 super_effect_ = true
 scale_combo_meter_ = true
@@ -4564,8 +4561,8 @@ x = 24
 y = -24
 width = 24
 height = 14
-damage = 12
-minimum_damage = 10
+damage = 7
+minimum_damage = 7
 hitstun_ticks = 20
 hitlag_ticks = 14
 victim_hitlag = 24
@@ -4772,7 +4769,6 @@ victim_hitlag = 13
 cancellable = false
 hits_otg = true
 block_cancel_allowed = false
-plus_frames = -2
 group = 2
 hit_particle = ExtResource( 43 )
 replace_hit_particle = true
@@ -4935,7 +4931,6 @@ victim_hitlag = 13
 cancellable = false
 hits_otg = true
 block_cancel_allowed = false
-plus_frames = -2
 group = 2
 hit_particle = ExtResource( 43 )
 replace_hit_particle = true
@@ -4997,32 +4992,7 @@ ground_bounce_knockback_modifier = "0.75"
 start_tick = 13
 active_ticks = 2
 
-[node name="Title" type="RichTextLabel" parent="." index="15"]
-unique_name_in_owner = true
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -250.0
-margin_top = 16.0
-margin_right = 250.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 500, 50 )
-theme = ExtResource( 123 )
-bbcode_enabled = true
-
-[node name="Info" type="RichTextLabel" parent="." index="16"]
-unique_name_in_owner = true
-visible = false
-modulate = Color( 1, 1, 1, 0.784314 )
-margin_left = -250.0
-margin_top = 4.0
-margin_right = 250.0
-margin_bottom = 106.0
-theme = ExtResource( 123 )
-bbcode_enabled = true
-
-[node name="Stuff" type="Node" parent="." index="17"]
-script = ExtResource( 132 )
-
-[node name="CustomUI" type="Node" parent="." index="18"]
+[node name="CustomUI" type="Node" parent="." index="15"]
 unique_name_in_owner = true
 script = ExtResource( 88 )
 __meta__ = {

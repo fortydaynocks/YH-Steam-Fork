@@ -4,16 +4,20 @@ func _frame_0():
 	host.apply_force_relative("-2", "0")
 	
 	if host.is_grounded() == false:
-		host.apply_force_relative("0", "-3")
+		if data.get("Fall"):
+			host.apply_force_relative("0", "8")
+			
+		else:
+			host.apply_force_relative("0", "-3")
 	
 func _frame_6():
 	host.apply_force_relative("4", "0")
 
 func _frame_9():
-	if data.get("x") == null:
-		data["x"] = str(-300 * host.get_facing_int())
+	if data["Distance"].get("x") == null:
+		data["Distance"]["x"] = str(-300 * host.get_facing_int())
 	
-	var dist = ((float(data.x) / 100) * 25)
+	var dist = ((float(data["Distance"].x) / 100) * 25) * host.get_facing_int()
 	
 	host.move_directly_relative("120", "0")
 	host.move_directly(str(dist), "0")

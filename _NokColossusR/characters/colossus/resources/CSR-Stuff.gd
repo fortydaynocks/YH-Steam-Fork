@@ -226,45 +226,35 @@ func recursive_style_modulation(obj):
 func _ready():
 	host = owner
 	
-	if Global.current_game:
+	if is_instance_valid(Global.current_game):
+		var username = Network.pid_to_username(host.id)
 		var style = Global.current_game.match_data.selected_styles[host.id]
 		var titles = []
-		var no_title = false
-		var as_title = "[color=#00ff95]Ultimate Soul Collector[/color]"
 		var VIPs = {}
-	
-		if ResourceLoader.exists("res://_NokHekkenslib/VIP.tres"):
-			VIPs = ResourceLoader.load("res://_NokHekkenslib/VIP.tres").list
-			if VIPs.get("Colossus"): VIPs = VIPs.Colossus
 		
-		#	--
-		var username = Network.pid_to_username(host.id)
-		if username in VIPs:
-			var owned_skins = VIPs[username][0]
-			#var title = VIPs[username][1]
-			var title = style.get("custom_title")
-			var title_color = style.get("custom_title_color")
+		#	--	VIP
+		if style and style.get("HKLB-VIPs"):
+			var VIP = style["HKLB-VIPs"].get(username)
 			
-			#	--	SKIN
-			if skin_enabled == true and style and style.style_name:
-				for available_skin in skins.keys():
-					var required_style_name = skins[available_skin]
-					
-					if available_skin in owned_skins and (required_style_name in style.style_name or "Mandate" in style.style_name):
-						skin = available_skin
+			if VIP:
+				var owned_skins = VIP[0]
+				
+				if skin_enabled == true:
+					for available_skin in skins.keys():
+						var required_style_name = skins[available_skin]
 						
-				if title != "<NO-TITLE>":
-					title = "[color=#" + title_color + "]" + title + "[/color]"
+						if available_skin in owned_skins and required_style_name in style.style_name:
+							skin = available_skin
+				
+				var title = style.get("HKLB-Title")
+				if title:
 					titles.append(title)
 					
-				else:
-					no_title = true
-					
-			#	--	STYLE COLORS
-			style_colors = true
+				#	--	STYLE COLORS
+				style_colors = true
 		
-		if skin == "Astaroth" and no_title == false:
-			titles.append(as_title)
+		if skin == "Astaroth":
+			titles.append("[color=#00ff95]Ultimate Soul Collector[/color]")
 		
 		#	--	TITLE
 		render_title(titles, username)		

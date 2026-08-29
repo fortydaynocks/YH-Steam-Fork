@@ -3,7 +3,7 @@
   "friendly_name": "Ruffian",
   "description": "Let's fight... like gentlemen.",
   "author": "nok (fortydaynocks) + trinl.",
-  "version": "1.7.9.5",
+  "version": "1.8.0.1",
   "link": "",
   "id": "917391",
   "requires": ["char_loader"],

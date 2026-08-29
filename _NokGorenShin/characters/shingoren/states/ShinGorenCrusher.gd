@@ -18,6 +18,10 @@ func _frame_7():
 	var obj = host.spawn_object(preload("res://_NokGorenShin/characters/shingoren/projectiles/Crusher.tscn"), 32, -24, true, null, true)
 	obj.set_grounded(false)
 	obj.apply_force(dir.x, dir.y)
+	
+	if host.buffers.Firewalk:
+		host.firewalk.Value -= 1
+		obj.marked = true
 
 func _tick():
 	._tick()

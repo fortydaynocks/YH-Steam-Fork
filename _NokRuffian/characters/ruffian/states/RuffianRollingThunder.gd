@@ -24,6 +24,7 @@ func _enter():
 	hit_count = 0
 	true_hit_count = 0
 	startup_reduction = 7
+	loop_vel = "0.0"
 	
 	host.play_sound("MeterSF3")
 	self.interruptible_on_opponent_turn = false
@@ -58,9 +59,11 @@ func _frame_15():
 func _tick():
 	._tick()
 
+
 	if hitted == true:	
 		if host.won == true:
-			if current_tick >= 125:
+			endless = false
+			if host.opponent.hp <= 0 and host.opponent.is_grounded():
 				host.change_state(fallback_state)
 		if not host.is_ghost:
 			Global.current_game.time += 1
@@ -89,7 +92,11 @@ func _on_hit_something(obj, hitbox):
 			host.opponent.start_invulnerability()
 			loop.active_ticks = 15
 			loop.deactivate()
+#			if host.opponent.hp <= 0:
+#				endless = false
 		else:
+			if host.opponent.hp < hitbox.damage:
+				host.opponent.hp = 7
 			loop.visible = false
 			end.height = 1000
 			end.width = 1000
@@ -99,7 +106,7 @@ func _on_hit_something(obj, hitbox):
 			if true_hit_count >= 5:
 				startup_reduction = Utils.int_clamp(startup_reduction + 1, 10, 10)
 			true_hit_count += 1
-			loop_vel = fixed.mul(loop_vel, "1.05")
+			loop_vel = fixed.mul(loop_vel, "1.1")
 			for h in all_hitbox_nodes:
 				if h.group != 1:
 					h.hitlag_ticks = Utils.int_clamp(h.hitlag_ticks - 1, 0, 100)

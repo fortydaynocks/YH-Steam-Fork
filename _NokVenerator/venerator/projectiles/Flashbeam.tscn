@@ -103,3 +103,5 @@ knockback = "6"
 grounded_hit_state = "HurtAerial"
 minimum_grounded_frames = 6
 active_ticks = 2
+
+[editable path="Flip/Particles/Beam"]

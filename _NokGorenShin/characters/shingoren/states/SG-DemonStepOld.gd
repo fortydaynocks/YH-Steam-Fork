@@ -4,6 +4,8 @@ var mov_speed = 8
 var adjust = 6
 var do_advantage = false
 
+var slow_asf = false
+
 #	--
 func detect(obj):
 	if obj == host.opponent:
@@ -19,14 +21,26 @@ func detect(obj):
 			
 			do_advantage = true
 			
+			if $"%Stuff".skin == "Akuma" and  $"%Stuff".DORM:
+				$"%Stuff".music_access = false
+				
+				slow_asf = true
+				host.play_sound("BronzeAge")
+			
 		if self._previous_state().get("do_advantage") == true:
 			$"%Stuff".unlock_achievement("SG-DSTEP")
 
 func _exit():
 	._exit()
+	
+	host.stop_sound("BronzeAge")
+	
+	if $"%Stuff".skin == "Akuma" and !$"%Stuff".music_access:
+		$"%Stuff".music_access = true
 
 #	--
 func _frame_0():
+	slow_asf = false
 	do_advantage = false
 	
 	host.start_throw_invulnerability()
@@ -55,7 +69,7 @@ func _frame_6():
 		host.spawn_particle_effect_relative(preload("res://_NokGorenShin/characters/shingoren/effects/SG_Smoke1.tscn"), Vector2(0, 0), Vector2(host.get_facing_int(), 0))
 	
 	var dir = xy_to_dir(host.current_di.x, host.current_di.y, str(host.firewalk.Range))
-	var swirl = host.spawn_object(preload("res://_NokGorenShin/characters/shingoren/projectiles/Fireswirl.tscn"), pos.x, pos.y, true, null, false)
+	var swirl = host.spawn_object(preload("res://_NokGorenShin/characters/shingoren/projectiles/Fireswirl.tscn"), pos.x, pos.y - 18, true, null, false)
 	swirl.set_grounded(false)
 	swirl.move_directly(str(dir.x), str(dir.y))
 	
@@ -94,3 +108,7 @@ func _tick():
 			
 			host.move_directly_relative(str(mov_speed), "0")
 			host.move_directly_relative(str(dir), "0")
+			
+	#	--
+	if $"%Stuff".DORM and slow_asf:
+		host.global_hitlag(5)

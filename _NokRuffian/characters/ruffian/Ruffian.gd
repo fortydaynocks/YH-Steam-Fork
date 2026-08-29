@@ -76,6 +76,8 @@ var skins = {
 	"SmallSlab":[76561198057282235],
 	"TheSolarInferno":[76561198243977166],
 	"absolutely tutoumi": [76561198035450233],
+	"terraprivm": [76561199229855188],
+	"Anomalous Shu" : [76561198826725365],
 }
 
 var failsafe_skins = [

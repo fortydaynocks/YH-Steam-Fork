@@ -12,14 +12,35 @@ export (bool) var force_drag = false
 
 export (int) var _c_Venerator
 export (bool) var super_afterimage = false
+export (int) var blessing_cost = 0
+export (int) var blessing_drain = 0
+export (bool) var blessing_effect = false
 
 #	========================================================================== >
+func is_usable():
+	return .is_usable() and host.blessings.value >= blessing_cost
+
 func _enter():
 	._enter()
 	
 	
 func _tick():
 	._tick()
+	
+	if current_tick == 0:
+		if blessing_cost > 0:
+			host.gain_blessing(-blessing_drain)
+			
+		if blessing_effect:
+			host.play_sound("BlessingAttack")
+			host.play_sound("BlessingAttack2")
+			host.play_sound("BlessingAttack3")
+				
+			host.global_hitlag(6)
+				
+			host.spawn_particle_effect_relative(
+				preload("res://_NokVenerator/venerator/effects/VN-FlashDark.tscn"),
+				Vector2(0, -18))
 	
 	if (hit_fighter == true and drag == true) or (force_drag == true):
 		if (current_tick < end_on) and (current_tick > start_on):
@@ -31,3 +52,6 @@ func _tick():
 	
 	if super_afterimage:
 		host.afterimage(Color("#f0b541"), 0.05)
+		
+	elif blessing_effect:
+		host.afterimage(Color("#ff8933"), 0.05)

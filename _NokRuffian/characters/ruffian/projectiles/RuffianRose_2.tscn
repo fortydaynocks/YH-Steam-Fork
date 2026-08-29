@@ -9,7 +9,7 @@
 [ext_resource path="res://HurtboxState.gd" type="Script" id=7]
 [ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=8]
 [ext_resource path="res://characters/stickman/projectiles/fireball_states/Default.gd" type="Script" id=9]
-[ext_resource path="res://_NokRuffian/characters/ruffian/resources/RuffianProjSF.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianProjSF.tres" type="SpriteFrames" id=10]
 [ext_resource path="res://_NokRuffian/characters/ruffian/effects/yomifx_dot2.png" type="Texture" id=11]
 [ext_resource path="res://_NokRuffian/characters/ruffian/sprites/rfrose.png" type="Texture" id=12]
 

@@ -17,22 +17,33 @@ _data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
 [node name="BaseProjectile" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 __meta__ = {
-"_editor_description_": ""
+"_editor_description_": "",
+"limb_data": {
+"Head": {
+},
+"LeftFoot": {
+},
+"LeftHand": {
+},
+"RightFoot": {
+},
+"RightHand": {
+}
+}
 }
 extra_state_variables = "is_fireswirl"
 can_be_hit_by_melee = true
 projectile_immune = true
 tag = "Fireswirl"
 disable_particle = ExtResource( 6 )
-disable_particle_offset = Vector2( 0, -18 )
+disable_particle_offset = Vector2( 0, 0 )
 disable_sound = ""
+marked = false
 
 [node name="Sprite" parent="Flip" index="0"]
-modulate = Color( 1, 1, 1, 0.784314 )
 material = SubResource( 1 )
 frames = ExtResource( 2 )
 animation = "proj-onismark"
-offset = Vector2( 0, -18 )
 __meta__ = {
 "_editor_description_": ""
 }

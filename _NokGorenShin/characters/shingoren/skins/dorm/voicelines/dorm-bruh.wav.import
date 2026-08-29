@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dorm-bruh.wav-3bfc9eabbea0c0e83590116a553029da.sample"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/dorm/voicelines/dorm-bruh.wav"
+dest_files=[ "res://.import/dorm-bruh.wav-3bfc9eabbea0c0e83590116a553029da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

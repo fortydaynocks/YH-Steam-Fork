@@ -4,7 +4,8 @@ onready var hbox = $Hitbox
 onready var hbox_end = $HitboxEnd
 
 var converge_speed = 0.06
-var damages = [600, 375]
+var damages = [540, 360]
+#var damages = [5580, 3780]
 var raw = false
 
 #	FRAMES 60 -> 150 = 90 TICKS OF ACTIVITY

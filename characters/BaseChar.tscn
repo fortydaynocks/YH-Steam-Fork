@@ -200,7 +200,7 @@
 [ext_resource path="res://characters/states/Frozen.gd" type="Script" id=198]
 [ext_resource path="res://characters/FighterHooks.gd" type="Script" id=199]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 24 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
@@ -438,7 +438,7 @@ extra_color_2 = Color( 1, 0, 1, 1 )
 
 [node name="Sprite" parent="Flip" index="0"]
 material = ExtResource( 134 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "Wait"
 offset = Vector2( 0, -18 )
 __meta__ = {

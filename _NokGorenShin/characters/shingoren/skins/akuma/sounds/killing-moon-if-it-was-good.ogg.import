@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/killing-moon-if-it-was-good.ogg-e7b29c273620915158e749a454477a5d.oggstr"
+
+[deps]
+
+source_file="res://_NokGorenShin/characters/shingoren/skins/akuma/sounds/killing-moon-if-it-was-good.ogg"
+dest_files=[ "res://.import/killing-moon-if-it-was-good.ogg-e7b29c273620915158e749a454477a5d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

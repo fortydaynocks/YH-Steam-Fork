@@ -1,11 +1,12 @@
 extends "res://_NokGorenShin/characters/shingoren/states/ShinGorenState.gd"
 
-#var push_force = 4
-
 func is_usable():
-	self.super_level_ = clamp(host.firewalk.Max, 0, 3)
-	self.supers_used_ = clamp(self.super_level_ - 1, 1, INF)
 	return .is_usable()
+
+func _frame_0():
+	if self.supers_used_ < 5:
+		self.super_level_ += 1
+		self.supers_used_ += 1
 
 func _frame_1():
 	host.firewalk.Value += 1

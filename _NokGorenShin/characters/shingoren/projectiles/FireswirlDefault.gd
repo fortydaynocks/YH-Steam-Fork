@@ -1,6 +1,6 @@
 extends ObjectState
 
-var life = 75
+var life = 120
 
 func _tick():
 	._tick()

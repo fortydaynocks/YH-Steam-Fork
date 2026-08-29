@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokVenerator/venerator/ui/VN-Extra.gd" type="Script" id=3]
+[ext_resource path="res://theme.tres" type="Theme" id=4]
+[ext_resource path="res://fx/elec.png" type="Texture" id=5]
+
+[node name="PlayerExtra" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Flash" type="CheckButton" parent="." index="0"]
+unique_name_in_owner = true
+modulate = Color( 0.941176, 0.709804, 0.254902, 1 )
+margin_top = 174.0
+margin_right = 60.0
+margin_bottom = 186.0
+hint_tooltip = "Spend 1 bar to summon another Protostar next turn with the DI wheel.
+Cannot be drifted."
+size_flags_vertical = 4
+theme = ExtResource( 4 )
+text = "Flash"
+icon = ExtResource( 5 )

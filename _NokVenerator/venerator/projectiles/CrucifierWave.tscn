@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://_NokVenerator/venerator/projectiles/VN-Proj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=2]
+[ext_resource path="res://_NokVenerator/venerator/effects/VN-Ring1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_NokVenerator/venerator/effects/VN-StarTiny.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_NokVenerator/venerator/sounds/slash1.wav" type="AudioStream" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+has_projectile_parry_window = false
+disable_particle = ExtResource( 3 )
+
+[node name="Sprite" parent="Flip" index="0"]
+modulate = Color( 1, 1, 1, 0.25 )
+material = SubResource( 1 )
+animation = "proj-crucifier"
+
+[node name="CollisionBox" parent="." index="2"]
+height = 36
+
+[node name="Hurtbox" parent="." index="3"]
+width = 16
+height = 32
+
+[node name="Default" parent="StateMachine" index="0"]
+apply_forces = true
+apply_custom_x_fric = true
+apply_forces_no_limit = false
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+sprite_animation = "proj-crucifier"
+anim_length = 12
+ticks_per_frame = 2
+move_x = 0
+clash = false
+lifetime = 40
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 2 )
+x = 1
+y = 1
+width = 15
+height = 36
+damage = 10
+hitstun_ticks = 16
+hitlag_ticks = 0
+victim_hitlag = 4
+cancellable = false
+sdi_modifier = "0"
+plus_frames = 1
+screenshake_amount = 2
+hit_particle = ExtResource( 4 )
+replace_hit_particle = true
+whiff_sound = null
+hit_sound = ExtResource( 6 )
+whiff_sound_volume = -6.0
+hit_sound_volume = -12.0
+bass_sound_volume = -12.0
+dir_x = "1"
+dir_y = "-0.25"
+knockback = "4"
+grounded_hit_state = "HurtAerial"
+start_tick = 1
+active_ticks = 36
+looping = true
+loop_active_ticks = 3
+loop_inactive_ticks = 3

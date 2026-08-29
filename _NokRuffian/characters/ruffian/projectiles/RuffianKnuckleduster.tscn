@@ -5,7 +5,7 @@
 [ext_resource path="res://_NokRuffian/characters/ruffian/projectiles/RuffianKnuckleduster.gd" type="Script" id=3]
 [ext_resource path="res://characters/stickman/projectiles/fireball_states/Default.gd" type="Script" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
-[ext_resource path="res://_NokRuffian/characters/ruffian/resources/RuffianProjSF.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://_NokRuffian/characters/ruffian/RuffianProjSF.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=7]
 [ext_resource path="res://_NokRuffian/characters/ruffian/effects/knuckledusterrumble.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=9]
@@ -31,7 +31,8 @@ shader_param/outline_color = Color( 0, 0, 0, 1 )
 
 [node name="KnuckleDuster" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-extra_state_variables = "split"
+extra_state_variables = "split
+parry_grace"
 has_projectile_parry_window = false
 immunity_susceptible = true
 deletes_other_projectiles = false
@@ -94,7 +95,7 @@ damage = 70
 minimum_damage = 25
 hitstun_ticks = 16
 hitlag_ticks = 2
-victim_hitlag = 8
+victim_hitlag = 10
 hits_projectiles = false
 hit_height = 2
 priority = 1
@@ -106,9 +107,9 @@ hit_sound = ExtResource( 11 )
 whiff_sound_volume = -9.0
 hit_sound_volume = -6.0
 bass_sound_volume = -6.0
-dir_x = "0.75"
 dir_y = "-1"
-knockback = "4.25"
+knockback = "3.0"
+grounded_hit_state = "HurtAerial"
 knockdown_extends_hitstun = false
 start_tick = 1
 active_ticks = 1000

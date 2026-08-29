@@ -92,6 +92,9 @@ func _ready():
 			songs = $"%SongsU".get_children()
 		elif host.fighter.get_node("%Stuff").skin == "Akuma":
 			songs = $"%Songs".get_children()
+			
+			if host.fighter.get_node("%Stuff").DORM:
+				songs = $"%SongsD".get_children()
 		
 		get_music_player_data()
 		$"%Mute".pressed = music_player_data.muted == true
