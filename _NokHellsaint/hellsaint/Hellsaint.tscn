@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_NokHellsaint/hellsaint/Hellsaint.gd" type="Script" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+[ext_resource path="res://_NokHellsaint/hellsaint/sprites/hs-portrait.png" type="Texture" id=4]
+[ext_resource path="res://_NokHellsaint/hellsaint/resources/HS-Idle.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://_NokHellsaint/hellsaint/states/HS-Wait.gd" type="Script" id=6]
+[ext_resource path="res://theme.tres" type="Theme" id=7]
+[ext_resource path="res://_NokHellsaint/hellsaint/states/HS-Spike.gd" type="Script" id=8]
+[ext_resource path="res://_NokHellsaint/hellsaint/ui/auid/AUID_Spike.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_NokHellsaint/hellsaint/states/HS-Sickle.gd" type="Script" id=10]
+[ext_resource path="res://_NokHellsaint/hellsaint/ui/auid/AUID_XYPlot.tscn" type="PackedScene" id=11]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[node name="HellsaintR" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+extra_state_variables = "buffers
+charname
+pain"
+character_portrait = ExtResource( 4 )
+character_portrait2 = ExtResource( 4 )
+use_extra_color_1 = true
+extra_color_1 = Color( 0.501961, 0, 0.133333, 1 )
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 1 )
+frames = ExtResource( 5 )
+
+[node name="Wait" parent="StateMachine" index="11"]
+script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="spike" type="Node2D" parent="StateMachine" index="58"]
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-1"
+title = "Spike"
+type = 2
+data_ui_scene = ExtResource( 9 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="sickle" type="Node2D" parent="StateMachine" index="59"]
+script = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+anim_length = 16
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "-1"
+title = "Sickle"
+type = 2
+data_ui_scene = ExtResource( 11 )
+air_type = 2
+next_state_on_hold_on_opponent_turn = true
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "GroundedSpecial
+AerialSpecial
+Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+
+[node name="Title" type="RichTextLabel" parent="." index="16"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -250.0
+margin_top = 16.0
+margin_right = 250.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 500, 50 )
+theme = ExtResource( 7 )
+bbcode_enabled = true
+
+[node name="Info" type="RichTextLabel" parent="." index="17"]
+unique_name_in_owner = true
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -250.0
+margin_top = 4.0
+margin_right = 250.0
+margin_bottom = 106.0
+theme = ExtResource( 7 )
+bbcode_enabled = true
+
+[node name="Emote" type="RichTextLabel" parent="." index="18"]
+unique_name_in_owner = true
+visible = false
+margin_left = -75.0
+margin_top = -66.0
+margin_right = 75.0
+margin_bottom = -54.0
+grow_vertical = 0
+rect_clip_content = false
+theme = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false

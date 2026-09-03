@@ -153,6 +153,7 @@ var name_paths = {
 	#"Goren":"res://_NokGoren/characters/goren/Goren.tscn",
 	#"Guardian":"res://_NokGuardian/characters/guardian/Guardian.tscn",
 	"Hellsaint":"res://_NokTormentHellsaint/characters/hellsaint/Hellsaint.tscn",
+	"HellsaintR":"res://_NokHellsaint/hellsaint/Hellsaint.tscn",
 	#"Huntress":"res://_NokHuntress/characters/huntress/Huntress.tscn",
 	#"Jupiter":"res://_NokJupiter/characters/jupiter/Jupiter.tscn",
 	#"Magistra":"res://_NokMagistra/characters/magistra/Magistra.tscn",

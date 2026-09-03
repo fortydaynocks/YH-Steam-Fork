@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://_NokHellsaint/hellsaint/projectiles/HS-Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+[ext_resource path="res://_NokHellsaint/hellsaint/sprites/hs-sickle.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -1.0, 0, 1, Vector2( 1, 0 ), -1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+particles_animation = true
+particles_anim_h_frames = 12
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 3.12879, 0, 1, Vector2( 0.241525, 0.755682 ), 3.12879, 0.322118, 1, 1, Vector2( 1, 1 ), 0.322118, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+disable_when_hit = false
+
+[node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 1.5, 1.5 )
+animation = "proj-sickle"
+
+[node name="ParticleEffect" parent="Flip/Particles" index="0" instance=ExtResource( 2 )]
+material = SubResource( 1 )
+one_shot = false
+lifetime = 999.0
+
+[node name="dots" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="2"]
+modulate = Color( 1, 0, 0.266667, 1 )
+z_index = -1
+amount = 16
+lifetime = 0.25
+local_coords = false
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 2 )
+
+[node name="sickle" type="CPUParticles2D" parent="Flip/Particles/ParticleEffect" index="3"]
+material = SubResource( 3 )
+z_index = -1
+amount = 4
+lifetime = 0.5
+lifetime_randomness = 1.0
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_curve = SubResource( 4 )
+color = Color( 1, 1, 1, 0.1 )
+color_ramp = SubResource( 5 )
+anim_speed = 1.0
+
+[node name="Default" parent="StateMachine" index="0"]
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.1"
+custom_y_fric = "0.1"
+sprite_animation = "proj-sickle"
+anim_length = 24
+ticks_per_frame = 2
+loop_animation = true
+move_x = 0
+clash = false
+lifetime = 120
+fizzle_on_ground = false
+fizzle_on_walls = false
