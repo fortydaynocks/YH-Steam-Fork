@@ -181,7 +181,6 @@ var name_paths = {
 	#	--	COLLABORATIONS
 	
 	#"Acolyte":"res://_Acolyte/Acolyte.tscn",
-	"Goku":"res://_YomiZ-Goku/characters/goku/Goku.tscn"
 	
 	#	--	STRAIGHT UP JUST NOT MY CHARACTERS
 	
